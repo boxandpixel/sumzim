@@ -1,0 +1,109 @@
+.filters {
+  .filters-overview {
+    display: flex;
+    flex-direction: column;
+
+    @include breakpoint(small) {
+      flex-direction: row;
+    }
+
+    .filters-overview__filters {
+      flex-basis: 100%;
+
+      @include breakpoint(medium) {
+        flex-basis: 300px;
+      }
+
+      .filters__facet {
+        margin: 0 0 2rem;
+
+        a.facetwp-toggle {
+          color: var(--color__primary--dark);
+          font-weight: bold;
+        }
+      }
+    }
+
+    .filters-overview__filters-list {
+      display: grid;
+      grid-gap: 1rem;
+      grid-auto-rows: 1fr;
+
+      @include breakpoint(small) {
+        grid-template-columns: 1fr;
+      }
+
+      @include breakpoint(medium) {
+        grid-template-columns: repeat(2, 1fr);
+        width: calc(100% - 300px);
+      }
+
+      @include breakpoint(large) {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .filter {
+        background: var(--color__neutral--very-light);
+        padding: 1rem;
+
+        & > a {
+          text-decoration: none;
+          color: var(--color__primary--dark);
+        }
+
+        .filters__filter-detail {
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+
+          figure {
+            padding: 1rem;
+            width: 100%;
+            height: 80%;
+            background: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            img {
+              object-fit: cover;
+              width: 100%;
+              max-height: 100%;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.filter-single {
+  display: flex;
+  flex-direction: column;
+
+  @include breakpoint(medium) {
+    flex-direction: row;
+  }
+
+  .filter-single__figure {
+    @include breakpoint(medium) {
+      flex-basis: 300px;
+    }
+  }
+
+  .filter-single__detail {
+    @include breakpoint(medium) {
+      padding-left: 2rem;
+      width: calc(100% - 300px);
+    }
+
+    .filter-single__specs {
+      border-top: solid 3px var(--color__neutral);
+      background: var(--color__neutral--very-light);
+      padding: 1rem;
+      margin-bottom: 2rem;
+    }
+  }
+}
+/* Test 2022-12-27 */

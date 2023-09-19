@@ -1,0 +1,21 @@
+.util--underline {
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 0;
+    bottom: 1px;
+    height: 0.1875rem;
+    transition: width 0.3s ease-out;
+    background: black;
+  }
+
+  &:hover {
+    &::before {
+      left: 0;
+      width: 100%;
+    }
+  }
+}

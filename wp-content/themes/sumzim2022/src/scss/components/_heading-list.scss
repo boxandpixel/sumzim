@@ -1,0 +1,23 @@
+.heading-list {
+    & > ul.heading-list__list {
+        & > li.heading-list__list-item {
+            padding-bottom: 1rem;
+            border-bottom: solid 1px var(--color__neutral--light);
+            margin-bottom: 1rem;
+
+            @include breakpoint(medium) {
+                margin-bottom: 1.5rem;
+                padding-bottom: 1.5rem;
+            }
+
+            &:last-child {
+                margin-bottom: 0;
+                border-bottom: none;
+            }
+
+            & > p:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+}

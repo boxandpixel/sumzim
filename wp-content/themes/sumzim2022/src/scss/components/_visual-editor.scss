@@ -1,0 +1,26 @@
+.visual-editor {
+  & > p {
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    a {
+      color: var(--color__primary--dark); // 20220929 color__primary
+    }
+
+    img {
+      width: auto !important;
+      height: auto !important;
+    }
+  }
+
+  .mejs-container {
+    width: 300px !important;
+    min-width: 300px !important;
+
+    @include breakpoint(medium) {
+      width: 500px !important;
+      min-width: 500px !important;
+    }
+  }
+}

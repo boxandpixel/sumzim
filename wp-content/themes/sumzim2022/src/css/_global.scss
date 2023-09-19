@@ -1,0 +1,41 @@
+html {
+  visibility: visible;
+  opacity: 1;
+}
+
+body {
+  background: var(--color__primary--dark);
+  background: linear-gradient(
+    339deg,
+    var(--color__primary--dark) 0%,
+    var(--color__primary) 32%,
+    var(--color__primary--light) 100%
+  );
+  font: 1rem/1.5 var(--font);
+  color: var(--color__text);
+  scroll-behavior: smooth;
+
+  &.body__no-overflow {
+    overflow: hidden;
+  }
+
+  /** Styles for TinyMCE (WYSIWYG) */
+  &#tinymce {
+    background: white;
+    padding: 1rem;
+  }
+}
+
+.sr-only:not(:focus):not(:active) {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.Prompt {
+  display: none;
+}

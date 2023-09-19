@@ -1,0 +1,47 @@
+/** Custom CSS Properties */
+:root {
+  --color__secondary: hsla(40, 91%, 57%, 1); // #f5b330
+  --color__secondary--dark: hsla(40, 91%, 27%, 1);
+  --color__secondary--very-light: hsla(40, 91%, 90%, 1);
+
+  /** Primary Brand Color */
+  --color__primary--very-light: hsla(211, 61%, 90%, 1); // #2a69ac
+  --color__primary--light: hsla(211, 61%, 56%, 1); // #2a69ac
+  --color__primary: hsla(211, 61%, 22%, 1); // #16375a
+  --color__primary--dark: hsla(211, 61%, 12%, 1); // #0c1e31
+  --color__primary--trans: hsla(211, 61%, 122%, 0.9); // #16375a
+  --color__primary--dark-trans: hsla(211, 61%, 12%, 0.9); // #16375a
+
+  /** Neutral Colors */
+  --color__neutral--very-light: hsla(0, 0%, 90%, 1);
+  --color__neutral--light: hsla(0, 0%, 75%, 1);
+  --color__neutral: hsla(0, 0%, 50%, 1);
+  --color__neutral--dark: hsla(0, 0%, 25%, 1);
+  --color__neutral--very-dark: hsla(0, 0%, 10%, 1);
+  --color__attention: hsla(0, 100%, 40%, 1); // #c00
+  --color__attention--light: hsla(0, 50%, 80%, 1);
+  --color__success: hsla(150, 100%, 30%, 1); // #00994d
+  --color__success--light: hsla(150, 50%, 80%, 1); // #00994d
+  --color__headings: hsla(0, 0%, 13%, 1); // #222
+  --color__text: hsla(0, 0%, 33%, 1); // #555
+  --color__text--light: hsla(0, 0%, 80%, 1);
+  --color__text--dark: hsla(0, 0%, 20%, 1); // #333
+  --text-shadow__variable-background: 2px 2px 2px black;
+  --font: "Raleway", "Verdana", "sans-serif";
+  --gutter: 1rem;
+  --gutter__edges: calc(var(--gutter) * 2);
+  --component__padding: 0.5rem 1rem;
+  --section__padding: 1rem;
+  --letter-spacing: 0.05ch;
+  --border-radius: 5px;
+  --spacer: 1rem;
+  --text-indent-a11y: -1000rem;
+  --page-title-background: hsla(0, 0%, 100%, 0.9);
+}
+
+/* Breakpoints */
+$breakpoint__small: 640px;
+$breakpoint__medium: 768px;
+$breakpoint__large: 1024px; // 960px;
+$breakpoint__xlarge: 1280px;
+$breakpoint__xxlarge: 1620px;

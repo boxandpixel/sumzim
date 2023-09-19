@@ -1,0 +1,32 @@
+.our-history-story {
+  border: solid 3px var(--color__primary--dark); // 20220929 color__primary
+  padding: var(--gutter);
+  border-radius: var(--border-radius);
+
+  blockquote {
+    background: var(--color__neutral--very-light);
+    border-left: solid 10px var(--color__neutral);
+    width: 100%;
+    padding: var(--gutter) calc(var(--gutter) * 2.5);
+    margin-bottom: 1.5rem;
+    font-size: 1.125rem;
+
+    @include breakpoint(medium) {
+      font-size: 1.5rem;
+    }
+
+    &::before {
+      color: var(--color__neutral--light);
+      left: 0;
+      top: 0.25rem;
+    }
+
+    p {
+      margin-bottom: 0;
+    }
+  }
+
+  .card-group {
+    margin-bottom: 2rem;
+  }
+}

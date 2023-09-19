@@ -1,0 +1,164 @@
+.membership {
+  margin-bottom: 1rem;
+  background: var(--color__primary--dark);
+  padding: 1rem;
+  box-shadow: 0px 0px 9px 4px var(--color__neutral--light);
+
+  @include breakpoint(medium) {
+    margin-bottom: 1.5rem;
+  }
+
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: var(--color__neutral--very-light);
+  }
+
+  table.membership__table {
+    display: block;
+    width: 100%;
+
+    @include breakpoint(medium) {
+      display: table;
+    }
+
+    .membership__table-header {
+      position: absolute;
+      top: -9999px;
+      left: -9999px;
+
+      @include breakpoint(medium) {
+        display: table-header-group;
+        position: static;
+        top: 0;
+        left: 0;
+      }
+
+      .membership__table-header-data {
+        text-align: center;
+        padding: 0.5rem;
+        background: white;
+
+        img.membership__table-header-data-badge {
+          display: inline-block;
+          max-height: 200px;
+          width: auto;
+        }
+
+        &.membership__table-header-data--empty {
+          background: none;
+        }
+      }
+    }
+
+    .membership__table-body {
+      display: block;
+
+      @include breakpoint(medium) {
+        display: table-row-group;
+      }
+
+      .membership__table-body-row {
+        display: block;
+
+        @include breakpoint(medium) {
+          min-height: 2rem;
+        }
+
+        @include breakpoint(medium) {
+          display: table-row;
+        }
+
+        &.membership__table-body-row--heading {
+          margin-bottom: 1rem;
+        }
+
+        &:nth-child(even) {
+          background: white;
+          //   background: hsla(40, 91%, 70%, 1);
+        }
+
+        &:nth-child(odd) {
+          background: var(--color__neutral--very-light);
+          //   background: hsla(40, 91%, 70%, 1);
+        }
+
+        .membership__table-body-row-header {
+          text-align: left;
+          padding: 0.5rem;
+
+          &.membership__table-body-row-header--full-width {
+            background: var(--color__primary);
+            color: white;
+            display: block;
+
+            @include breakpoint(medium) {
+              display: table-cell;
+            }
+          }
+        }
+
+        .membership__table-body-row-data {
+          text-align: left;
+          padding: 0.5rem;
+          display: block;
+          position: relative;
+
+          @include breakpoint(medium) {
+            display: table-cell;
+            text-align: center;
+          }
+
+          &.membership__table-body-row-data--column-a {
+            &::before {
+              content: "Blue Plan";
+
+              @include breakpoint(medium) {
+                content: "";
+              }
+            }
+          }
+
+          &.membership__table-body-row-data--column-b {
+            &::before {
+              content: "Blue Plan + Watchdog";
+
+              @include breakpoint(medium) {
+                content: "";
+              }
+            }
+          }
+        }
+
+        .icon--yes {
+          fill: var(--color__success);
+        }
+
+        .icon--no {
+          fill: var(--color__attention);
+        }
+      }
+    }
+
+    .membership__table-footer {
+      display: block;
+
+      @include breakpoint(medium) {
+        display: table-footer-group;
+      }
+
+      .membership__table-footer-row {
+        .membership__table-footer-row-data {
+          font-size: 0.875rem;
+          font-style: italic;
+
+          p {
+            color: white;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,769 @@
+/** Search form */
+// TODO: .search-form {}
+// TODO: .search-form label {}
+// TODO: .search-form .search-field {}
+// TODO: .search-form .search-submit {}
+
+div.wpcf7,
+div#wp_payeezy_payment_form,
+.products-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  form {
+    &:not(.cart) {
+      @include breakpoint(medium) {
+        width: 60%;
+      }
+    }
+
+    &.form-landing {
+      width: 100%;
+    }
+
+    span {
+      &.form__required {
+        color: var(--color__attention);
+        text-transform: none;
+        font-weight: 400;
+        font-weight: 0.75rem;
+      }
+    }
+
+    @at-root {
+      span {
+        &#is-address {
+          background: var(--color__secondary--very-light);
+          padding: 0.5rem;
+          font-size: 0.75rem;
+          margin-bottom: 2rem;
+
+          .is-address--current {
+            font-weight: 800;
+            color: var(--color__primary--dark); // 20220929 color__primary
+          }
+
+          .is-address__options {
+            display: block;
+
+            @include breakpoint(medium) {
+              display: inline-block;
+            }
+          }
+
+          .is_address__option {
+            font-weight: 800;
+            padding: 0.25rem 0.5rem;
+            border-radius: var(--border-radius);
+            display: inline-block;
+            cursor: pointer;
+
+            &.is_address__option--yes {
+              background: var(--color__success);
+              color: white;
+            }
+
+            &.is_address__option--no {
+              background: var(--color__neutral--light);
+              color: black;
+            }
+          }
+
+          &.--hide {
+            display: none;
+          }
+        }
+      }
+    }
+
+    label,
+    p > label {
+      display: block;
+      text-align: left;
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      color: var(--color__primary--dark); // 20220929 color__primary
+      line-height: 1.25;
+
+      // TEMP HIDE POSTAL CODE
+      &#postal-code-label {
+        &.--hide {
+          display: none;
+        }
+      }
+
+      &.form__label--hide {
+        clip: rect(0 0 0 0);
+        height: 1rem;
+        width: 0;
+        overflow: visible;
+        position: fixed;
+        line-height: 1;
+        font-size: 0.875rem;
+        width: 100%;
+      }
+
+      &.form__label--show {
+        clip: auto;
+        height: auto;
+        width: 100%;
+        overflow: hidden;
+        position: relative;
+        color: var(--color__primary--dark); // 20220929 color__primary
+        line-height: 1.25;
+      }
+    }
+
+    div.payeezy-donation-amount {
+      border: none;
+    }
+
+    span.wpcf7-form-control-wrap,
+        /** p and div.payeezy-donation-amount for payeezy gateway */
+        p,
+        div.payeezy-donation-amount,
+        /** Woocommerce */
+        p.form-row,
+        /** Woocommerce payment box */
+        #payment div.payment_box {
+      margin: 0.25rem 0 1.5rem;
+      display: flex;
+      flex-direction: column;
+
+      &:last-child {
+        margin: 0;
+      }
+
+      // TEMP REMOVE ZIP CODE
+      &[data-name="postal-code"] {
+        &.--hide {
+          display: none;
+        }
+      }
+
+      /** Remove arrows in Chrome, Safari, Edge, Opera */
+      input::-webkit-outer-spin-button,
+      input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+
+      /* Remove arrows in Firefox */
+      input[type="number"] {
+        -moz-appearance: textfield;
+      }
+
+      ::placeholder {
+        color: var(--color__neutral);
+        font-size: 0.875rem;
+      }
+
+      /* Remove underline for required elements in WooCommerce */
+      abbr.required {
+        text-decoration: none;
+      }
+
+      select {
+        border: solid 2px var(--color__neutral--light);
+        border-radius: var(--border-radius);
+        padding: 0.5rem 1rem;
+        font-family: "Raleway", sans-serif;
+        font-weight: 400;
+        height: auto !important;
+
+        &.wpcf7-not-valid {
+          border: solid 2px var(--color__attention);
+        }
+
+        /** payeezy gateway */
+        color: var(--color__text--dark);
+        font-size: 0.875rem;
+      }
+
+      input {
+        font-size: 0.875rem !important;
+        color: var(--color__text--dark);
+
+        &[type="submit"] {
+          color: white;
+        }
+
+        // TEMP HIDE POSTAL CODE
+        &#postal-code {
+          &.--hide {
+            display: none;
+          }
+        }
+
+        /* Override WooCommerce Payeezy font-size */
+        &[type="text"],
+        &[type="email"],
+        &[type="tel"],
+        &[type="number"] {
+          padding: 0.5rem 1rem !important;
+
+          /* Override WooCommerce Payeezy padding */
+          font-family: "Raleway", sans-serif;
+          font-size: 1rem;
+          font-weight: 400;
+          border: none;
+          border: solid 2px var(--color__neutral--light);
+          border-radius: var(--border-radius);
+          width: 100%;
+          height: auto;
+
+          /** for payeezy gateway */
+
+          &.wpcf7-not-valid {
+            border: solid 2px var(--color__attention);
+          }
+
+          &#x_zip,
+          &[name="x_amount"] {
+            width: 7rem;
+            line-height: 1rem !important;
+          }
+        }
+
+        &[type="radio"] {
+          width: auto;
+        }
+
+        &.fetching-address {
+          font-style: italic;
+          color: var(--color__attention);
+        }
+
+        &.fetching-address--fetched {
+          color: var(--color__success);
+        }
+
+        &.js-sv-wc-payment-gateway-credit-card-form-account-number {
+          background-image: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDI1LjEuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IgoJIHZpZXdCb3g9IjAgMCAyNCAyNCIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgMjQgMjQ7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4KPHN0eWxlIHR5cGU9InRleHQvY3NzIj4KCS5zdDB7ZmlsbDpub25lO30KCS5zdDF7ZmlsbDojODA4MDgwO30KPC9zdHlsZT4KPHBhdGggY2xhc3M9InN0MCIgZD0iTTAsMGgyNHYyNEgwVjB6Ii8+CjxwYXRoIGNsYXNzPSJzdDEiIGQ9Ik0yMCw0SDRDMi45LDQsMiw0LjksMiw2bDAsMTJjMCwxLjEsMC45LDIsMiwyaDE2YzEuMSwwLDItMC45LDItMlY2QzIyLDQuOSwyMS4xLDQsMjAsNHogTTIwLDE4SDR2LTZoMTZWMTh6CgkgTTIwLDhINFY2aDE2Vjh6Ii8+Cjwvc3ZnPgo=");
+          background-repeat: no-repeat;
+          background-position: right center;
+          background-size: 50px 31px;
+
+          &.invalid-card-type {
+            background-image: url("data:iamge/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDI1LjEuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IgoJIHZpZXdCb3g9IjAgMCAyNCAyNCIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgMjQgMjQ7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4KPHN0eWxlIHR5cGU9InRleHQvY3NzIj4KCS5zdDB7ZmlsbDpub25lO30KCS5zdDF7ZmlsbDojQ0MwMDAwO30KPC9zdHlsZT4KPHJlY3QgY2xhc3M9InN0MCIgd2lkdGg9IjI0IiBoZWlnaHQ9IjI0Ii8+CjxwYXRoIGNsYXNzPSJzdDEiIGQ9Ik0yMS45LDIxLjlMMi4xLDIuMUwwLjcsMy41bDEuNSwxLjVDMi4xLDUuMywyLDUuNywyLDZsMCwxMmMwLDEuMSwwLjksMiwyLDJoMTMuMmwzLjMsMy4zTDIxLjksMjEuOXogTTQsMTJWOAoJaDEuMmw0LDRINHogTTYuOCw0SDIwYzEuMSwwLDIsMC45LDIsMnYxMmMwLDAuMy0wLjEsMC43LTAuMiwwLjlMMTQuOCwxMkgyMFY4aC05LjJMNi44LDR6Ii8+Cjwvc3ZnPgo=");
+          }
+        }
+      }
+
+      input {
+        &[type="file"] {
+          font-size: 0.875rem;
+
+          // &.wpcf7-not-valid {
+          //     margin-bottom: 0.25rem;
+          // }
+        }
+      }
+
+      textarea {
+        width: 100%;
+        resize: none;
+        padding: 0.5rem 1rem;
+        font-family: "Raleway", sans-serif;
+        font-size: 1rem;
+        font-weight: 400;
+        border: solid 2px var(--color__neutral--light);
+        border-radius: var(--border-radius);
+        display: inline-block;
+        vertical-align: top;
+        height: 120px; // Added for landing
+
+        &.wpcf7-not-valid {
+          border: solid 2px var(--color__attention);
+        }
+      }
+
+      .wpcf7-not-valid-tip,
+      .payeezy-required,
+      .wc-required {
+        margin-top: 0.25rem;
+        display: block;
+        margin-bottom: 0.75rem;
+        font-size: 0.875rem;
+        line-height: 1;
+        color: var(--color__attention);
+      }
+
+      .wpcf7-list-item {
+        display: flex;
+        justify-content: flex-start;
+        margin-left: 0;
+      }
+    }
+
+    /** Grab last p for payeezy and change display property */
+    p:nth-last-of-type(1):not(.form-row) {
+      display: inline-flex;
+    }
+
+    &.invalid {
+      .wpcf7-response-output {
+        background: var(--color__attention);
+        margin: 1rem 0;
+        border: none;
+        padding: 1rem;
+        color: white;
+      }
+    }
+
+    &.sent {
+      .wpcf7-response-output {
+        background: var(--color__success);
+        margin: 1rem 0;
+        border: none;
+        padding: 1rem;
+        color: white;
+      }
+    }
+
+    h4 {
+      margin-bottom: 1rem;
+    }
+
+    div.payeezy-response-output {
+      background: var(--color__attention);
+      margin: 1rem 0;
+      border: none;
+      padding: 1rem;
+      color: white;
+    }
+
+    #other_amount {
+      & > label:first-child {
+        display: none;
+      }
+
+      .payeezy-currency-symbol {
+        display: none;
+      }
+
+      input[name="x_amount"] {
+        &::before {
+          content: "$";
+        }
+      }
+    }
+  }
+
+  &#wpcf7-f28026-o1 {
+    // background: gray;
+
+    form {
+      width: 100%;
+
+      fieldset {
+        border: 0;
+        padding: 1rem;
+        margin: 0 0 2rem 0;
+        min-width: 0;
+
+        &:not(:nth-of-type(1)) {
+          border-top: solid 1px var(--color__neutral);
+          padding-top: 1.5rem;
+          margin-top: 1.5rem;
+        }
+
+        legend {
+          display: table;
+          float: left;
+          margin: 0;
+          padding: 0;
+          width: 100%;
+          font-size: 1rem !important; // 22
+          line-height: 1;
+          font-weight: 600;
+          margin: 0 0 0.5rem 0;
+          width: auto;
+          background: hsla(211, 10%, 72%, 1);
+          text-transform: uppercase;
+          padding: 0.5rem;
+          color: white;
+          border-bottom: solid 3px var(--color__primary--dark);
+
+          @include breakpoint(medium) {
+            font-size: 1.5rem; // 24
+            margin: 0 0 1rem 0;
+          }
+
+          + * {
+            clear: both;
+          }
+        }
+      }
+    }
+
+    .membership-options {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      grid-gap: 2rem;
+
+      @include breakpoint(medium) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      @include breakpoint(large) {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+  }
+
+  /** Membership Counter Style */
+  .memtype__each {
+    .memtype__option-details {
+      display: flex;
+      position: relative;
+
+      @include breakpoint(large) {
+        min-height: 1.2rem;
+        margin-bottom: 0.2rem;
+      }
+
+      .memtype__option-tooltip {
+        .tooltip {
+          display: none;
+          background-color: var(--color__primary);
+          //   border: solid 1px var(--color__neutral--light);
+          padding: 1rem;
+          position: absolute;
+          top: 2rem;
+          left: 0;
+          z-index: 2;
+          color: white;
+          border-radius: 3px;
+
+          p {
+            color: var(--color__neutral--light);
+          }
+
+          &::before {
+            content: "\e86b";
+            font-family: "Material Symbols Rounded";
+            font-size: 2rem;
+            position: absolute;
+            left: 1rem;
+            top: calc(-1.5rem + 4px);
+            font-variation-settings: "FILL" 1;
+            color: var(--color__primary);
+            // -webkit-text-stroke: 1px var(--color__neutral--light);
+            font-size: 1.25rem;
+            width: 1.25rem;
+            height: 1.25rem;
+            display: inline-block;
+          }
+
+          &.tooltip--show {
+            display: block;
+          }
+
+          &.tooltip--hide {
+            display: none;
+          }
+
+          .tooltip__close {
+            cursor: pointer;
+            position: absolute;
+            top: 0.5rem;
+            right: 0.5rem;
+          }
+        }
+
+        .tooltip__icon {
+          font-size: 22px;
+          cursor: pointer;
+          color: var(--color__neutral);
+        }
+      }
+
+      .memtype__heading {
+        font-weight: bold;
+        margin-left: 0.2rem;
+        color: var(--color__neutral--dark);
+        font-size: 0.9375rem;
+        margin-top: 2px;
+        display: block;
+        line-height: 1.3;
+      }
+    }
+
+    .wpcf7-form-control-wrap {
+      br {
+        display: none;
+      }
+
+      margin: 0.25rem 0;
+    }
+
+    .memtype__each {
+      input[type="checkbox"] {
+        display: none;
+
+        &:checked + span {
+          background: var(--color__neutral--very-light);
+        }
+      }
+    }
+
+    .memtype__qty {
+      display: flex;
+
+      span {
+        margin: 0 0.25rem;
+
+        &:first-child {
+          margin: 0;
+        }
+      }
+
+      span.minus,
+      span.plus {
+        width: 28px;
+        height: 28px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+        background: transparent;
+        font-weight: bold;
+        cursor: pointer;
+        position: relative;
+        border: solid 1px var(--color__neutral);
+
+        & > span {
+          border: 0;
+          clip: rect(1px, 1px, 1px, 1px);
+          clip-path: inset(50%);
+          height: 1px;
+          margin: -1px;
+          overflow: hidden;
+          padding: 0;
+          position: absolute;
+          width: 1px;
+          word-wrap: normal !important;
+        }
+      }
+
+      span.plus {
+        &::before {
+          content: "\e145";
+          font-family: "Material Symbols Outlined";
+          position: absolute;
+          font-variation-settings: "FILL" 1;
+          color: var(--color__primary--dark);
+          //   -webkit-text-stroke: 2px var(--color__secondary--dark);
+          font-size: 1rem;
+          line-height: 1;
+          width: 2rem;
+          height: 2rem;
+          display: inline-block;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin: 0;
+          padding: 0;
+          font-weight: 400;
+        }
+      }
+
+      span.minus {
+        &::before {
+          content: "\e15b";
+          font-family: "Material Symbols Outlined";
+          position: absolute;
+          font-variation-settings: "FILL" 1;
+          color: var(--color__primary--dark);
+          font-size: 1rem;
+          line-height: 1;
+          width: 2rem;
+          height: 2rem;
+          display: inline-block;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin: 0;
+          padding: 0;
+          font-weight: 400;
+        }
+      }
+
+      span.wpcf7-form-control-wrap {
+        margin: 0 !important;
+
+        input[type="number"] {
+          width: 28px;
+          height: 28px;
+          padding: 0 !important;
+          color: var(--color__neutral--dark);
+          font-weight: 600;
+          border: none;
+          text-align: center;
+          border-radius: 0px;
+          font-size: 1.25rem !important;
+          border-top: solid 1px var(--color__neutral);
+          border-bottom: solid 1px var(--color__neutral);
+          background: transparent;
+        }
+      }
+    }
+  }
+
+  .memtype__additional {
+    display: flex;
+    flex-direction: column;
+
+    @include breakpoint(large) {
+      //   flex-direction: row;
+      gap: 20px;
+    }
+  }
+
+  .memtype__additional-each.temp-humidifier {
+    span.wpcf7-form-control-wrap {
+      margin: 2rem 0 0;
+    }
+  }
+
+  .mem__payment-note {
+    font-size: 12px;
+    font-style: italic;
+    margin: 2rem 0;
+  }
+
+  .mem__price {
+    font-size: 0.75rem;
+    color: black;
+    font-weight: normal;
+    color: var(--color__success);
+    display: block;
+  }
+
+  .memtype__each.--mute {
+    opacity: 0.2;
+    pointer-events: none;
+  }
+
+  .memtype__incl-whole-house-plumbing {
+    display: block;
+    font-size: 12px;
+    font-weight: normal;
+  }
+
+  &#wpcf7-f23162-o1,
+  &#wpcf7-f26456-o1 {
+    span {
+      &.wpcf7-checkbox {
+        &.membership-options-list-items,
+        &.mem-add-features {
+          display: grid;
+          grid-template-columns: repeat(1, 1fr);
+          grid-gap: 1rem;
+
+          @include breakpoint(large) {
+            grid-template-columns: repeat(2, 1fr);
+          }
+
+          .wpcf7-list-item {
+            display: block;
+
+            label {
+              @include breakpoint(medium) {
+                height: 100%;
+              }
+
+              span {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 0.5rem 1.25rem;
+                border: solid 2px var(--color__neutral--light);
+                border-radius: var(--border-radius);
+                cursor: pointer;
+                font-weight: 600;
+                text-align: center;
+                color: var(--color__neutral--very-dark);
+
+                @include breakpoint(medium) {
+                  height: 100%;
+                }
+              }
+
+              input[type="checkbox"] {
+                display: none;
+
+                &:checked + span {
+                  background: white;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      &.wpcf7-radio {
+        &.mem-choose-payment {
+          display: grid;
+          grid-template-columns: repeat(1, 1fr);
+          grid-gap: 1rem;
+
+          @include breakpoint(medium) {
+            grid-template-columns: repeat(2, 1fr);
+          }
+
+          @include breakpoint(large) {
+            grid-template-columns: repeat(4, 1fr);
+          }
+
+          .wpcf7-list-item {
+            display: block;
+
+            label {
+              @include breakpoint(medium) {
+                height: 100%;
+              }
+
+              span {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 0.5rem 1.25rem;
+                border: solid 2px var(--color__neutral--light);
+                border-radius: var(--border-radius);
+                cursor: pointer;
+                font-weight: 600;
+                text-align: center;
+                color: var(--color__neutral--very-dark);
+
+                @include breakpoint(medium) {
+                  height: 100%;
+                }
+              }
+
+              input[type="radio"] {
+                display: none;
+
+                &:checked + span {
+                  background: white;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/** WooCommerce Error Message */
+ul.woocommerce-error {
+  background: var(--color__attention);
+  padding: 1rem !important;
+  color: white;
+  margin-bottom: 2rem;
+}

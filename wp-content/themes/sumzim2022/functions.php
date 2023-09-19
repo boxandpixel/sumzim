@@ -1,0 +1,918 @@
+<?php
+/**
+ * _s functions and definitions
+ *
+ * @link https://developer.wordpress.org/themes/basics/theme-functions/
+ *
+ * @package _s
+ */
+
+if ( ! defined( 'sumzim_VERSION' ) ) {
+	// Replace the version number of the theme on each release.
+	define( 'sumzim_VERSION', '1.0.0' );
+}
+
+/**
+ * Sets up theme defaults and registers support for various WordPress features.
+ *
+ * Note that this function is hooked into the after_setup_theme hook, which
+ * runs before the init hook. The init hook is too late for some features, such
+ * as indicating support for post thumbnails.
+ */
+function sumzim_setup() {
+	/*
+		* Make theme available for translation.
+		* Translations can be filed in the /languages/ directory.
+		* If you're building a theme based on _s, use a find and replace
+		* to change 'sumzim' to the name of your theme in all the template files.
+		*/
+	load_theme_textdomain( 'sumzim', get_template_directory() . '/languages' );
+
+	// Add default posts and comments RSS feed links to head.
+	add_theme_support( 'automatic-feed-links' );
+
+	/*
+		* Let WordPress manage the document title.
+		* By adding theme support, we declare that this theme does not use a
+		* hard-coded <title> tag in the document head, and expect WordPress to
+		* provide it for us.
+		*/
+	add_theme_support( 'title-tag' );
+
+	/*
+		* Enable support for Post Thumbnails on posts and pages.
+		*
+		* @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
+		*/
+	add_theme_support( 'post-thumbnails' );
+
+	// This theme uses wp_nav_menu() in one location.
+	register_nav_menus(
+		array(
+			'menu-1' => esc_html__( 'Primary', 'sumzim' ),
+		)
+	);
+
+	/*
+		* Switch default core markup for search form, comment form, and comments
+		* to output valid HTML5.
+		*/
+	add_theme_support(
+		'html5',
+		array(
+			'search-form',
+			'comment-form',
+			'comment-list',
+			'gallery',
+			'caption',
+			'style',
+			'script',
+		)
+	);
+
+	// Set up the WordPress core custom background feature.
+	add_theme_support(
+		'custom-background',
+		apply_filters(
+			'sumzim_custom_background_args',
+			array(
+				'default-color' => 'ffffff',
+				'default-image' => '',
+			)
+		)
+	);
+
+	// Add theme support for selective refresh for widgets.
+	add_theme_support( 'customize-selective-refresh-widgets' );
+
+	/**
+	 * Add support for core custom logo.
+	 *
+	 * @link https://codex.wordpress.org/Theme_Logo
+	 */
+	add_theme_support(
+		'custom-logo',
+		array(
+			'height'      => 250,
+			'width'       => 250,
+			'flex-width'  => true,
+			'flex-height' => true,
+		)
+	);
+}
+add_action( 'after_setup_theme', 'sumzim_setup' );
+
+/**
+ * Set the content width in pixels, based on the theme's design and stylesheet.
+ *
+ * Priority 0 to make it available to lower priority callbacks.
+ *
+ * @global int $content_width
+ */
+function sumzim_content_width() {
+	$GLOBALS['content_width'] = apply_filters( 'sumzim_content_width', 640 );
+}
+add_action( 'after_setup_theme', 'sumzim_content_width', 0 );
+
+/**
+ * Register widget area.
+ *
+ * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
+ */
+function sumzim_widgets_init() {
+	register_sidebar(
+		array(
+			'name'          => esc_html__( 'Sidebar', 'sumzim' ),
+			'id'            => 'sidebar-1',
+			'description'   => esc_html__( 'Add widgets here.', 'sumzim' ),
+			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</section>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
+		)
+	);
+}
+add_action( 'widgets_init', 'sumzim_widgets_init' );
+
+/**
+ * Enqueue scripts and styles.
+ */
+function sumzim_scripts() {
+	// wp_enqueue_style( ' sumzim-style', get_stylesheet_uri(), array(), sumzim_VERSION );
+	
+	$rand = rand( 0, 999999999999 );
+	if(is_front_page()) {
+		wp_enqueue_style( 'home-styles', get_template_directory_uri() . '/dist/home.css');
+		wp_enqueue_script( 'home-scripts', get_template_directory_uri() . '/dist/home.js');
+	} else {
+		wp_enqueue_style( 'site-styles', get_template_directory_uri() . '/dist/site.css', $rand);
+		wp_enqueue_script( 'site-scripts', get_template_directory_uri() . '/dist/site.js', $rand);
+	}
+
+	wp_localize_script("site-scripts", "WPVars", array(
+        "GOOGLE_API" => "AIzaSyCHHeuBppENoo0gFHnxYtAA3aoV3LG0Dfc",
+    ));
+	
+	wp_style_add_data( ' sumzim-style', 'rtl', 'replace' );
+
+	// wp_enqueue_script( ' sumzim-navigation', get_template_directory_uri() . '/js/navigation.js', array(), sumzim_VERSION, true );
+
+	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
+		wp_enqueue_script( 'comment-reply' );
+	}
+}
+add_action( 'wp_enqueue_scripts', 'sumzim_scripts' );
+
+/** 
+ * Remove versions from CSS & JS
+ */
+
+function remove_css_js_version( $src ) {
+    if( strpos( $src, '?ver=' ) )
+        $src = remove_query_arg( 'ver', $src );
+    return $src;
+}
+add_filter( 'style_loader_src', 'remove_css_js_version', 9999 );
+add_filter( 'script_loader_src', 'remove_css_js_version', 9999 );
+
+/**
+ * Implement the Custom Header feature.
+ */
+require get_template_directory() . '/inc/custom-header.php';
+
+/**
+ * Custom template tags for this theme.
+ */
+require get_template_directory() . '/inc/template-tags.php';
+
+/**
+ * Functions which enhance the theme by hooking into WordPress.
+ */
+require get_template_directory() . '/inc/template-functions.php';
+
+/**
+ * Customizer additions.
+ */
+require get_template_directory() . '/inc/customizer.php';
+
+/**
+ * Load Jetpack compatibility file.
+ */
+if ( defined( 'JETPACK__VERSION' ) ) {
+	require get_template_directory() . '/inc/jetpack.php';
+}
+
+/**
+ * Load WooCommerce compatibility file.
+ */
+if ( class_exists( 'WooCommerce' ) ) {
+	require get_template_directory() . '/inc/woocommerce.php';
+}
+
+/** 
+ * Add small image size
+ */
+ add_image_size('small', 220, 9999);
+
+/** 
+ * Register Staff
+ */
+function register_staff() {
+	register_post_type('staff', array(
+		'label' => 'Staff',
+		'menu_icon' => 'dashicons-admin-users',
+		'description' => '',
+		'public' => true,
+		'show_ui' => true,
+		'show_in_menu' => true,
+		'capability_type' => 'post',
+		'map_meta_cap' => true,
+		'hierarchical' => false,
+		'query_var' => true,
+		'has_archive' => false,
+		'supports' => array('title'),
+		'show_in_rest' => true,
+		'labels' => array (
+			'name' => 'Staff',
+			'singular_name' => 'Staff',
+			'menu_name' => 'Staff',
+			'add_new' => 'Add Staff',
+			'add_new_item' => 'Add New Staff',
+			'edit' => 'Edit',
+			'edit_item' => 'Edit Staff',
+			'new_item' => 'New Staff',
+			'view' => 'View',
+			'view_item' => 'View Staff',
+			'search_items' => 'Search Staff',
+			'not_found' => 'No Staff Found',
+			'not_found_in_trash' => 'No Staff Found in Trash',
+			'parent' => 'Parent Staff'
+		)
+	) );
+
+	flush_rewrite_rules( false );
+}
+add_action('init', 'register_staff');
+
+/**
+ * Add Products
+ */
+
+ /** CUSTOM: REGISTER PRODUCTS */
+function register_filters() {
+	register_post_type('filters', array(
+		'label' => 'Filters',
+		'menu_icon' => 'dashicons-products',
+		'description' => '',
+		'public' => true,
+		'show_ui' => true,
+		'show_in_menu' => true,
+		'capability_type' => 'post',
+		'map_meta_cap' => true,
+		'hierarchical' => false,
+		'query_var' => true,
+		'has_archive' => false,
+		'supports' => array('title', 'editor', 'thumbnail'),
+		'show_in_rest' => true,
+		'rewrite' => [
+			'slug' => 'replacement-filter',
+			'with_front' => false
+		],		
+		'labels' => array (
+			'name' => 'Filters',
+			'singular_name' => 'Filter',
+			'menu_name' => 'Filters',
+			'add_new' => 'Add Filter',
+			'add_new_item' => 'Add New Filter',
+			'edit' => 'Edit',
+			'edit_item' => 'Edit Filter',
+			'new_item' => 'New v',
+			'view' => 'View',
+			'view_item' => 'View Filter',
+			'search_items' => 'Search Filters',
+			'not_found' => 'No Filters Found',
+			'not_found_in_trash' => 'No Filters Found in Trash',
+			'parent' => 'Parent Filter'
+		)
+	) );
+
+	flush_rewrite_rules( false );
+}
+add_action('init', 'register_filters');
+
+/** 
+ * CREATE PRODUCT CATEGORIES
+ * */
+add_action( 'init', 'create_filters_taxonomy', 0 );
+function create_filters_taxonomy() {
+
+	$labels = array(
+		'name' => _x( 'Product Categories', 'taxonomy general name', 'sumzim'),
+		'singular_name' => _x( 'Filter Category', 'taxonomy singular name', 'sumzim' ),
+		'search_items' =>  __( 'Filter Category', 'sumzim' ),
+		'all_items' => __( 'All Filters Category', 'sumzim' ),
+		'parent_item' => __( 'Parent Filter Category', 'sumzim' ),
+		'parent_item_colon' => __( 'Parent Filter Category:', 'sumzim' ),
+		'edit_item' => __( 'Edit Filter Category', 'sumzim' ), 
+		'update_item' => __( 'Update Filter Category', 'sumzim' ),
+		'add_new_item' => __( 'Add New Filter Category', 'sumzim' ),
+		'new_item_name' => __( 'New Filter Category Name', 'sumzim' ),
+		'menu_name' => __( 'Filter Categories', 'sumzim' ),
+	);
+	
+	$args = array(
+		'hierarchical' => true,
+		'labels' => $labels,
+		'show_ui' => true,
+		'show_in_rest' => true,
+		'show_admin_column' => true,
+		'query_var' => true,
+		// 'rewrite' => array( 'slug' => 'best', 'with_front' => false ),
+		'show_in_menu' => 'directory',
+	);
+ 
+	register_taxonomy('filter-category',array('filters'), $args);
+}
+
+/** 
+ * CUSTOM: CREATE PRODUCT TAGS
+ */
+add_action( 'init', 'create_filter_tag_taxonomies', 0 );
+
+//create two taxonomies, genres and tags for the post type "tag"
+function create_filter_tag_taxonomies() 
+{
+  // Add new taxonomy, NOT hierarchical (like tags)
+  $labels = array(
+    'name' => _x( 'Filter Tags', 'taxonomy general name' ),
+    'singular_name' => _x( 'Filter Tag', 'taxonomy singular name' ),
+    'search_items' =>  __( 'Search Filter Tags' ),
+    'popular_items' => __( 'Popular Filter Tags' ),
+    'all_items' => __( 'All Filter Tags' ),
+    'parent_item' => null,
+    'parent_item_colon' => null,
+    'edit_item' => __( 'Edit Filter Tag' ), 
+    'update_item' => __( 'Update Filter Tag' ),
+    'add_new_item' => __( 'Add New Filter Tag' ),
+    'new_item_name' => __( 'New Filter Tag Name' ),
+    'separate_items_with_commas' => __( 'Separate tags with commas' ),
+    'add_or_remove_items' => __( 'Add or remove tags' ),
+    'choose_from_most_used' => __( 'Choose from the most used tags' ),
+    'menu_name' => __( 'Filter Tags' ),
+  ); 
+
+  register_taxonomy('tag','filters',array(
+    'hierarchical' => false,
+    'labels' => $labels,
+    'show_ui' => true,
+    'update_count_callback' => '_update_post_term_count',
+    'query_var' => true,
+    'rewrite' => array( 'slug' => 'tag' ),
+  ));
+}
+
+/** 
+ * Add products to permalinks page
+ */
+
+// add_action('admin_init', function() {
+// 	add_settings_field('sumzim_product_slug', __('Products base', 'txtdomain'), 'sumzim_slug_output', 'permalink', 'optional');
+// });
+
+function sumzim_slug_output() {
+	?>
+	<input name="sumzim_product_slug" type="text" class="regular-text code" value="<?php echo esc_attr(get_option('sumzim_product_slug')); ?>" placeholder="<?php echo 'reference'; ?>" />
+	<?php
+}
+
+/** 
+ * Add button class to next/previous navigation
+ */
+add_filter('next_posts_link_attributes', 'posts_link_attributes');
+add_filter('previous_posts_link_attributes', 'posts_link_attributes');
+
+function posts_link_attributes() {
+  return 'class="button button--primary"';
+}
+
+/** 
+ * Add options page
+ */
+ if( function_exists('acf_add_options_page') ) {
+
+	acf_add_options_page(array(
+		'page_title' 	=> 'Content Settings',
+		'menu_slug' 	=> 'content-settings',
+		'capability'	=> 'edit_posts',
+		'redirect'		=> false
+	));
+	acf_add_options_sub_page(array(
+		'page_title' 	=> 'Footer Content',
+		'menu_title'	=> 'Footer Content',
+		'menu_slug' 	=> 'footer-content',
+		'capability'	=> 'edit_posts',
+		'parent_slug'	=> 'content-settings',
+		'redirect'		=> false
+	));
+
+	acf_add_options_sub_page(array(
+		'page_title' 	=> 'Header Content',
+		'menu_title'	=> 'Header Content',
+		'menu_slug' 	=> 'header-update',
+		'capability'	=> 'edit_posts',
+		'parent_slug'	=> 'content-settings',
+		'redirect'		=> false
+	));	
+
+	acf_add_options_sub_page(array(
+		'page_title' 	=> '5-Point Guarantee',
+		'menu_title'	=> '5-Point Guarantee',
+		'menu_slug' 	=> '5-point-guarantee',
+		'capability'	=> 'edit_posts',
+		'parent_slug'	=> 'content-settings',
+		'redirect'		=> false
+	));	
+
+	acf_add_options_sub_page(array(
+		'page_title' 	=> 'Alert Content',
+		'menu_title'	=> 'Alert Content',
+		'menu_slug' 	=> 'alert-content',
+		'capability'	=> 'edit_posts',
+		'parent_slug'	=> 'content-settings',
+		'redirect'		=> false
+	));	
+
+	acf_add_options_sub_page(array(
+		'page_title' 	=> 'Products Content',
+		'menu_title'	=> 'Products Content',
+		'menu_slug' 	=> 'products-content',
+		'capability'	=> 'edit_posts',
+		'parent_slug'	=> 'content-settings',
+		'redirect'		=> false
+	));	
+
+	acf_add_options_sub_page(array(
+		'page_title' 	=> '404 Content',
+		'menu_title'	=> '404 Content',
+		'menu_slug' 	=> '404-content',
+		'capability'	=> 'edit_posts',
+		'parent_slug'	=> 'content-settings',
+		'redirect'		=> false
+	));	
+
+}
+
+/** 
+ * Add PPC user role
+ */
+
+function addPPCRole() {
+	$ppc_capabilities = array(
+		'upload_files' => true,
+		'read' => true,
+	);
+	// remove_role('ppc_manager');
+	add_role( 'ppc_manager', __( 'PPC Manager' ),  $ppc_capabilities);
+}
+
+add_filter('admin_init', 'addPPCRole', 10);
+
+
+function add_ppc_caps() {
+	$ppc_role = get_role('ppc_manager');
+	$ppc_role->add_cap('upload_files');
+}
+
+add_filter('admin_init', 'add_ppc_caps', 10);
+
+/** 
+ * Add styles to visual editor
+ */
+function wysiwygCss($buttons) {
+    array_unshift($buttons, 'styleselect');
+    return $buttons;
+}
+add_filter('mce_buttons_2', 'wysiwygCss');
+
+function wysiwygCssFormats( $formats ) {  
+
+    $style_formats = array(  
+        array(  
+			'title' => 'Primary Button', 
+			'block' => 'div',
+            'classes' => 'primary-button',
+            'wrapper' => true,
+             
+        ),  
+        array(  
+			'title' => 'Secondary Button',
+			'block' => 'div',
+			'classes' => 'secondary-button',
+			'wrapper' => true,
+		),
+		array(  
+					'title' => 'Small Print',
+					'block' => 'div',
+					'classes' => 'small-print',
+					'wrapper' => true,
+		),
+    );  
+    
+    $formats['style_formats'] = json_encode( $style_formats );
+    return $formats;
+   
+}
+add_filter( 'tiny_mce_before_init', 'wysiwygCssFormats' ); 
+
+/** Invoke CSS for tinyMCE styles */
+function my_theme_add_editor_styles() {
+    add_editor_style( 'editor-style.css' );
+}
+add_action( 'init', 'my_theme_add_editor_styles' );
+
+/** Membership Design */
+
+/** Gas Furnace: Monthly */
+add_filter( 'wpcf7_form_elements', 'gasFurnaceMonthly' );
+function gasFurnaceMonthly( $content ) {
+    $str_pos = strpos( $content, 'name="gas-furnace-qty"' );
+    if ( $str_pos !== false ) {
+        $content = substr_replace( $content, ' data-attr="custom" data-monthly="18.67" ', $str_pos, 0 );
+    }
+    return $content;
+}
+
+/** Gas Furnace: Yearly */
+add_filter( 'wpcf7_form_elements', 'gasFurnaceYearly' );
+function gasFurnaceYearly( $content ) {
+    $str_pos = strpos( $content, 'name="gas-furnace-qty"' );
+    if ( $str_pos !== false ) {
+        $content = substr_replace( $content, ' data-attr="custom" data-yearly="224.00" ', $str_pos, 0 );
+    }
+    return $content;
+}
+
+/** Gas Boiler: Monthly */
+add_filter( 'wpcf7_form_elements', 'gasBoilerMonthly' );
+function gasBoilerMonthly( $content ) {
+    $str_pos = strpos( $content, 'name="gas-boiler-qty"' );
+    if ( $str_pos !== false ) {
+        $content = substr_replace( $content, ' data-monthly="18.67" ', $str_pos, 0 );
+    }
+    return $content;
+}
+
+/** Gas Boiler: Yearly */
+add_filter( 'wpcf7_form_elements', 'gasBoilerYearly' );
+function gasBoilerYearly( $content ) {
+    $str_pos = strpos( $content, 'name="gas-boiler-qty"' );
+    if ( $str_pos !== false ) {
+        $content = substr_replace( $content, ' data-yearly="224.00" ', $str_pos, 0 );
+    }
+    return $content;
+}
+
+/** Oil Boiler/Furnace: Monthly */
+add_filter( 'wpcf7_form_elements', 'oilBoilerFuranceMonthly' );
+function oilBoilerFuranceMonthly( $content ) {
+    $str_pos = strpos( $content, 'name="oil-boiler-furnace-qty"' );
+    if ( $str_pos !== false ) {
+        $content = substr_replace( $content, ' data-monthly="23.25" ', $str_pos, 0 );
+    }
+    return $content;
+}
+
+/** Oil Boiler/Furnace: Yearly */
+add_filter( 'wpcf7_form_elements', 'oilBoilerFurnaceYearly' );
+function oilBoilerFurnaceYearly( $content ) {
+    $str_pos = strpos( $content, 'name="oil-boiler-furnace-qty"' );
+    if ( $str_pos !== false ) {
+        $content = substr_replace( $content, ' data-yearly="279.00" ', $str_pos, 0 );
+    }
+    return $content;
+}
+
+/** Heat Pump w/Oil Furnace Backup: Monthly */
+add_filter( 'wpcf7_form_elements', 'heatPumpOilFurnaceBackupMonthly' );
+function heatPumpOilFurnaceBackupMonthly( $content ) {
+    $str_pos = strpos( $content, 'name="heat-pump-oil-furnace-backup-qty"' );
+    if ( $str_pos !== false ) {
+        $content = substr_replace( $content, ' data-monthly="37.33" ', $str_pos, 0 );
+    }
+    return $content;
+}
+
+/** Heat Pump w/Oil Furnace Backup: Yearly */
+add_filter( 'wpcf7_form_elements', 'heatPumpOilFurnaceBackupYearly' );
+function heatPumpOilFurnaceBackupYearly( $content ) {
+    $str_pos = strpos( $content, 'name="heat-pump-oil-furnace-backup-qty"' );
+    if ( $str_pos !== false ) {
+        $content = substr_replace( $content, ' data-yearly="448.00" ', $str_pos, 0 );
+    }
+    return $content;
+}
+
+/** Heat Pump w/Gas Furnace Backup: Monthly */
+add_filter( 'wpcf7_form_elements', 'heatPumpGasFurnaceBackupMonthly' );
+function heatPumpGasFurnaceBackupMonthly( $content ) {
+    $str_pos = strpos( $content, 'name="heat-pump-gas-furnace-backup-qty"' );
+    if ( $str_pos !== false ) {
+        $content = substr_replace( $content, ' data-monthly="37.33" ', $str_pos, 0 );
+    }
+    return $content;
+}
+
+/** Heat Pump w/Gas Furnace Backup: Yearly */
+add_filter( 'wpcf7_form_elements', 'heatPumpGasFurnaceBackupYearly' );
+function heatPumpGasFurnaceBackupYearly( $content ) {
+    $str_pos = strpos( $content, 'name="heat-pump-gas-furnace-backup-qty"' );
+    if ( $str_pos !== false ) {
+        $content = substr_replace( $content, ' data-yearly="448.00" ', $str_pos, 0 );
+    }
+    return $content;
+}
+
+/** Heat Pump w/Electric Furnace Backup: Monthly */
+add_filter( 'wpcf7_form_elements', 'heatPumpElectricBackupMonthly' );
+function heatPumpElectricBackupMonthly( $content ) {
+    $str_pos = strpos( $content, 'name="heat-pump-electrical-backup-qty"' );
+    if ( $str_pos !== false ) {
+        $content = substr_replace( $content, ' data-monthly="37.33" ', $str_pos, 0 );
+    }
+    return $content;
+}
+
+/** Heat Pump: Yearly */
+add_filter( 'wpcf7_form_elements', 'heatPumpElectricBackupYearly' );
+function heatPumpElectricBackupYearly( $content ) {
+    $str_pos = strpos( $content, 'name="heat-pump-electrical-backup-qty"' );
+    if ( $str_pos !== false ) {
+        $content = substr_replace( $content, ' data-yearly="448.00" ', $str_pos, 0 );
+    }
+    return $content;
+}
+
+/** Whole House Humidifier: Monthly */
+add_filter( 'wpcf7_form_elements', 'wholeHouseHumidifierMonthly' );
+function wholeHouseHumidifierMonthly( $content ) {
+    $str_pos = strpos( $content, 'name="whole-house-humidifier-qty"' );
+    if ( $str_pos !== false ) {
+        $content = substr_replace( $content, ' data-monthly="4.58" ', $str_pos, 0 );
+    }
+    return $content;
+}
+
+/** Whole House Humidifier: Yearly */
+add_filter( 'wpcf7_form_elements', 'wholeHouseHumidifierYearly' );
+function wholeHouseHumidifierYearly( $content ) {
+    $str_pos = strpos( $content, 'name="whole-house-humidifier-qty"' );
+    if ( $str_pos !== false ) {
+        $content = substr_replace( $content, ' data-yearly="55.00" ', $str_pos, 0 );
+    }
+    return $content;
+}
+
+/** Air Conditioner: Monthly */
+add_filter( 'wpcf7_form_elements', 'airConditionerMonthly' );
+function airConditionerMonthly( $content ) {
+    $str_pos = strpos( $content, 'name="air-conditioner-qty"' );
+    if ( $str_pos !== false ) {
+        $content = substr_replace( $content, ' data-monthly="18.67" ', $str_pos, 0 );
+    }
+    return $content;
+}
+
+/** Air Conditioner: Yearly */
+add_filter( 'wpcf7_form_elements', 'airConditionerYearly' );
+function airConditionerYearly( $content ) {
+    $str_pos = strpos( $content, 'name="air-conditioner-qty"' );
+    if ( $str_pos !== false ) {
+        $content = substr_replace( $content, ' data-yearly="224.00" ', $str_pos, 0 );
+    }
+    return $content;
+}
+
+/** Dehumidifer: Monthly */
+add_filter( 'wpcf7_form_elements', 'dehumidifierMonthly' );
+function dehumidifierMonthly( $content ) {
+    $str_pos = strpos( $content, 'name="dehumidifier-qty"' );
+    if ( $str_pos !== false ) {
+        $content = substr_replace( $content, ' data-monthly="6.67" ', $str_pos, 0 );
+    }
+    return $content;
+}
+
+/** Dehumidifier: Yearly */
+add_filter( 'wpcf7_form_elements', 'dehumidifierYearly' );
+function dehumidifierYearly( $content ) {
+    $str_pos = strpos( $content, 'name="dehumidifier-qty"' );
+    if ( $str_pos !== false ) {
+        $content = substr_replace( $content, ' data-yearly="80.00" ', $str_pos, 0 );
+    }
+    return $content;
+}
+
+/** AC Heat Pump: Monthly */
+add_filter( 'wpcf7_form_elements', 'acHeatPumpMonthly' );
+function acHeatPumpMonthly( $content ) {
+    $str_pos = strpos( $content, 'name="ac-heat-pump-qty"' );
+    if ( $str_pos !== false ) {
+        $content = substr_replace( $content, ' data-monthly="37.33" ', $str_pos, 0 );
+    }
+    return $content;
+}
+
+/** AC Heat Pump: Yearly */
+add_filter( 'wpcf7_form_elements', 'acHeatPumpYearly' );
+function acHeatPumpYearly( $content ) {
+    $str_pos = strpos( $content, 'name="ac-heat-pump-qty"' );
+    if ( $str_pos !== false ) {
+        $content = substr_replace( $content, ' data-yearly="448.00" ', $str_pos, 0 );
+    }
+    return $content;
+}
+
+/** Tankless Water Heater: Monthly */
+add_filter( 'wpcf7_form_elements', 'tanklessWaterHeaterMonthly' );
+function tanklessWaterHeaterMonthly( $content ) {
+    $str_pos = strpos( $content, 'name="tankless-water-heater-qty"' );
+    if ( $str_pos !== false ) {
+        $content = substr_replace( $content, ' data-monthly="37.33" ', $str_pos, 0 );
+    }
+    return $content;
+}
+
+/** Tankless Water Heater: Yearly */
+add_filter( 'wpcf7_form_elements', 'tanklessWaterHeaterYearly' );
+function tanklessWaterHeaterYearly( $content ) {
+    $str_pos = strpos( $content, 'name="tankless-water-heater-qty"' );
+    if ( $str_pos !== false ) {
+        $content = substr_replace( $content, ' data-yearly="448.00" ', $str_pos, 0 );
+    }
+    return $content;
+}
+
+/** Water Softener: Monthly */
+add_filter( 'wpcf7_form_elements', 'waterSoftenerMonthly' );
+function waterSoftenerMonthly( $content ) {
+    $str_pos = strpos( $content, 'name="water-softener-qty"' );
+    if ( $str_pos !== false ) {
+        $content = substr_replace( $content, ' data-monthly="37.33" ', $str_pos, 0 );
+    }
+    return $content;
+}
+
+/** Water Softener: Yearly */
+add_filter( 'wpcf7_form_elements', 'waterSoftenerYearly' );
+function waterSoftenerYearly( $content ) {
+    $str_pos = strpos( $content, 'name="water-softener-qty"' );
+    if ( $str_pos !== false ) {
+        $content = substr_replace( $content, ' data-yearly="448.00" ', $str_pos, 0 );
+    }
+    return $content;
+}
+
+/** Backflow Preventer: Monthly */
+add_filter( 'wpcf7_form_elements', 'backflowPreventerMonthly' );
+function backflowPreventerMonthly( $content ) {
+    $str_pos = strpos( $content, 'name="backflow-preventer-qty"' );
+    if ( $str_pos !== false ) {
+        $content = substr_replace( $content, ' data-monthly="17.42" ', $str_pos, 0 );
+    }
+    return $content;
+}
+
+/** Backflow Preventer: Yearly */
+add_filter( 'wpcf7_form_elements', 'backflowPreventerYearly' );
+function backflowPreventerYearly( $content ) {
+    $str_pos = strpos( $content, 'name="backflow-preventer-qty"' );
+    if ( $str_pos !== false ) {
+        $content = substr_replace( $content, ' data-yearly="209.00" ', $str_pos, 0 );
+    }
+    return $content;
+}
+
+/** UV Light (water): Monthly */
+add_filter( 'wpcf7_form_elements', 'uvLightWaterMonthy' );
+function uvLightWaterMonthy( $content ) {
+    $str_pos = strpos( $content, 'name="uv-light-water-qty"' );
+    if ( $str_pos !== false ) {
+        $content = substr_replace( $content, ' data-monthly="7.50" ', $str_pos, 0 );
+    }
+    return $content;
+}
+
+/** UV Light (water): Yearly */
+add_filter( 'wpcf7_form_elements', 'uvLightWaterYearly' );
+function uvLightWaterYearly( $content ) {
+    $str_pos = strpos( $content, 'name="uv-light-water-qty"' );
+    if ( $str_pos !== false ) {
+        $content = substr_replace( $content, ' data-yearly="90.00" ', $str_pos, 0 );
+    }
+    return $content;
+}
+
+/** Water Filter (other): Monthly */
+add_filter( 'wpcf7_form_elements', 'waterFilterOtherMonthly' );
+function waterFilterOtherMonthly( $content ) {
+    $str_pos = strpos( $content, 'name="water-filter-additional-qty"' );
+    if ( $str_pos !== false ) {
+        $content = substr_replace( $content, ' data-monthly="7.50" ', $str_pos, 0 );
+    }
+    return $content;
+}
+
+/** Water Filter (other): Yearly */
+add_filter( 'wpcf7_form_elements', 'waterFilterOtherYearly' );
+function waterFilterOtherYearly( $content ) {
+    $str_pos = strpos( $content, 'name="water-filter-additional-qty"' );
+    if ( $str_pos !== false ) {
+        $content = substr_replace( $content, ' data-yearly="90.00" ', $str_pos, 0 );
+    }
+    return $content;
+}
+
+/** Whole House Plumbing: Monthly */
+add_filter( 'wpcf7_form_elements', 'wholeHousePlumbingMonthly' );
+function wholeHousePlumbingMonthly( $content ) {
+    $str_pos = strpos( $content, 'name="whole-house-plumbing-qty"' );
+    if ( $str_pos !== false ) {
+        $content = substr_replace( $content, ' data-monthly="16.58" ', $str_pos, 0 );
+    }
+    return $content;
+}
+
+/** Media Filter: Yearly */
+add_filter( 'wpcf7_form_elements', 'mediaFilterYearly' );
+function mediaFilterYearly( $content ) {
+    $str_pos = strpos( $content, 'name="media-filter-qty"' );
+    if ( $str_pos !== false ) {
+        $content = substr_replace( $content, ' data-yearly="65.00" ', $str_pos, 0 );
+    }
+    return $content;
+}
+
+/** Media Filter: Monthly */
+add_filter( 'wpcf7_form_elements', 'mediaFilterMonthly' );
+function mediaFilterMonthly( $content ) {
+    $str_pos = strpos( $content, 'name="media-filter-qty"' );
+    if ( $str_pos !== false ) {
+        $content = substr_replace( $content, ' data-monthly="5.42" ', $str_pos, 0 );
+    }
+    return $content;
+}
+
+/** Whole House Plumbing: Yearly */
+add_filter( 'wpcf7_form_elements', 'wholeHousePlumbingYearly' );
+function wholeHousePlumbingYearly( $content ) {
+    $str_pos = strpos( $content, 'name="whole-house-plumbing-qty"' );
+    if ( $str_pos !== false ) {
+        $content = substr_replace( $content, ' data-yearly="199.00" ', $str_pos, 0 );
+    }
+    return $content;
+}
+
+/** Remote Monitoring / Smart Home Connectivity: Monthly */
+add_filter( 'wpcf7_form_elements', 'smartHomeConnectivityMonthly' );
+function smartHomeConnectivityMonthly( $content ) {
+    $str_pos = strpos( $content, 'value="Remote Monitoring (Smart Home Connectivity)"' );
+    if ( $str_pos !== false ) {
+        $content = substr_replace( $content, ' data-monthly="8.25" ', $str_pos, 0 );
+    }
+    return $content;
+}
+
+/** Remote Monitoring / Smart Home Connectivity: Yearly */
+add_filter( 'wpcf7_form_elements', 'smartHomeConnectivityYearly' );
+function smartHomeConnectivityYearly( $content ) {
+    $str_pos = strpos( $content, 'value="Remote Monitoring (Smart Home Connectivity)"' );
+    if ( $str_pos !== false ) {
+        $content = substr_replace( $content, ' data-yearly="99.00" ', $str_pos, 0 );
+    }
+    return $content;
+}
+
+/** Media Filter: Monthly */
+/*
+add_filter( 'wpcf7_form_elements', 'mediaFilterMonthly' );
+function mediaFilterMonthly( $content ) {
+    $str_pos = strpos( $content, 'value="Media Filter"' );
+    if ( $str_pos !== false ) {
+        $content = substr_replace( $content, ' data-monthly="5.42" ', $str_pos, 0 );
+    }
+    return $content;
+}
+*/
+/** Media Filter */
+/*
+add_filter( 'wpcf7_form_elements', 'mediaFilterYearly' );
+function mediaFilterYearly( $content ) {
+    $str_pos = strpos( $content, 'value="Media Filter"' );
+    if ( $str_pos !== false ) {
+        $content = substr_replace( $content, ' data-yearly="65.00" ', $str_pos, 0 );
+    }
+    return $content;
+}
+*/
+
+

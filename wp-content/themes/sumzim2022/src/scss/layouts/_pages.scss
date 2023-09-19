@@ -1,0 +1,94 @@
+.content__page {
+  background: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3rem 0 0;
+  position: relative;
+
+  & > div[class^="breakout"] {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+    flex-direction: column;
+    align-items: center;
+
+    @include breakpoint(medium) {
+      margin-bottom: 2.5rem;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &.breakout--background-image {
+      position: relative;
+      padding: 2rem;
+
+      @include breakpoint(medium) {
+        padding: 3rem 0;
+      }
+
+      &::before {
+        position: absolute;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: hsla(0, 0%, 0%, 0.6);
+        content: "";
+      }
+
+      /** HSR */
+      .hsr {
+        width: 70vw;
+      }
+    }
+
+    & > div {
+      width: 80vw;
+
+      @include breakpoint(medium) {
+        width: 60vw;
+      }
+    }
+  }
+
+  &.--wide {
+    & > div {
+      @include breakpoint(medium) {
+        width: 80vw;
+      }
+    }
+  }
+
+  & > div {
+    width: 80vw;
+    margin-bottom: 2rem;
+
+    @include breakpoint(medium) {
+      width: 60vw;
+      margin-bottom: 2.5rem;
+    }
+
+    &.display-button {
+      display: flex;
+      justify-content: center;
+      text-align: center;
+      line-height: 1.3;
+    }
+
+    /** HSR */
+    &.hsr {
+      @include breakpoint(medium) {
+        width: 70vw;
+      }
+    }
+  }
+
+  h2 {
+    color: var(--color__text--dark);
+  }
+}

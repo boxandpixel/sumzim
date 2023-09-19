@@ -1,0 +1,12 @@
+.guarantee {
+    background: hsla(211, 50%, 90%, 1);
+    padding: 1rem;
+
+    @include breakpoint(medium) {
+        padding: 1.5rem 1rem;
+    }
+
+    img.badge-guarantee {
+        margin: 0 auto;
+    }
+}

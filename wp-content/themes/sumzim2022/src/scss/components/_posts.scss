@@ -1,0 +1,135 @@
+/** Blog Landing */
+.posts {
+  border-bottom: solid 1px var(--color__neutral);
+  padding-bottom: 2.5rem;
+
+  &:last-child {
+    border-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  article.post {
+    & > header {
+      & > h2.entry-title {
+        & > a {
+          color: var(--color__primary--dark); // 20220929 color__primary
+        }
+      }
+    }
+
+    & > .entry-footer {
+      margin-bottom: 0;
+      .post__continue {
+        margin-top: 1rem;
+
+        p {
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+/** Post Single */
+.post {
+  article.post {
+    & > header {
+      & > h1.entry-title {
+        /** Uses h2 style from typography.scss */
+        font-size: 2rem; //41.6
+        line-height: 1.25;
+        font-weight: 700;
+        margin: 0 0 1rem 0;
+
+        @include breakpoint(medium) {
+          font-size: 2.25rem; //36
+        }
+      }
+    }
+
+    & > .entry-content {
+      h2 {
+        /** Uses h3 style from typography.scss */
+        font-size: 1.625rem; // 26
+        line-height: 1.25;
+        font-weight: 400;
+        margin: 0 0 0.25rem;
+
+        @include breakpoint(medium) {
+          font-size: 1.875rem; //30
+        }
+
+        & > strong {
+          font-weight: 400 !important;
+        }
+      }
+
+      h3 {
+        /** Uses h4 style from typography.scss */
+        font-size: 1.375rem; // 22
+        line-height: 1.25;
+        font-weight: 400;
+        margin: 0 0 0.25rem 0;
+
+        @include breakpoint(medium) {
+          font-size: 1.5rem; // 24
+        }
+
+        & > strong {
+          font-weight: 400 !important;
+        }
+      }
+
+      h4 {
+        /** Uses h5 style from typography.scss */
+        font-size: 1.125rem; // 18
+        line-height: 1.25;
+        font-weight: 700;
+        margin: 0 0 0.25rem;
+
+        @include breakpoint(medium) {
+          font-size: 1.25rem; // 20
+        }
+
+        & > strong {
+          font-weight: 400 !important;
+        }
+      }
+
+      h5 {
+        /** Uses h6 style from typography.scss */
+        font-size: 0.875rem; // 14
+        line-height: 1.25;
+        font-weight: 700;
+        margin: 0 0 0.25rem;
+
+        @include breakpoint(medium) {
+          font-size: 0.9375rem; // 15
+        }
+
+        & > strong {
+          font-weight: 400 !important;
+        }
+      }
+    }
+  }
+}
+
+/** Post Navigation */
+.posts-navigation {
+  h2 {
+    position: absolute;
+    clip: rect(0, 0, 0, 0);
+    height: 1px;
+    width: 0;
+    overflow: hidden;
+  }
+
+  .nav-links {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+}

@@ -1,0 +1,24 @@
+.hero {
+    width: 100%;
+    height: 85vh;
+    background-size: contain;
+    position: relative;
+
+    @include breakpoint(large) {
+        height: 65vh;
+    }
+
+    & > .hero__page-title {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        background: var(--page-title-background);
+        padding: 2rem 4rem;
+        text-align: center;
+
+        @include breakpoint(medium) {
+            width: 60vw;
+            left: calc(50% - (60vw / 2));
+        }
+    }
+}

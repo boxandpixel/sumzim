@@ -1,0 +1,15 @@
+#se-container {
+    margin: 0 -10vw !important;
+    width: 375px !important;
+    height: 110vh !important;
+
+    @media screen and (min-width: 414px) {
+        margin: 0 !important;
+        width: 100% !important;
+    }
+
+    @include breakpoint(medium) {
+        height: 600px !important;
+    }
+}
+
