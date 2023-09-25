@@ -47,7 +47,7 @@ get_header();
 
 				<div class="hsr-image-section-overlay">
 					<h2>Excellence in System Assembly</h2>
-					<p>HVAC replacement systems are not like buying a car. Instead, it's more like buying a box of car parts. And who you choose to assemble them makes all the difference.</p>
+					<p>HVAC replacement systems are not like buying a car. Instead, it's more like buying a box of car parts. Who you choose to assemble them makes all the difference.</p>
 					<p>At Summers &amp; Zim's, we have <a href="/staff">well trained technicians</a> - with an average of 19 years experience - who go above and beyond to make sure your system is installed the right way.</p>
 				</div>
 			</div>
