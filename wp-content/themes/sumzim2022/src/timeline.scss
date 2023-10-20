@@ -1,0 +1,44 @@
+// .tty-hero {
+//   width: 66vw;
+//   height: 500px;
+//   margin: 0 auto;
+//   .tty-hero__content {
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+
+//     // .tty-hero__content-bloginfo {
+//     //   color: var(--color__primary--dark);
+//     //   font-size: 3.75rem;
+//     //   font-weight: 700;
+//     //   margin: 0;
+//     // }
+
+//     .tty-hero__content-title {
+//       color: var(--color__primary--dark);
+//       font-size: 4rem;
+//       font-weight: 900;
+//       margin: 0 0 0.5rem 0;
+//     }
+
+//     .tty-hero__content-intro {
+//       color: var(--color__primary--dark);
+//       text-align: center;
+//       font-size: 2rem;
+//       font-weight: 600;
+//       margin: 0;
+//     }
+//   }
+// }
+
+/** Common */
+@import "./scss/common/mixins";
+@import "./scss/common/variables";
+@import "./scss/common/reset";
+@import "./scss/common/typography";
+@import "./scss/common/global";
+
+/** Layouts */
+@import "./scss/layouts/header";
+@import "./scss/layouts/footer";
+@import "./scss/layouts/through-the-years";

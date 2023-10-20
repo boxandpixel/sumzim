@@ -12,6 +12,7 @@ module.exports = {
     // ...defaultConfig.entry,
     home: ["./src/home.js", "./src/home.scss"],
     site: ["./src/site.js", "./src/site.scss"],
+    timeline: ["./src/timeline.js", "./src/timeline.scss"],
   },
   output: {
     path: path.resolve(__dirname, "dist"),

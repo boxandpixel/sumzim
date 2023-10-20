@@ -118,8 +118,10 @@ header.site-header {
 
           // 20%
           @include breakpoint(xlarge) {
-            bottom: calc(-1 * (126px / 2));
-            left: calc(1rem + (252px * 1.2) + 2rem); // 300
+            // bottom: calc(-1 * (126px / 2));
+            // left: calc(1rem + (252px * 1.2) + 2rem); // 300
+            top: 23px;
+            left: calc(1rem + 290px + 2rem);
             width: 110px; // 92
             height: 126px; // 103
           }

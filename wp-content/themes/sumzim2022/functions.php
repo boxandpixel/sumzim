@@ -144,6 +144,9 @@ function sumzim_scripts() {
 	if(is_front_page()) {
 		wp_enqueue_style( 'home-styles', get_template_directory_uri() . '/dist/home.css');
 		wp_enqueue_script( 'home-scripts', get_template_directory_uri() . '/dist/home.js');
+	} elseif(is_page('through-the-years')) {
+		wp_enqueue_style( 'timeline-styles', get_template_directory_uri() . '/dist/timeline.css');
+		wp_enqueue_script( 'timeline-scripts', get_template_directory_uri() . '/dist/timeline.js');
 	} else {
 		wp_enqueue_style( 'site-styles', get_template_directory_uri() . '/dist/site.css', $rand);
 		wp_enqueue_script( 'site-scripts', get_template_directory_uri() . '/dist/site.js', $rand);
