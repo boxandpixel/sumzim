@@ -31,7 +31,8 @@
     "rtlcss": "^3.5.0",
     "sass": "^1.56.2",
     "sass-loader": "^13.2.0",
-    "terser-webpack-plugin": "^5.3.6"
+    "terser-webpack-plugin": "^5.3.6",
+    "wp-scripts": "^0.0.1-security"
   },
   "rtlcssConfig": {
     "options": {

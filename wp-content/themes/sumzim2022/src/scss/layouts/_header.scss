@@ -95,23 +95,25 @@ header.site-header {
         @include breakpoint(small) {
           display: block;
           position: absolute;
-          bottom: calc(-1 * (82px / 2));
-          left: calc(1rem + (170px * 1.1) + 2rem); // 220
+          //   bottom: calc(-1 * (82px / 2));
+          //   left: calc(1rem + (170px * 1.1) + 2rem); // 220
+          top: 23px;
+          left: calc(1rem + 170px + 2rem);
           width: 72px; // 66
           height: 82px; // 73
 
           // 10%
           @include breakpoint(medium) {
-            bottom: calc(-1 * (90px / 2));
-            left: calc(1rem + (200px * 1.1) + 2rem); // 250
+            // bottom: calc(-1 * (90px / 2));
+            left: calc(1rem + 200px + 2rem); // 250
             width: 79px; // 72
             height: 90px; // 80
           }
 
           // 10%
           @include breakpoint(large) {
-            bottom: calc(-1 * (108px / 2));
-            left: calc(1rem + (252px * 1.1) + 2rem); // 300
+            // bottom: calc(-1 * (108px / 2));
+            left: calc(1rem + 260px + 2rem); // 300
             width: 94px;
             height: 108px; //
           }

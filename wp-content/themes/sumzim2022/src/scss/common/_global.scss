@@ -11,7 +11,14 @@ body {
   //     var(--color__primary) 32%,
   //     var(--color__primary--light) 100%
   //   );
-  background: hsla(0, 0%, 88%, 1);
+  //   background: hsla(0, 0%, 88%, 1);
+  background: hsla(68, 23%, 90%, 1);
+  //   background: linear-gradient(
+  //     180deg,
+  //     rgba(247, 247, 242, 1) 0%,
+  //     rgba(0, 238, 238, 1) 50%,
+  //     rgba(247, 247, 242, 1) 100%
+  //   );
   font: 1rem/1.5 var(--font);
   color: var(--color__text);
   scroll-behavior: smooth;

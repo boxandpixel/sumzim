@@ -13,43 +13,52 @@
  */
 get_header('timeline');
 ?>
-	<div class="tty">
+	<main id="primary">
+		<div class="tty">
 
-		<div class="tty-hero">
-			<div class="tty-hero__content">
-				<div class="tty-hero__content-title">
-					<?php the_title();?>
-				</div>
-				<div class="tty-hero__content-intro">
-					<?php echo get_field('hero_intro'); ?>
-				</div>
-			</div>
-		</div>
-
-		<div class="tty-timeline">
-			<!-- ** Start Line Drawing ** -->
-			<div class="line-container">
-				<svg viewBox="0 0 4 3000" fill="none" preserveAspectRatio="xMidYMax meet" id="timeline">
-					<path d="M2 0V3000" stroke="#0C1E31" stroke-width="3" />
-				</svg>
-			</div>
-
-			<div class="tty-years">
-			<?php if(have_rows('timeline')): while(have_rows('timeline')): the_row(); ?>
-				<div class="tty-year">
-					<img src="<?php echo get_sub_field('timeline_image')['url']; ?>" alt="">
-					<div class="tty-year-details scroll" data-rate=".2" data-direction="vertical">
-						<h3><?php echo get_sub_field('timeline_year'); ?></h3>
-						<?php echo get_sub_field('timeline_text'); ?>
+			<div class="tty-hero">
+				<div class="tty-hero__content">
+					<div class="tty-hero__content-title">
+						<?php the_title();?>
 					</div>
-					<div class="tty-year-dot"></div>
+					<div class="tty-hero__content-intro">
+						<?php echo get_field('hero_intro'); ?>
+					</div>
 				</div>
-			<?php endwhile; endif; ?>	
 			</div>
-			
-		</div>
 
-	</div>
+			<div class="tty-timeline">
+				<!-- ** Start Line Drawing ** -->
+				<div class="line-container">
+<svg viewBox="0 0 6 3000" fill="none" preserveAspectRatio="xMidYMax meet" id="timeline">
+<path d="M3 0V3000" stroke="#0C1E31" stroke-width="5"/>
+</svg>				
+					<!-- <svg viewBox="0 0 8 3000" fill="none" preserveAspectRatio="xMidYMax meet" id="timeline">
+						<path d="M2 0V3000" stroke="#0C1E31" stroke-width="8" />
+					</svg> -->
+				</div>
+
+				<div class="tty-years">
+
+				<?php if(have_rows('timeline')): $count = 0; while(have_rows('timeline')): the_row(); ?>
+					<div class="tty-year <?php  if ($count): ?> timelineFade fadeOut <?php endif; ?>">
+						<img src="<?php echo get_sub_field('timeline_image')['url']; ?>" alt="">
+						<div class="tty-year-details scroll">
+							<h3><?php echo get_sub_field('timeline_year'); ?></h3>
+							<?php echo get_sub_field('timeline_text'); ?>
+						</div>
+						<div class="tty-year-dot"></div>
+					</div>
+				<?php $count++; endwhile; endif; ?>	
+
+
+						
+				</div>
+				
+			</div>
+
+		</div>
+	</main>
 
 
 
@@ -69,7 +78,7 @@ get_header('timeline');
 
 				var drawLength = pathLength * scrollPercentage;
 
-				path.style.strokeDashoffset = pathLength - drawLength;
+				path.style.strokeDashoffset = (pathLength - drawLength) - 300;
 
 				/** Parralax */
 				const target = document.querySelectorAll('.scroll'); 

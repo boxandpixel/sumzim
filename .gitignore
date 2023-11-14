@@ -115,3 +115,7 @@ wp-content/themes/*
 !wp-content/themes/sumzim2022
 wp-content/themes/sumzim2022/vendor/
 wp-content/themes/sumzim2022/node_modules
+
+# DDEV specific
+.ddev/
+wp-config-ddev.php
