@@ -546,9 +546,11 @@ get_header();
 		<!-- Our History Story -->
 		<?php
 			elseif(get_row_layout() == 'our_history_story'):
+
 				if(have_rows('our_history_story')): ?>
 			<div class="our-history-story">
 					<?php while(have_rows('our_history_story')): the_row();
+					
 						if(get_row_layout() == 'visual_editor'):
 							$visual_editor = get_sub_field('visual_editor');
 							echo $visual_editor;
@@ -616,9 +618,7 @@ get_header();
 						?>
 					</div>
 				</div>
-						<?
-						endif;
-		?>        
+					<?php endif; ?>        
 					<?php endwhile; ?>
 			</div>
 				<?php endif; ?>
