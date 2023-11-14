@@ -19,5 +19,5 @@ import "./js/wpcf7";
 import "./js/eventButtonCallClick";
 import "./js/membershipDesign";
 import "./js/membershipDesignTotal.js";
-import "./js/applyHeaderOffset.js";
+// import "./js/applyHeaderOffset.js";
 // import "./js/drawLineOnScroll.js";
