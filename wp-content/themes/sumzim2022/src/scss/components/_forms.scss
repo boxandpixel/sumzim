@@ -316,11 +316,12 @@ div#wp_payeezy_payment_form,
 
     &.sent {
       .wpcf7-response-output {
-        background: var(--color__success);
-        margin: 1rem 0;
-        border: none;
-        padding: 1rem;
-        color: white;
+        // background: var(--color__success);
+        // margin: 1rem 0;
+        // border: none;
+        // padding: 1rem;
+        // color: white;
+        display: none;
       }
     }
 

@@ -10,10 +10,9 @@ document.addEventListener("DOMContentLoaded", ()=> {
 
 
     if(freeEstimateForm) {
-        console.log("hi free");
-        // freeEstimateForm.addEventListener('wpcf7mailsent', ()=> {
-        //     window.location.replace("https://sumzimdev.wpengine.com/request-confirmation?form=Free%20Estimate");
-        // });
+        freeEstimateForm.addEventListener('wpcf7mailsent', ()=> {
+            window.location.replace("https://sumzimdev.wpengine.com/request-confirmation?form=Free%20Estimate");
+        });
     } 
 
     // Joe Form
