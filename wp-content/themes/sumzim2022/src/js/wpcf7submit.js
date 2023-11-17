@@ -7,6 +7,8 @@ if(freeEstimateForm) {
     console.log("have free estimate form");
 }
 
+console.log("HELLO");
+
 
 
 
