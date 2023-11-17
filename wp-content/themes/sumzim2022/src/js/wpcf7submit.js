@@ -3,6 +3,9 @@ document.addEventListener("DOMContentLoaded", ()=> {
 
 
     if(freeEstimateForm) {
+
+        console.log("Hello Free Estimate form");
+        
         freeEstimateForm.addEventListener('wpcf7submit', (e)=> {
             console.log("submitted");
         })
