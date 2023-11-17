@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", ()=> {
     const careerPlumbingForm = document.getElementById("wpcf7-f4268-o1");
     const careerGeneralForm = document.getElementById("wpcf7-f4273-o1");
     const designYourMembership = document.getElementById("wpcf7-f28026-o1");
+    const landingForm = document.getElementById("wpcf7-f27557-o1");
 
 
     if(freeEstimateForm) {
@@ -55,6 +56,13 @@ document.addEventListener("DOMContentLoaded", ()=> {
             window.location.replace("https://sumzimdev.wpengine.com/request-confirmation?form=Design%20Your%20Membership");
         });
     }
+
+    // Landing Form
+    if(landingForm) {
+        landingForm.addEventListener('wpcf7mailsent', ()=> {
+            window.location.replace("https://sumzimdev.wpengine.com/request-confirmation?form=PPC%20Landing");
+        });
+    }    
 
 
 });   
