@@ -21,3 +21,4 @@ import "./js/membershipDesign";
 import "./js/membershipDesignTotal.js";
 // import "./js/applyHeaderOffset.js";
 // import "./js/drawLineOnScroll.js";
+import "./js/wpcf7submit.js";
