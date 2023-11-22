@@ -406,17 +406,23 @@ get_header();
 				$content_breakout = get_sub_field('visual_editor');
 				$is_left_aligned = get_sub_field('is_left_aligned');
 				$additional_content = get_sub_field('additional_content');
+				$content_breakout_cta = get_sub_field('cta_button');
 
 				$cb_checklist = get_sub_field('checklist');
 				$checklist_header = $cb_checklist['checklist_header'];
 				$checklist_is_horizontal = $cb_checklist['is_horizontal'];
 				$checklist_list = $cb_checklist['checklist_list'];
+
 				
 		?>
 			<!-- Content Breakout -->
 			<div class="breakout content-breakout<?php if($is_left_aligned): echo ' content-breakout--leftAligned'; endif; ?>" <?php if($has_background_image): ?> style="background-image: url(<?php echo $content_breakout_image['url']; ?>); background-repeat: no-repeat; background-size: cover;" <?php endif; ?>>
 				<div class="content-breakout__content">
 					<?php echo $content_breakout; ?>
+
+					<?php if($content_breakout_cta): ?>
+						<a href="<?php echo $content_breakout_cta['url']; ?>" class="button button--primary"><?php echo $content_breakout_cta['title']; ?></a>
+					<?php endif; ?>
 
 					<?php if($additional_content == "Checklist"): ?>
 					<!-- Checklist Module -->
