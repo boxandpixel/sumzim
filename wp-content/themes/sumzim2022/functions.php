@@ -740,7 +740,7 @@ add_filter( 'wpcf7_form_elements', 'tanklessWaterHeaterMonthly' );
 function tanklessWaterHeaterMonthly( $content ) {
     $str_pos = strpos( $content, 'name="tankless-water-heater-qty"' );
     if ( $str_pos !== false ) {
-        $content = substr_replace( $content, ' data-monthly="37.33" ', $str_pos, 0 );
+        $content = substr_replace( $content, ' data-monthly="17.42" ', $str_pos, 0 );
     }
     return $content;
 }
@@ -750,7 +750,7 @@ add_filter( 'wpcf7_form_elements', 'tanklessWaterHeaterYearly' );
 function tanklessWaterHeaterYearly( $content ) {
     $str_pos = strpos( $content, 'name="tankless-water-heater-qty"' );
     if ( $str_pos !== false ) {
-        $content = substr_replace( $content, ' data-yearly="448.00" ', $str_pos, 0 );
+        $content = substr_replace( $content, ' data-yearly="209.00" ', $str_pos, 0 );
     }
     return $content;
 }
@@ -760,7 +760,7 @@ add_filter( 'wpcf7_form_elements', 'waterSoftenerMonthly' );
 function waterSoftenerMonthly( $content ) {
     $str_pos = strpos( $content, 'name="water-softener-qty"' );
     if ( $str_pos !== false ) {
-        $content = substr_replace( $content, ' data-monthly="37.33" ', $str_pos, 0 );
+        $content = substr_replace( $content, ' data-monthly="17.42" ', $str_pos, 0 );
     }
     return $content;
 }
@@ -770,7 +770,7 @@ add_filter( 'wpcf7_form_elements', 'waterSoftenerYearly' );
 function waterSoftenerYearly( $content ) {
     $str_pos = strpos( $content, 'name="water-softener-qty"' );
     if ( $str_pos !== false ) {
-        $content = substr_replace( $content, ' data-yearly="448.00" ', $str_pos, 0 );
+        $content = substr_replace( $content, ' data-yearly="209.00" ', $str_pos, 0 );
     }
     return $content;
 }
