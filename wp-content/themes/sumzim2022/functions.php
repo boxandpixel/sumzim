@@ -780,7 +780,7 @@ add_filter( 'wpcf7_form_elements', 'backflowPreventerMonthly' );
 function backflowPreventerMonthly( $content ) {
     $str_pos = strpos( $content, 'name="backflow-preventer-qty"' );
     if ( $str_pos !== false ) {
-        $content = substr_replace( $content, ' data-monthly="17.42" ', $str_pos, 0 );
+        $content = substr_replace( $content, ' data-monthly="16.58" ', $str_pos, 0 );
     }
     return $content;
 }
@@ -790,7 +790,7 @@ add_filter( 'wpcf7_form_elements', 'backflowPreventerYearly' );
 function backflowPreventerYearly( $content ) {
     $str_pos = strpos( $content, 'name="backflow-preventer-qty"' );
     if ( $str_pos !== false ) {
-        $content = substr_replace( $content, ' data-yearly="209.00" ', $str_pos, 0 );
+        $content = substr_replace( $content, ' data-yearly="199.00" ', $str_pos, 0 );
     }
     return $content;
 }
@@ -894,6 +894,9 @@ function smartHomeConnectivityYearly( $content ) {
     }
     return $content;
 }
+
+// Remove <p> and <br/> from Contact Form 7
+add_filter('wpcf7_autop_or_not', '__return_false');
 
 /** Media Filter: Monthly */
 /*

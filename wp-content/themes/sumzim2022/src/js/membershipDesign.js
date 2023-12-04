@@ -14,12 +14,14 @@ document.addEventListener("DOMContentLoaded", () => {
         el.addEventListener("click", () => {
           // Increase number by 1
           num.stepUp(1);
+          console.log("increased");
         });
       };
 
       decreaseQty = (el, num) => {
         el.addEventListener("click", () => {
           num.stepDown(1);
+          console.log('decreased');
 
           if (num.value < 0) {
             num.value = 0;
@@ -45,6 +47,8 @@ document.addEventListener("DOMContentLoaded", () => {
     var yearArray = [];
 
     const allMems = document.querySelectorAll(".memtype__each");
+
+    console.log(allMems.length);
 
     allMems.forEach((el) => {
       /** Change Quantity */
