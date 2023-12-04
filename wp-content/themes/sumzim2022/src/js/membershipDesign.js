@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const allMems = document.querySelectorAll(".memtype__each");
 
-    console.log(allMems.length);
+    console.log(`allMems is ${allMems}`);
 
     allMems.forEach((el) => {
       /** Change Quantity */
