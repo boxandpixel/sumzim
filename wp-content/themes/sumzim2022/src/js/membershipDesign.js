@@ -68,13 +68,13 @@ document.addEventListener("DOMContentLoaded", () => {
       );
 
       /** Add additional features */
-      const getAddMonthVal = Number(el.getAttribute("data-monthly"));
-      const getAddYearVal = Number(el.getAttribute("data-yearly"));
+      // const getAddMonthVal = Number(el.getAttribute("data-monthly"));
+      // const getAddYearVal = Number(el.getAttribute("data-yearly"));
 
       /** Check for .plus or .minus */
       let hasPlus = el.querySelector(".plus") != null;
       let hasMinus = el.querySelector(".minus") != null;
-      let hasAdditional = el.querySelector("input[type='checkbox']") != null;
+      // let hasAdditional = el.querySelector("input[type='checkbox']") != null;
       let hasCombo = el.classList.contains("memtype__combo");
 
       /** Get elements that include whole house plumbing */
@@ -283,21 +283,16 @@ document.addEventListener("DOMContentLoaded", () => {
             }
           });
         }
-
+        /** 
         if (hasAdditional) {
           const addCheckboxes = el.querySelectorAll("input[type='checkbox']");
 
           addCheckboxes.forEach((checks) => {
             checks.addEventListener("change", (e) => {
               if (e.target.checked) {
-                /** ADD ADDITIONAL ITEM */
 
-                // console.log("is checked");
                 monthArray.push(Number(e.target.getAttribute("data-monthly")));
                 yearArray.push(Number(e.target.getAttribute("data-yearly")));
-
-                // console.log(monthArray);
-                // console.log(yearArray);
 
                 const getMonthTotal = monthArray.reduce((a, b) => {
                   return a + b;
@@ -314,9 +309,7 @@ document.addEventListener("DOMContentLoaded", () => {
                   "increment-year"
                 ).innerHTML = `$${getYearTotal.toFixed(2)}`;
               } else {
-                /** REMOVE ADDITIONAL ITEM */
 
-                // console.log("not checked");
                 const currAddSelMonthly = monthArray.indexOf(
                   Number(e.target.getAttribute("data-monthly"))
                 );
@@ -325,8 +318,6 @@ document.addEventListener("DOMContentLoaded", () => {
                   Number(e.target.getAttribute("data-yearly"))
                 );
 
-                // console.log(currAddSelMonthly);
-                // console.log(currAddSelYearly);
 
                 if (currAddSelMonthly > -1) {
                   monthArray.splice(currAddSelMonthly, 1);
@@ -336,8 +327,7 @@ document.addEventListener("DOMContentLoaded", () => {
                   yearArray.splice(currAddSelYearly, 1);
                 }
 
-                // console.log(monthArray);
-                // console.log(yearArray);
+
 
                 if (monthArray.length !== 0 && yearArray.length !== 0) {
                   const getMonthTotal = monthArray.reduce((a, b) => {
@@ -362,6 +352,7 @@ document.addEventListener("DOMContentLoaded", () => {
             });
           });
         }
+         */
       }
     });
   }
