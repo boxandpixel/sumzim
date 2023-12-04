@@ -14,14 +14,12 @@ document.addEventListener("DOMContentLoaded", () => {
         el.addEventListener("click", () => {
           // Increase number by 1
           num.stepUp(1);
-          console.log("increased");
         });
       };
 
       decreaseQty = (el, num) => {
         el.addEventListener("click", () => {
           num.stepDown(1);
-          console.log('decreased');
 
           if (num.value < 0) {
             num.value = 0;
@@ -47,8 +45,6 @@ document.addEventListener("DOMContentLoaded", () => {
     var yearArray = [];
 
     const allMems = document.querySelectorAll(".memtype__each");
-
-    console.log(`allMems is ${allMems}`);
 
     allMems.forEach((el) => {
       /** Change Quantity */
@@ -110,15 +106,11 @@ document.addEventListener("DOMContentLoaded", () => {
               count += 1;
             }
 
-            // console.log(`Add count is ${count}`);
-
             if (
               memIncludesWholeHousePlumbing.includes(el.id) &&
               el.querySelector("input").value >= 1
             ) {
               wholeHousePlumbing.classList.add("--mute");
-
-              //   console.log(el.querySelector("input").value);
             }
 
             if (
@@ -212,8 +204,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 .querySelector("#backflow-preventer")
                 .classList.remove("--mute");
             }
-
-            // console.log(`Minus count is ${count}`);
 
             const currSelMonthly = monthArray.indexOf(
               Number(e.target.nextElementSibling.getAttribute("data-monthly"))
