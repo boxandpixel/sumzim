@@ -897,31 +897,4 @@ function smartHomeConnectivityYearly( $content ) {
 
 // Remove <p> and <br/> from Contact Form 7
 add_filter('wpcf7_autop_or_not', '__return_false');
-<<<<<<< Updated upstream
-=======
-
-/** Media Filter: Monthly */
-/*
-add_filter( 'wpcf7_form_elements', 'mediaFilterMonthly' );
-function mediaFilterMonthly( $content ) {
-    $str_pos = strpos( $content, 'value="Media Filter"' );
-    if ( $str_pos !== false ) {
-        $content = substr_replace( $content, ' data-monthly="5.42" ', $str_pos, 0 );
-    }
-    return $content;
-}
-*/
-/** Media Filter */
-/*
-add_filter( 'wpcf7_form_elements', 'mediaFilterYearly' );
-function mediaFilterYearly( $content ) {
-    $str_pos = strpos( $content, 'value="Media Filter"' );
-    if ( $str_pos !== false ) {
-        $content = substr_replace( $content, ' data-yearly="65.00" ', $str_pos, 0 );
-    }
-    return $content;
-}
-*/
->>>>>>> Stashed changes
-
 
