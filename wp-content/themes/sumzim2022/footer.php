@@ -61,18 +61,6 @@
   </script>
 <?php endif; ?>
 
-<!-- SEO tracking script -->
-<script>
- (function (w,d,o,a,m) {
-  w[o]=w[o]||function(){(w[o].q=w[o].q||[]).push(arguments);
-  },w[o].e=1*new Date();a=d.createElement('script'),
-  m=d.getElementsByTagName('script')[0];a.async=1;
-    a.src='https://agent.marketingcloudfx.com/mcfx.js';m.parentNode.insertBefore(a, m);
- })(window, document, 'mcfx');
- mcfx('create', 1141);
-</script>
-<script type="text/javascript" async src="//cdn.leadmanagerfx.com/phone/js/1141"></script>
-
 <!-- phone insertion script begins -->
 <script>
 
