@@ -67,8 +67,7 @@ get_header();
 			$paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
 			$posts = array(
 				'post_type' => 'post',
-				'order' => 'ASC',
-				'orderby' => 'title',
+				'order' => 'DESC',
 				'posts_per_page' => 10,
 				'paged' => $paged,
 			);
@@ -100,8 +99,9 @@ get_header();
 
 				<div class="entry-content">
 					<?php
-					$content = get_the_content();
-					echo wp_trim_words($content, 55, '...');
+					// $content = get_the_content();
+					// echo wp_trim_words($content, 55, '...');
+					the_excerpt();
 
 					// wp_link_pages(
 					// 	array(

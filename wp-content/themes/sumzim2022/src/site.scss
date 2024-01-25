@@ -18,6 +18,7 @@
 @import "./scss/layouts/membership";
 @import "./scss/layouts/hsr"; /* Temp HVAC System Replacements */
 @import "./scss/layouts/through-the-years";
+@import "./scss/layouts/blog-single";
 
 /** Components */
 @import "./scss/components/accessory-features";
@@ -52,6 +53,8 @@
 @import "./scss/components/video-embeds";
 @import "./scss/components/visual-editor";
 @import "./scss/components/wp-classes";
+@import "./scss/components/block__question-answer";
+@import "./scss/components/block__list-wysiwyg";
 
 /** Utilties */
 @import "./scss/util/animUnderline";

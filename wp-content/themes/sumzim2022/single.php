@@ -11,20 +11,9 @@ get_header();
 ?>
 
 	<main id="primary" class="site-main">
-		<!-- Hero -->
-		<?php 
-			$hero_image = get_field('hero_image');
-			$hero_image_default = get_field('hero_image_default', 'option');
-			$hero_subheading = get_field('hero_subheading');
-		?>
-		<div class="hero" style="background: url('<?php if($hero_image): echo $hero_image['url']; else: echo $hero_image_default['url']; endif; ?>') center / cover no-repeat">
-			<div class="hero__page-title">
-				<h1>Blog</h1>
-				<h4><?php echo $hero_subheading; ?></h4>
-			</div>  
-		</div>
 
-		<div class="content__page">
+
+		<div class="content__page blog-single">
 
 			<?php 
 				$display_button = get_field('display_button', 32);

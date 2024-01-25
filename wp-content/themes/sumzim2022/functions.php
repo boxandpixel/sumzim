@@ -898,3 +898,14 @@ function smartHomeConnectivityYearly( $content ) {
 // Remove <p> and <br/> from Contact Form 7
 add_filter('wpcf7_autop_or_not', '__return_false');
 
+/** Block: Question & Answer */
+add_action( 'init', 'register_block_question_answer' );
+function register_block_question_answer() {
+    register_block_type( __DIR__ . '/blocks/question-answer/block.json' );
+}
+
+/** Block: List WYSIWYG */
+add_action( 'init', 'register_block_list_wysiwyg' );
+function register_block_list_wysiwyg() {
+    register_block_type( __DIR__ . '/blocks/list-wysiwyg/block.json' );
+}

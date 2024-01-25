@@ -1,0 +1,14 @@
+{
+    "name": "acf/list-wysiwyg",
+    "title": "List WYSIWYG",
+    "description": "A block for list content that needs to hold content other than just text.",
+    "style": [ "file:./testimonial.css" ],
+    "category": "theme",
+    "icon": "admin-page",
+    "keywords": ["about", "list", "list-wysiwyg"],
+    "acf": {
+        "mode": "edit",
+        "renderTemplate": "list-wysiwyg.php"
+    },
+    "align": "full"
+}

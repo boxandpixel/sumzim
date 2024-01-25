@@ -40,25 +40,68 @@
         /** Uses h2 style from typography.scss */
         font-size: 2rem; //41.6
         line-height: 1.25;
-        font-weight: 700;
+        font-weight: 400;
         margin: 0 0 1rem 0;
+		text-wrap: balance;
 
         @include breakpoint(medium) {
-          font-size: 2.25rem; //36
+			color: var(--color__primary--dark);
+			font-size: 3rem;
+			text-align: center;
         }
       }
     }
 
     & > .entry-content {
+		p,
+		ol li,
+		ul li {
+			font-size: 18px;
+			line-height: 1.5;
+		}
+
+		.wp-block-image {
+			margin-bottom: 1.5rem;
+		}
+
+		.wp-block-quote {
+			margin-top: 1.5rem;
+			margin-bottom: 1.5rem;
+			padding: 2rem 3rem;
+			// background: var(--color__secondary--very-light);
+			background: var(--color__neutral--very-light);
+			border-left: solid 10px var(--color__neutral);
+
+			p {
+				font-size: 1.25rem;
+			}
+
+			&::before {
+				color: var(--color__neutral--light);
+				left: 0;
+				top: 1.25rem;
+			  }
+
+			cite {
+				font-weight: 300;
+				font-size: 1.125rem;
+				
+				&:before {
+					content: "-";
+				}
+			}
+		}
+
       h2 {
         /** Uses h3 style from typography.scss */
         font-size: 1.625rem; // 26
         line-height: 1.25;
         font-weight: 400;
-        margin: 0 0 0.25rem;
+        margin: 0 0 .25rem;
+		color: var(--color__primary--dark);
 
         @include breakpoint(medium) {
-          font-size: 1.875rem; //30
+          font-size: 2rem; //30
         }
 
         & > strong {
@@ -71,7 +114,7 @@
         font-size: 1.375rem; // 22
         line-height: 1.25;
         font-weight: 400;
-        margin: 0 0 0.25rem 0;
+        margin: 0 0 0.25rem;
 
         @include breakpoint(medium) {
           font-size: 1.5rem; // 24
@@ -86,7 +129,7 @@
         /** Uses h5 style from typography.scss */
         font-size: 1.125rem; // 18
         line-height: 1.25;
-        font-weight: 700;
+        font-weight: 600;
         margin: 0 0 0.25rem;
 
         @include breakpoint(medium) {

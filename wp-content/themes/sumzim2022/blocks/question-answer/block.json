@@ -1,0 +1,14 @@
+{
+    "name": "acf/question-answer",
+    "title": "Question & Answer",
+    "description": "A block for the questions and answers (FAQ).",
+    "style": [ "file:./testimonial.css" ],
+    "category": "theme",
+    "icon": "admin-page",
+    "keywords": ["about", "faq", "question-answer"],
+    "acf": {
+        "mode": "edit",
+        "renderTemplate": "question-answer.php"
+    },
+    "align": "full"
+}
