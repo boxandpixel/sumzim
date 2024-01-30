@@ -291,7 +291,8 @@ get_header();
 		<?php 
 			elseif(get_row_layout() == 'file_list'):
 				$file_list_header = get_sub_field('file_list_header');   
-				$file_list_is_horizontal = get_sub_field('is_horizontal');    
+				$file_list_is_horizontal = get_sub_field('is_horizontal'); 
+				
 		?>
 			<!-- File List Module -->
 			<div class="file-list">
@@ -302,11 +303,15 @@ get_header();
 				?>
 				<?php if(have_rows('file_list')): ?>
 				<ul class="file-list__list<?php if($file_list_is_horizontal): echo ' --file-list__is-horizontal'; endif; ?>">
-					<?php while(have_rows('file_list')): the_row(); 
+					<?php while(have_rows('file_list')): the_row(); ?>
+					<?php
 						$file_list_item = get_sub_field('file_list_item');
+						$file_list_item_target = $file_list_item['target'] ? $file_list_item['target'] : '_self';
+						$file_list_item_rel = get_sub_field('file_list_item_rel_attribute');
 					?>
+					
 					<li class="file-list__list-item">
-						<?php echo $file_list_item; ?>
+						<a href="<?php echo $file_list_item['url']; ?>" rel="<?php echo $file_list_item_rel; ?>" target="<?php echo $file_list_item_target; ?>"><?php echo $file_list_item['title']; ?></a>
 					</li>
 					<?php endwhile; ?>
 				</ul>
@@ -371,27 +376,33 @@ get_header();
 
 							<?php 
 								elseif(get_row_layout() == 'file_list'): 
-									$file_list_header = get_sub_field('file_list_header');
+
+								$file_list_header = get_sub_field('file_list_header');   
+								$file_list_is_horizontal = get_sub_field('is_horizontal');	
 							?>
-						
-						<div class="file-list">
-							<?php
-								if($file_list_header):
-									echo $file_list_header;
-								endif;
-							?>
-							<?php if(have_rows('file_list')): ?>
-							<ul class="file-list__list">
-								<?php while(have_rows('file_list')): the_row(); 
-									$file_list_item = get_sub_field('file_list_item');
+							<!-- File List Module -->
+							<div class="file-list">
+								<?php
+									if($file_list_header):
+										echo $file_list_header;
+									endif;
 								?>
-								<li class="file-list__list-item">
-									<?php echo $file_list_item; ?>
-								</li>
-								<?php endwhile; ?>
-							</ul>
-							<?php endif; ?>
-						</div>
+								<?php if(have_rows('file_list')): ?>
+								<ul class="file-list__list<?php if($file_list_is_horizontal): echo ' --file-list__is-horizontal'; endif; ?>">
+									<?php while(have_rows('file_list')): the_row(); ?>
+									<?php
+										$file_list_item = get_sub_field('file_list_item');
+										$file_list_item_target = $file_list_item['target'] ? $file_list_item['target'] : '_self';
+										$file_list_item_rel = get_sub_field('file_list_item_rel_attribute');
+									?>
+									
+									<li class="file-list__list-item">
+										<a href="<?php echo $file_list_item['url']; ?>" rel="<?php echo $file_list_item_rel; ?>" target="<?php echo $file_list_item_target; ?>"><?php echo $file_list_item['title']; ?></a>
+									</li>
+									<?php endwhile; ?>
+								</ul>
+								<?php endif; ?>
+							</div>							
 							<?php endif; ?>
 
 						<?php endwhile; ?>
