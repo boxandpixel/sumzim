@@ -68,12 +68,10 @@
       'schedule-an-appointment',
     ))):
   ?>
-  <script defer data-api-key="ckgglkkxp00ni07qd3tkfudr5" data-static-container-id="se-container" data-custom-field-1="https://www." id="se-widget-embed" src="https://embed.scheduleengine.net/schedule-engine-v2.js"
-  ></script>
+  	<script data-api-key="ckgglkkxp00ni07qd3tkfudr5" data-defer="true" id="se-widget-embed" src="https://embed.scheduleengine.net/schedule-engine-v3.js"></script>
 
   <?php else: ?>
-  <script defer data-api-key="ckgglkkxp00ni07qd3tkfudr5" id="se-widget-embed"
-  src="https://embed.scheduleengine.net/schedule-engine-v3.js" ></script>
+	<script data-api-key="ckgglkkxp00ni07qd3tkfudr5" data-defer="true" id="se-widget-embed" src="https://embed.scheduleengine.net/schedule-engine-v3.js"></script>
 
   <?php endif; ?>
   
