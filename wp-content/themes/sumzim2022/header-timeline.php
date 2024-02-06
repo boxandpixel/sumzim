@@ -65,7 +65,7 @@
   <!-- Schedule Engine -->
   <?php if(is_page(array('schedule-an-appointment'))): ?>
 
-	<script defer data-api-key="ckgglkkxp00ni07qd3tkfudr5" data-static-container-id="se-container" data-custom-field-1="https://www." id="se-widget-embed" src="https://embed.scheduleengine.net/schedule-engine-v2.js"
+	<script defer data-api-key="ckgglkkxp00ni07qd3tkfudr5" data-static-container-id="se-container" data-custom-field-1="https://www." id="se-widget-embed" src="https://embed.scheduleengine.net/schedule-engine-v3.js"
   ></script>
 
   <?php else: ?>
