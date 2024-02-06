@@ -73,7 +73,7 @@
 
   <?php else: ?>
   <script defer data-api-key="ckgglkkxp00ni07qd3tkfudr5" id="se-widget-embed"
-  src="https://embed.scheduleengine.net/schedule-engine-v2.js" ></script>
+  src="https://embed.scheduleengine.net/schedule-engine-v3.js" ></script>
 
   <?php endif; ?>
   
