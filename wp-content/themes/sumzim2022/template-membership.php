@@ -819,7 +819,6 @@ get_header();
 						</div>
 
 					<a href="/reviews" class="button button--primary">See More Reviews</a>
-					<img src="/wp-content/themes/sumzim2022/src/images/sz-logo-text-only.svg" alt="">
 				</div>
 			</div>
 		</div>
