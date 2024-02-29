@@ -1,0 +1,80 @@
+@at-root{
+	@keyframes schedulerFadeIn {
+		0% { 
+			background-color: transparent; 
+		}
+		100% { 
+			background-color: hsla(0, 0%, 5%, 0.9);
+		} 
+	}
+
+	@keyframes schedulerFadeOut {
+		0% { 
+			background-color: hsla(0, 0%, 5%, 0.9);
+		}
+		100% { 
+			background-color: transparent; 
+		} 
+	}	
+
+	@keyframes schedulerModalFadeIn {
+		0% { 
+			background-color: transparent; 
+		}
+		100% { 
+			background-color: white;
+		} 
+	}
+
+	@keyframes schedulerModalFadeOut {
+		0% { 
+			background-color: white;
+		} 
+		
+		100% { 
+			background-color: transparent; 
+		}
+	}	
+}
+
+
+#scheduler-modal {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 9999;
+	display: none;
+
+	&.--active {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		animation: schedulerFadeIn .2s ease-in forwards;
+		
+	}
+
+	#scheduler-container {
+		width: 60%;
+		min-height: 30vh;
+		position: relative;
+		animation: schedulerModalFadeIn .2s ease-in forwards;
+		animation-delay: .2s;
+		border-radius: 20px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		#scheduler-close {
+			position: absolute;
+			top: 0;
+			right: 0;
+			background: none;
+			border: none;
+			width: 44px;
+			height: 44px;
+
+		}
+	}
+}

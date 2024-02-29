@@ -30,9 +30,9 @@ get_header();
             <h1 class="--variable-background home__heroHeadline"><?php echo $hero_headline ?></h1>
           <?php endif ?>
           
-          <?php if($hero_link): ?>
-            <button class="se-widget-button button button-cta button--schedule button--large book-now-button" onclick="ScheduleEngine.show()">Book Now</button>
-          <?php endif; ?>
+          
+        <button id="invokeScheduler" class="button button-cta button--schedule button--large book-now-button">Test Book Now</button>
+          
 		  </div>
 
 	<!-- Featured Cards -->
@@ -526,6 +526,21 @@ get_header();
       </div>
 
 	</main><!-- #main -->
+
+	<div id="scheduler-modal">
+		<div id="scheduler-container">
+			<button id="scheduler-close">
+				<span class="material-symbols-outlined">close</span>
+			</button>
+
+			<form action="" id="scheduler-form">
+				<h4>Do you need maintenance or a repair?</h4>
+
+				<input type="radio" name="typeService[]"> Maintenance
+				<input type="radio" name="typeService[]"> Repair
+			</form>
+		</div>
+	</div>
 
 <?php
 // get_sidebar();
