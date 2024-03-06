@@ -534,10 +534,39 @@ get_header();
 			</button>
 
 			<form action="" id="scheduler-form">
-				<h4>Do you need maintenance or a repair?</h4>
+				
 
-				<input type="radio" name="typeService[]"> Maintenance
-				<input type="radio" name="typeService[]"> Repair
+				<fieldset id="schedulerFieldset-MaintanceOrRepair">
+					<h4>Do you need maintenance or a repair?</h4>
+					<div class="schedulerFieldset__radioButtons">
+						<label class="schedulerField__radioButtonWrap">
+							<input type="radio" name="typeService[]" value="Maintenance" id="schedulerFieldset-Maintenance">
+							Maintenance
+						</label>
+						<label class="schedulerField__radioButtonWrap">
+							<input type="radio" name="typeService[]" value="Repair" id="schedulerFieldset-Repair">
+							Repair
+						</label>
+					</div>
+				</fieldset>
+
+				<fieldset id="schedulerFieldset-Maintenance-howManySystems">
+					<h4>How Many Systems?</h4>
+					<div class="schedulerField-selectWrapper">
+						<select name="" id="">
+							<option value="1" selected>1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+						</select>
+					</div>
+
+				</fieldset>
+				
+				<fieldset id="schedulerFieldset-Maintenance-HVACOrPlumbing">
+					<input type="radio" name="typeService[]"> HVAC
+					<input type="radio" name="typeService[]"> Plumbing
+				</fieldset>
 			</form>
 		</div>
 	</div>

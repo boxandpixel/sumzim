@@ -1,42 +1,95 @@
 @at-root{
 	@keyframes schedulerFadeIn {
 		0% { 
-			background-color: transparent; 
+			// background-color: transparent; 
+			opacity: 0;
 		}
 		100% { 
-			background-color: hsla(0, 0%, 5%, 0.9);
+			// background-color: hsla(0, 0%, 5%, 0.9);
+			opacity: 1;
 		} 
 	}
 
 	@keyframes schedulerFadeOut {
 		0% { 
-			background-color: hsla(0, 0%, 5%, 0.9);
+			// background-color: hsla(0, 0%, 5%, 0.9);
+			opacity: 1;
 		}
 		100% { 
-			background-color: transparent; 
+			opacity: 0;
+			// background-color: red;
 		} 
 	}	
 
 	@keyframes schedulerModalFadeIn {
 		0% { 
-			background-color: transparent; 
+			opacity: 0;
 		}
 		100% { 
-			background-color: white;
+			opacity: 1;
 		} 
 	}
 
 	@keyframes schedulerModalFadeOut {
 		0% { 
-			background-color: white;
+			opacity: 1;
 		} 
 		
 		100% { 
-			background-color: transparent; 
+			opacity: 0;
+		}
+	}	
+
+	@keyframes fieldsetOut {
+		0% {
+			position: relative;
+			left: 0;
+		}
+
+		100% {
+			position: relative;
+			left: calc(100vw * -1);
+		}
+	}
+
+	@keyframes fieldsetIn {
+		0% {
+			position: relative;
+			left: calc(100vw);
+		}
+
+		100% {
+			position: relative;
+			left: calc(100vw * -1);
 		}
 	}	
 }
 
+.--fieldsetOut {
+	animation: fieldsetOut .5s ease-in-out both;
+}
+
+.--fieldsetIn {
+	animation: fieldsetIn .5s ease-in-out both;
+}
+
+.--modalOpen {
+	animation: schedulerFadeIn .2s ease-in forwards;
+	
+}
+
+.--modalClose {
+	animation: schedulerFadeOut .2s ease-in both;
+}
+
+.--modalContainerOpen {
+	animation: schedulerFadeIn .2s ease-in both;
+	
+}
+
+.--modalContainerClose {
+	animation: schedulerFadeOut .2s ease-in both;
+}
 
 #scheduler-modal {
 	position: fixed;
@@ -45,26 +98,17 @@
 	width: 100%;
 	height: 100%;
 	z-index: 9999;
+	background-color: hsla(0, 0%, 5%, 0.9);
 	display: none;
-
-	&.--active {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		animation: schedulerFadeIn .2s ease-in forwards;
-		
-	}
 
 	#scheduler-container {
 		width: 60%;
 		min-height: 30vh;
+		height: 50vh;
 		position: relative;
-		animation: schedulerModalFadeIn .2s ease-in forwards;
-		animation-delay: .2s;
+		background: white;
 		border-radius: 20px;
-		display: flex;
-		justify-content: center;
-		align-items: center;
+		display: none;
 
 		#scheduler-close {
 			position: absolute;
@@ -74,6 +118,119 @@
 			border: none;
 			width: 44px;
 			height: 44px;
+
+		}
+
+		#scheduler-form {
+			width: 100%;
+			height: 100%;
+
+			fieldset {
+				width: 100%;
+				height: 100%;
+				margin: 0;
+				padding: 0;
+				border: 0;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+			}
+
+			fieldset:not(:first-child) {
+				position: relative;
+				left: 100vw;
+			}
+			
+
+			.schedulerFieldset__radioButtons {
+				display: flex;
+				gap: 20px;
+			}
+
+			label.schedulerField__radioButtonWrap {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				width: 200px;
+				height: 40px;
+				position: relative;
+				z-index: 2;
+				border: none;
+				padding: 0;
+				font-family: var(--font);
+				font-weight: 600;
+				color: white;
+
+				input[type="radio"] {
+					position: absolute;
+					top: 0;
+					left: 0;
+					width: 100%;
+					height: 100%;
+					margin: 0;
+					display: block;
+					appearance: none;
+					z-index: -1;
+					background: var(--color__primary--dark);
+					border-radius: 7px;
+
+					&:checked {
+						background: var(--color__secondary);
+					}
+				}
+			}
+
+			.schedulerField-selectWrapper {
+				position: relative;
+				display: inline-block;
+				width: 200px;
+				height: 40px;
+
+				select {
+					appearance: none;
+					width: 100%;
+					height: 100%;
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					border-radius: 7px;
+					text-align: center;
+					// padding-right: 44px;
+					background: transparent;
+					font-family: var(--font);
+					font-weight: 600;
+					background: var(--color__primary--dark);
+					color: white;
+
+					&:focus {
+						outline: none;
+						border: none;
+					}
+				}
+
+				&:after {
+					font-family: 'Material Symbols Outlined';
+					content: "\e5cf";
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					position: absolute;
+					font-size: 36px;
+					font-weight: 100;
+					line-height: 1;
+					top: 0;
+					right: 0;
+					width: 44px;
+					height: 100%;
+					z-index: 1;
+					pointer-events: none;
+					// background: hsla(0, 100%, 100%, 0.5);
+					text-align: center;
+					color: white;
+					
+				}
+			}
 
 		}
 	}
