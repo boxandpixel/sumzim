@@ -553,7 +553,7 @@ get_header();
 				<fieldset id="schedulerFieldset-Maintenance-howManySystems">
 					<h4>How Many Systems?</h4>
 					<div class="schedulerField-selectWrapper">
-						<select name="" id="">
+						<select name="" id="schedulerFieldset-Maintenance__howManySystems">
 							<option value="1" selected>1</option>
 							<option value="2">2</option>
 							<option value="3">3</option>
@@ -567,6 +567,9 @@ get_header();
 					<input type="radio" name="typeService[]"> HVAC
 					<input type="radio" name="typeService[]"> Plumbing
 				</fieldset>
+
+				<button id="fieldsetNav">Back</button>
+				
 			</form>
 		</div>
 	</div>
