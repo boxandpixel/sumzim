@@ -104,7 +104,7 @@
 	#scheduler-container {
 		width: 60%;
 		min-height: 30vh;
-		height: 50vh;
+		height: 60vh;
 		position: relative;
 		background: white;
 		border-radius: 20px;
@@ -128,20 +128,13 @@
 			position: relative;
 			overflow: hidden;
 
-			#fieldsetNav {
-				position: absolute;
-				bottom: 0;
-				left: 50%;
-				transform: translateX(-50%);
-				display: none;
-				z-index: 2;
-			}
+
 
 			fieldset {
 				width: 100%;
 				height: 100%;
 				margin: 0;
-				padding: 0;
+				padding: 50px;
 				border: 0;
 				display: flex;
 				flex-direction: column;
@@ -149,6 +142,95 @@
 				justify-content: center;
 				position: relative;
 				z-index: 1;
+
+				.fieldsetNav {
+					position: absolute;
+					bottom: 30px;
+					left: 50%;
+					transform: translateX(-50%);
+					width: 100%;
+					display: flex;
+					justify-content: center;
+					gap: 50px;
+
+					.fieldsetNav--next {
+						font-family: var(--font);
+						background: none;
+						border: none;
+						color: var(--color__primary--dark);
+						position: relative;
+						line-height: 32px;
+						text-transform: uppercase;
+						display: inline-block;
+
+						&:disabled {
+							color: var(--color__neutral);
+
+							&:before {
+								border: solid 1px var(--color__neutral);
+								background: white;
+								color: var(--color__neutral);
+							}
+						}
+
+						&:hover {
+							text-decoration: underline;
+						}
+
+						&:before {
+							width: 32px;
+							height: 32px;
+							content: "\e5cc";
+							font-size: 1.5rem;
+							position: absolute;
+							top: 0;
+							right: -32px;
+							// border: solid 1px var(--color__neutral);
+							background: var(--color__primary--dark);
+							color: white;
+							border-radius: 50%;
+							font-family: "Material Symbols Outlined";
+							font-weight: 200;
+						}
+					}					
+					
+					.fieldsetNav--back {
+						font-family: var(--font);
+						background: none;
+						border: none;
+						color: var(--color__primary--dark);
+						position: relative;
+						line-height: 32px;
+						text-transform: uppercase;
+						display: inline-block;
+
+						&:hover {
+							text-decoration: underline;
+						}
+
+						&:before {
+							width: 32px;
+							height: 32px;
+							content: "\e5cb";
+							font-size: 1.5rem;
+							position: absolute;
+							top: 0;
+							left: -32px;
+							border: solid 1px var(--color__primary--dark);
+							color: var(--color__primary--dark);
+							border-radius: 50%;
+							font-family: "Material Symbols Outlined";
+							font-weight: 200;
+						}						
+					}
+				}
+
+			}
+
+			fieldset:first-child {
+				position: absolute;
+				// top: 100vh;
+				left: 100vw;
 			}
 
 			fieldset:not(:first-child) {
@@ -159,10 +241,13 @@
 
 			.schedulerFieldset__radioButtons {
 				display: flex;
+				flex-wrap: wrap;
+				justify-content: center;
 				gap: 20px;
 			}
 
-			label.schedulerField__radioButtonWrap {
+			label.schedulerField__radioButtonWrap,
+			label.schedulerField__checkboxWrap {
 				display: flex;
 				justify-content: center;
 				align-items: center;
@@ -174,9 +259,13 @@
 				padding: 0;
 				font-family: var(--font);
 				font-weight: 600;
-				color: white;
 
-				input[type="radio"] {
+				&:has(input:checked) {
+					color: white;
+				}
+
+				input[type="radio"],
+				input[type="checkbox"] {
 					position: absolute;
 					top: 0;
 					left: 0;
@@ -186,11 +275,14 @@
 					display: block;
 					appearance: none;
 					z-index: -1;
-					background: var(--color__primary--dark);
+					background: white;
+					border: solid 1px var(--color__primary--dark);
 					border-radius: 7px;
+					color: var(--color__primary--dark);
 
 					&:checked {
-						background: var(--color__secondary);
+						background: var(--color__primary--dark);
+						color: red;
 					}
 				}
 			}
@@ -243,6 +335,18 @@
 					text-align: center;
 					color: white;
 					
+				}
+			}
+
+			.schedulerFieldset__textArea {
+				width: 70%;
+				textarea {
+					border: solid 1px var(--color__primary--dark);
+					padding: 1rem;
+					font-family: var(--font);
+					font-size: 1rem;
+					resize: none;
+					width: 100%;
 				}
 			}
 

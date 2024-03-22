@@ -536,21 +536,45 @@ get_header();
 			<form action="" id="scheduler-form">
 				
 
-				<fieldset id="schedulerFieldset-MaintanceOrRepair">
+				<fieldset id="schedulerFieldset--maintenanceOrRepair">
 					<h4>Do you need maintenance or a repair?</h4>
 					<div class="schedulerFieldset__radioButtons">
 						<label class="schedulerField__radioButtonWrap">
-							<input type="radio" name="typeService[]" value="Maintenance" id="schedulerFieldset-Maintenance">
+							<input type="radio" name="typeService[]" value="Maintenance" id="schedulerFieldset--maintenance" data-next="schedulerFieldset--maintenance--howManySystems">
 							Maintenance
 						</label>
 						<label class="schedulerField__radioButtonWrap">
-							<input type="radio" name="typeService[]" value="Repair" id="schedulerFieldset-Repair">
+							<input type="radio" name="typeService[]" value="Repair" id="schedulerFieldset--repair" data-next="schedulerFieldset--repair--haveMembership">
 							Repair
 						</label>
 					</div>
+
+					<div class="fieldsetNav">
+						<button class="fieldsetNav--next" disabled>Next</button>	
+					</div>
+									
 				</fieldset>
 
-				<fieldset id="schedulerFieldset-Maintenance-howManySystems">
+				<fieldset id="schedulerFieldset--repair--haveMembership">
+					<h4>Do you have a membership?</h4>
+					<div class="schedulerFieldset__radioButtons">
+						<label class="schedulerField__radioButtonWrap">
+							<input type="radio" name="typeService[]" value="Yes" id="schedulerFieldset--repair--hasMembership">
+							Yes
+						</label>
+						<label class="schedulerField__radioButtonWrap">
+							<input type="radio" name="typeService[]" value="No" id="schedulerFieldset--repair--noMembership">
+							No
+						</label>
+					</div>
+
+					<div class="fieldsetNav">
+					<button class="fieldsetNav--back">Back</button>	
+						<button class="fieldsetNav--next" disabled>Next</button>		
+					</div>		
+				</fieldset>				
+
+				<fieldset id="schedulerFieldset--maintenance--howManySystems">
 					<h4>How Many Systems?</h4>
 					<div class="schedulerField-selectWrapper">
 						<select name="" id="schedulerFieldset-Maintenance__howManySystems">
@@ -561,15 +585,151 @@ get_header();
 						</select>
 					</div>
 
-				</fieldset>
-				
-				<fieldset id="schedulerFieldset-Maintenance-HVACOrPlumbing">
-					<input type="radio" name="typeService[]"> HVAC
-					<input type="radio" name="typeService[]"> Plumbing
-				</fieldset>
+					<div class="fieldsetNav">
+						<button class="fieldsetNav--back">Back</button>	
+						<button class="fieldsetNav--next" disabled>Next</button>		
+					</div>			
 
-				<button id="fieldsetNav">Back</button>
+				</fieldset>
 				
+				<fieldset id="schedulerFieldset--maintenance--hvacOrPlumbing">
+					<h4>HVAC System or Plumbing?</h4>
+					<div class="schedulerFieldset__radioButtons">
+						<label class="schedulerField__radioButtonWrap">
+							<input type="radio" name="typeService[]" id="schedulerField--maintenance--hvac" data-next="schedulerFieldset--maintenance--hvacSystems">
+							HVAC
+						</label>
+
+						<label class="schedulerField__radioButtonWrap">
+							<input type="radio" name="typeService[]" id="schedulerField--maintenance--plumbing" data-next="schedulerFieldset--maintenance--plumbingSystems">
+							Plumbing
+						</label>
+					</div>
+
+					<div class="fieldsetNav">
+					<button class="fieldsetNav--back">Back</button>	
+						<button class="fieldsetNav--next" disabled>Next</button>		
+					</div>
+				</fieldset>
+		
+
+				<fieldset id="schedulerFieldset--maintenance--hvacSystems">
+					<h4>What Type of System?</h4>
+					<div class="schedulerFieldset__radioButtons">
+						<label class="schedulerField__checkboxWrap">
+							<input type="checkbox" name="typeService[]" value="Gas Furnace" class="schedulerField-maintenance-hvacSystem">
+							Gas Furnace
+						</label>
+
+						<label class="schedulerField__checkboxWrap">
+							<input type="checkbox" name="typeService[]" value="Oil Furnace" class="schedulerField-maintenance-hvacSystem">
+							Oil Furnace
+						</label>
+
+						<label class="schedulerField__checkboxWrap">
+							<input type="checkbox" name="typeService[]" value="Heat Pump" class="schedulerField-maintenance-hvacSystem">
+							Heat Pump
+						</label>	
+						
+						<label class="schedulerField__checkboxWrap">
+							<input type="checkbox" name="typeService[]" value="Air Conditioning" class="schedulerField-maintenance-hvacSystem">
+							Air Conditioning
+						</label>			
+						<label class="schedulerField__checkboxWrap">
+							<input type="checkbox" name="typeService[]" value="Gas Boiler" class="schedulerField-maintenance-hvacSystem">
+							Gas Boiler
+						</label>
+						<label class="schedulerField__checkboxWrap">
+							<input type="checkbox" name="typeService[]" value="Oil Boiler" class="schedulerField-maintenance-hvacSystem">
+							Oil Boiler
+						</label>														
+					</div>
+
+					<div class="fieldsetNav">
+					<button class="fieldsetNav--back">Back</button>	
+						<button class="fieldsetNav--next" disabled>Next</button>			
+					</div>
+				</fieldset>	
+
+				<fieldset id="schedulerFieldset--maintenance--plumbingSystems">
+					<h4>What Aspect of Plumbing?</h4>
+					<div class="schedulerFieldset__radioButtons">
+						<label class="schedulerField__checkboxWrap">
+							<input type="radio" name="typeService[]" value="Gas Furnace" class="schedulerField-maintenance-plumbingSystem">
+							Plumbing
+						</label>
+
+						<label class="schedulerField__checkboxWrap">
+							<input type="radio" name="typeService[]" value="Oil Furnace" class="schedulerField-maintenance-plumbingSystem">
+							Water Treatment
+						</label>
+
+						<label class="schedulerField__checkboxWrap">
+							<input type="radio" name="typeService[]" value="Heat Pump" class="schedulerField-schedulerField-maintenance-plumbingSystem">
+							Tankless Water Heater
+						</label>													
+					</div>
+
+					<div class="fieldsetNav">
+						<button class="fieldsetNav--back">Back</button>	
+						<button class="fieldsetNav--next" disabled>Next</button>		
+					</div>
+				</fieldset>					
+
+				<fieldset id="schedulerFieldset--additionalNotes">
+					<h4>Additional Notes</h4>
+					<div class="schedulerFieldset__textArea">
+						<textarea name="" id="" cols="30" rows="10"></textarea>
+					</div>
+
+					<div class="fieldsetNav">
+					<button class="fieldsetNav--back">Back</button>	
+						<button class="fieldsetNav--next" disabled>Next</button>		
+					</div>	
+				</fieldset>		
+				
+				<fieldset id="schedulerFieldset--contactInfo">
+					<h4>Contact Info</h4>
+					<div class="schedulerFieldset__inputText">
+						<input type="text" id="name" name="name">
+					</div>
+					<div class="schedulerFieldset__inputText">
+						<input type="text" id="street-address" name="street-address">
+					</div>
+					<div class="schedulerFieldset__inputText">
+						<input type="text" id="suite" name="suite">
+					</div>
+					<div class="schedulerFieldset__inputText">
+						<input type="text" id="city" name="city">
+					</div>
+					<div class="schedulerField-selectWrapper">
+						<select name="" id="schedulerFieldset-Maintenance__howManySystems">
+							<option value="Pennsylvania" selected>Pennsylvania</option>
+						</select>
+					</div>
+					<div class="schedulerFieldset__inputText">
+						<input type="text" id="zip-code" name="zip-code">
+					</div>
+					<div class="schedulerFieldset__inputText">
+						<input type="text" id="email-address" name="email-address">
+					</div>
+					<div class="schedulerFieldset__inputText">
+						<input type="text" id="phone-number" name="phone-number">
+					</div>								
+
+					<div class="fieldsetNav">
+						<button class="fieldsetNav--back">Back</button>	
+						<button class="fieldsetNav--next" disabled>Next</button>		
+					</div>
+				</fieldset>		
+				
+				<fieldset id="schedulerFieldset--chooseDate">
+					<h4>Choose Your Date</h4>
+					<div class="schedulerFieldset__datePicker">
+					<input type="date" name="scheduleDate" min="2024-04-01" max="2024-04-30" />
+					</div>
+
+				</fieldset>				
 			</form>
 		</div>
 	</div>
