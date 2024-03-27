@@ -983,24 +983,24 @@ function register_block_list_wysiwyg() {
 		)
 	);
 
-function wp_rocket_add_capabilities() {
-	// gets the author role object
-	$role = get_role('seo-administrator');
+// function wp_rocket_add_capabilities() {
+// 	// gets the author role object
+// 	$role = get_role('seo-administrator');
 	
-	// add a new capability
-	$role->add_cap('rocket_purge_posts', true);
-	$role->add_cap('rocket_purge_cache', true);
-	$role->add_cap('rocket_purge_posts', true);
-	$role->add_cap('rocket_purge_terms', true);
-	$role->add_cap('rocket_purge_users', true);
-	$role->add_cap('rocket_purge_sucuri_cache', true);
-	$role->add_cap('rocket_regenerate_critical_css', true);
-	$role->add_cap('rocket_manage_options', true);
-	$role->add_cap('rocket_regenerate_critical_css', true);
-	$role->add_cap('rocket_purge_cache', true);
-	$role->add_cap('rocket_purge_cloudflare_cache', true);
-	$role->add_cap('rocket_purge_sucuri_cache', true);
-	$role->add_cap('rocket_preload_cache', true);
-	$role->add_cap('rocket_remove_unused_css', true);	
-}
-add_action('init', 'wp_rocket_add_capabilities', 12);
+// 	// add a new capability
+// 	$role->add_cap('rocket_purge_posts', true);
+// 	$role->add_cap('rocket_purge_cache', true);
+// 	$role->add_cap('rocket_purge_posts', true);
+// 	$role->add_cap('rocket_purge_terms', true);
+// 	$role->add_cap('rocket_purge_users', true);
+// 	$role->add_cap('rocket_purge_sucuri_cache', true);
+// 	$role->add_cap('rocket_regenerate_critical_css', true);
+// 	$role->add_cap('rocket_manage_options', true);
+// 	$role->add_cap('rocket_regenerate_critical_css', true);
+// 	$role->add_cap('rocket_purge_cache', true);
+// 	$role->add_cap('rocket_purge_cloudflare_cache', true);
+// 	$role->add_cap('rocket_purge_sucuri_cache', true);
+// 	$role->add_cap('rocket_preload_cache', true);
+// 	$role->add_cap('rocket_remove_unused_css', true);	
+// }
+// add_action('init', 'wp_rocket_add_capabilities', 12);
