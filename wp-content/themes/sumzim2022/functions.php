@@ -911,7 +911,7 @@ function register_block_list_wysiwyg() {
 }
 
 /** Add new user role */
-function add_custom_user_role() {
+
 	add_role( 'seo-admin', 'SEO Administrator',
 		array(
 			'switch_themes' => false,
@@ -982,6 +982,4 @@ function add_custom_user_role() {
 			'setup_network' => false,
 		)
 	);
-}
 
-register_activation_hook( __FILE__, 'add_custom_user_role' );
