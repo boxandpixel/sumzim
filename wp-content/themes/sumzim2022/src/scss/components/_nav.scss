@@ -140,6 +140,11 @@ nav.header__nav {
 
 		&.nav-pay > a {
 			background: var(--color__success);
+			color: white;
+
+			&:hover {
+				background: var(--color__success);
+			}
 
 			&::after {
 				content: "";
@@ -152,16 +157,16 @@ nav.header__nav {
 				transition: width 0.2s ease-in-out;
 				border-bottom-left-radius: 3px;
 				border-bottom-right-radius: 3px;
-			  }
+			}
 	
-			  &:hover {
-				background: hsla(0, 100%, 100%, 1);
-	
+			&:hover {
+				background: var(--color__success);
+
 				&::after {
-				  left: 0;
-				  width: 100%;
+					left: 0;
+					width: 100%;
 				}
-			  }			
+			}			
 		}		
 
         // Mobile Nav
