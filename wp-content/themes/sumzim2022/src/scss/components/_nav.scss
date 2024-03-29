@@ -175,21 +175,39 @@ nav.header__nav {
 
 		  /** Pay Buttons Drop */
 
-		  &.nav-pay > .header__nav-button-drop {
-			background: var(--color__success);
+		  &.nav-pay {
 
-			&:before {
-				position: absolute;
-				top: 0;
-				left: 0;
-				width: 1.5rem;
-				height: 2rem;
-				// background: orange;
-				color: orange;
-				content: "\e5cf";
-				font-family: "Material+Symbols+Outlined";
-				font-size: 1rem;
-			}	
+			.sub-menu {
+				a {
+					background: var(--color__success);
+					color: white;
+				}
+			}
+
+			& > .header__nav-button-drop {
+				background: var(--color__success);
+
+				&:before {
+					position: absolute;
+					top: 0;
+					left: -1px;
+					width: 1.5rem;
+					height: 2rem;
+					color: white;
+					content: "\e5cf";
+					font-family: "Material Symbols Outlined";
+					font-size: 1.375rem;
+					text-indent: 0;
+				}	
+
+				&.header__nav-button-drop--expand-less {
+					background: var(--color__success);
+					&:before {
+						content: "\e5ce";
+					}
+				}				
+			}
+
 		  }
 
           & > .header__nav-button-drop {
