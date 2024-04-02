@@ -546,7 +546,7 @@ get_header();
 						<label class="schedulerField__radioButtonWrap">
 							<input type="radio" name="typeService[]" value="Repair" id="schedulerFieldset--repair" data-next="schedulerFieldset--repair--haveMembership">
 							Repair
-						</label>
+						</label>						
 					</div>
 
 					<div class="fieldsetNav">
@@ -614,7 +614,7 @@ get_header();
 		
 
 				<fieldset id="schedulerFieldset--maintenance--hvacSystems">
-					<h4>What Type of System?</h4>
+					<h4>What Type of HVAC System?</h4>
 					<div class="schedulerFieldset__radioButtons">
 						<label class="schedulerField__checkboxWrap">
 							<input type="checkbox" name="typeService[]" value="Gas Furnace" class="schedulerField-maintenance-hvacSystem">

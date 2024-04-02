@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 		/** Define animations */
 
-		
+		var pathArray = ['schedulerFieldset--maintenanceOrRepair'];
 
 		const fieldsetInit = [
 			{ 
@@ -111,11 +111,13 @@ document.addEventListener("DOMContentLoaded", () => {
 		
 		
 		function navigateBack(currentFieldset, previousFieldset) {
+		
 			
 			currentFieldset.querySelector("button.fieldsetNav--back").addEventListener("click", (e)=> {
-				console.log("back triggered");
 				e.preventDefault();
 				currentFieldset.animate(fieldsetOutRight, fieldsetTiming);
+
+				// const previousFieldset = document.getElementById(pathArray.at(-2));
 				previousFieldset.animate(fieldsetInRight, fieldsetTiming);
 
 				/** Reset previous fields - see if this can be done another way to keep selections */
@@ -125,28 +127,58 @@ document.addEventListener("DOMContentLoaded", () => {
 					field.value = "";
 					field.checked = false;
 				})
-				
+
+				// Disable next button until changed again
+				previousFieldset.querySelector('button.fieldsetNav--next').disabled = true;
 
 				/** Reset the current fieldset after the duration of the animation */
 				setTimeout(() => {
 					currentFieldset = '';
-				}, 500);				
+					pathArray.pop();
+				}, 500);	
+						
 			});
+
+
 
 		};
 
-		function navigateNext(currentFieldset, nextFieldset) {
-			console.log("triggered");
+		function navigateNext(currentFieldset, getInputs) {
+			
+			// It seems to be remembering any currentFieldset that was selected already. 
+			// How do I kill that from memory?
 			currentFieldset.querySelector("button.fieldsetNav--next").addEventListener("click", (e)=> {
 				e.preventDefault();
-				currentFieldset.animate(fieldsetOutLeft, fieldsetTiming);
-				nextFieldset.animate(fieldsetInLeft, fieldsetTiming);
+				
+				// Move current fieldset left
+				// ISSUE: Problem with this line when running again
+				currentFieldset.animate(fieldsetOutLeft, fieldsetTiming);				
+				
+				// If getInputs is an array and option dictates path
+				if(getInputs.length != undefined) {
+					// Determine next fieldset from checked
+					getInputs.forEach((input) => {
+						if(input.checked) {
+							const nextFieldset = document.getElementById(input.getAttribute('data-next'));
+							nextFieldset.animate(fieldsetInLeft, fieldsetTiming);
+							// ISSUE: Pushing dupliate when doing this again
+							pathArray.push(nextFieldset.id);
+							
+						}
+					});
+				} else {
+					getInputs.animate(fieldsetInLeft, fieldsetTiming);
+					pathArray.push(getInputs.id);
+
+				}
 
 				/** Reset the current fieldset after the duration of the animation */
 				setTimeout(() => {
-					currentFieldset = '';
-				}, 500);	
+					// currentFieldset = '';
+				}, 500);			
 			});
+
+	
 		
 		}
 
@@ -305,15 +337,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
 			let callback = (entries) => {
 				entries.forEach((entry) => {
-					if (entry.intersectionRatio > 0) {
+					// was > 0
+					if (entry.intersectionRatio == 1) {
 
-						console.log(`The ${entry.target.id} fieldset is in view`);
-						const rect = document.getElementById("schedulerFieldset--maintenance--hvacSystems").getBoundingClientRect();
-						console.log(rect.top, rect.right, rect.bottom, rect.left)
+
+
 
 						/** Maintenance or Repair */
 						if(entry.target.id == "schedulerFieldset--maintenanceOrRepair") {
 
+							// Current state of path
+							console.log(pathArray);
 
 							/** Disable next/previous buttons */
 							const buttonNext = entry.target.querySelector("button.fieldsetNav--next");
@@ -330,37 +364,13 @@ document.addEventListener("DOMContentLoaded", () => {
 								});
 							});
 
-							/** Determine selected radio and animate accordingly */
-							function getSelected() {
-								for(i = 0; i < getInputs.length; i++) {
-									if(getInputs[i].checked) {
-
-										/** Define current and next fieldset vars */
-										let currentFieldset = getInputs[i].closest("fieldset");
-										let nextFieldset = document.getElementById(getInputs[i].getAttribute('data-next'));
-
-										/** animate fieldsets */
-										currentFieldset.animate(fieldsetOutLeft, fieldsetTiming);
-										nextFieldset.animate(fieldsetInLeft, fieldsetTiming);
-
-										/** Reset the current fieldset after the duration of the animation */
-										setTimeout(() => {
-											currentFieldset = '';
-										}, 500);										
-									}
-								}
-							}
-
-							/** Invoke selected animation */
-							buttonNext.addEventListener("click", (e)=> {
-								e.preventDefault();
-								getSelected();
-							});
+							navigateNext(entry.target, schedulerFieldset__maintenance__howManySystems);
 						}
 
 						/** Maintenance: How Many Systems */
 						if(entry.target.id == "schedulerFieldset--maintenance--howManySystems") {
-							console.log(`${entry.target.id} in view`);
+							// Current state of path
+							console.log(pathArray);
 
 							/** Get Next Button */
 							const buttonNext = entry.target.querySelector("button.fieldsetNav--next");
@@ -384,7 +394,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 						/** Maintenance: HVAC or Plumbing */
 						if(entry.target.id == "schedulerFieldset--maintenance--hvacOrPlumbing") {
-							console.log(`${entry.target.id}: HVAC or Plumbing in view`);
+							// console.log(`${entry.target.id}: HVAC or Plumbing in view`);
 							/** Copy of Maintenance or Plumbing */
 
 							/** Get Next Button */
@@ -402,37 +412,37 @@ document.addEventListener("DOMContentLoaded", () => {
 								});
 							});
 
-							/** Determine selected radio and animate accordingly */
-							function getSelected() {
-								for(i = 0; i < getInputs.length; i++) {
-									if(getInputs[i].checked) {
+							// /** Determine selected radio and animate accordingly */
+							// function getSelected() {
+							// 	for(i = 0; i < getInputs.length; i++) {
+							// 		if(getInputs[i].checked) {
 
-										// console.log(`${getInputs[i].id} is selected`);
-										/** Define current and next fieldset vars */
-										let currentFieldset = getInputs[i].closest("fieldset");
-										let nextFieldset = document.getElementById(getInputs[i].getAttribute('data-next'));
+							// 			// console.log(`${getInputs[i].id} is selected`);
+							// 			/** Define current and next fieldset vars */
+							// 			let currentFieldset = getInputs[i].closest("fieldset");
+							// 			let nextFieldset = document.getElementById(getInputs[i].getAttribute('data-next'));
 										
-										/** animate fieldsets */
-										currentFieldset.animate(fieldsetOutLeft, fieldsetTiming);
-										nextFieldset.animate(fieldsetInLeft, fieldsetTiming);
+							// 			/** animate fieldsets */
+							// 			currentFieldset.animate(fieldsetOutLeft, fieldsetTiming);
+							// 			nextFieldset.animate(fieldsetInLeft, fieldsetTiming);
 
-										/** Reset the current fieldset after the duration of the animation */
-										setTimeout(() => {
-											currentFieldset = '';
-										}, 500);										
-									}
-								}
-							}
+							// 			/** Reset the current fieldset after the duration of the animation */
+							// 			setTimeout(() => {
+							// 				currentFieldset = '';
+							// 			}, 500);										
+							// 		}
+							// 	}
+							// }
 
-							/** Invoke selected animation */
-							buttonNext.addEventListener("click", (e)=> {
-								e.preventDefault();
-								getSelected();
-							});							
+							// /** Invoke selected animation */
+							// buttonNext.addEventListener("click", (e)=> {
+							// 	e.preventDefault();
+							// 	getSelected();
+							// });							
 
 							/** Navigate next is handled by above code */
 							navigateBack(entry.target, schedulerFieldset__maintenance__howManySystems);
-
+							navigateNext(entry.target, getInputs);
 						}						
 
 						/** Maintenance: HVAC Systems */
