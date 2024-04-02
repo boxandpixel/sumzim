@@ -577,8 +577,9 @@ get_header();
 				<fieldset id="schedulerFieldset--maintenance--howManySystems">
 					<h4>How Many Systems?</h4>
 					<div class="schedulerField-selectWrapper">
-						<select name="" id="schedulerFieldset-Maintenance__howManySystems">
-							<option value="1" selected>1</option>
+						<select name="" id="schedulerFieldset-Maintenance__howManySystems" data-next="schedulerFieldset--maintenance--hvacOrPlumbing">
+							<option selected># of systems</option>
+							<option value="1">1</option>
 							<option value="2">2</option>
 							<option value="3">3</option>
 							<option value="4">4</option>
@@ -616,37 +617,37 @@ get_header();
 				<fieldset id="schedulerFieldset--maintenance--hvacSystems">
 					<h4>What Type of HVAC System?</h4>
 					<div class="schedulerFieldset__radioButtons">
-						<label class="schedulerField__checkboxWrap">
-							<input type="checkbox" name="typeService[]" value="Gas Furnace" class="schedulerField-maintenance-hvacSystem">
+						<label class="schedulerField__radioButtonWrap">
+							<input type="radio" name="typeService[]" value="Gas Furnace" class="schedulerField-maintenance-hvacSystem" data-next="schedulerFieldset--additionalNotes">
 							Gas Furnace
 						</label>
 
-						<label class="schedulerField__checkboxWrap">
-							<input type="checkbox" name="typeService[]" value="Oil Furnace" class="schedulerField-maintenance-hvacSystem">
+						<label class="schedulerField__radioButtonWrap">
+							<input type="radio" name="typeService[]" value="Oil Furnace" class="schedulerField-maintenance-hvacSystem" data-next="schedulerFieldset--additionalNotes">
 							Oil Furnace
 						</label>
 
-						<label class="schedulerField__checkboxWrap">
-							<input type="checkbox" name="typeService[]" value="Heat Pump" class="schedulerField-maintenance-hvacSystem">
+						<label class="schedulerField__radioButtonWrap">
+							<input type="radio" name="typeService[]" value="Heat Pump" class="schedulerField-maintenance-hvacSystem" data-next="schedulerFieldset--additionalNotes">
 							Heat Pump
 						</label>	
 						
-						<label class="schedulerField__checkboxWrap">
-							<input type="checkbox" name="typeService[]" value="Air Conditioning" class="schedulerField-maintenance-hvacSystem">
+						<label class="schedulerField__radioButtonWrap">
+							<input type="radio" name="typeService[]" value="Air Conditioning" class="schedulerField-maintenance-hvacSystem" data-next="schedulerFieldset--additionalNotes">
 							Air Conditioning
 						</label>			
-						<label class="schedulerField__checkboxWrap">
-							<input type="checkbox" name="typeService[]" value="Gas Boiler" class="schedulerField-maintenance-hvacSystem">
+						<label class="schedulerField__radioButtonWrap">
+							<input type="radio" name="typeService[]" value="Gas Boiler" class="schedulerField-maintenance-hvacSystem" data-next="schedulerFieldset--additionalNotes">
 							Gas Boiler
 						</label>
-						<label class="schedulerField__checkboxWrap">
-							<input type="checkbox" name="typeService[]" value="Oil Boiler" class="schedulerField-maintenance-hvacSystem">
+						<label class="schedulerField__radioButtonWrap">
+							<input type="radio" name="typeService[]" value="Oil Boiler" class="schedulerField-maintenance-hvacSystem" data-next="schedulerFieldset--additionalNotes">
 							Oil Boiler
 						</label>														
 					</div>
 
 					<div class="fieldsetNav">
-					<button class="fieldsetNav--back">Back</button>	
+						<button class="fieldsetNav--back">Back</button>	
 						<button class="fieldsetNav--next" disabled>Next</button>			
 					</div>
 				</fieldset>	

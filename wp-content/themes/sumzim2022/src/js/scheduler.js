@@ -110,15 +110,19 @@ document.addEventListener("DOMContentLoaded", () => {
 		const schedulerFieldset__maintenanceOrRepair = document.getElementById("schedulerFieldset--maintenanceOrRepair");
 		
 		
-		function navigateBack(currentFieldset, previousFieldset) {
+		function navigateBack(currentFieldset) {
 		
 			
 			currentFieldset.querySelector("button.fieldsetNav--back").addEventListener("click", (e)=> {
 				e.preventDefault();
+				
+				
+
 				currentFieldset.animate(fieldsetOutRight, fieldsetTiming);
 
-				// const previousFieldset = document.getElementById(pathArray.at(-2));
+				const previousFieldset = document.getElementById(pathArray.at(-2));	
 				previousFieldset.animate(fieldsetInRight, fieldsetTiming);
+				console.log(previousFieldset);
 
 				/** Reset previous fields - see if this can be done another way to keep selections */
 				const previousFields = previousFieldset.querySelectorAll("input, select, checkbox, textarea");
@@ -126,7 +130,9 @@ document.addEventListener("DOMContentLoaded", () => {
 				previousFields.forEach((field) => {
 					field.value = "";
 					field.checked = false;
-				})
+				});
+
+				pathArray = pathArray.filter(e => e !== currentFieldset.id);
 
 				// Disable next button until changed again
 				previousFieldset.querySelector('button.fieldsetNav--next').disabled = true;
@@ -134,7 +140,6 @@ document.addEventListener("DOMContentLoaded", () => {
 				/** Reset the current fieldset after the duration of the animation */
 				setTimeout(() => {
 					currentFieldset = '';
-					pathArray.pop();
 				}, 500);	
 						
 			});
@@ -143,34 +148,43 @@ document.addEventListener("DOMContentLoaded", () => {
 
 		};
 
-		function navigateNext(currentFieldset, getInputs) {
+		function navigateNext(currentFieldset, nextFieldset) {
 			
-			// It seems to be remembering any currentFieldset that was selected already. 
-			// How do I kill that from memory?
+			// Gets current inputs from entry.target before slide moves out
+			// const currentInputs = currentFieldset.querySelectorAll("input, select, checkbox, textarea");
+
 			currentFieldset.querySelector("button.fieldsetNav--next").addEventListener("click", (e)=> {
 				e.preventDefault();
-				
+
 				// Move current fieldset left
-				// ISSUE: Problem with this line when running again
-				currentFieldset.animate(fieldsetOutLeft, fieldsetTiming);				
+				currentFieldset.animate(fieldsetOutLeft, fieldsetTiming);	
 				
-				// If getInputs is an array and option dictates path
-				if(getInputs.length != undefined) {
-					// Determine next fieldset from checked
-					getInputs.forEach((input) => {
+				// Test getInputs length
+				console.log(`Next Fieldset is ${nextFieldset.length}`);
+
+				
+				// console.log(nextFieldset);
+
+				if(nextFieldset.length > 1) {
+					console.log(nextFieldset);
+					nextFieldset.forEach((input) => {
 						if(input.checked) {
+							console.log(`Input is ${input.id} and data-next is ${input.getAttribute('data-next')}`);
 							const nextFieldset = document.getElementById(input.getAttribute('data-next'));
 							nextFieldset.animate(fieldsetInLeft, fieldsetTiming);
-							// ISSUE: Pushing dupliate when doing this again
-							pathArray.push(nextFieldset.id);
-							
-						}
+							if (pathArray.includes(input.getAttribute('data-next')) === false) pathArray.push(input.getAttribute('data-next'));
+							// pathArray = pathArray.filter(e => e !== undefined);
+						} 
 					});
-				} else {
-					getInputs.animate(fieldsetInLeft, fieldsetTiming);
-					pathArray.push(getInputs.id);
-
-				}
+				} else if(nextFieldset.length == 1) {
+					console.log(nextFieldset);
+					nextFieldset.forEach((input) => {
+						console.log(input);
+						const nextFieldset = document.getElementById(input.getAttribute('data-next'));
+						nextFieldset.animate(fieldsetInLeft, fieldsetTiming);
+						if (pathArray.includes(nextFieldset.id) === false) pathArray.push(nextFieldset.id);
+					});				
+				} 
 
 				/** Reset the current fieldset after the duration of the animation */
 				setTimeout(() => {
@@ -338,7 +352,7 @@ document.addEventListener("DOMContentLoaded", () => {
 			let callback = (entries) => {
 				entries.forEach((entry) => {
 					// was > 0
-					if (entry.intersectionRatio == 1) {
+					if (entry.intersectionRatio > 0) {
 
 
 
@@ -360,15 +374,39 @@ document.addEventListener("DOMContentLoaded", () => {
 								input.addEventListener("change", () => {
 									/** Remove the disabled attribute */
 									buttonNext.removeAttribute("disabled");	
-								
 								});
 							});
 
-							navigateNext(entry.target, schedulerFieldset__maintenance__howManySystems);
+							navigateNext(entry.target, getInputs);
 						}
 
 						/** Maintenance: How Many Systems */
 						if(entry.target.id == "schedulerFieldset--maintenance--howManySystems") {
+							// Current state of path
+							console.log(pathArray);
+
+							/** Define buttons */
+							const buttonNext = entry.target.querySelector("button.fieldsetNav--next");
+							
+							/** Get inputs */
+							const getInputs = entry.target.querySelectorAll("input, select, checkbox, textarea");
+							
+							/** Enable the next/previous buttons after radio change */
+							getInputs.forEach((input) => {
+								input.addEventListener("change", () => {
+									/** Remove the disabled attribute */
+									buttonNext.removeAttribute("disabled");	
+								
+								});
+							});
+
+							navigateNext(entry.target, getInputs);
+							navigateBack(entry.target);
+							
+						}
+
+						/** Maintenance: HVAC or Plumbing */
+						if(entry.target.id == "schedulerFieldset--maintenance--hvacOrPlumbing") {
 							// Current state of path
 							console.log(pathArray);
 
@@ -385,68 +423,16 @@ document.addEventListener("DOMContentLoaded", () => {
 									buttonNext.removeAttribute("disabled");	
 								
 								});
-							});
+							});						
 
-							navigateNext(entry.target, schedulerFieldset__maintenance__hvacOrPlumbing);
-							navigateBack(entry.target, schedulerFieldset__maintenanceOrRepair);
-							
-						}
-
-						/** Maintenance: HVAC or Plumbing */
-						if(entry.target.id == "schedulerFieldset--maintenance--hvacOrPlumbing") {
-							// console.log(`${entry.target.id}: HVAC or Plumbing in view`);
-							/** Copy of Maintenance or Plumbing */
-
-							/** Get Next Button */
-							const buttonNext = entry.target.querySelector("button.fieldsetNav--next");
-
-							/** Get radio inputs */
-							const getInputs = entry.target.querySelectorAll("input, select, checkbox, textarea");
-							
-							/** Enable the next/previous buttons after radio change */
-							getInputs.forEach((input) => {
-								input.addEventListener("change", () => {
-									/** Remove the disabled attribute */
-									buttonNext.removeAttribute("disabled");	
-								
-								});
-							});
-
-							// /** Determine selected radio and animate accordingly */
-							// function getSelected() {
-							// 	for(i = 0; i < getInputs.length; i++) {
-							// 		if(getInputs[i].checked) {
-
-							// 			// console.log(`${getInputs[i].id} is selected`);
-							// 			/** Define current and next fieldset vars */
-							// 			let currentFieldset = getInputs[i].closest("fieldset");
-							// 			let nextFieldset = document.getElementById(getInputs[i].getAttribute('data-next'));
-										
-							// 			/** animate fieldsets */
-							// 			currentFieldset.animate(fieldsetOutLeft, fieldsetTiming);
-							// 			nextFieldset.animate(fieldsetInLeft, fieldsetTiming);
-
-							// 			/** Reset the current fieldset after the duration of the animation */
-							// 			setTimeout(() => {
-							// 				currentFieldset = '';
-							// 			}, 500);										
-							// 		}
-							// 	}
-							// }
-
-							// /** Invoke selected animation */
-							// buttonNext.addEventListener("click", (e)=> {
-							// 	e.preventDefault();
-							// 	getSelected();
-							// });							
-
-							/** Navigate next is handled by above code */
-							navigateBack(entry.target, schedulerFieldset__maintenance__howManySystems);
+							navigateBack(entry.target);
 							navigateNext(entry.target, getInputs);
 						}						
 
 						/** Maintenance: HVAC Systems */
 						if(entry.target.id == "schedulerFieldset--maintenance--hvacSystems") {
+							// Current state of path
+							console.log(pathArray);
 
 							/** Get Next Button */
 							const buttonNext = entry.target.querySelector("button.fieldsetNav--next");
@@ -463,8 +449,8 @@ document.addEventListener("DOMContentLoaded", () => {
 								});
 							});							
 
-							navigateNext(entry.target, schedulerFieldset__additionalNotes);
-							navigateBack(entry.target, schedulerFieldset__maintenance__hvacOrPlumbing);
+							navigateNext(entry.target, getInputs);
+							navigateBack(entry.target);
 						}
 						
 						/** Maintenance: Plumbing Systems */
@@ -486,7 +472,7 @@ document.addEventListener("DOMContentLoaded", () => {
 							});							
 
 							navigateNext(entry.target, schedulerFieldset__additionalNotes);
-							navigateBack(entry.target, schedulerFieldset__maintenance__hvacOrPlumbing);
+							navigateBack(entry.target);
 						}	
 						
 						/** BEGIN REPAIR DEFs */
@@ -535,7 +521,7 @@ document.addEventListener("DOMContentLoaded", () => {
 							});							
 
 							navigateNext(entry.target, schedulerFieldset__contactInfo);
-							navigateBack(entry.target, schedulerFieldset__maintenance__hvacOrPlumbing);
+							navigateBack(entry.target);
 
 							/** Should we go back to hvac or plumbing or back to hvac or plumbing? */
 						}	
