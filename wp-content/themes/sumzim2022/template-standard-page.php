@@ -631,6 +631,9 @@ get_header();
 					case "Text Only - No Background";
 						$button_class = 'button--textOnly';
 						break;
+					case "Payment Background";
+						$button_class = 'button--payment';
+						break;
 				}
 
 		?> 

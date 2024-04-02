@@ -45,7 +45,7 @@ button.button-cta,
   &.--cta__new-window {
     background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iNDgiIHdpZHRoPSI0OCI+PHBhdGggZD0iTTQyIDI1LjA1VjM5UTQyIDQwLjIgNDEuMSA0MS4xUTQwLjIgNDIgMzkgNDJIOVE3LjggNDIgNi45IDQxLjFRNiA0MC4yIDYgMzlWOVE2IDcuOCA2LjkgNi45UTcuOCA2IDkgNkgyMi45NVY5SDlROSA5IDkgOVE5IDkgOSA5VjM5UTkgMzkgOSAzOVE5IDM5IDkgMzlIMzlRMzkgMzkgMzkgMzlRMzkgMzkgMzkgMzlWMjUuMDVaTTE5LjEgMzEuMDUgMTcgMjguOSAzNi45IDlIMjUuOTVWNkg0MlYyMi4wNUgzOVYxMS4xNVoiLz48L3N2Zz4=")
       center right / 18px no-repeat;
-    padding: 0 24px 0 0 !important;
+    // padding: 0 24px 0 0 !important;
   }
 
   &.button--textOnly {
@@ -81,6 +81,26 @@ button.button-cta,
       background: var(--color__secondary--dark);
     }
   }
+
+  &.button--payment {
+	font-size: 1.125rem;
+	padding: 1rem 1.125rem;
+	box-shadow:
+	0.3px 0.3px 1px rgba(0, 0, 0, 0.037),
+	0.7px 0.7px 2.3px rgba(0, 0, 0, 0.053),
+	1.3px 1.3px 4.4px rgba(0, 0, 0, 0.065),
+	2.2px 2.2px 7.8px rgba(0, 0, 0, 0.077),
+	4.2px 4.2px 14.6px rgba(0, 0, 0, 0.093),
+	10px 10px 35px rgba(0, 0, 0, 0.13)
+  ;
+    background: var(--color__success);
+    color: white;
+
+    &::after {
+	background: hsla(150, 100%, 20%, 1);
+    }
+  }  
+
 
   &.button--neutral {
     background: var(--color__neutral--light);
