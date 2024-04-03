@@ -2,6 +2,22 @@ button {
   cursor: pointer;
 }
 
+@keyframes financeButtonAnimation {
+	0% {
+		// background-position: 0% 50%;
+		background-color: hsla(150, 100%, 20%, 1);
+	  }
+	
+	  50% {
+		background-color: hsla(150, 50%, 50%, 1);
+
+	  }
+	
+	  100% {
+		background-color: hsla(150, 100%, 20%, 1);
+	  }
+  }
+
 a.button,
 button.button-cta,
 .checkout-button {
@@ -95,6 +111,14 @@ button.button-cta,
   ;
     background: var(--color__success);
     color: white;
+    // background: linear-gradient(
+    //   130deg,
+    //   hsla(150, 100%, 30%, 1),
+    //   hsla(150, 50%, 70%, 1)
+    // );
+	// background: radial-gradient(hsla(150, 100%, 30%, 1), hsla(150, 50%, 70%, 1));
+    // background-size: 200% 200%;
+    animation: financeButtonAnimation 2s ease-in-out infinite;
 
     &::after {
 	background: hsla(150, 100%, 20%, 1);
