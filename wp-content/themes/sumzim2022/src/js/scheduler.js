@@ -9,7 +9,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 		/** Define animations */
 
-		var pathArray = ['schedulerFieldset--maintenanceOrRepair'];
+		// var pathArray = ['schedulerFieldset--maintenanceOrRepair'];
+		var pathArray = [];
 
 		const fieldsetInit = [
 			{ 
@@ -120,6 +121,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
 				currentFieldset.animate(fieldsetOutRight, fieldsetTiming);
 
+				// Tests for previous item in path
+				console.log(pathArray.at[-2]);
+				
 				const previousFieldset = document.getElementById(pathArray.at(-2));	
 				previousFieldset.animate(fieldsetInRight, fieldsetTiming);
 				console.log(previousFieldset);
@@ -172,7 +176,7 @@ document.addEventListener("DOMContentLoaded", () => {
 							console.log(`Input is ${input.id} and data-next is ${input.getAttribute('data-next')}`);
 							const nextFieldset = document.getElementById(input.getAttribute('data-next'));
 							nextFieldset.animate(fieldsetInLeft, fieldsetTiming);
-							if (pathArray.includes(input.getAttribute('data-next')) === false) pathArray.push(input.getAttribute('data-next'));
+							// if (pathArray.includes(input.getAttribute('data-next')) === false) pathArray.push(input.getAttribute('data-next'));
 							// pathArray = pathArray.filter(e => e !== undefined);
 						} 
 					});
@@ -182,7 +186,7 @@ document.addEventListener("DOMContentLoaded", () => {
 						console.log(input);
 						const nextFieldset = document.getElementById(input.getAttribute('data-next'));
 						nextFieldset.animate(fieldsetInLeft, fieldsetTiming);
-						if (pathArray.includes(nextFieldset.id) === false) pathArray.push(nextFieldset.id);
+						// if (pathArray.includes(nextFieldset.id) === false) pathArray.push(nextFieldset.id);
 					});				
 				} 
 
@@ -360,6 +364,9 @@ document.addEventListener("DOMContentLoaded", () => {
 						/** Maintenance or Repair */
 						if(entry.target.id == "schedulerFieldset--maintenanceOrRepair") {
 
+							// Add to path
+							if (pathArray.includes(entry.target.id) === false) pathArray.push(entry.target.id);
+
 							// Current state of path
 							console.log(pathArray);
 
@@ -378,10 +385,16 @@ document.addEventListener("DOMContentLoaded", () => {
 							});
 
 							navigateNext(entry.target, getInputs);
+
+							// if (pathArray.includes(entry.target.id) === false) pathArray.push(entry.target.id);
 						}
 
 						/** Maintenance: How Many Systems */
 						if(entry.target.id == "schedulerFieldset--maintenance--howManySystems") {
+							
+							// Add to path
+							if (pathArray.includes(entry.target.id) === false) pathArray.push(entry.target.id);
+
 							// Current state of path
 							console.log(pathArray);
 
@@ -407,8 +420,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
 						/** Maintenance: HVAC or Plumbing */
 						if(entry.target.id == "schedulerFieldset--maintenance--hvacOrPlumbing") {
+
+							// Add to path
+							if (pathArray.includes(entry.target.id) === false) pathArray.push(entry.target.id);
+
 							// Current state of path
-							console.log(pathArray);
+							console.log(pathArray);							
 
 							/** Get Next Button */
 							const buttonNext = entry.target.querySelector("button.fieldsetNav--next");
@@ -431,8 +448,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
 						/** Maintenance: HVAC Systems */
 						if(entry.target.id == "schedulerFieldset--maintenance--hvacSystems") {
+
+							// Add to path
+							if (pathArray.includes(entry.target.id) === false) pathArray.push(entry.target.id);
+
 							// Current state of path
-							console.log(pathArray);
+							console.log(pathArray);							
 
 							/** Get Next Button */
 							const buttonNext = entry.target.querySelector("button.fieldsetNav--next");
@@ -455,6 +476,12 @@ document.addEventListener("DOMContentLoaded", () => {
 						
 						/** Maintenance: Plumbing Systems */
 						if(entry.target.id == "schedulerFieldset--maintenance--plumbingSystems") {
+
+							// Add to path
+							if (pathArray.includes(entry.target.id) === false) pathArray.push(entry.target.id);
+
+							// Current state of path
+							console.log(pathArray);
 
 							/** Get Next Button */
 							const buttonNext = entry.target.querySelector("button.fieldsetNav--next");
@@ -504,6 +531,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
 						/** Additional Info */
 						if(entry.target.id == "schedulerFieldset--additionalNotes") {
+
+							// Add to path
+							if (pathArray.includes(entry.target.id) === false) pathArray.push(entry.target.id);
+
+							// Current state of path
+							console.log(pathArray);							
 
 							/** Get Next Button */
 							const buttonNext = entry.target.querySelector("button.fieldsetNav--next");
