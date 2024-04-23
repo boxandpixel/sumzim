@@ -193,6 +193,37 @@
 			</button>
 		</div>
 		<?php endif; ?>
+		<!-- <div class="banner__joining-sz">
+			<div>
+				<div class="banner__tommys-electric-logo">
+					<img src="https://sumzim.com.ddev.site/wp-content/uploads/2024/04/sz-minified.png" alt="">
+				</div>
+				<div class="banner__tommys-electric-content">
+					<h3>Tommy's Electric is joining the Summers &amp; Zim's family</h3>
+					<p>Starting May 1, 2024, we will continue to offer the same honest and dependable electrical service as part of a full suite of home services, including plumbing, heating, and air conditioning. </p>
+				</div>	
+			</div>		
+		</div> -->
+
+		<?php 
+			$date = time();
+
+			$contestStart = strtotime('2024-04-24 11:00:00');
+
+			if ($date > $contestStart):
+		?>
+		<div class="banner__tommys-electric">
+			<div>
+				<div class="banner__tommys-electric-logo">
+					<img src="/wp-content/themes/sumzim2022/assets/tommys-electric-logo.png" alt="">
+				</div>
+				<div class="banner__tommys-electric-content">
+					<h3>Tommy's Electric is joining the Summers &amp; Zim's family</h3>
+					<p>Starting May 1, 2024, we will offer a full suite of electrical services for your home needs.</p>
+				</div>	
+			</div>		
+		</div>
+		<?php endif; ?>
 		<header class="site-header">
 		<button class="header__nav-button" aria-haspopup="true" aria-controls="menu-primary-navigation" aria-expanded="false">
 			<span>Open Menu</span>

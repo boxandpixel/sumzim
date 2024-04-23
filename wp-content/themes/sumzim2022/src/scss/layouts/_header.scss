@@ -1,9 +1,99 @@
 @import "../components/nav";
 
+.banner__joining-sz {
+	background: hsla(211, 61%, 12%, 1);
+	padding: 2rem 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.banner__joining-sz > div {
+	max-width: 1180px;
+	display: flex;
+	flex-direction: column;
+	gap: 24px;
+	align-items: center;
+	text-align: center;
+}
+
+@media (min-width: 768px) {
+	.banner__joining-sz > div {
+		flex-direction: row;
+		text-align: left;
+	}
+}
+
+.banner__joining-sz > div img {
+	max-width: 160px;
+}
+
+.banner__joining-sz > div h3 {
+	font-family: var(--font);
+	color: white;
+	margin-bottom: 10px;
+	font-weight: 500;	
+}
+
+.banner__joining-sz > div p {
+	margin-bottom: 0;
+	font-family: var(--font);
+	color: white;	
+}
+
+.banner__tommys-electric {
+	background: #eb283a;
+	padding: 2rem 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	&.--tommys--hide {
+		display: none;
+	}
+
+	& > div {
+		max-width: 1180px;
+		display: flex;
+		flex-direction: column;
+		gap: 24px;
+		align-items: center;
+		text-align: center;
+
+		@include breakpoint(medium) {
+			flex-direction: row;
+			text-align: left;
+		}
+
+		.banner__tommys-electric-logo {
+
+		}
+		
+		.banner__tommys-electric-content {
+	
+			h3 {
+				font-family: var(--font);
+				color: white;
+				margin-bottom: 10px;
+				font-weight: 500;
+			}
+			p {
+				margin-bottom: 0;
+				font-family: var(--font);
+				color: white;
+			}
+		}		
+	}
+}
+
 header.site-header {
   position: fixed;
   width: 100vw;
   z-index: 9999;
+
+  &.header--bannerScroll {
+	top: 0;
+  }
 
   // Mobile Nav
   &.header--static {

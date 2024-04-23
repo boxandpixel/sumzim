@@ -18,11 +18,22 @@ function minimizeHeader() {
   var homeSection = document.querySelector(".home__section");
   let backToTop = document.querySelector(".back-to-top");
 
+  var tommysBanner = document.querySelector(".banner__tommys-electric");
+  var header = document.querySelector(".site-header");
+
   window.addEventListener("scroll", function () {
     if (window.pageYOffset >= 1) {
       if (headerContent) {
         headerContent.classList.add("header__content--min");
       }
+
+	  if(tommysBanner) {
+		tommysBanner.classList.add('--tommys--hide');
+	  }
+
+	  if(header) {
+		header.classList.add('header--bannerScroll');
+	  }
 
       if (alertMessage) {
         alertMessage.classList.add("alert--hide");
@@ -73,6 +84,14 @@ function minimizeHeader() {
       if (headerContent) {
         headerContent.classList.remove("header__content--min");
       }
+
+	  if(tommysBanner) {
+		tommysBanner.classList.remove('--tommys--hide');
+	  }	  
+
+	  if(header) {
+		header.classList.remove('header--bannerScroll');
+	  }	  
 
       if (alertMessage) {
         alertMessage.classList.remove("alert--hide");
