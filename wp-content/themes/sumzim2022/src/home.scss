@@ -102,13 +102,9 @@
     justify-content: center;
     flex-wrap: wrap;
 
-    @include breakpoint(large) {
-      flex-wrap: nowrap;
-    }
-
     & > figure.home__service-icon {
-      margin: calc(var(--spacer) * 0.5);
-      padding: calc(var(--spacer) * 0.5);
+        margin: var(--spacer);
+        padding: var(--spacer);
       border: solid 0.1ch var(--color__primary--dark);
       background: white;
       border-radius: var(--border-radius);
@@ -120,14 +116,8 @@
       border: solid 1px var(--color__primary--dark);
 
       @include breakpoint(medium) {
-        margin: var(--spacer);
-        padding: var(--spacer);
         width: 200px;
         height: 200px;
-      }
-
-      @include breakpoint(large) {
-        margin: 0 var(--spacer);
       }
 
       &:hover {
