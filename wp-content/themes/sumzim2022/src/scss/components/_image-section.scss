@@ -12,6 +12,9 @@
     }
 
     & > figure.image-section__figure {
+		@include breakpoint(large) {
+			align-content: center;
+		}
       & > figcaption {
         font-size: 0.875rem;
       }
