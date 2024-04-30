@@ -101,7 +101,11 @@
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-	background: blue;
+
+	@include breakpoint(large) {
+		max-width: 1180px;
+	}
+	
 
     & > figure.home__service-icon {
         margin: var(--spacer);
