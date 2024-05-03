@@ -99,6 +99,8 @@ document.addEventListener("DOMContentLoaded", () => {
             monthArray.push(getMonthVal);
             yearArray.push(getYearVal);
 
+			console.log(el);
+
             /** Counter for discount - heat pump combos count for two */
             if (hasCombo && heatPumpCombos.includes(el.id)) {
               count += 2;
@@ -127,6 +129,25 @@ document.addEventListener("DOMContentLoaded", () => {
                 .querySelector("#backflow-preventer")
                 .classList.add("--mute");
             }
+
+			/** Electrical whole house logic */
+            if (
+				el.id == "whole-house-electrical" &&
+				el.querySelector("input").value >= 1
+			) {
+				el.parentElement
+				  .querySelector("#generator-maintenance")
+				  .classList.add("--mute");
+			}	
+			
+            if (
+				el.id == "generator-maintenance" &&
+				el.querySelector("input").value >= 1
+			) {
+				el.parentElement
+				  .querySelector("#whole-house-electrical")
+				  .classList.add("--mute");
+			}				
 
             const getMonthTotal = monthArray.reduce((a, b) => {
               return a + b;
@@ -204,6 +225,24 @@ document.addEventListener("DOMContentLoaded", () => {
                 .querySelector("#backflow-preventer")
                 .classList.remove("--mute");
             }
+
+			/** Electrical whole house logic */
+
+            if (
+				el.id == "whole-house-electrical"
+			) {
+				el.parentElement
+				  .querySelector("#generator-maintenance")
+				  .classList.remove("--mute");
+			}
+
+            if (
+				el.id == "generator-maintenance"
+			) {
+				el.parentElement
+				  .querySelector("#whole-house-electrical")
+				  .classList.remove("--mute");
+			}				
 
             const currSelMonthly = monthArray.indexOf(
               Number(e.target.nextElementSibling.getAttribute("data-monthly"))

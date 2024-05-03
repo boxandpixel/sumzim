@@ -875,25 +875,65 @@ function wholeHousePlumbingYearly( $content ) {
     return $content;
 }
 
-/** Remote Monitoring / Smart Home Connectivity: Monthly */
-add_filter( 'wpcf7_form_elements', 'smartHomeConnectivityMonthly' );
-function smartHomeConnectivityMonthly( $content ) {
-    $str_pos = strpos( $content, 'value="Remote Monitoring (Smart Home Connectivity)"' );
+/** Whole House Electrical: Monthly */
+add_filter( 'wpcf7_form_elements', 'wholeHouseElectricalMonthly' );
+function wholeHouseElectricalMonthly( $content ) {
+    $str_pos = strpos( $content, 'name="whole-house-electrical-qty"' );
     if ( $str_pos !== false ) {
-        $content = substr_replace( $content, ' data-monthly="8.25" ', $str_pos, 0 );
+        $content = substr_replace( $content, ' data-monthly="18.25" ', $str_pos, 0 );
     }
     return $content;
 }
 
-/** Remote Monitoring / Smart Home Connectivity: Yearly */
-add_filter( 'wpcf7_form_elements', 'smartHomeConnectivityYearly' );
-function smartHomeConnectivityYearly( $content ) {
-    $str_pos = strpos( $content, 'value="Remote Monitoring (Smart Home Connectivity)"' );
+/** Whole House Electrical: Yearly */
+add_filter( 'wpcf7_form_elements', 'wholeHouseElectricalYearly' );
+function wholeHouseElectricalYearly( $content ) {
+    $str_pos = strpos( $content, 'name="whole-house-electrical-qty"' );
     if ( $str_pos !== false ) {
-        $content = substr_replace( $content, ' data-yearly="99.00" ', $str_pos, 0 );
+        $content = substr_replace( $content, ' data-yearly="219.00" ', $str_pos, 0 );
     }
     return $content;
 }
+
+/** Generator Maintenance: Monthly */
+add_filter( 'wpcf7_form_elements', 'generatorMaintenanceMonthly' );
+function generatorMaintenanceMonthly( $content ) {
+    $str_pos = strpos( $content, 'name="generator-maintenance-qty"' );
+    if ( $str_pos !== false ) {
+        $content = substr_replace( $content, ' data-monthly="33.25" ', $str_pos, 0 );
+    }
+    return $content;
+}
+
+/** Generator Maintenance: Yearly */
+add_filter( 'wpcf7_form_elements', 'generatorMaintenanceYearly' );
+function generatorMaintenanceYearly( $content ) {
+    $str_pos = strpos( $content, 'name="generator-maintenance-qty"' );
+    if ( $str_pos !== false ) {
+        $content = substr_replace( $content, ' data-yearly="399.00" ', $str_pos, 0 );
+    }
+    return $content;
+}
+
+/** Remote Monitoring / Smart Home Connectivity: Monthly */
+// add_filter( 'wpcf7_form_elements', 'smartHomeConnectivityMonthly' );
+// function smartHomeConnectivityMonthly( $content ) {
+//     $str_pos = strpos( $content, 'value="Remote Monitoring (Smart Home Connectivity)"' );
+//     if ( $str_pos !== false ) {
+//         $content = substr_replace( $content, ' data-monthly="8.25" ', $str_pos, 0 );
+//     }
+//     return $content;
+// }
+
+/** Remote Monitoring / Smart Home Connectivity: Yearly */
+// add_filter( 'wpcf7_form_elements', 'smartHomeConnectivityYearly' );
+// function smartHomeConnectivityYearly( $content ) {
+//     $str_pos = strpos( $content, 'value="Remote Monitoring (Smart Home Connectivity)"' );
+//     if ( $str_pos !== false ) {
+//         $content = substr_replace( $content, ' data-yearly="99.00" ', $str_pos, 0 );
+//     }
+//     return $content;
+// }
 
 // Remove <p> and <br/> from Contact Form 7
 add_filter('wpcf7_autop_or_not', '__return_false');
