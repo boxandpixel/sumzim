@@ -896,9 +896,9 @@ function wholeHouseElectricalYearly( $content ) {
 }
 
 /** Generator Maintenance: Monthly */
-add_filter( 'wpcf7_form_elements', 'generatorMaintenanceMonthly' );
-function generatorMaintenanceMonthly( $content ) {
-    $str_pos = strpos( $content, 'name="generator-maintenance-qty"' );
+add_filter( 'wpcf7_form_elements', 'backupGeneratorMaintenanceMonthly' );
+function backupGeneratorMaintenanceMonthly( $content ) {
+    $str_pos = strpos( $content, 'name="backup-generator-maintenance-qty"' );
     if ( $str_pos !== false ) {
         $content = substr_replace( $content, ' data-monthly="33.25" ', $str_pos, 0 );
     }
@@ -906,15 +906,14 @@ function generatorMaintenanceMonthly( $content ) {
 }
 
 /** Generator Maintenance: Yearly */
-add_filter( 'wpcf7_form_elements', 'generatorMaintenanceYearly' );
-function generatorMaintenanceYearly( $content ) {
-    $str_pos = strpos( $content, 'name="generator-maintenance-qty"' );
+add_filter( 'wpcf7_form_elements', 'backupGeneratorMaintenanceYearly' );
+function backupGeneratorMaintenanceYearly( $content ) {
+    $str_pos = strpos( $content, 'name="backup-generator-maintenance-qty"' );
     if ( $str_pos !== false ) {
         $content = substr_replace( $content, ' data-yearly="399.00" ', $str_pos, 0 );
     }
     return $content;
 }
-/** Bump */
 
 /** Remote Monitoring / Smart Home Connectivity: Monthly */
 // add_filter( 'wpcf7_form_elements', 'smartHomeConnectivityMonthly' );

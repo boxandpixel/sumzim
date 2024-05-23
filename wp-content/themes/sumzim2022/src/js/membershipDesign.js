@@ -136,12 +136,12 @@ document.addEventListener("DOMContentLoaded", () => {
 				el.querySelector("input").value >= 1
 			) {
 				el.parentElement
-				  .querySelector("#generator-maintenance")
+				  .querySelector("#backup-generator-maintenance")
 				  .classList.add("--mute");
 			}	
 			
             if (
-				el.id == "generator-maintenance" &&
+				el.id == "backup-generator-maintenance" &&
 				el.querySelector("input").value >= 1
 			) {
 				el.parentElement
@@ -232,12 +232,12 @@ document.addEventListener("DOMContentLoaded", () => {
 				el.id == "whole-house-electrical"
 			) {
 				el.parentElement
-				  .querySelector("#generator-maintenance")
+				  .querySelector("#backup-generator-maintenance")
 				  .classList.remove("--mute");
 			}
 
             if (
-				el.id == "generator-maintenance"
+				el.id == "backup-generator-maintenance"
 			) {
 				el.parentElement
 				  .querySelector("#whole-house-electrical")

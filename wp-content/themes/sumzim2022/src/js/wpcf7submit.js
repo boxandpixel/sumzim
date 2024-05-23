@@ -11,56 +11,56 @@ document.addEventListener("DOMContentLoaded", ()=> {
 
     if(freeEstimateForm) {
         freeEstimateForm.addEventListener('wpcf7mailsent', ()=> {
-            window.location.replace("https://sumzimdev.wpengine.com/request-confirmation?form=Free%20Estimate");
+            window.location.replace("https://sumzim.com/request-confirmation?form=Free%20Estimate");
         });
     } 
 
     // Joe Form
     if(joeForm) {
         joeForm.addEventListener('wpcf7mailsent', ()=> {
-            window.location.replace("https://sumzimdev.wpengine.com/contact-joe-confirmation?form=Contact%20Joe%20Zimmerman");
+            window.location.replace("https://sumzim.com/contact-joe-confirmation?form=Contact%20Joe%20Zimmerman");
         });
     }     
 
     // Contact Us Form
     if(contactUsForm) {
         contactUsForm.addEventListener('wpcf7mailsent', ()=> {
-            window.location.replace("https://sumzimdev.wpengine.com/request-confirmation?form=Contact%20Us");
+            window.location.replace("https://sumzim.com/request-confirmation?form=Contact%20Us");
         });
     }
 
     // HVAC Application
     if(careerHvacForm) {
         careerHvacForm.addEventListener('wpcf7mailsent', ()=> {
-            window.location.replace("https://sumzimdev.wpengine.com/application-confirmation?form=HVAC%20Application");
+            window.location.replace("https://sumzim.com/application-confirmation?form=HVAC%20Application");
         });
     }
 
     // Plumber Application
     if(careerPlumbingForm) {
         careerPlumbingForm.addEventListener('wpcf7mailsent', ()=> {
-            window.location.replace("https://sumzimdev.wpengine.com/application-confirmation?form=Plumbing%20Application");
+            window.location.replace("https://sumzim.com/application-confirmation?form=Plumbing%20Application");
         });
     }
 
     // General Application
     if(careerGeneralForm) {
         careerGeneralForm.addEventListener('wpcf7mailsent', ()=> {
-            window.location.replace("https://sumzimdev.wpengine.com/application-confirmation?form=General%20Application");
+            window.location.replace("https://sumzim.com/application-confirmation?form=General%20Application");
         });
     }
 
     // Membership Design
     if(designYourMembership) {
         designYourMembership.addEventListener('wpcf7mailsent', ()=> {
-            window.location.replace("https://sumzimdev.wpengine.com/membership-request-confirmation?form=Design%20Your%20Membership");
+            window.location.replace("https://sumzim.com/membership-request-confirmation?form=Design%20Your%20Membership");
         });
     }
 
     // Landing Form
     if(landingForm) {
         landingForm.addEventListener('wpcf7mailsent', ()=> {
-            window.location.replace("https://sumzimdev.wpengine.com/request-confirmation?form=PPC%20Landing");
+            window.location.replace("https://sumzim.com/request-confirmation?form=PPC%20Landing");
         });
     }    
 
