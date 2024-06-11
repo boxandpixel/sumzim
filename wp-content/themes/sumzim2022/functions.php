@@ -555,6 +555,26 @@ function gasFurnaceYearly( $content ) {
     return $content;
 }
 
+/** Gas Furnace w/Watchdog: Monthly */
+add_filter( 'wpcf7_form_elements', 'gasFurnaceWatchdogMonthly' );
+function gasFurnaceWatchdogMonthly( $content ) {
+    $str_pos = strpos( $content, 'name="gas-furnace-watchdog-qty"' );
+    if ( $str_pos !== false ) {
+        $content = substr_replace( $content, ' data-attr="custom" data-monthly="26.92" ', $str_pos, 0 );
+    }
+    return $content;
+}
+
+/** Gas Furnace w/Watchdog: Yearly */
+add_filter( 'wpcf7_form_elements', 'gasFurnaceWatchdogYearly' );
+function gasFurnaceWatchdogYearly( $content ) {
+    $str_pos = strpos( $content, 'name="gas-furnace-watchdog-qty"' );
+    if ( $str_pos !== false ) {
+        $content = substr_replace( $content, ' data-attr="custom" data-yearly="323.00" ', $str_pos, 0 );
+    }
+    return $content;
+}
+
 /** Gas Boiler: Monthly */
 add_filter( 'wpcf7_form_elements', 'gasBoilerMonthly' );
 function gasBoilerMonthly( $content ) {
@@ -691,6 +711,26 @@ function airConditionerYearly( $content ) {
     $str_pos = strpos( $content, 'name="air-conditioner-qty"' );
     if ( $str_pos !== false ) {
         $content = substr_replace( $content, ' data-yearly="224.00" ', $str_pos, 0 );
+    }
+    return $content;
+}
+
+/** Air Conditioner w/Watchdog: Monthly */
+add_filter( 'wpcf7_form_elements', 'airConditionerWatchdogMonthly' );
+function airConditionerWatchdogMonthly( $content ) {
+    $str_pos = strpos( $content, 'name="air-conditioner-watchdog-qty"' );
+    if ( $str_pos !== false ) {
+        $content = substr_replace( $content, ' data-monthly="26.92" ', $str_pos, 0 );
+    }
+    return $content;
+}
+
+/** Air Conditioner w/Watchdog: Yearly */
+add_filter( 'wpcf7_form_elements', 'airConditionerWatchdogYearly' );
+function airConditionerWatchdogYearly( $content ) {
+    $str_pos = strpos( $content, 'name="air-conditioner-watchdog-qty"' );
+    if ( $str_pos !== false ) {
+        $content = substr_replace( $content, ' data-yearly="323.00" ', $str_pos, 0 );
     }
     return $content;
 }
