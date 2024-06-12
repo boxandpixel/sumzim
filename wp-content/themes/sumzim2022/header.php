@@ -219,7 +219,7 @@
 				</div>
 				<div class="banner__tommys-electric-content">
 					<h3>Tommy's Electric is joining the Summers &amp; Zim's family</h3>
-					<p>Starting May 1, 2024, we will offer a full suite of electrical services for your home needs.</p>
+					<p>We now offer a full suite of electrical services for your home needs.</p>
 				</div>	
 			</div>		
 		</div>
