@@ -218,7 +218,7 @@
 					<img src="/wp-content/themes/sumzim2022/assets/tommys-electric-logo.png" alt="">
 				</div>
 				<div class="banner__tommys-electric-content">
-					<h3>Tommy's Electric is joining the Summers &amp; Zim's family</h3>
+					<h3>Tommy's Electric has joined the Summers &amp; Zim's family</h3>
 					<p>We now offer a full suite of electrical services for your home needs.</p>
 				</div>	
 			</div>		
