@@ -193,17 +193,6 @@
 			</button>
 		</div>
 		<?php endif; ?>
-		<!-- <div class="banner__joining-sz">
-			<div>
-				<div class="banner__tommys-electric-logo">
-					<img src="https://sumzim.com.ddev.site/wp-content/uploads/2024/04/sz-minified.png" alt="">
-				</div>
-				<div class="banner__tommys-electric-content">
-					<h3>Tommy's Electric is joining the Summers &amp; Zim's family</h3>
-					<p>Starting May 1, 2024, we will continue to offer the same honest and dependable electrical service as part of a full suite of home services, including plumbing, heating, and air conditioning. </p>
-				</div>	
-			</div>		
-		</div> -->
 
 		<?php 
 			$date = time();
@@ -212,6 +201,9 @@
 
 			if ($date > $contestStart):
 		?>
+		<div class="header__status">
+			<p class="header__status-message" id="statusAll"></p>
+		</div>
 		<div class="banner__tommys-electric">
 			<div>
 				<div class="banner__tommys-electric-logo">
@@ -223,18 +215,24 @@
 				</div>	
 			</div>		
 		</div>
+		<div class="header__mobile-call">
+			<h2>Call us 24/7 at <a href="tel:6105935129">610-593-5129</a></h2>
+		</div>
 		<?php endif; ?>
 		<header class="site-header">
 		<button class="header__nav-button" aria-haspopup="true" aria-controls="menu-primary-navigation" aria-expanded="false">
-			<span>Open Menu</span>
-			<svg class="header__nav-button-icon-menu" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
-			<path d="M0 0h24v24H0z" fill="none"/>
-			<path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
-			</svg>
-			<svg class="header__nav-button-icon-close" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
-			<path d="M0 0h24v24H0z" fill="none"/>
-			<path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
-			</svg>
+			<span class="header__nav-button-span">Menu</span>
+			<div class="header__nav-button-icon">
+				<svg class="header__nav-button-icon-menu" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
+				<path d="M0 0h24v24H0z" fill="none"/>
+				<path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+				</svg>
+				<svg class="header__nav-button-icon-close" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
+				<path d="M0 0h24v24H0z" fill="none"/>
+				<path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
+				</svg>
+			</div>
+
 		</button>
 		
 		<?php 
@@ -265,10 +263,19 @@
 			</div>   
 			</div>
 			<div class="header__content-actions">
-				<div class="header__status">
-				<p class="header__status-message" id="statusAll"></p>
-				<p class="header__status-call"><a href="tel:+16105935129">(610) 593-5129</a></p>
+				<div class="header__social">
+					<p>Find us on:</p>
+					<div class="header__social-icons">
+						<a href="https://www.facebook.com/SumZim" target="_blank">
+							<img src="/wp-content/themes/sumzim2022/assets/facebook-logo.svg" alt="Facebook">
+						</a>
+						<a href="https://www.instagram.com/summerszims/" target="_blank">
+							<img src="/wp-content/themes/sumzim2022/assets/instagram-logo.svg" alt="Instagram">
+						</a>
+					</div>
 				</div>
+				<p class="header__call">Call us 24/7 at <a href="tel:+16105935129">(610) 593-5129</a></p>
+
 				<nav class="header__nav">
 					<?php
 					wp_nav_menu(

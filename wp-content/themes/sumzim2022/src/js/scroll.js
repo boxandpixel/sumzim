@@ -21,6 +21,10 @@ function minimizeHeader() {
   var tommysBanner = document.querySelector(".banner__tommys-electric");
   var header = document.querySelector(".site-header");
 
+  var headerCall = document.querySelector(".header__call");
+  var mobileCall = document.querySelector(".header__mobile-call");
+  var headerSocial = document.querySelector(".header__social");
+
   window.addEventListener("scroll", function () {
     if (window.pageYOffset >= 1) {
       if (headerContent) {
@@ -80,6 +84,19 @@ function minimizeHeader() {
       if (backToTop) {
         backToTop.classList.add("back-to-top--show");
       }
+
+	  if(mobileCall) {
+		mobileCall.classList.add("header__mobile-call--scroll");
+	  }
+
+	  if(headerCall) {
+		headerCall.classList.add("header__call--scroll");
+	  }
+
+	  if(headerSocial) {
+		headerSocial.classList.add("header__social--scroll");
+	  }
+	  
     } else if (window.pageYOffset <= 1) {
       if (headerContent) {
         headerContent.classList.remove("header__content--min");
@@ -139,6 +156,15 @@ function minimizeHeader() {
       if (backToTop) {
         backToTop.classList.remove("back-to-top--show");
       }
+	  if(mobileCall) {
+		mobileCall.classList.remove("header__mobile-call--scroll");
+	  }
+	  if(headerCall) {
+		headerCall.classList.remove("header__call--scroll");
+	  }
+	  if(headerSocial) {
+		headerSocial.classList.remove("header__social--scroll");
+	  }
     }
   });
 }

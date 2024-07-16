@@ -15,24 +15,26 @@
 button.header__nav-button {
   position: absolute;
   top: calc(var(--spacer));
-  right: calc(var(--spacer));
+	right: 0;
   z-index: 9999;
   background: none;
   border: none;
-  width: 1.5rem;
   height: 1.25em;
+  display: flex;
 
-  & > span {
-    text-indent: -9999rem;
-    display: block;
-    height: 0;
-    width: 0;
+  & span.header__nav-button-span {
+	text-transform: uppercase;
+	font-weight: 600;
+	color: white;
+	opacity: .7;
+
+	&.header__nav-button-span--open {
+		display: none;
+	}
   }
 
-  & > svg {
+  & svg {
     position: relative;
-    right: 0.25rem;
-    top: -0.5rem;
 
     @include breakpoint(xlarge) {
       right: 0;
@@ -81,7 +83,7 @@ nav.header__nav {
     right: 0;
     bottom: 0;
     width: 100vw;
-    background: var(--color__primary--dark-trans);
+    background: var(--color__primary--dark);
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
@@ -266,15 +268,12 @@ nav.header__nav {
 
           @include breakpoint(large) {
             width: clamp(200px, 300px, 50vw);
+            font-size: 15px;
           }
 
           @include breakpoint(xlarge) {
-            width: auto;
-            font-size: 1rem;
-          }
-
-          @include breakpoint(xlarge) {
-            font-size: 1rem;
+			width: auto;
+            font-size: 15px;
           }
 
           &::after {

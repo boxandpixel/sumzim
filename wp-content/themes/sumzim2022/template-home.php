@@ -31,7 +31,19 @@ get_header();
           <?php endif ?>
           
           <?php if($hero_link): ?>
-            <button class="se-widget-button button button-cta button--schedule button--large book-now-button" onclick="ScheduleEngine.show()">Book Now</button>
+			<div class="home__hero-link">
+				<div class="home__hero-link--desktop">
+					<button class="se-widget-button button button-cta button--schedule button--large book-now-button" onclick="ScheduleEngine.show()">Book Now</button>
+				</div>
+
+				<div class="home__hero-link--mobile">
+					<button class="se-widget-button button button-cta button--schedule button--large book-now-button" onclick="ScheduleEngine.show()">Call 610-593-5129</button>
+					<div class="home__hero-link-mobile-alt">
+						or <button class="se-widget-button se-button-alt" onclick="ScheduleEngine.show()">Book Now</button>
+					</div>
+				</div>
+				
+			</div>
           <?php endif; ?>
 		  </div>
 
