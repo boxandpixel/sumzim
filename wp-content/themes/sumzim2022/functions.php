@@ -540,7 +540,7 @@ add_filter( 'wpcf7_form_elements', 'gasFurnaceMonthly' );
 function gasFurnaceMonthly( $content ) {
     $str_pos = strpos( $content, 'name="gas-furnace-qty"' );
     if ( $str_pos !== false ) {
-        $content = substr_replace( $content, ' data-attr="custom" data-monthly="18.67" ', $str_pos, 0 );
+        $content = substr_replace( $content, ' data-attr="custom" data-monthly="19.09" ', $str_pos, 0 );
     }
     return $content;
 }
@@ -550,7 +550,7 @@ add_filter( 'wpcf7_form_elements', 'gasFurnaceYearly' );
 function gasFurnaceYearly( $content ) {
     $str_pos = strpos( $content, 'name="gas-furnace-qty"' );
     if ( $str_pos !== false ) {
-        $content = substr_replace( $content, ' data-attr="custom" data-yearly="224.00" ', $str_pos, 0 );
+        $content = substr_replace( $content, ' data-attr="custom" data-yearly="229.00" ', $str_pos, 0 );
     }
     return $content;
 }
@@ -560,7 +560,7 @@ add_filter( 'wpcf7_form_elements', 'gasFurnaceWatchdogMonthly' );
 function gasFurnaceWatchdogMonthly( $content ) {
     $str_pos = strpos( $content, 'name="gas-furnace-watchdog-qty"' );
     if ( $str_pos !== false ) {
-        $content = substr_replace( $content, ' data-attr="custom" data-monthly="26.92" ', $str_pos, 0 );
+        $content = substr_replace( $content, ' data-attr="custom" data-monthly="27.34" ', $str_pos, 0 );
     }
     return $content;
 }
@@ -570,7 +570,7 @@ add_filter( 'wpcf7_form_elements', 'gasFurnaceWatchdogYearly' );
 function gasFurnaceWatchdogYearly( $content ) {
     $str_pos = strpos( $content, 'name="gas-furnace-watchdog-qty"' );
     if ( $str_pos !== false ) {
-        $content = substr_replace( $content, ' data-attr="custom" data-yearly="323.00" ', $str_pos, 0 );
+        $content = substr_replace( $content, ' data-attr="custom" data-yearly="328.00" ', $str_pos, 0 );
     }
     return $content;
 }
@@ -580,7 +580,7 @@ add_filter( 'wpcf7_form_elements', 'gasBoilerMonthly' );
 function gasBoilerMonthly( $content ) {
     $str_pos = strpos( $content, 'name="gas-boiler-qty"' );
     if ( $str_pos !== false ) {
-        $content = substr_replace( $content, ' data-monthly="18.67" ', $str_pos, 0 );
+        $content = substr_replace( $content, ' data-monthly="19.09" ', $str_pos, 0 );
     }
     return $content;
 }
@@ -590,7 +590,7 @@ add_filter( 'wpcf7_form_elements', 'gasBoilerYearly' );
 function gasBoilerYearly( $content ) {
     $str_pos = strpos( $content, 'name="gas-boiler-qty"' );
     if ( $str_pos !== false ) {
-        $content = substr_replace( $content, ' data-yearly="224.00" ', $str_pos, 0 );
+        $content = substr_replace( $content, ' data-yearly="229.00" ', $str_pos, 0 );
     }
     return $content;
 }
@@ -600,7 +600,7 @@ add_filter( 'wpcf7_form_elements', 'oilBoilerFuranceMonthly' );
 function oilBoilerFuranceMonthly( $content ) {
     $str_pos = strpos( $content, 'name="oil-boiler-furnace-qty"' );
     if ( $str_pos !== false ) {
-        $content = substr_replace( $content, ' data-monthly="23.25" ', $str_pos, 0 );
+        $content = substr_replace( $content, ' data-monthly="23.67" ', $str_pos, 0 );
     }
     return $content;
 }
@@ -610,7 +610,7 @@ add_filter( 'wpcf7_form_elements', 'oilBoilerFurnaceYearly' );
 function oilBoilerFurnaceYearly( $content ) {
     $str_pos = strpos( $content, 'name="oil-boiler-furnace-qty"' );
     if ( $str_pos !== false ) {
-        $content = substr_replace( $content, ' data-yearly="279.00" ', $str_pos, 0 );
+        $content = substr_replace( $content, ' data-yearly="284.00" ', $str_pos, 0 );
     }
     return $content;
 }
@@ -620,7 +620,7 @@ add_filter( 'wpcf7_form_elements', 'heatPumpOilFurnaceBackupMonthly' );
 function heatPumpOilFurnaceBackupMonthly( $content ) {
     $str_pos = strpos( $content, 'name="heat-pump-oil-furnace-backup-qty"' );
     if ( $str_pos !== false ) {
-        $content = substr_replace( $content, ' data-monthly="37.33" ', $str_pos, 0 );
+        $content = substr_replace( $content, ' data-monthly="38.17" ', $str_pos, 0 );
     }
     return $content;
 }
@@ -630,7 +630,7 @@ add_filter( 'wpcf7_form_elements', 'heatPumpOilFurnaceBackupYearly' );
 function heatPumpOilFurnaceBackupYearly( $content ) {
     $str_pos = strpos( $content, 'name="heat-pump-oil-furnace-backup-qty"' );
     if ( $str_pos !== false ) {
-        $content = substr_replace( $content, ' data-yearly="448.00" ', $str_pos, 0 );
+        $content = substr_replace( $content, ' data-yearly="458.00" ', $str_pos, 0 );
     }
     return $content;
 }
@@ -640,7 +640,7 @@ add_filter( 'wpcf7_form_elements', 'heatPumpGasFurnaceBackupMonthly' );
 function heatPumpGasFurnaceBackupMonthly( $content ) {
     $str_pos = strpos( $content, 'name="heat-pump-gas-furnace-backup-qty"' );
     if ( $str_pos !== false ) {
-        $content = substr_replace( $content, ' data-monthly="37.33" ', $str_pos, 0 );
+        $content = substr_replace( $content, ' data-monthly="38.17" ', $str_pos, 0 );
     }
     return $content;
 }
@@ -650,7 +650,7 @@ add_filter( 'wpcf7_form_elements', 'heatPumpGasFurnaceBackupYearly' );
 function heatPumpGasFurnaceBackupYearly( $content ) {
     $str_pos = strpos( $content, 'name="heat-pump-gas-furnace-backup-qty"' );
     if ( $str_pos !== false ) {
-        $content = substr_replace( $content, ' data-yearly="448.00" ', $str_pos, 0 );
+        $content = substr_replace( $content, ' data-yearly="458.00" ', $str_pos, 0 );
     }
     return $content;
 }
@@ -660,7 +660,7 @@ add_filter( 'wpcf7_form_elements', 'heatPumpElectricBackupMonthly' );
 function heatPumpElectricBackupMonthly( $content ) {
     $str_pos = strpos( $content, 'name="heat-pump-electrical-backup-qty"' );
     if ( $str_pos !== false ) {
-        $content = substr_replace( $content, ' data-monthly="37.33" ', $str_pos, 0 );
+        $content = substr_replace( $content, ' data-monthly="38.17" ', $str_pos, 0 );
     }
     return $content;
 }
@@ -670,7 +670,7 @@ add_filter( 'wpcf7_form_elements', 'heatPumpElectricBackupYearly' );
 function heatPumpElectricBackupYearly( $content ) {
     $str_pos = strpos( $content, 'name="heat-pump-electrical-backup-qty"' );
     if ( $str_pos !== false ) {
-        $content = substr_replace( $content, ' data-yearly="448.00" ', $str_pos, 0 );
+        $content = substr_replace( $content, ' data-yearly="458.00" ', $str_pos, 0 );
     }
     return $content;
 }
@@ -680,7 +680,7 @@ add_filter( 'wpcf7_form_elements', 'wholeHouseHumidifierMonthly' );
 function wholeHouseHumidifierMonthly( $content ) {
     $str_pos = strpos( $content, 'name="whole-house-humidifier-qty"' );
     if ( $str_pos !== false ) {
-        $content = substr_replace( $content, ' data-monthly="4.58" ', $str_pos, 0 );
+        $content = substr_replace( $content, ' data-monthly="5.00" ', $str_pos, 0 );
     }
     return $content;
 }
@@ -690,7 +690,7 @@ add_filter( 'wpcf7_form_elements', 'wholeHouseHumidifierYearly' );
 function wholeHouseHumidifierYearly( $content ) {
     $str_pos = strpos( $content, 'name="whole-house-humidifier-qty"' );
     if ( $str_pos !== false ) {
-        $content = substr_replace( $content, ' data-yearly="55.00" ', $str_pos, 0 );
+        $content = substr_replace( $content, ' data-yearly="60.00" ', $str_pos, 0 );
     }
     return $content;
 }
@@ -700,7 +700,7 @@ add_filter( 'wpcf7_form_elements', 'airConditionerMonthly' );
 function airConditionerMonthly( $content ) {
     $str_pos = strpos( $content, 'name="air-conditioner-qty"' );
     if ( $str_pos !== false ) {
-        $content = substr_replace( $content, ' data-monthly="18.67" ', $str_pos, 0 );
+        $content = substr_replace( $content, ' data-monthly="19.09" ', $str_pos, 0 );
     }
     return $content;
 }
@@ -710,7 +710,7 @@ add_filter( 'wpcf7_form_elements', 'airConditionerYearly' );
 function airConditionerYearly( $content ) {
     $str_pos = strpos( $content, 'name="air-conditioner-qty"' );
     if ( $str_pos !== false ) {
-        $content = substr_replace( $content, ' data-yearly="224.00" ', $str_pos, 0 );
+        $content = substr_replace( $content, ' data-yearly="229.00" ', $str_pos, 0 );
     }
     return $content;
 }
@@ -720,7 +720,7 @@ add_filter( 'wpcf7_form_elements', 'airConditionerWatchdogMonthly' );
 function airConditionerWatchdogMonthly( $content ) {
     $str_pos = strpos( $content, 'name="air-conditioner-watchdog-qty"' );
     if ( $str_pos !== false ) {
-        $content = substr_replace( $content, ' data-monthly="26.92" ', $str_pos, 0 );
+        $content = substr_replace( $content, ' data-monthly="27.34" ', $str_pos, 0 );
     }
     return $content;
 }
@@ -730,7 +730,7 @@ add_filter( 'wpcf7_form_elements', 'airConditionerWatchdogYearly' );
 function airConditionerWatchdogYearly( $content ) {
     $str_pos = strpos( $content, 'name="air-conditioner-watchdog-qty"' );
     if ( $str_pos !== false ) {
-        $content = substr_replace( $content, ' data-yearly="323.00" ', $str_pos, 0 );
+        $content = substr_replace( $content, ' data-yearly="328.00" ', $str_pos, 0 );
     }
     return $content;
 }
@@ -740,7 +740,7 @@ add_filter( 'wpcf7_form_elements', 'dehumidifierMonthly' );
 function dehumidifierMonthly( $content ) {
     $str_pos = strpos( $content, 'name="dehumidifier-qty"' );
     if ( $str_pos !== false ) {
-        $content = substr_replace( $content, ' data-monthly="6.67" ', $str_pos, 0 );
+        $content = substr_replace( $content, ' data-monthly="7.09" ', $str_pos, 0 );
     }
     return $content;
 }
@@ -750,37 +750,37 @@ add_filter( 'wpcf7_form_elements', 'dehumidifierYearly' );
 function dehumidifierYearly( $content ) {
     $str_pos = strpos( $content, 'name="dehumidifier-qty"' );
     if ( $str_pos !== false ) {
-        $content = substr_replace( $content, ' data-yearly="80.00" ', $str_pos, 0 );
+        $content = substr_replace( $content, ' data-yearly="85" ', $str_pos, 0 );
     }
     return $content;
 }
 
 /** AC Heat Pump: Monthly */
-add_filter( 'wpcf7_form_elements', 'acHeatPumpMonthly' );
-function acHeatPumpMonthly( $content ) {
-    $str_pos = strpos( $content, 'name="ac-heat-pump-qty"' );
-    if ( $str_pos !== false ) {
-        $content = substr_replace( $content, ' data-monthly="37.33" ', $str_pos, 0 );
-    }
-    return $content;
-}
+// add_filter( 'wpcf7_form_elements', 'acHeatPumpMonthly' );
+// function acHeatPumpMonthly( $content ) {
+//     $str_pos = strpos( $content, 'name="ac-heat-pump-qty"' );
+//     if ( $str_pos !== false ) {
+//         $content = substr_replace( $content, ' data-monthly="37.33" ', $str_pos, 0 );
+//     }
+//     return $content;
+// }
 
 /** AC Heat Pump: Yearly */
-add_filter( 'wpcf7_form_elements', 'acHeatPumpYearly' );
-function acHeatPumpYearly( $content ) {
-    $str_pos = strpos( $content, 'name="ac-heat-pump-qty"' );
-    if ( $str_pos !== false ) {
-        $content = substr_replace( $content, ' data-yearly="448.00" ', $str_pos, 0 );
-    }
-    return $content;
-}
+// add_filter( 'wpcf7_form_elements', 'acHeatPumpYearly' );
+// function acHeatPumpYearly( $content ) {
+//     $str_pos = strpos( $content, 'name="ac-heat-pump-qty"' );
+//     if ( $str_pos !== false ) {
+//         $content = substr_replace( $content, ' data-yearly="448.00" ', $str_pos, 0 );
+//     }
+//     return $content;
+// }
 
 /** Tankless Water Heater: Monthly */
 add_filter( 'wpcf7_form_elements', 'tanklessWaterHeaterMonthly' );
 function tanklessWaterHeaterMonthly( $content ) {
     $str_pos = strpos( $content, 'name="tankless-water-heater-qty"' );
     if ( $str_pos !== false ) {
-        $content = substr_replace( $content, ' data-monthly="17.42" ', $str_pos, 0 );
+        $content = substr_replace( $content, ' data-monthly="17.84" ', $str_pos, 0 );
     }
     return $content;
 }
@@ -790,7 +790,7 @@ add_filter( 'wpcf7_form_elements', 'tanklessWaterHeaterYearly' );
 function tanklessWaterHeaterYearly( $content ) {
     $str_pos = strpos( $content, 'name="tankless-water-heater-qty"' );
     if ( $str_pos !== false ) {
-        $content = substr_replace( $content, ' data-yearly="209.00" ', $str_pos, 0 );
+        $content = substr_replace( $content, ' data-yearly="214.00" ', $str_pos, 0 );
     }
     return $content;
 }
@@ -800,7 +800,7 @@ add_filter( 'wpcf7_form_elements', 'waterSoftenerMonthly' );
 function waterSoftenerMonthly( $content ) {
     $str_pos = strpos( $content, 'name="water-softener-qty"' );
     if ( $str_pos !== false ) {
-        $content = substr_replace( $content, ' data-monthly="17.42" ', $str_pos, 0 );
+        $content = substr_replace( $content, ' data-monthly="17.84" ', $str_pos, 0 );
     }
     return $content;
 }
@@ -810,7 +810,7 @@ add_filter( 'wpcf7_form_elements', 'waterSoftenerYearly' );
 function waterSoftenerYearly( $content ) {
     $str_pos = strpos( $content, 'name="water-softener-qty"' );
     if ( $str_pos !== false ) {
-        $content = substr_replace( $content, ' data-yearly="209.00" ', $str_pos, 0 );
+        $content = substr_replace( $content, ' data-yearly="214.00" ', $str_pos, 0 );
     }
     return $content;
 }
@@ -820,7 +820,7 @@ add_filter( 'wpcf7_form_elements', 'backflowPreventerMonthly' );
 function backflowPreventerMonthly( $content ) {
     $str_pos = strpos( $content, 'name="backflow-preventer-qty"' );
     if ( $str_pos !== false ) {
-        $content = substr_replace( $content, ' data-monthly="16.58" ', $str_pos, 0 );
+        $content = substr_replace( $content, ' data-monthly="17.00" ', $str_pos, 0 );
     }
     return $content;
 }
@@ -830,37 +830,37 @@ add_filter( 'wpcf7_form_elements', 'backflowPreventerYearly' );
 function backflowPreventerYearly( $content ) {
     $str_pos = strpos( $content, 'name="backflow-preventer-qty"' );
     if ( $str_pos !== false ) {
-        $content = substr_replace( $content, ' data-yearly="199.00" ', $str_pos, 0 );
+        $content = substr_replace( $content, ' data-yearly="204.00" ', $str_pos, 0 );
     }
     return $content;
 }
 
 /** UV Light (water): Monthly */
-add_filter( 'wpcf7_form_elements', 'uvLightWaterMonthy' );
-function uvLightWaterMonthy( $content ) {
-    $str_pos = strpos( $content, 'name="uv-light-water-qty"' );
-    if ( $str_pos !== false ) {
-        $content = substr_replace( $content, ' data-monthly="7.50" ', $str_pos, 0 );
-    }
-    return $content;
-}
+// add_filter( 'wpcf7_form_elements', 'uvLightWaterMonthy' );
+// function uvLightWaterMonthy( $content ) {
+//     $str_pos = strpos( $content, 'name="uv-light-water-qty"' );
+//     if ( $str_pos !== false ) {
+//         $content = substr_replace( $content, ' data-monthly="7.50" ', $str_pos, 0 );
+//     }
+//     return $content;
+// }
 
 /** UV Light (water): Yearly */
-add_filter( 'wpcf7_form_elements', 'uvLightWaterYearly' );
-function uvLightWaterYearly( $content ) {
-    $str_pos = strpos( $content, 'name="uv-light-water-qty"' );
-    if ( $str_pos !== false ) {
-        $content = substr_replace( $content, ' data-yearly="90.00" ', $str_pos, 0 );
-    }
-    return $content;
-}
+// add_filter( 'wpcf7_form_elements', 'uvLightWaterYearly' );
+// function uvLightWaterYearly( $content ) {
+//     $str_pos = strpos( $content, 'name="uv-light-water-qty"' );
+//     if ( $str_pos !== false ) {
+//         $content = substr_replace( $content, ' data-yearly="90.00" ', $str_pos, 0 );
+//     }
+//     return $content;
+// }
 
 /** Water Filter (other): Monthly */
 add_filter( 'wpcf7_form_elements', 'waterFilterOtherMonthly' );
 function waterFilterOtherMonthly( $content ) {
     $str_pos = strpos( $content, 'name="water-filter-additional-qty"' );
     if ( $str_pos !== false ) {
-        $content = substr_replace( $content, ' data-monthly="7.50" ', $str_pos, 0 );
+        $content = substr_replace( $content, ' data-monthly="7.92" ', $str_pos, 0 );
     }
     return $content;
 }
@@ -870,7 +870,7 @@ add_filter( 'wpcf7_form_elements', 'waterFilterOtherYearly' );
 function waterFilterOtherYearly( $content ) {
     $str_pos = strpos( $content, 'name="water-filter-additional-qty"' );
     if ( $str_pos !== false ) {
-        $content = substr_replace( $content, ' data-yearly="90.00" ', $str_pos, 0 );
+        $content = substr_replace( $content, ' data-yearly="95.00" ', $str_pos, 0 );
     }
     return $content;
 }
@@ -880,27 +880,7 @@ add_filter( 'wpcf7_form_elements', 'wholeHousePlumbingMonthly' );
 function wholeHousePlumbingMonthly( $content ) {
     $str_pos = strpos( $content, 'name="whole-house-plumbing-qty"' );
     if ( $str_pos !== false ) {
-        $content = substr_replace( $content, ' data-monthly="16.58" ', $str_pos, 0 );
-    }
-    return $content;
-}
-
-/** Media Filter: Yearly */
-add_filter( 'wpcf7_form_elements', 'mediaFilterYearly' );
-function mediaFilterYearly( $content ) {
-    $str_pos = strpos( $content, 'name="media-filter-qty"' );
-    if ( $str_pos !== false ) {
-        $content = substr_replace( $content, ' data-yearly="65.00" ', $str_pos, 0 );
-    }
-    return $content;
-}
-
-/** Media Filter: Monthly */
-add_filter( 'wpcf7_form_elements', 'mediaFilterMonthly' );
-function mediaFilterMonthly( $content ) {
-    $str_pos = strpos( $content, 'name="media-filter-qty"' );
-    if ( $str_pos !== false ) {
-        $content = substr_replace( $content, ' data-monthly="5.42" ', $str_pos, 0 );
+        $content = substr_replace( $content, ' data-monthly="17.00" ', $str_pos, 0 );
     }
     return $content;
 }
@@ -910,7 +890,27 @@ add_filter( 'wpcf7_form_elements', 'wholeHousePlumbingYearly' );
 function wholeHousePlumbingYearly( $content ) {
     $str_pos = strpos( $content, 'name="whole-house-plumbing-qty"' );
     if ( $str_pos !== false ) {
-        $content = substr_replace( $content, ' data-yearly="199.00" ', $str_pos, 0 );
+        $content = substr_replace( $content, ' data-yearly="204.00" ', $str_pos, 0 );
+    }
+    return $content;
+}
+
+/** Media Filter: Yearly */
+add_filter( 'wpcf7_form_elements', 'mediaFilterYearly' );
+function mediaFilterYearly( $content ) {
+    $str_pos = strpos( $content, 'name="media-filter-qty"' );
+    if ( $str_pos !== false ) {
+        $content = substr_replace( $content, ' data-yearly="70.00" ', $str_pos, 0 );
+    }
+    return $content;
+}
+
+/** Media Filter: Monthly */
+add_filter( 'wpcf7_form_elements', 'mediaFilterMonthly' );
+function mediaFilterMonthly( $content ) {
+    $str_pos = strpos( $content, 'name="media-filter-qty"' );
+    if ( $str_pos !== false ) {
+        $content = substr_replace( $content, ' data-monthly="5.84" ', $str_pos, 0 );
     }
     return $content;
 }
