@@ -1035,7 +1035,7 @@ function register_block_list_wysiwyg() {
 			'create_users' => false,
 			'unfiltered_upload' => true,
 			'edit_dashboard' => false,
-			'customize' => true, // test
+			'customize' => true,
 			'delete_site' => false,
 			'update_plugins' => true,
 			'delete_plugins' => true,
@@ -1054,7 +1054,7 @@ function register_block_list_wysiwyg() {
 			'manage_sites' => false,
 			'manage_network_users' => false,
 			'manage_network_themes' => false,
-			'manage_network_options' => false, // test
+			'manage_network_options' => false, 
 			'manage_network_plugins' => true,
 			'upload_plugins' => true,
 			'upload_themes' => false,
