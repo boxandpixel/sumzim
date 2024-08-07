@@ -12,6 +12,12 @@ div#wp_payeezy_payment_form,
   align-items: center;
   justify-content: center;
 
+  &#wpcf7-f4338-o1 {
+	form { 
+		width: 100%;
+	}
+  }
+
   form {
     &:not(.cart) {
       @include breakpoint(medium) {
