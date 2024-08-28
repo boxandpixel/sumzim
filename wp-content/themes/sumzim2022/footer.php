@@ -64,147 +64,147 @@
 <!-- phone insertion script begins -->
 <script>
 
-  function ybFun_CustomFindAndReplace(searchText, replacement, searchNode) {
-      var qsParm = ybFun_RetreiveQueryParams();
-      if (!searchText || typeof replacement === 'undefined') {
-          return;
-      }
+//   function ybFun_CustomFindAndReplace(searchText, replacement, searchNode) {
+//       var qsParm = ybFun_RetreiveQueryParams();
+//       if (!searchText || typeof replacement === 'undefined') {
+//           return;
+//       }
 
-      var targetNum = searchText.toString();
-      var provisionNum = replacement.toString();
-      var delims = new Array();
-      delims[0] = "";
-      delims[1] = "-";
-      delims[2] = ".";
-      for (var i = 0; i < delims.length; i++) {
-          var delimToUse = delims[i];
-          var newTargetNum = targetNum.substring(1, 4) + delimToUse + targetNum.substring(4, 7) + delimToUse + targetNum.substring(7, 11);
-          var newProvisionNum = provisionNum.substring(1, 4) + delimToUse + provisionNum.substring(4, 7) + delimToUse + provisionNum.substring(7, 11);
-          ybFun_GenericFindAndReplace(newTargetNum, newProvisionNum);
-      }
-      var newTargetNum = "\\(" + targetNum.substring(1, 4) + "\\)\\s*"+ targetNum.substring(4, 7) + "-" + targetNum.substring(7, 11);
-      var newProvisionNum = "(" + provisionNum.substring(1, 4)  + ") "+  provisionNum.substring(4, 7) + "-" +  provisionNum.substring(7, 11);
-      ybFun_GenericFindAndReplace(newTargetNum, newProvisionNum);
-  }
+//       var targetNum = searchText.toString();
+//       var provisionNum = replacement.toString();
+//       var delims = new Array();
+//       delims[0] = "";
+//       delims[1] = "-";
+//       delims[2] = ".";
+//       for (var i = 0; i < delims.length; i++) {
+//           var delimToUse = delims[i];
+//           var newTargetNum = targetNum.substring(1, 4) + delimToUse + targetNum.substring(4, 7) + delimToUse + targetNum.substring(7, 11);
+//           var newProvisionNum = provisionNum.substring(1, 4) + delimToUse + provisionNum.substring(4, 7) + delimToUse + provisionNum.substring(7, 11);
+//           ybFun_GenericFindAndReplace(newTargetNum, newProvisionNum);
+//       }
+//       var newTargetNum = "\\(" + targetNum.substring(1, 4) + "\\)\\s*"+ targetNum.substring(4, 7) + "-" + targetNum.substring(7, 11);
+//       var newProvisionNum = "(" + provisionNum.substring(1, 4)  + ") "+  provisionNum.substring(4, 7) + "-" +  provisionNum.substring(7, 11);
+//       ybFun_GenericFindAndReplace(newTargetNum, newProvisionNum);
+//   }
 
-  function ybFun_GenericFindAndReplace(searchText, replacement, searchNode) {
-      var regex = typeof searchText === 'string' ? new RegExp(searchText, 'g') : searchText;
-      var bodyObj = document.body;
-      var content = bodyObj.innerHTML;
-      if (regex.test(content)) {
-          content = content.replace(regex, replacement);
-          bodyObj.innerHTML = content;
-      }
-  }
+//   function ybFun_GenericFindAndReplace(searchText, replacement, searchNode) {
+//       var regex = typeof searchText === 'string' ? new RegExp(searchText, 'g') : searchText;
+//       var bodyObj = document.body;
+//       var content = bodyObj.innerHTML;
+//       if (regex.test(content)) {
+//           content = content.replace(regex, replacement);
+//           bodyObj.innerHTML = content;
+//       }
+//   }
 
-  function ybFun_RetreiveQueryParams() {
-      var qsParm = new Array();
-      var query =decodeURIComponent(parent.document.location.href);
-      query = query.substring(query.indexOf('?') + 1, query.length);
-      var parms = query.split('&');
-      for (var i = 0; i < parms.length; i++) {
-          var pos = parms[i].indexOf('=');
-          if (pos > 0) {
-              var key = parms[i].substring(0, pos);
-              var val = parms[i].substring(pos + 1);
-              val = val.replace("#", "");
-              qsParm[key] = val;
-          }
-      }
-      return qsParm;
-  }
+//   function ybFun_RetreiveQueryParams() {
+//       var qsParm = new Array();
+//       var query =decodeURIComponent(parent.document.location.href);
+//       query = query.substring(query.indexOf('?') + 1, query.length);
+//       var parms = query.split('&');
+//       for (var i = 0; i < parms.length; i++) {
+//           var pos = parms[i].indexOf('=');
+//           if (pos > 0) {
+//               var key = parms[i].substring(0, pos);
+//               var val = parms[i].substring(pos + 1);
+//               val = val.replace("#", "");
+//               qsParm[key] = val;
+//           }
+//       }
+//       return qsParm;
+//   }
 
-  var ybFindPhNums = [];
-  var ybReplacePhNums = [];
+//   var ybFindPhNums = [];
+//   var ybReplacePhNums = [];
 
-  var ybFindCustomText = [];
-  var ybReplaceCustomText = [];
+//   var ybFindCustomText = [];
+//   var ybReplaceCustomText = [];
 
-  function ybFun_ReplaceText() {
-      var qsParm = ybFun_RetreiveQueryParams();
-      var useYB = qsParm['useYB'];
+//   function ybFun_ReplaceText() {
+//       var qsParm = ybFun_RetreiveQueryParams();
+//       var useYB = qsParm['useYB'];
 
-      var cookieUseYB = null;
-      if (useYB == null) {
-          cookieUseYB = ybFun_ReadCookie("useYB");
-          if (cookieUseYB != null) {
-              useYB = cookieUseYB;
-          }
-      }
+//       var cookieUseYB = null;
+//       if (useYB == null) {
+//           cookieUseYB = ybFun_ReadCookie("useYB");
+//           if (cookieUseYB != null) {
+//               useYB = cookieUseYB;
+//           }
+//       }
 
-      if (useYB != null) {
-          ybFun_CreateCookie("useYB", useYB);
-          if (ybFindPhNums == null || ybReplacePhNums == null || ybFindPhNums.length == 0 || ybReplacePhNums.length == 0
-                  || ybFindPhNums.length != ybReplacePhNums.length) {
-              return;
-          }
-          if (ybFindCustomText != null && ybReplaceCustomText != null) {
-              if (ybFindCustomText.length != ybReplaceCustomText.length) {
-                  return;
-              }
-          }
+//       if (useYB != null) {
+//           ybFun_CreateCookie("useYB", useYB);
+//           if (ybFindPhNums == null || ybReplacePhNums == null || ybFindPhNums.length == 0 || ybReplacePhNums.length == 0
+//                   || ybFindPhNums.length != ybReplacePhNums.length) {
+//               return;
+//           }
+//           if (ybFindCustomText != null && ybReplaceCustomText != null) {
+//               if (ybFindCustomText.length != ybReplaceCustomText.length) {
+//                   return;
+//               }
+//           }
 
-          if (useYB == '') {
-              for (var i = 0; i < ybFindPhNums.length; i++) {
-                  ybFun_CustomFindAndReplace(ybFindPhNums[i], ybReplacePhNums[i]);
-              }
+//           if (useYB == '') {
+//               for (var i = 0; i < ybFindPhNums.length; i++) {
+//                   ybFun_CustomFindAndReplace(ybFindPhNums[i], ybReplacePhNums[i]);
+//               }
 
-          } else {
-              var idxs = useYB.split(',');
-              for (var i = 0; i < idxs.length; i++) {
-                  if (ybFun_IsDigit(idxs[i])) {
-                      ybFun_CustomFindAndReplace(ybFindPhNums[(idxs[i] - 1)], ybReplacePhNums[(idxs[i] - 1)]);
-                  }
-              }
-          }
-      }
-  }
+//           } else {
+//               var idxs = useYB.split(',');
+//               for (var i = 0; i < idxs.length; i++) {
+//                   if (ybFun_IsDigit(idxs[i])) {
+//                       ybFun_CustomFindAndReplace(ybFindPhNums[(idxs[i] - 1)], ybReplacePhNums[(idxs[i] - 1)]);
+//                   }
+//               }
+//           }
+//       }
+//   }
 
-  function ybFun_IsDigit(strVal) {
-      var reg = new RegExp("^[0-9]$");
-      return (reg.test(strVal));
-  }
+//   function ybFun_IsDigit(strVal) {
+//       var reg = new RegExp("^[0-9]$");
+//       return (reg.test(strVal));
+//   }
 
-  function ybFun_CreateCookie(name, value, days) {
-      if (days == null) {
-          days = 90;
-      }
-      var date = new Date();
-      date.setTime( date.getTime() + (days * (24*60*60*1000)) );
-      var expires = "; expires="+date.toGMTString();
-      document.cookie = name + "=" + value + expires + "; path=/";
-  }
+//   function ybFun_CreateCookie(name, value, days) {
+//       if (days == null) {
+//           days = 90;
+//       }
+//       var date = new Date();
+//       date.setTime( date.getTime() + (days * (24*60*60*1000)) );
+//       var expires = "; expires="+date.toGMTString();
+//       document.cookie = name + "=" + value + expires + "; path=/";
+//   }
 
-  function ybFun_ReadCookie(name) {
-      var nameLookup = name;
-      var cookieArr = document.cookie.split(';');
-      for(var i=0; i < cookieArr.length; i++) {
-          var cookieNV = cookieArr[i];
-          while (cookieNV.charAt(0) == " ") {
-              cookieNV = cookieNV.substring(1, cookieNV.length);
-          }
-          if (cookieNV.indexOf(nameLookup + "=") == 0) {
-              return cookieNV.substring( (nameLookup.length + 1) ,cookieNV.length);
-          }
-          if (cookieNV.indexOf(nameLookup) == 0) {
-              return "";
-          }
-      }
-      return null;
-  }
+//   function ybFun_ReadCookie(name) {
+//       var nameLookup = name;
+//       var cookieArr = document.cookie.split(';');
+//       for(var i=0; i < cookieArr.length; i++) {
+//           var cookieNV = cookieArr[i];
+//           while (cookieNV.charAt(0) == " ") {
+//               cookieNV = cookieNV.substring(1, cookieNV.length);
+//           }
+//           if (cookieNV.indexOf(nameLookup + "=") == 0) {
+//               return cookieNV.substring( (nameLookup.length + 1) ,cookieNV.length);
+//           }
+//           if (cookieNV.indexOf(nameLookup) == 0) {
+//               return "";
+//           }
+//       }
+//       return null;
+//   }
 
-  function ybFun_EraseCookie(name) {
-      ybFun_CreateCookie(name, "", -1);
-  }
-</script>
+//   function ybFun_EraseCookie(name) {
+//       ybFun_CreateCookie(name, "", -1);
+//   }
+// </script>
 
 <script>
 
 
-  ybFindPhNums = ['16105935129', '16105935129', '16105935129', '16105935129', '16105935129'];
-  ybReplacePhNums = ['18775093463', '14842972338', '14842972450', '18778447906', '16106283841'];
+//   ybFindPhNums = ['16105935129', '16105935129', '16105935129', '16105935129', '16105935129'];
+//   ybReplacePhNums = ['18775093463', '14842972338', '14842972450', '18778447906', '16106283841'];
 
-  ybFun_ReplaceText();
+//   ybFun_ReplaceText();
 
   </script>
 
