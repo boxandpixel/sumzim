@@ -71,84 +71,6 @@
   <meta name="msapplication-TileColor" content="#16375a">
   <meta name="theme-color" content="#ffffff">
 
-  <!-- Schedule Engine -->
-  <?php
-    if(is_page(array(
-      'schedule-an-appointment',
-    ))):
-  ?>
-  	<script data-api-key="ckgglkkxp00ni07qd3tkfudr5" data-defer="true" id="se-widget-embed" src="https://embed.scheduleengine.net/schedule-engine-v3.js"></script>
-
-  <?php else: ?>
-	<script data-api-key="ckgglkkxp00ni07qd3tkfudr5" data-defer="true" id="se-widget-embed" src="https://embed.scheduleengine.net/schedule-engine-v3.js"></script>
-
-  <?php endif; ?>
-  
-  <?php
-    // Contact Form 7: Only load scripts on pages with form 
-    if(is_page(array(
-        'contact-joe-zimmerman', 
-        'schedule-service', 
-        'free-estimate', 
-        'contact-us',
-        'hvac-service-repair-technician-application',
-        'plumbing-technician-application',
-        'general-application',
-		'heating-system-maintenance',
-      ))): 
-      if(function_exists('wpcf7_enqueue_scripts')):
-        wpcf7_enqueue_scripts();
-      endif; 
-      if(function_exists('wpcf7_enqueue_styles')):
-        wpcf7_enqueue_styles();
-      endif;
-    endif;
-?>
-
-
-  <?php 
-  // Load scripts if on a page with a testimonial
-  if(is_page(array(
-    'reviews',
-	'service-memberships',
-	'membership-benefits',
-	'heating-system-repair',
-	'heating-system-maintenance',
-	'heating-system-installation',
-  ))): ?>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="/wp-content/themes/sumzim2022/google-places.js"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&key=AIzaSyDSRvqTsYQXGTJ3gCbaaSXvAIqnnT3MMiM"></script>
-  <?php endif; ?>
-
-  <?php if(is_page(array('reviews'))): ?>
-  <script>
-    jQuery(document).ready(function() {
-        $("#google-reviews").googlePlaces({
-            placeId: 'ChIJd5IeY6tFxokR8QWJk68CUpI',
-            render: ['reviews'],
-            min_rating: 5,
-            max_rows: 0,
-            shorten_names: false,
-        });
-    });
-  </script>	
-  <?php endif; ?>
-
-    <?php if(is_page(array('memberships', 'membership-benefits', 'heating-system-repair', 'heating-system-maintenance',
-	'heating-system-installation'))): ?>
-  <script>
-    jQuery(document).ready(function() {
-        $("#google-reviews-site").googlePlaces({
-            placeId: 'ChIJd5IeY6tFxokR8QWJk68CUpI',
-            render: ['reviews'],
-            min_rating: 5,
-            max_rows: 1,
-            shorten_names: false,
-        });
-    });
-  </script>	
-  <?php endif; ?>
 
   <!-- Audacy -->
   <style>
@@ -167,7 +89,6 @@
 
 
 </head>
-<!-- Test push 20240716 -->
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
 	<!-- GTM #2 20240826 -->
