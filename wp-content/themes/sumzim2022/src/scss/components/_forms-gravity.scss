@@ -1,0 +1,22 @@
+.form-service-inquiry_wrapper {
+	@include breakpoint(medium) {
+		max-width: 600px;
+		margin: 0 auto;
+	}
+
+	.gform_heading {
+		display: none;
+	}
+
+	.gfield_label {
+		font-weight: 600;
+	}
+
+	input,select {
+		border-radius: 24px !important;
+	}
+
+	textarea {
+		border-radius: 24px !important;
+	}
+}
