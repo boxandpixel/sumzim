@@ -138,7 +138,7 @@ add_action( 'widgets_init', 'sumzim_widgets_init' );
  * Enqueue scripts and styles.
  */
 function sumzim_scripts() {
-	// wp_enqueue_style( ' sumzim-style', get_stylesheet_uri(), array(), sumzim_VERSION );
+	wp_enqueue_style( ' sumzim-style', get_stylesheet_uri(), array(), sumzim_VERSION );
 	
 	$rand = rand( 0, 999999999999 );
 	if(is_front_page()) {
@@ -158,7 +158,7 @@ function sumzim_scripts() {
 	
 	wp_style_add_data( ' sumzim-style', 'rtl', 'replace' );
 
-	// wp_enqueue_script( ' sumzim-navigation', get_template_directory_uri() . '/js/navigation.js', array(), sumzim_VERSION, true );
+	wp_enqueue_script( ' sumzim-navigation', get_template_directory_uri() . '/js/navigation.js', array(), sumzim_VERSION, true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
