@@ -93,6 +93,7 @@ get_header();
 							?>
 						</div><!-- .entry-meta -->
 					<?php endif; ?>
+					<span><?php the_time( 'F j, Y' );?></span>
 				</header><!-- .entry-header -->
 
 				<?php sumzim_post_thumbnail(); ?>

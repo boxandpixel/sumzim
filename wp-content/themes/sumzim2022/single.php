@@ -42,6 +42,7 @@ get_header();
 				<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 					<header>
 						<h1 class="entry-title"><?php the_title(); ?></h1>
+						<span style="display: block; text-align: center"><?php the_time( 'F j, Y' );?></span>
 					</header>
 					<div class="entry-content">
 						<?php the_content(); ?>
