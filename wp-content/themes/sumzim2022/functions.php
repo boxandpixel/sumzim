@@ -992,95 +992,76 @@ function register_block_list_wysiwyg() {
 
 /** Add new user role */
 
-	add_role( 'seo-admin', 'SEO Administrator',
-		array(
-			'switch_themes' => false,
-			'edit_themes' => false,
-			'edit_theme_options' => false,
-			'install_themes' => false,
-			'activate_plugins' => true,
-			'edit_plugins' => true,
-			'install_plugins' => true,
-			'edit_users' => false,
-			'edit_files' => true,
-			'manage_options' => true,
-			'moderate_comments' => true,
-			'manage_categories' => true,
-			'manage_links' => true,
-			'upload_files' => true,
-			'import' => true,
-			'unfiltered_html' => true,
-			'edit_posts' => true,
-			'edit_others_posts' => true,
-			'edit_published_posts' => true,
-			'publish_posts' => true,
-			'edit_pages' => true,
-			'read' => true,
-			'publish_pages' => true,
-			'edit_others_pages' => true,
-			'edit_published_pages' => true,
-			'delete_pages' => true,
-			'delete_others_pages' => true,
-			'delete_published_pages' => true,
-			'delete_posts' => true,
-			'delete_others_posts' => true,
-			'delete_published_posts' => true,
-			'delete_private_posts' => true,
-			'edit_private_posts' => true,
-			'read_private_posts' => true,
-			'delete_private_pages' => true,
-			'edit_private_pages' => true,
-			'read_private_pages' => true,
-			'delete_users' => false,
-			'create_users' => false,
-			'unfiltered_upload' => true,
-			'edit_dashboard' => false,
-			'customize' => true,
-			'delete_site' => false,
-			'update_plugins' => true,
-			'delete_plugins' => true,
-			'update_themes' => false,
-			'update_core' => false,
-			'list_users' => false,
-			'remove_users' => false,
-			'add_users' => false,
-			'promote_users' => false,
-			'delete_themes' => false,
-			'export' => true,
-			'edit_comment' => true,
-			'create_sites' => false,
-			'delete_sites' => false,
-			'manage_network' => false,
-			'manage_sites' => false,
-			'manage_network_users' => false,
-			'manage_network_themes' => false,
-			'manage_network_options' => false, 
-			'manage_network_plugins' => true,
-			'upload_plugins' => true,
-			'upload_themes' => false,
-			'upgrade_network' => false,
-			'setup_network' => false,
-		)
-	);
+add_role( 'seo-admin', 'SEO Administrator',
+	array(
+		'switch_themes' => false,
+		'edit_themes' => false,
+		'edit_theme_options' => false,
+		'install_themes' => false,
+		'activate_plugins' => true,
+		'edit_plugins' => true,
+		'install_plugins' => true,
+		'edit_users' => false,
+		'edit_files' => true,
+		'manage_options' => true,
+		'moderate_comments' => true,
+		'manage_categories' => true,
+		'manage_links' => true,
+		'upload_files' => true,
+		'import' => true,
+		'unfiltered_html' => true,
+		'edit_posts' => true,
+		'edit_others_posts' => true,
+		'edit_published_posts' => true,
+		'publish_posts' => true,
+		'edit_pages' => true,
+		'read' => true,
+		'publish_pages' => true,
+		'edit_others_pages' => true,
+		'edit_published_pages' => true,
+		'delete_pages' => true,
+		'delete_others_pages' => true,
+		'delete_published_pages' => true,
+		'delete_posts' => true,
+		'delete_others_posts' => true,
+		'delete_published_posts' => true,
+		'delete_private_posts' => true,
+		'edit_private_posts' => true,
+		'read_private_posts' => true,
+		'delete_private_pages' => true,
+		'edit_private_pages' => true,
+		'read_private_pages' => true,
+		'delete_users' => false,
+		'create_users' => false,
+		'unfiltered_upload' => true,
+		'edit_dashboard' => false,
+		'customize' => true,
+		'delete_site' => false,
+		'update_plugins' => true,
+		'delete_plugins' => true,
+		'update_themes' => false,
+		'update_core' => false,
+		'list_users' => false,
+		'remove_users' => false,
+		'add_users' => false,
+		'promote_users' => false,
+		'delete_themes' => false,
+		'export' => true,
+		'edit_comment' => true,
+		'create_sites' => false,
+		'delete_sites' => false,
+		'manage_network' => false,
+		'manage_sites' => false,
+		'manage_network_users' => false,
+		'manage_network_themes' => false,
+		'manage_network_options' => false, 
+		'manage_network_plugins' => true,
+		'upload_plugins' => true,
+		'upload_themes' => false,
+		'upgrade_network' => false,
+		'setup_network' => false,
+	)
+);
 
-// function wp_rocket_add_capabilities() {
-// 	// gets the author role object
-// 	$role = get_role('seo-administrator');
-	
-// 	// add a new capability
-// 	$role->add_cap('rocket_purge_posts', true);
-// 	$role->add_cap('rocket_purge_cache', true);
-// 	$role->add_cap('rocket_purge_posts', true);
-// 	$role->add_cap('rocket_purge_terms', true);
-// 	$role->add_cap('rocket_purge_users', true);
-// 	$role->add_cap('rocket_purge_sucuri_cache', true);
-// 	$role->add_cap('rocket_regenerate_critical_css', true);
-// 	$role->add_cap('rocket_manage_options', true);
-// 	$role->add_cap('rocket_regenerate_critical_css', true);
-// 	$role->add_cap('rocket_purge_cache', true);
-// 	$role->add_cap('rocket_purge_cloudflare_cache', true);
-// 	$role->add_cap('rocket_purge_sucuri_cache', true);
-// 	$role->add_cap('rocket_preload_cache', true);
-// 	$role->add_cap('rocket_remove_unused_css', true);	
-// }
-// add_action('init', 'wp_rocket_add_capabilities', 12);
+// Disable Gravity Forms CSS
+add_filter( 'gform_disable_css', '__return_true' );
