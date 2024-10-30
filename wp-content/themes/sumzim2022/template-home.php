@@ -426,39 +426,14 @@ get_header();
       <?php endif; ?>
         </header>
 
-      <?php if(have_rows('content_features_slides')): ?>
-        <div class="home__content-features-slides swiper-container">
-          <div class="home__content-features-slides-wrapper swiper-wrapper">
-        <?php while(have_rows('content_features_slides')): the_row(); ?>
-        <?php 
-          $content_features_slides_heading = get_sub_field('content_features_slides_heading');
-          $content_features_slides_detail = get_sub_field('content_features_slides_detail');
-          $content_features_slides_link = get_sub_field('content_features_slides_link');
-        ?>
-            <div class="swiper-slide home__content-features-slide">
-              <div class="home__content-features-slide-wrapper">
-                <?php if($content_features_slides_heading): ?>
-                <h3><?php echo $content_features_slides_heading; ?></h3>
-                <?php endif; ?>
-
-                <?php if($content_features_slides_detail): ?>
-                <?php echo $content_features_slides_detail; ?>
-                <?php endif; ?>
-
-                <?php if($content_features_slides_link): ?>
-                <a href="<?php echo $content_features_slides_link['url']; ?>" class="button button--secondary"><?php echo $content_features_slides_link['title']; ?></a>
-                <?php endif; ?>
-              </div>
-            </div>
-        <?php endwhile; ?>
-          </div>
-          <!-- If we need pagination -->
-          <div class="swiper-pagination --swiper-pagination-bullet-light-background"></div>
-          <!-- If we need navigation buttons -->
-          <div class="swiper-button-prev --swiper-button-prev-light-background"></div>
-          <div class="swiper-button-next --swiper-button-next-light-background"></div>
-        </div>
-      <?php endif; ?>
+		<main class="home__content-feature-video">
+				<h3>Joe &amp; Alli discuss Why We Are Different</h3>
+				<div class="video">
+					<!-- Use the element. You may use it before the lite-yt-embed JS is executed. -->
+					<lite-youtube videoid="ztj3eRrrwjc" playlabel="Play: Family"></lite-youtube>
+				</div>
+				<a class="button button--primary" href="#">See All Videos</a>
+		</main>
         <footer class="home__content-features-footer">
       <?php if($content_features_addendum): ?>
           <?php echo $content_features_addendum; ?>
@@ -525,12 +500,8 @@ get_header();
     ?>
       
     <?php if($background_video_mp4 || $background_video_webm): ?>
-      <div class="home__background-media-container">
-        <video class="lazy home__background-media-video" autoplay muted loop playsinline poster="<?php echo $background_image['url']; ?>">
-          <source data-src="<?php echo $background_video_webm['url']; ?>">
-          <source data-src="<?php echo $background_video_mp4['url']; ?>">
-        </video>
-      </div>
+		
+      <div class="home__background-media-container" id="backgroundContainer"></div>
     <?php endif; ?>
       
     </div>
