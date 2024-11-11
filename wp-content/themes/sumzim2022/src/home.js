@@ -17,7 +17,7 @@ window.addEventListener("DOMContentLoaded", ()=> {
 		// imageEl.setAttribute("src", "https://sumzimstaging.wpengine.com/wp-content/uploads/2024/10/home-background.webp");
 
 		backgroundContainer.parentElement.classList.add("hasImage");
-		backgroundContainer.style.backgroundImage = "url('https://sumzimstaging.wpengine.com/wp-content/uploads/2024/10/home-background.webp')";
+		backgroundContainer.style.backgroundImage = "url('https://sumzim.com/wp-content/uploads/2024/11/home-background.webp')";
 		backgroundContainer.style.backgroundSize = "cover";
 		
 		
