@@ -27,7 +27,7 @@ get_header();
         ?>
         
           <?php if($hero_headline): ?>
-            <h1 class="--variable-background home__heroHeadline"><?php echo $hero_headline ?></h1>
+            <h1 style="text-shadow: 2px 2px 2px black; font-weight: 700; color: white;"><?php echo $hero_headline ?></h1>
           <?php endif ?>
           
           <?php if($hero_link): ?>
@@ -432,7 +432,7 @@ get_header();
 					<!-- Use the element. You may use it before the lite-yt-embed JS is executed. -->
 					<lite-youtube videoid="ztj3eRrrwjc" playlabel="Play: Family"></lite-youtube>
 				</div>
-				<a class="button button--primary" href="#">See All Videos</a>
+				<a class="button button--primary" href="/videos">See All Videos</a>
 		</main>
         <footer class="home__content-features-footer">
       <?php if($content_features_addendum): ?>
