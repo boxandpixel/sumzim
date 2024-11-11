@@ -1,0 +1,35 @@
+.type-page {
+	padding: 200px 1rem 100px 1rem;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+
+	@include breakpoint(large) {
+		padding: 260px 1rem 100px 1rem;
+	}
+
+	
+
+	.entry-header {
+		h1 {
+			font-family: var(--font);
+			font-weight: 800;
+			font-size: 44px;
+			color: var(--color__primary);
+			text-align: center;
+
+			@include breakpoint(medium) {
+				font-size: 56px;
+			}
+		}
+	}
+
+	.entry-content {
+		max-width: 100%;
+
+		@include breakpoint(large){
+			width: 1200px;
+			max-width: 1200px;
+		}
+	}
+}
