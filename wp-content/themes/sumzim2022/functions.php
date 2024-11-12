@@ -175,11 +175,14 @@ function sumzim_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'sumzim_scripts' );
 
-function my_plugin_partytown_config( $config ) {
-	$config["forward"] = ['dataLayer.push'];
-	return $config;
-  }
-  add_filter( 'partytown_configuration', 'my_plugin_partytown_config' );
+/**
+ * Partytown if we can figure out how to use it.
+ */
+// function my_plugin_partytown_config( $config ) {
+// 	$config["forward"] = ['dataLayer.push'];
+// 	return $config;
+//   }
+//   add_filter( 'partytown_configuration', 'my_plugin_partytown_config' );
   
 /** 
  * Remove versions from CSS & JS
