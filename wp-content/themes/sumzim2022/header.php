@@ -29,14 +29,6 @@
 
 	<?php wp_head(); ?>
 
-  <script type="text/partytown" src="https://www.googletagmanager.com/gtag/js?id=GTM-NFL8X42V"></script>
-  <script type="text/partytown">
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'GTM-NFL8X42V');
-  </script>	
 
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -170,6 +162,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <!-- Test push 20240716 -->
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
+	<!-- GTM #2 20240826 -->
+	<!-- Google Tag Manager (noscript) -->
+	<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NFL8X42V"
+	height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+	<!-- End Google Tag Manager (noscript) -->	 
 
     <img height="1" width="1" class="audacy" style="border-style:none;" alt="" src="https://insight.adsrvr.org/track/pxl/?adv=mw5wx89&ct=0:ouqlti8&fmt=3"/>
 
