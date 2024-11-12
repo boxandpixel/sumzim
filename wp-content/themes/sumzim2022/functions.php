@@ -146,7 +146,7 @@ function sumzim_scripts() {
 	$rand = rand( 0, 999999999999 );
 	if(is_front_page()) {
 		wp_enqueue_style( 'home-styles', get_template_directory_uri() . '/dist/home.css', array(), '20240716');
-		wp_enqueue_script( 'home-scripts', get_template_directory_uri() . '/dist/home.js');
+		wp_enqueue_script( 'home-scripts', get_template_directory_uri() . '/dist/home.js', array('strategy' => 'defer'));
 		
 
 	} elseif(is_page('through-the-years')) {
