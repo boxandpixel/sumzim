@@ -27,6 +27,12 @@
 	<meta name="msapplication-TileColor" content="#00aba9">
 	<meta name="theme-color" content="#ffffff">
 
+	<script>
+    window.partytown = {
+		"forward": ["dataLayer.push"]
+    };
+	</script>	
+
 	<?php wp_head(); ?>
 
   <script type="text/partytown" src="https://www.googletagmanager.com/gtag/js?id=GTM-NFL8X42V"></script>
