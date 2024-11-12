@@ -176,7 +176,7 @@ function sumzim_scripts() {
 add_action( 'wp_enqueue_scripts', 'sumzim_scripts' );
 
 function my_plugin_partytown_config( $config ) {
-	$config["forward"] = '["dataLayer.push"]';
+	$config["forward"] = '"dataLayer.push"';
 	return $config;
   }
   add_filter( 'partytown_configuration', 'my_plugin_partytown_config' );
