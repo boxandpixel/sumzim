@@ -34,8 +34,6 @@
   </div>
 </footer>
 
-<<<<<<< HEAD
-=======
     <script>
   const navBookNow = document.querySelector(".nav-book-now");
 
@@ -83,13 +81,10 @@
   }
 </script>
 
->>>>>>> main
 
 
 <?php wp_footer(); ?>
 
-<<<<<<< HEAD
-=======
 <?php
 $args = array(
 	'fields' => 'ids',
@@ -102,6 +97,5 @@ if (!is_single($posts) && !is_page('blog')) { ?>
 <script defer src="https://connect.podium.com/widget.js#ORG_TOKEN=de2c3c70-a55d-4045-b2db-c32074c317f6" id="podium-widget" organization-api-token="de2c3c70-a55d-4045-b2db-c32074c317f6"></script>	
 <?php } ?>
 
->>>>>>> main
 </body>
 </html>

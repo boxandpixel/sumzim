@@ -139,12 +139,6 @@ add_action( 'widgets_init', 'sumzim_widgets_init' );
  */
 function sumzim_scripts() {
 	wp_enqueue_style( ' sumzim-style', get_stylesheet_uri(), array(), sumzim_VERSION );
-<<<<<<< HEAD
-=======
-
-	wp_enqueue_script( 'liteYouTube-scripts', get_template_directory_uri() . '/dist/liteYouTube.js');
-	wp_enqueue_style( 'liteYouTube-styles', get_template_directory_uri() . '/dist/liteYouTube.css');
->>>>>>> main
 	
 	$rand = rand( 0, 999999999999 );
 	if(is_front_page()) {
@@ -1090,15 +1084,27 @@ add_role( 'seo-admin', 'SEO Administrator',
 	)
 );
 
-<<<<<<< HEAD
 // Disable Gravity Forms CSS
 add_filter( 'gform_disable_css', '__return_true' );
-=======
-add_action('wp_print_scripts', function () {
-		global $post;
-		if ( is_a( $post, 'WP_Post' ) && !has_shortcode( $post->post_content, 'contact-form-7') ) {
-		wp_dequeue_script( 'google-recaptcha' );
-		wp_dequeue_script( 'wpcf7-recaptcha' );
-		}
-});
->>>>>>> main
+
+// Start Progress/Steps at 0
+add_filter( 'gform_progressbar_start_at_zero', '__return_true' );
+
+/** 
+ * Gravity Forms: Add fieldset for equipment selections
+ */
+
+ add_filter( 'gform_field_container_4', 'equipment_selections_fieldset', 10, 6 );
+function equipment_selections_fieldset( $field_container, $field, $form, $css_class, $style, $field_content ) {
+        if( $field->id == 40  ) {
+            $fieldset_classes = array(
+                'test'
+            );
+            $new_fieldset_start = '<fieldset class="' . implode(' ', $fieldset_classes) . '">
+                <legend class="gfield_label gfield_label_before_complex">Your Information<span class="gfield_required"><span class="gfield_required gfield_required_text">(Required)</span></span></legend>';
+            return $new_fieldset_start . $field_container;
+        }elseif($field->id == 58 ) {
+            return $field_container . '</fieldset>';
+        }
+    return $field_container;
+}

@@ -1,8 +1,97 @@
 .gform_wrapper {
 	@include breakpoint(medium) {
-		max-width: 600px;
+		// max-width: 600px;
 		margin: 0 auto;
 	}
+
+	.gf_progressbar_wrapper {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		margin: 0 16px 50px 16px;
+		position: relative;
+
+
+		@include breakpoint(medium) {
+			margin: 0 auto 75px auto;	
+			left: -15px;
+		}
+
+		.gf_progressbar_title {
+			margin-bottom: 0;
+			font-family: var(--font);
+			font-weight: 600;
+			font-size: 18px;
+			color: hsla(211, 61%, 12%, 1);
+		}
+
+		.gf_progressbar {
+			background: hsla(211, 61%, 12%, 0.5);
+			height: 10px;
+			width: 100%;
+			position: relative;
+
+
+			.gf_progressbar_percentage {
+			   
+				background: hsla(211, 61%, 12%, 1);
+				height: 10px;
+				border-radius: 24px;
+
+				span {
+					position: absolute;
+					right: -55px;
+					top: 0;
+					color: var(--color__primary);
+					width: 50px;
+					text-align: left;
+
+					/* Desktop/Body Small */
+					font-family: var(--font);
+					font-size: 18px;
+					font-style: normal;
+					font-weight: 500;
+					line-height: 1;
+					letter-spacing: 0.27px;       
+					transform: translateY(-25%);  
+					
+					// @include respond-to(1024px) {
+					// 	right: -65px;
+					// }
+				}
+			}  
+			
+			.percentbar_0 {
+				&:before {
+					content: "";
+					width: 12px;
+					height: 12px;
+					color: var(--color__primary);
+					border-radius: 24px;
+					display: block;
+
+				}
+			}
+
+			.percentbar_100,
+			.percentbar_NaN {
+				span {
+					display: block;
+					text-indent: -9999rem;
+					background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="25" height="26" viewBox="0 0 25 26" fill="none"><circle cx="12.7074" cy="12.8813" r="12.2934" fill="white"/><path d="M8.60938 12.8817L11.5364 15.8087L17.3904 9.95471" stroke="%23002242" stroke-width="2.73186" stroke-linecap="round"/></svg>');
+					background-size: 25px;
+					width: 25px;
+					height: 25px;
+					top: -7px;
+					right: -40px;
+					transform: translateY(0);
+				}
+			}
+		}
+
+
+	}	
+
 
 	.gform_heading {
 		display: none;
@@ -209,4 +298,56 @@
 	}
 
 
+}
+
+
+.design-your-membership-form_wrapper {
+
+	h3 {
+		font-family: var(--font);
+		font-size: 40px;
+		font-weight: 700;
+		text-align: center;
+	}
+
+	h4 {
+		max-width: 300px;
+		background: hsla(211, 61%, 12%, .5);
+		color: white;
+		text-align: center;
+		height: 40px;
+		line-height: 40px;
+		font-family: var(--font);
+		font-weight: 800;
+		font-size: 18px;
+		margin-bottom: 20px;
+	}
+
+	fieldset.test {
+		// display: grid;
+		// grid-template-columns: repeat(3, 1fr);
+		column-gap: 150px;
+		columns: 3;
+	}
+
+	.gfield--type-select {
+
+		label {
+			color: black;
+			font-size: 18px !important;
+			font-family: var(--font);
+			font-weight: 500;
+		}
+
+		select {
+			width: 100%;
+		}
+
+		.gfield_description {
+			color: #00994D;
+			font-size: 18px;
+			font-family: var(--font);
+			font-weight: 500;
+		}
+	}
 }
