@@ -1091,14 +1091,111 @@ add_filter( 'gform_disable_css', '__return_true' );
 add_filter( 'gform_progressbar_start_at_zero', '__return_true' );
 
 /** 
- * Gravity Forms: Add fieldset for equipment selections
+ * Gravity Forms: Add fieldset for heating equipment selections
+*/
+
+add_filter( 'gform_field_container_4', 'heating_equipment_selections_fieldset', 10, 6 );
+function heating_equipment_selections_fieldset( $field_container, $field, $form, $css_class, $style, $field_content ) {
+        if( $field->id == 40  ) {
+            $fieldset_classes = array(
+                'heating-equipment-selections-fieldset'
+            );
+            $new_fieldset_start = '<fieldset class="' . implode(' ', $fieldset_classes) . '">
+                <legend class="gfield_label gfield_label_before_complex">Your Information<span class="gfield_required"><span class="gfield_required gfield_required_text">(Required)</span></span></legend>';
+            return $new_fieldset_start . $field_container;
+        }elseif($field->id == 46 ) {
+            return $field_container . '</fieldset>';
+        }
+    return $field_container;
+}
+
+/** 
+ * Gravity Forms: Add fieldset for all equipment selections
  */
 
- add_filter( 'gform_field_container_4', 'equipment_selections_fieldset', 10, 6 );
+add_filter( 'gform_field_container_4', 'equipment_selections_fieldset', 10, 6 );
 function equipment_selections_fieldset( $field_container, $field, $form, $css_class, $style, $field_content ) {
         if( $field->id == 40  ) {
             $fieldset_classes = array(
-                'test'
+                'equipment-selections-fieldset'
+            );
+            $new_fieldset_start = '<fieldset class="' . implode(' ', $fieldset_classes) . '">
+                <legend class="gfield_label gfield_label_before_complex">All<span class="gfield_required"><span class="gfield_required gfield_required_text">(Required)</span></span></legend>';
+            return $new_fieldset_start . $field_container;
+        }elseif($field->id == 58 ) {
+            return $field_container . '</fieldset>';
+        }
+    return $field_container;
+}
+
+
+
+/** 
+ * Gravity Forms: Add fieldset for air conditioning equipment selections
+*/
+
+add_filter( 'gform_field_container_4', 'ac_equipment_selections_fieldset', 2, 6 );
+function ac_equipment_selections_fieldset( $field_container, $field, $form, $css_class, $style, $field_content ) {
+        if( $field->id == 47  ) {
+            $fieldset_classes = array(
+                'ac-equipment-selections-fieldset'
+            );
+            $new_fieldset_start = '<fieldset class="' . implode(' ', $fieldset_classes) . '">
+                <legend class="gfield_label gfield_label_before_complex">Your Information<span class="gfield_required"><span class="gfield_required gfield_required_text">(Required)</span></span></legend>';
+            return $new_fieldset_start . $field_container;
+        }elseif($field->id == 39 ) {
+            return $field_container . '</fieldset>';
+        }
+    return $field_container;
+}
+
+/** 
+ * Gravity Forms: Add fieldset for electrical conditioning equipment selections
+*/
+
+add_filter( 'gform_field_container_4', 'electrical_equipment_selections_fieldset', 2, 6 );
+function electrical_equipment_selections_fieldset( $field_container, $field, $form, $css_class, $style, $field_content ) {
+        if( $field->id == 48  ) {
+            $fieldset_classes = array(
+                'electrical-equipment-selections-fieldset'
+            );
+            $new_fieldset_start = '<fieldset class="' . implode(' ', $fieldset_classes) . '">
+                <legend class="gfield_label gfield_label_before_complex">Your Information<span class="gfield_required"><span class="gfield_required gfield_required_text">(Required)</span></span></legend>';
+            return $new_fieldset_start . $field_container;
+        }elseif($field->id == 50 ) {
+            return $field_container . '</fieldset>';
+        }
+    return $field_container;
+}
+
+/** 
+ * Gravity Forms: Add fieldset for plumbing conditioning equipment selections
+*/
+
+add_filter( 'gform_field_container_4', 'plumbing_equipment_selections_fieldset', 2, 6 );
+function plumbing_equipment_selections_fieldset( $field_container, $field, $form, $css_class, $style, $field_content ) {
+        if( $field->id == 51  ) {
+            $fieldset_classes = array(
+                'plumbing-equipment-selections-fieldset'
+            );
+            $new_fieldset_start = '<fieldset class="' . implode(' ', $fieldset_classes) . '">
+                <legend class="gfield_label gfield_label_before_complex">Your Information<span class="gfield_required"><span class="gfield_required gfield_required_text">(Required)</span></span></legend>';
+            return $new_fieldset_start . $field_container;
+        }elseif($field->id == 56 ) {
+            return $field_container . '</fieldset>';
+        }
+    return $field_container;
+}
+
+/** 
+ * Gravity Forms: Add fieldset for additional conditioning equipment selections
+*/
+
+add_filter( 'gform_field_container_4', 'additional_equipment_selections_fieldset', 2, 6 );
+function additional_equipment_selections_fieldset( $field_container, $field, $form, $css_class, $style, $field_content ) {
+        if( $field->id == 57  ) {
+            $fieldset_classes = array(
+                'additional-equipment-selections-fieldset'
             );
             $new_fieldset_start = '<fieldset class="' . implode(' ', $fieldset_classes) . '">
                 <legend class="gfield_label gfield_label_before_complex">Your Information<span class="gfield_required"><span class="gfield_required gfield_required_text">(Required)</span></span></legend>';

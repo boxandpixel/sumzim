@@ -301,7 +301,7 @@
 }
 
 
-.design-your-membership-form_wrapper {
+.gform_wrapper.design-your-membership-form_wrapper {
 
 	h3 {
 		font-family: var(--font);
@@ -323,12 +323,63 @@
 		margin-bottom: 20px;
 	}
 
-	fieldset.test {
-		// display: grid;
-		// grid-template-columns: repeat(3, 1fr);
-		column-gap: 150px;
-		columns: 3;
+	fieldset {
+		margin: 0;
+		padding: 0;
+
+		legend {
+			display: none;
+			margin: 0;
+			padding: 0;
+		}
+
+		.gfield {
+			margin-bottom: 20px;
+			margin-top: 0;
+		}
 	}
+
+	fieldset.equipment-selections-fieldset {
+		// background: red;
+		display: grid;
+		grid-template-columns: repeat(3, minmax(0,1fr));
+		grid-template-rows: masonry;
+		column-gap: 150px;
+		row-gap: 30px;
+		grid-template-areas: 
+			"heating ac plumbing"
+			"heating ac plumbing"
+			"heating electrical plumbing"
+			"heating . additional"
+			
+	}
+
+	fieldset.heating-equipment-selections-fieldset {
+
+		// background: blue;
+		grid-area: heating;
+	}	
+
+	fieldset.ac-equipment-selections-fieldset {
+		// background: green;
+		grid-area: ac;
+	}
+
+	fieldset.electrical-equipment-selections-fieldset {
+		// background: orange;
+		grid-area: electrical;
+	}
+
+	fieldset.plumbing-equipment-selections-fieldset {
+		// background: purple;
+		grid-area: plumbing;
+	}	
+
+	fieldset.additional-equipment-selections-fieldset {
+		// background: yellow;
+		grid-area: additional;
+		margin-top: -150px;
+	}		
 
 	.gfield--type-select {
 
