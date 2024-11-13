@@ -13,6 +13,7 @@ module.exports = {
     home: ["./src/home.js", "./src/home.scss"],
     site: ["./src/site.js", "./src/site.scss"],
     timeline: ["./src/timeline.js", "./src/timeline.scss"],
+	liteYouTube: ["./src/lite-yt-embed.js", "./src/lite-yt-embed.css"],
   },
   output: {
     path: path.resolve(__dirname, "dist"),

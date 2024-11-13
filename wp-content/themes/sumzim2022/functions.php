@@ -139,11 +139,23 @@ add_action( 'widgets_init', 'sumzim_widgets_init' );
  */
 function sumzim_scripts() {
 	wp_enqueue_style( ' sumzim-style', get_stylesheet_uri(), array(), sumzim_VERSION );
+<<<<<<< HEAD
+=======
+
+	wp_enqueue_script( 'liteYouTube-scripts', get_template_directory_uri() . '/dist/liteYouTube.js');
+	wp_enqueue_style( 'liteYouTube-styles', get_template_directory_uri() . '/dist/liteYouTube.css');
+>>>>>>> main
 	
 	$rand = rand( 0, 999999999999 );
 	if(is_front_page()) {
 		wp_enqueue_style( 'home-styles', get_template_directory_uri() . '/dist/home.css', array(), '20240716');
-		wp_enqueue_script( 'home-scripts', get_template_directory_uri() . '/dist/home.js');
+		wp_enqueue_script( 'home-scripts', get_template_directory_uri() . '/dist/home.js', array(), '1.0.0', 
+		array(
+			'in_footer' => true,
+			'strategy'  => 'async',
+		));
+		
+
 	} elseif(is_page('through-the-years')) {
 		wp_enqueue_style( 'timeline-styles', get_template_directory_uri() . '/dist/timeline.css');
 		wp_enqueue_script( 'timeline-scripts', get_template_directory_uri() . '/dist/timeline.js');
@@ -166,6 +178,15 @@ function sumzim_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'sumzim_scripts' );
 
+/**
+ * Partytown if we can figure out how to use it.
+ */
+// function my_plugin_partytown_config( $config ) {
+// 	$config["forward"] = ['dataLayer.push'];
+// 	return $config;
+//   }
+//   add_filter( 'partytown_configuration', 'my_plugin_partytown_config' );
+  
 /** 
  * Remove versions from CSS & JS
  */
@@ -990,6 +1011,12 @@ function register_block_list_wysiwyg() {
     register_block_type( __DIR__ . '/blocks/list-wysiwyg/block.json' );
 }
 
+/** Block: Media Grid */
+add_action( 'init', 'register_block_media_grid' );
+function register_block_media_grid() {
+    register_block_type( __DIR__ . '/blocks/media-grid/block.json' );
+}
+
 /** Add new user role */
 
 add_role( 'seo-admin', 'SEO Administrator',
@@ -1063,5 +1090,15 @@ add_role( 'seo-admin', 'SEO Administrator',
 	)
 );
 
+<<<<<<< HEAD
 // Disable Gravity Forms CSS
 add_filter( 'gform_disable_css', '__return_true' );
+=======
+add_action('wp_print_scripts', function () {
+		global $post;
+		if ( is_a( $post, 'WP_Post' ) && !has_shortcode( $post->post_content, 'contact-form-7') ) {
+		wp_dequeue_script( 'google-recaptcha' );
+		wp_dequeue_script( 'wpcf7-recaptcha' );
+		}
+});
+>>>>>>> main
