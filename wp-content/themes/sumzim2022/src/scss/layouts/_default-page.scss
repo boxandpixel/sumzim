@@ -27,7 +27,11 @@
 	.entry-content {
 		max-width: 100%;
 
-		@include breakpoint(large){
+		@include breakpoint(medium){
+			padding: 0 1rem;
+		}		
+
+		@include breakpoint(xlarge){
 			width: 1200px;
 			max-width: 1200px;
 		}

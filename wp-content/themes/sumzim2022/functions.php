@@ -1205,3 +1205,41 @@ function additional_equipment_selections_fieldset( $field_container, $field, $fo
         }
     return $field_container;
 }
+
+/** 
+ * Gravity Forms: Add fieldset for total
+*/
+
+// add_filter( 'gform_field_container_4', 'estiamted_total_fieldset', 2, 6 );
+// function estiamted_total_fieldset( $field_container, $field, $form, $css_class, $style, $field_content ) {
+//         if( $field->id == 59  ) {
+//             $fieldset_classes = array(
+//                 'estimated-total-fieldset'
+//             );
+//             $new_fieldset_start = '<fieldset class="' . implode(' ', $fieldset_classes) . '">
+//                 <legend class="gfield_label gfield_label_before_complex">Your Information<span class="gfield_required"><span class="gfield_required gfield_required_text">(Required)</span></span></legend>';
+//             return $new_fieldset_start . $field_container;
+//         }elseif($field->id == 62 ) {
+//             return $field_container . '</fieldset>';
+//         }
+//     return $field_container;
+// }
+
+/** 
+ * Gravity Forms: Add fieldset for totals each
+*/
+
+// add_filter( 'gform_field_container_4', 'estiamted_totals_each_fieldset', 2, 6 );
+// function estiamted_totals_each_fieldset( $field_container, $field, $form, $css_class, $style, $field_content ) {
+//         if( $field->id == 59  ) {
+//             $fieldset_classes = array(
+//                 'estimated-totals-each-fieldset'
+//             );
+//             $new_fieldset_start = '<fieldset class="' . implode(' ', $fieldset_classes) . '">
+//                 <legend class="gfield_label gfield_label_before_complex">Your Information<span class="gfield_required"><span class="gfield_required gfield_required_text">(Required)</span></span></legend>';
+//             return $new_fieldset_start . $field_container;
+//         }elseif($field->id == 67 ) {
+//             return $field_container . '</fieldset>';
+//         }
+//     return $field_container;
+// }

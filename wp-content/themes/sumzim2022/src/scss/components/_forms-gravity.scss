@@ -14,7 +14,7 @@
 
 		@include breakpoint(medium) {
 			margin: 0 auto 75px auto;	
-			left: -15px;
+			// left: -15px;
 		}
 
 		.gf_progressbar_title {
@@ -32,33 +32,14 @@
 			position: relative;
 
 
-			.gf_progressbar_percentage {
-			   
+			.gf_progressbar_percentage {	
 				background: hsla(211, 61%, 12%, 1);
 				height: 10px;
-				border-radius: 24px;
 
 				span {
-					position: absolute;
-					right: -55px;
-					top: 0;
-					color: var(--color__primary);
-					width: 50px;
-					text-align: left;
-
-					/* Desktop/Body Small */
-					font-family: var(--font);
-					font-size: 18px;
-					font-style: normal;
-					font-weight: 500;
-					line-height: 1;
-					letter-spacing: 0.27px;       
-					transform: translateY(-25%);  
-					
-					// @include respond-to(1024px) {
-					// 	right: -65px;
-					// }
+					display: none;
 				}
+				
 			}  
 			
 			.percentbar_0 {
@@ -301,104 +282,421 @@
 }
 
 
-.gform_wrapper.design-your-membership-form_wrapper {
 
-	h3 {
-		font-family: var(--font);
-		font-size: 40px;
-		font-weight: 700;
-		text-align: center;
-	}
+	.gform_wrapper.design-your-membership-form_wrapper {
+		h3 {
+			font-family: var(--font);
+			font-size: 40px;
+			font-weight: 700;
+			text-align: center;
+			margin-bottom: 64px;
+			color: hsla(211, 61%, 12%, 1);
+		}
+	
+		h4 {
+			background: hsla(211, 61%, 12%, .5);
+			color: white;
+			text-align: center;
+			height: 40px;
+			line-height: 40px;
+			font-family: var(--font);
+			font-weight: 800;
+			font-size: 18px;
+			margin-bottom: 20px;
 
-	h4 {
-		max-width: 300px;
-		background: hsla(211, 61%, 12%, .5);
-		color: white;
-		text-align: center;
-		height: 40px;
-		line-height: 40px;
-		font-family: var(--font);
-		font-weight: 800;
-		font-size: 18px;
-		margin-bottom: 20px;
-	}
-
-	fieldset {
-		margin: 0;
-		padding: 0;
-
-		legend {
-			display: none;
+			@include breakpoint(xlarge) {
+				// max-width: 300px;				
+			}
+		}
+	
+		fieldset {
 			margin: 0;
 			padding: 0;
+	
+			legend {
+				display: none;
+				margin: 0;
+				padding: 0;
+			}
+	
+			.gfield {
+				margin-bottom: 20px;
+				margin-top: 0;
+			}
 		}
+	
+		fieldset.equipment-selections-fieldset {
+			display: grid;
+			grid-template-columns: auto;
+			grid-template-rows: masonry;
+			row-gap: 30px;
+			grid-template-areas: 
+			"heating"
+			"plumbing"
+			"ac"
+			"electrical"
+			"additional";
 
-		.gfield {
-			margin-bottom: 20px;
-			margin-top: 0;
+			@include breakpoint(medium) {
+				grid-template-columns: repeat(2, minmax(0,1fr));
+				grid-template-rows: masonry;
+				column-gap: 60px;
+				row-gap: 30px;
+				grid-template-areas: 
+					"heating plumbing"
+					"heating plumbing"
+					"heating electrical"
+					"heating electrical"
+					"ac additional";				
+			}
+
+
+			@include breakpoint(xlarge) {
+				grid-template-columns: repeat(3, minmax(0,1fr));
+				grid-template-rows: masonry;
+				column-gap: 100px;
+				row-gap: 30px;
+				grid-template-areas: 
+					"heating ac plumbing"
+					"heating ac plumbing"
+					"heating electrical plumbing"
+					"heating . additional";				
+			}
+				
 		}
-	}
+	
+		fieldset.heating-equipment-selections-fieldset {
+	
+			// background: blue;
+			grid-area: heating;
+		}	
+	
+		fieldset.ac-equipment-selections-fieldset {
+			// background: green;
+			grid-area: ac;
+		}
+	
+		fieldset.electrical-equipment-selections-fieldset {
+			// background: orange;
+			grid-area: electrical;
+		}
+	
+		fieldset.plumbing-equipment-selections-fieldset {
+			// background: purple;
+			grid-area: plumbing;
+		}	
+	
+		fieldset.additional-equipment-selections-fieldset {
+			// background: yellow;
+			grid-area: additional;
 
-	fieldset.equipment-selections-fieldset {
-		// background: red;
-		display: grid;
-		grid-template-columns: repeat(3, minmax(0,1fr));
-		grid-template-rows: masonry;
-		column-gap: 150px;
-		row-gap: 30px;
-		grid-template-areas: 
-			"heating ac plumbing"
-			"heating ac plumbing"
-			"heating electrical plumbing"
-			"heating . additional"
+			@include breakpoint(xlarge) {
+				margin-top: -150px;
+			}
 			
-	}
+		}	
+		
+		fieldset.estimated-total-fieldset {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+	
 
-	fieldset.heating-equipment-selections-fieldset {
+		}
 
-		// background: blue;
-		grid-area: heating;
-	}	
+		.estimated-total {
+			margin-bottom: 8px;
 
-	fieldset.ac-equipment-selections-fieldset {
-		// background: green;
-		grid-area: ac;
-	}
+			p {
+				text-align: center;
+				color: #c00;
+				font-size: 16px;
+				font-weight: 700;
+				font-family: var(--font);
+				margin-bottom: 0;
+			}
+		}			
+		
+		fieldset.estimated-totals-each-fieldset {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
 
-	fieldset.electrical-equipment-selections-fieldset {
-		// background: orange;
-		grid-area: electrical;
-	}
+		
+	
+			.estimated-total-or {
+				color: #c00;
+				font-size: 16px;
+				font-weight: 400;
+				font-family: var(--font);	
+				margin: 0 15px;				
+			}
+	
+			.gfield--type-number {
+	
+				display: flex;
+				flex-direction: column;
+	
+				label {
+					display: none;
+				}
+			}
+	
+			.ginput_container > input[type="text"] {
+				background: none;
+				border: none;
+				color: #c00 !important;
+				font-size: 24px !important;
+				font-weight: 800;
+				font-family: var(--font);	
+				text-align: center;
+				font-size: 12px;
+				text-transform: uppercase;
 
-	fieldset.plumbing-equipment-selections-fieldset {
-		// background: purple;
-		grid-area: plumbing;
-	}	
+				&::-webkit-inner-spin-button,
+				&::-webkit-outer-spin-button {
+					-webkit-appearance: none;
+					margin: 0;
+				}
+	
+				&[type="number"]{
+					-moz-appearance: textfield;
+				}
+	
+				&:focus {
+					outline: none;
+				}				
+			}
 
-	fieldset.additional-equipment-selections-fieldset {
-		// background: yellow;
-		grid-area: additional;
-		margin-top: -150px;
-	}		
+			.gfield_description {
+				display: none;
+			}
+	
 
-	.gfield--type-select {
+		}
 
-		label {
-			color: black;
-			font-size: 18px !important;
+		fieldset.monthly-or-annually {
+			display: flex;
+			justify-content: center;
+			margin-top: 0;
+			margin-bottom: 1.5rem;
+
+			.gfield_radio {
+				display: flex;
+				height: 32px;
+				background: white;
+				border-radius: 24px;
+				position: relative;
+				padding: 4px 0;
+				gap: 4px;
+			}				
+
+			.gchoice {
+				position: relative;
+				top: -1px;
+
+				input {
+					position: absolute !important;
+					clip: rect(0, 0, 0, 0);
+					height: 1px;
+					width: 1px;
+					border: 0;
+					overflow: hidden;
+
+					&:checked + label {
+						background-color: var(--color__secondary);
+						box-shadow: none;
+					}					
+				}
+
+				label {
+					background-color: white;
+					font-family: var(--font);
+					color: hsla(211, 61%, 12%, 1);
+					font-size: 14px;
+					font-weight: 700;
+					line-height: 1;
+					text-align: center;
+					padding: 8px 16px;
+					margin-right: -1px;
+					border-radius: 24px;
+					// border: 1px solid rgba(0, 0, 0, 0.2);
+					// box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.1);
+					transition: all 0.1s ease-in-out;	
+					
+					&:hover {
+						cursor: pointer;
+					}
+
+
+
+					&:first-of-type {
+						border-radius: 24px;
+					}
+
+					&:last-of-type {
+						border-radius: 24px;
+					}
+				}
+			}
+		}
+
+		fieldset.payment-options {
+			display: flex;
+			justify-content: center;
+
+			.gfield_radio {
+				display: flex;
+				flex-direction: column;
+				gap: 20px;
+
+				.gchoice {
+					input[type="radio"] {
+						opacity: 0;
+						position: fixed;
+						width: 0;
+
+						& + label {
+							display: block;
+							padding: 16px;
+							font-family: var(--font);
+							color: var(--color__primary--dark);
+							font-size: 18px;
+							font-weight: 700;
+							padding-left: 48px;
+							border-radius: 8px;
+							background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="%230C1E31"><path d="M480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/></svg>') white left 16px center no-repeat;
+							cursor: pointer;
+						}
+
+						&:checked+label {
+							color: white;
+							background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="%23ffffff"><path d="M480-280q83 0 141.5-58.5T680-480q0-83-58.5-141.5T480-680q-83 0-141.5 58.5T280-480q0 83 58.5 141.5T480-280Zm0 200q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/></svg>') var(--color__primary--dark) left 16px center no-repeat;
+						}                              
+					}
+				}
+			}
+		}
+
+		.monthly-payment-disclaimer {
+			text-align: center;
+			margin-top: 36px;
+			margin-bottom: 100px;
 			font-family: var(--font);
-			font-weight: 500;
+			font-style: italic;
+			color: var(--color__primary--dark);
 		}
 
-		select {
-			width: 100%;
-		}
+		.monthly-total,
+		.annual-total {
+			display: flex;
+			justify-content: center;
+			margin-top: 0.5rem;
 
-		.gfield_description {
-			color: #00994D;
-			font-size: 18px;
-			font-family: var(--font);
-			font-weight: 500;
+			label {
+				display: none;
+			}
+
+			input[type="text"] {
+				background: none;
+				border: none;
+				color: #c00 !important;
+				font-size: 24px !important;
+				font-weight: 800;
+				font-family: var(--font);	
+				text-align: center;
+				font-size: 12px;
+				text-transform: uppercase;
+	
+				&::-webkit-inner-spin-button,
+				&::-webkit-outer-spin-button {
+					-webkit-appearance: none;
+					margin: 0;
+				}
+	
+				&[type="number"]{
+					-moz-appearance: textfield;
+				}
+	
+				&:focus {
+					outline: none;
+				}	
+			}
+			
+		}
+	
+		.gfield--type-select {
+	
+			label {
+				color: black;
+				font-size: 18px !important;
+				font-family: var(--font);
+				font-weight: 500;
+			}
+	
+			select {
+				width: 100%;
+				border: none;
+
+				&:focus {
+					outline: none;
+				}
+
+				&[data-chosen] {
+					background: var(--color__secondary);
+					color: var(--color__primary--dark);
+					font-weight: 700 !important;
+				}
+			}		
+	
+			.gfield_description {
+				color: #00994D;
+				font-size: 18px;
+				font-family: var(--font);
+				font-weight: 500;
+			}
+		}
+	
+		.gform_page_footer {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			padding-top: 40px;
+			gap: 20px;
+	
+			input.gform_next_button {
+				display: block;
+				border-radius: 24px;
+				color: white;
+				text-align: center;
+				font-family: var(--font);
+				font-weight: 700;
+				font-size: 18px;
+				text-transform: uppercase;
+				background: hsla(211, 61%, 12%, 1);
+				height: 40px;
+				line-height: 40px;
+				padding: 0 100px;
+				order: 1;
+				
+			}
+
+			input.gform_previous_button {
+				order: 2;
+				font-size: 18px;
+				font-weight: 500;
+				color: var(--color__primary--dark);
+				border: 0;
+				padding: 0 0 0 28px;
+				margin: 0;
+				background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="%230C1E31"><path d="m313-440 224 224-57 56-320-320 320-320 57 56-224 224h487v80H313Z"/></svg>') left 0px top -2px no-repeat;
+
+				
+
+				&:focus {
+					outline: none;
+				}
+			}
 		}
 	}
-}
+
