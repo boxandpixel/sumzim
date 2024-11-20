@@ -991,7 +991,7 @@ function backupGeneratorMaintenanceYearly( $content ) {
 // }
 
 // Remove <p> and <br/> from Contact Form 7
-add_filter('wpcf7_autop_or_not', '__return_false');
+// add_filter('wpcf7_autop_or_not', '__return_false');
 
 /** Block: Question & Answer */
 add_action( 'init', 'register_block_question_answer' );
@@ -1188,6 +1188,37 @@ function plumbing_equipment_selections_fieldset( $field_container, $field, $form
 }
 
 /** 
+ * Gravity Forms: Add fieldset for additional name and address information
+*/
+
+add_filter( 'gform_field_container_4', 'addtional_information_fieldset', 2, 6 );
+function addtional_information_fieldset( $field_container, $field, $form, $css_class, $style, $field_content ) {
+        if( $field->id == 73  ) {
+            $fieldset_classes = array(
+                'additional-information-fieldset'
+            );
+            $new_fieldset_start = '<fieldset class="' . implode(' ', $fieldset_classes) . '">
+                <legend class="gfield_label gfield_label_before_complex">Your Information<span class="gfield_required"><span class="gfield_required gfield_required_text">(Required)</span></span></legend>';
+            return $new_fieldset_start . $field_container;
+        }elseif($field->id == 76 ) {
+            return $field_container . '</fieldset>';
+        }
+    return $field_container;
+}
+
+// gform.addFilter('gppt_swiper_options', function (options) {
+//     options.on.slideChange = function () {
+//         window.scroll({
+//             top: 0,
+//             left: 0,
+//             behavior: 'smooth'
+//         });
+//     }
+	
+//     return options;
+// });
+
+/** 
  * Gravity Forms: Add fieldset for additional conditioning equipment selections
 */
 
@@ -1205,6 +1236,10 @@ function additional_equipment_selections_fieldset( $field_container, $field, $fo
         }
     return $field_container;
 }
+
+/**
+ * Pre submission test
+*/
 
 /** 
  * Gravity Forms: Add fieldset for total
