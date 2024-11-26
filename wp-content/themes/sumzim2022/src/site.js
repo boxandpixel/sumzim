@@ -19,6 +19,7 @@ import "./js/wpcf7";
 import "./js/eventButtonCallClick";
 import "./js/membershipDesign";
 import "./js/membershipDesignTotal.js";
+import "./js/membershipDesignDisable.js";
 // import "./js/applyHeaderOffset.js";
 // import "./js/drawLineOnScroll.js";
 import "./js/wpcf7submit.js";
@@ -26,27 +27,27 @@ import "./js/wpcf7submit.js";
 
 
 
-document.addEventListener("DOMContentLoaded", () => {
-	let equipmentSelections = document.querySelector(".equipment-selections-fieldset");
+// document.addEventListener("DOMContentLoaded", () => {
+// 	let equipmentSelections = document.querySelector(".equipment-selections-fieldset");
 
-	if(equipmentSelections) {
-		const selects = equipmentSelections.getElementsByTagName("select");
+// 	if(equipmentSelections) {
+// 		const selects = equipmentSelections.getElementsByTagName("select");
 
-		// console.log(selects);
+// 		// console.log(selects);
 
-		for (let item of selects) {
-			item.addEventListener("change", ()=> {
-				// console.log(itemitem.value);
-				item.dataset.chosen = item.value;
-				console.log(item.dataset.chosen);
-			})
-		}
+// 		for (let item of selects) {
+// 			item.addEventListener("change", ()=> {
+// 				// console.log(itemitem.value);
+// 				item.dataset.chosen = item.value;
+// 				console.log(item.dataset.chosen);
+// 			})
+// 		}
 
-		// selects.forEach(element => {
+// 		// selects.forEach(element => {
 			
-		// });
-	}
-});
+// 		// });
+// 	}
+// });
 
 document.addEventListener("DOMContentLoaded", () => {
 	const form = document.getElementById('gform_4');
@@ -139,6 +140,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 
-window.onbeforeunload = function () {
-	window.scrollTo(0, 0);
-  }
+// window.onbeforeunload = function () {
+// 	window.scrollTo(0, 0);
+//   }

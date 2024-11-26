@@ -97,7 +97,11 @@
 				.gfield_required {
 					margin-left: 0.125rem;
 				}
-			}			
+			}	
+			
+			&.disabled {
+				opacity: 0.2;
+			}
 		}
 
 		input[type="text"],
