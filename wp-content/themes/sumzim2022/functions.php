@@ -152,7 +152,10 @@ function sumzim_scripts() {
 		// 	'strategy'  => 'async',
 		// ));
 
-		wp_enqueue_script( 'home-scripts', get_template_directory_uri() . '/dist/home.js', array(), '1.0.0');
+		wp_enqueue_script( 'home-scripts', get_template_directory_uri() . '/dist/home.js', array(), '1.0.0',
+			array(
+				'strategy' => 'async'
+			));
 		
 
 	} elseif(is_page('through-the-years')) {
