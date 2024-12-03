@@ -1,6 +1,17 @@
 .gform_wrapper {
+
+	form {
+		&:not(.design-your-membership-form) {
+
+			@include breakpoint(medium) {
+				max-width: 800px;
+				margin: 0 auto;
+			}
+		}
+	}
+
+
 	@include breakpoint(medium) {
-		// max-width: 600px;
 		margin: 0 auto;
 	}
 
@@ -283,6 +294,10 @@
 				}
 			}
 
+			.gfield_description.instruction {
+				font-size: 12px;
+			}
+
 		}		
 	
 		input[type="submit"] {
@@ -290,6 +305,17 @@
 			color: white;
 			border-radius: var(--border-radius);
 		}
+	}
+
+	/** validation */
+	.gfield_validation_message {
+		color: #c00;
+		margin-top: 0.5rem;
+		font-size: 14px;
+	}	
+
+	.hide_summary {
+		display: none;
 	}
 
 
@@ -610,12 +636,6 @@
 		fieldset > legend {
 			display: block;
 		}
-	}
-
-	.gfield_validation_message {
-		color: #c00;
-		margin-top: 0.5rem;
-		font-size: 14px;
 	}
 
 	.monthly-payment-disclaimer {

@@ -82,6 +82,10 @@ button.button-cta,
     padding: 1.25rem;
     border-radius: 14px;
     text-align: center;
+
+	&::after {
+		height: 0;
+	}
   }
 
   &.button--primary {
