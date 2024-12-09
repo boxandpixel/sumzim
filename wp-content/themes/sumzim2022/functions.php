@@ -139,15 +139,23 @@ add_action( 'widgets_init', 'sumzim_widgets_init' );
  */
 function sumzim_scripts() {
 	wp_enqueue_style( ' sumzim-style', get_stylesheet_uri(), array(), sumzim_VERSION );
+
+	wp_enqueue_script( 'liteYouTube-scripts', get_template_directory_uri() . '/dist/liteYouTube.js');
+	wp_enqueue_style( 'liteYouTube-styles', get_template_directory_uri() . '/dist/liteYouTube.css');
 	
 	$rand = rand( 0, 999999999999 );
 	if(is_front_page()) {
 		wp_enqueue_style( 'home-styles', get_template_directory_uri() . '/dist/home.css', array(), '20240716');
-		wp_enqueue_script( 'home-scripts', get_template_directory_uri() . '/dist/home.js', array(), '1.0.0', 
-		array(
-			'in_footer' => true,
-			'strategy'  => 'async',
-		));
+		// wp_enqueue_script( 'home-scripts', get_template_directory_uri() . '/dist/home.js', array(), '1.0.0', 
+		// array(
+		// 	'in_footer' => true,
+		// 	'strategy'  => 'async',
+		// ));
+
+		wp_enqueue_script( 'home-scripts', get_template_directory_uri() . '/dist/home.js', array(), '1.0.0',
+			array(
+				'strategy' => 'async'
+			));
 		
 
 	} elseif(is_page('through-the-years')) {
