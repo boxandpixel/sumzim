@@ -999,7 +999,7 @@ function backupGeneratorMaintenanceYearly( $content ) {
 // }
 
 // Remove <p> and <br/> from Contact Form 7
-add_filter('wpcf7_autop_or_not', '__return_false');
+// add_filter('wpcf7_autop_or_not', '__return_false');
 
 /** Block: Question & Answer */
 add_action( 'init', 'register_block_question_answer' );
@@ -1021,81 +1021,272 @@ function register_block_media_grid() {
 
 /** Add new user role */
 
-	add_role( 'seo-admin', 'SEO Administrator',
-		array(
-			'switch_themes' => false,
-			'edit_themes' => false,
-			'edit_theme_options' => false,
-			'install_themes' => false,
-			'activate_plugins' => true,
-			'edit_plugins' => true,
-			'install_plugins' => true,
-			'edit_users' => false,
-			'edit_files' => true,
-			'manage_options' => true,
-			'moderate_comments' => true,
-			'manage_categories' => true,
-			'manage_links' => true,
-			'upload_files' => true,
-			'import' => true,
-			'unfiltered_html' => true,
-			'edit_posts' => true,
-			'edit_others_posts' => true,
-			'edit_published_posts' => true,
-			'publish_posts' => true,
-			'edit_pages' => true,
-			'read' => true,
-			'publish_pages' => true,
-			'edit_others_pages' => true,
-			'edit_published_pages' => true,
-			'delete_pages' => true,
-			'delete_others_pages' => true,
-			'delete_published_pages' => true,
-			'delete_posts' => true,
-			'delete_others_posts' => true,
-			'delete_published_posts' => true,
-			'delete_private_posts' => true,
-			'edit_private_posts' => true,
-			'read_private_posts' => true,
-			'delete_private_pages' => true,
-			'edit_private_pages' => true,
-			'read_private_pages' => true,
-			'delete_users' => false,
-			'create_users' => false,
-			'unfiltered_upload' => true,
-			'edit_dashboard' => false,
-			'customize' => true,
-			'delete_site' => false,
-			'update_plugins' => true,
-			'delete_plugins' => true,
-			'update_themes' => false,
-			'update_core' => false,
-			'list_users' => false,
-			'remove_users' => false,
-			'add_users' => false,
-			'promote_users' => false,
-			'delete_themes' => false,
-			'export' => true,
-			'edit_comment' => true,
-			'create_sites' => false,
-			'delete_sites' => false,
-			'manage_network' => false,
-			'manage_sites' => false,
-			'manage_network_users' => false,
-			'manage_network_themes' => false,
-			'manage_network_options' => false, 
-			'manage_network_plugins' => true,
-			'upload_plugins' => true,
-			'upload_themes' => false,
-			'upgrade_network' => false,
-			'setup_network' => false,
-		)
-	);
+add_role( 'seo-admin', 'SEO Administrator',
+	array(
+		'switch_themes' => false,
+		'edit_themes' => false,
+		'edit_theme_options' => false,
+		'install_themes' => false,
+		'activate_plugins' => true,
+		'edit_plugins' => true,
+		'install_plugins' => true,
+		'edit_users' => false,
+		'edit_files' => true,
+		'manage_options' => true,
+		'moderate_comments' => true,
+		'manage_categories' => true,
+		'manage_links' => true,
+		'upload_files' => true,
+		'import' => true,
+		'unfiltered_html' => true,
+		'edit_posts' => true,
+		'edit_others_posts' => true,
+		'edit_published_posts' => true,
+		'publish_posts' => true,
+		'edit_pages' => true,
+		'read' => true,
+		'publish_pages' => true,
+		'edit_others_pages' => true,
+		'edit_published_pages' => true,
+		'delete_pages' => true,
+		'delete_others_pages' => true,
+		'delete_published_pages' => true,
+		'delete_posts' => true,
+		'delete_others_posts' => true,
+		'delete_published_posts' => true,
+		'delete_private_posts' => true,
+		'edit_private_posts' => true,
+		'read_private_posts' => true,
+		'delete_private_pages' => true,
+		'edit_private_pages' => true,
+		'read_private_pages' => true,
+		'delete_users' => false,
+		'create_users' => false,
+		'unfiltered_upload' => true,
+		'edit_dashboard' => false,
+		'customize' => true,
+		'delete_site' => false,
+		'update_plugins' => true,
+		'delete_plugins' => true,
+		'update_themes' => false,
+		'update_core' => false,
+		'list_users' => false,
+		'remove_users' => false,
+		'add_users' => false,
+		'promote_users' => false,
+		'delete_themes' => false,
+		'export' => true,
+		'edit_comment' => true,
+		'create_sites' => false,
+		'delete_sites' => false,
+		'manage_network' => false,
+		'manage_sites' => false,
+		'manage_network_users' => false,
+		'manage_network_themes' => false,
+		'manage_network_options' => false, 
+		'manage_network_plugins' => true,
+		'upload_plugins' => true,
+		'upload_themes' => false,
+		'upgrade_network' => false,
+		'setup_network' => false,
+	)
+);
 
-add_action('wp_print_scripts', function () {
-		global $post;
-		if ( is_a( $post, 'WP_Post' ) && !has_shortcode( $post->post_content, 'contact-form-7') ) {
-		wp_dequeue_script( 'google-recaptcha' );
-		wp_dequeue_script( 'wpcf7-recaptcha' );
-		}
-});
+// Disable Gravity Forms CSS
+add_filter( 'gform_disable_css', '__return_true' );
+
+// Start Progress/Steps at 0
+add_filter( 'gform_progressbar_start_at_zero', '__return_true' );
+
+/** 
+ * Gravity Forms: Add fieldset for heating equipment selections
+*/
+
+add_filter( 'gform_field_container_4', 'heating_equipment_selections_fieldset', 10, 6 );
+function heating_equipment_selections_fieldset( $field_container, $field, $form, $css_class, $style, $field_content ) {
+        if( $field->id == 40  ) {
+            $fieldset_classes = array(
+                'heating-equipment-selections-fieldset'
+            );
+            $new_fieldset_start = '<fieldset class="' . implode(' ', $fieldset_classes) . '">
+                <legend class="gfield_label gfield_label_before_complex">Your Information<span class="gfield_required"><span class="gfield_required gfield_required_text">(Required)</span></span></legend>';
+            return $new_fieldset_start . $field_container;
+        }elseif($field->id == 46 ) {
+            return $field_container . '</fieldset>';
+        }
+    return $field_container;
+}
+
+/** 
+ * Gravity Forms: Add fieldset for all equipment selections
+ */
+
+add_filter( 'gform_field_container_4', 'equipment_selections_fieldset', 10, 6 );
+function equipment_selections_fieldset( $field_container, $field, $form, $css_class, $style, $field_content ) {
+        if( $field->id == 40  ) {
+            $fieldset_classes = array(
+                'equipment-selections-fieldset'
+            );
+            $new_fieldset_start = '<fieldset class="' . implode(' ', $fieldset_classes) . '">
+                <legend class="gfield_label gfield_label_before_complex">All<span class="gfield_required"><span class="gfield_required gfield_required_text">(Required)</span></span></legend>';
+            return $new_fieldset_start . $field_container;
+        }elseif($field->id == 58 ) {
+            return $field_container . '</fieldset>';
+        }
+    return $field_container;
+}
+
+
+
+/** 
+ * Gravity Forms: Add fieldset for air conditioning equipment selections
+*/
+
+add_filter( 'gform_field_container_4', 'ac_equipment_selections_fieldset', 2, 6 );
+function ac_equipment_selections_fieldset( $field_container, $field, $form, $css_class, $style, $field_content ) {
+        if( $field->id == 47  ) {
+            $fieldset_classes = array(
+                'ac-equipment-selections-fieldset'
+            );
+            $new_fieldset_start = '<fieldset class="' . implode(' ', $fieldset_classes) . '">
+                <legend class="gfield_label gfield_label_before_complex">Your Information<span class="gfield_required"><span class="gfield_required gfield_required_text">(Required)</span></span></legend>';
+            return $new_fieldset_start . $field_container;
+        }elseif($field->id == 39 ) {
+            return $field_container . '</fieldset>';
+        }
+    return $field_container;
+}
+
+/** 
+ * Gravity Forms: Add fieldset for electrical conditioning equipment selections
+*/
+
+add_filter( 'gform_field_container_4', 'electrical_equipment_selections_fieldset', 2, 6 );
+function electrical_equipment_selections_fieldset( $field_container, $field, $form, $css_class, $style, $field_content ) {
+        if( $field->id == 48  ) {
+            $fieldset_classes = array(
+                'electrical-equipment-selections-fieldset'
+            );
+            $new_fieldset_start = '<fieldset class="' . implode(' ', $fieldset_classes) . '">
+                <legend class="gfield_label gfield_label_before_complex">Your Information<span class="gfield_required"><span class="gfield_required gfield_required_text">(Required)</span></span></legend>';
+            return $new_fieldset_start . $field_container;
+        }elseif($field->id == 50 ) {
+            return $field_container . '</fieldset>';
+        }
+    return $field_container;
+}
+
+/** 
+ * Gravity Forms: Add fieldset for plumbing conditioning equipment selections
+*/
+
+add_filter( 'gform_field_container_4', 'plumbing_equipment_selections_fieldset', 2, 6 );
+function plumbing_equipment_selections_fieldset( $field_container, $field, $form, $css_class, $style, $field_content ) {
+        if( $field->id == 51  ) {
+            $fieldset_classes = array(
+                'plumbing-equipment-selections-fieldset'
+            );
+            $new_fieldset_start = '<fieldset class="' . implode(' ', $fieldset_classes) . '">
+                <legend class="gfield_label gfield_label_before_complex">Your Information<span class="gfield_required"><span class="gfield_required gfield_required_text">(Required)</span></span></legend>';
+            return $new_fieldset_start . $field_container;
+        }elseif($field->id == 56 ) {
+            return $field_container . '</fieldset>';
+        }
+    return $field_container;
+}
+
+/** 
+ * Gravity Forms: Add fieldset for additional name and address information
+*/
+
+add_filter( 'gform_field_container_4', 'addtional_information_fieldset', 2, 6 );
+function addtional_information_fieldset( $field_container, $field, $form, $css_class, $style, $field_content ) {
+        if( $field->id == 73  ) {
+            $fieldset_classes = array(
+                'additional-information-fieldset'
+            );
+            $new_fieldset_start = '<fieldset class="' . implode(' ', $fieldset_classes) . '">
+                <legend class="gfield_label gfield_label_before_complex">Your Information<span class="gfield_required"><span class="gfield_required gfield_required_text">(Required)</span></span></legend>';
+            return $new_fieldset_start . $field_container;
+        }elseif($field->id == 76 ) {
+            return $field_container . '</fieldset>';
+        }
+    return $field_container;
+}
+
+// gform.addFilter('gppt_swiper_options', function (options) {
+//     options.on.slideChange = function () {
+//         window.scroll({
+//             top: 0,
+//             left: 0,
+//             behavior: 'smooth'
+//         });
+//     }
+	
+//     return options;
+// });
+
+/** 
+ * Gravity Forms: Add fieldset for additional conditioning equipment selections
+*/
+
+add_filter( 'gform_field_container_4', 'additional_equipment_selections_fieldset', 2, 6 );
+function additional_equipment_selections_fieldset( $field_container, $field, $form, $css_class, $style, $field_content ) {
+        if( $field->id == 57  ) {
+            $fieldset_classes = array(
+                'additional-equipment-selections-fieldset'
+            );
+            $new_fieldset_start = '<fieldset class="' . implode(' ', $fieldset_classes) . '">
+                <legend class="gfield_label gfield_label_before_complex">Your Information<span class="gfield_required"><span class="gfield_required gfield_required_text">(Required)</span></span></legend>';
+            return $new_fieldset_start . $field_container;
+        }elseif($field->id == 58 ) {
+            return $field_container . '</fieldset>';
+        }
+    return $field_container;
+}
+
+/**
+ * Pre submission test
+*/
+
+/** 
+ * Gravity Forms: Add fieldset for total
+*/
+
+// add_filter( 'gform_field_container_4', 'estiamted_total_fieldset', 2, 6 );
+// function estiamted_total_fieldset( $field_container, $field, $form, $css_class, $style, $field_content ) {
+//         if( $field->id == 59  ) {
+//             $fieldset_classes = array(
+//                 'estimated-total-fieldset'
+//             );
+//             $new_fieldset_start = '<fieldset class="' . implode(' ', $fieldset_classes) . '">
+//                 <legend class="gfield_label gfield_label_before_complex">Your Information<span class="gfield_required"><span class="gfield_required gfield_required_text">(Required)</span></span></legend>';
+//             return $new_fieldset_start . $field_container;
+//         }elseif($field->id == 62 ) {
+//             return $field_container . '</fieldset>';
+//         }
+//     return $field_container;
+// }
+
+/** 
+ * Gravity Forms: Add fieldset for totals each
+*/
+
+// add_filter( 'gform_field_container_4', 'estiamted_totals_each_fieldset', 2, 6 );
+// function estiamted_totals_each_fieldset( $field_container, $field, $form, $css_class, $style, $field_content ) {
+//         if( $field->id == 59  ) {
+//             $fieldset_classes = array(
+//                 'estimated-totals-each-fieldset'
+//             );
+//             $new_fieldset_start = '<fieldset class="' . implode(' ', $fieldset_classes) . '">
+//                 <legend class="gfield_label gfield_label_before_complex">Your Information<span class="gfield_required"><span class="gfield_required gfield_required_text">(Required)</span></span></legend>';
+//             return $new_fieldset_start . $field_container;
+//         }elseif($field->id == 67 ) {
+//             return $field_container . '</fieldset>';
+//         }
+//     return $field_container;
+// }
+
+// add_filter( 'gform_confirmation_anchor', function() {
+//     return 20;
+// } );
