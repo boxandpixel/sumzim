@@ -23,7 +23,7 @@ get_header();
 			$hero_image_default = get_field('hero_image_default', 'option');
 			$hero_subheading = get_field('hero_subheading');
 		?>
-		<div class="hero" style="background: url('<?php if($hero_image): echo $hero_image['url']; else: echo $hero_image_default['url']; endif; ?>') center / cover no-repeat">
+		<div class="hero-landing">
 			<div class="hero__page-title">
 				<h1><?php the_title(); ?></h1>
 				<h4><?php echo $hero_subheading; ?></h4>
@@ -32,6 +32,10 @@ get_header();
 
 		<div class="content__page --wide">
 		<!-- Begin Page Content Options -->
+
+		<div class="display-button">
+			<a href="tel:6105935129" class="button button-cta button--schedule button--large book-now-button">Call Now 610-593-5129</a>
+		</div>		
 
 		<?php 
 			$display_button = get_field('display_button');
