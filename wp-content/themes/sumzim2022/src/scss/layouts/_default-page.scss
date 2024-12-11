@@ -17,6 +17,8 @@
 			font-size: 23px;
 			color: var(--color__primary--dark);
 			text-align: center;
+			text-wrap: balance;
+			
 
 			@include breakpoint(medium) {
 				font-size: 47px;

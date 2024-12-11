@@ -1102,7 +1102,7 @@ add_filter( 'gform_progressbar_start_at_zero', '__return_true' );
  * Gravity Forms: Add fieldset for heating equipment selections
 */
 
-add_filter( 'gform_field_container_4', 'heating_equipment_selections_fieldset', 10, 6 );
+add_filter( 'gform_field_container_10', 'heating_equipment_selections_fieldset', 10, 6 );
 function heating_equipment_selections_fieldset( $field_container, $field, $form, $css_class, $style, $field_content ) {
         if( $field->id == 40  ) {
             $fieldset_classes = array(
@@ -1121,7 +1121,7 @@ function heating_equipment_selections_fieldset( $field_container, $field, $form,
  * Gravity Forms: Add fieldset for all equipment selections
  */
 
-add_filter( 'gform_field_container_4', 'equipment_selections_fieldset', 10, 6 );
+add_filter( 'gform_field_container_10', 'equipment_selections_fieldset', 10, 6 );
 function equipment_selections_fieldset( $field_container, $field, $form, $css_class, $style, $field_content ) {
         if( $field->id == 40  ) {
             $fieldset_classes = array(
@@ -1142,7 +1142,7 @@ function equipment_selections_fieldset( $field_container, $field, $form, $css_cl
  * Gravity Forms: Add fieldset for air conditioning equipment selections
 */
 
-add_filter( 'gform_field_container_4', 'ac_equipment_selections_fieldset', 2, 6 );
+add_filter( 'gform_field_container_10', 'ac_equipment_selections_fieldset', 2, 6 );
 function ac_equipment_selections_fieldset( $field_container, $field, $form, $css_class, $style, $field_content ) {
         if( $field->id == 47  ) {
             $fieldset_classes = array(
@@ -1161,7 +1161,7 @@ function ac_equipment_selections_fieldset( $field_container, $field, $form, $css
  * Gravity Forms: Add fieldset for electrical conditioning equipment selections
 */
 
-add_filter( 'gform_field_container_4', 'electrical_equipment_selections_fieldset', 2, 6 );
+add_filter( 'gform_field_container_10', 'electrical_equipment_selections_fieldset', 2, 6 );
 function electrical_equipment_selections_fieldset( $field_container, $field, $form, $css_class, $style, $field_content ) {
         if( $field->id == 48  ) {
             $fieldset_classes = array(
@@ -1180,7 +1180,7 @@ function electrical_equipment_selections_fieldset( $field_container, $field, $fo
  * Gravity Forms: Add fieldset for plumbing conditioning equipment selections
 */
 
-add_filter( 'gform_field_container_4', 'plumbing_equipment_selections_fieldset', 2, 6 );
+add_filter( 'gform_field_container_10', 'plumbing_equipment_selections_fieldset', 2, 6 );
 function plumbing_equipment_selections_fieldset( $field_container, $field, $form, $css_class, $style, $field_content ) {
         if( $field->id == 51  ) {
             $fieldset_classes = array(
@@ -1199,7 +1199,7 @@ function plumbing_equipment_selections_fieldset( $field_container, $field, $form
  * Gravity Forms: Add fieldset for additional name and address information
 */
 
-add_filter( 'gform_field_container_4', 'addtional_information_fieldset', 2, 6 );
+add_filter( 'gform_field_container_10', 'addtional_information_fieldset', 2, 6 );
 function addtional_information_fieldset( $field_container, $field, $form, $css_class, $style, $field_content ) {
         if( $field->id == 73  ) {
             $fieldset_classes = array(
@@ -1230,7 +1230,7 @@ function addtional_information_fieldset( $field_container, $field, $form, $css_c
  * Gravity Forms: Add fieldset for additional conditioning equipment selections
 */
 
-add_filter( 'gform_field_container_4', 'additional_equipment_selections_fieldset', 2, 6 );
+add_filter( 'gform_field_container_10', 'additional_equipment_selections_fieldset', 2, 6 );
 function additional_equipment_selections_fieldset( $field_container, $field, $form, $css_class, $style, $field_content ) {
         if( $field->id == 57  ) {
             $fieldset_classes = array(

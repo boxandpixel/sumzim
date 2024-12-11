@@ -22,3 +22,17 @@
         }
     }
 }
+
+.hero-landing {
+	width: 100%;
+	margin-top: 190px;
+
+	@include breakpoint(large) {
+		margin-top: 290px;
+	}
+
+	.hero__page-title {
+		text-align: center;
+		padding: 0;
+	}
+}
