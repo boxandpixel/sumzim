@@ -322,6 +322,11 @@
 }
 
 
+.gform_wrapper.design-your-membership-form_wrapper {
+	.gfield--type-turnstile {
+		display: flex;
+	}
+}
 
 .gform_wrapper.design-your-membership-form_wrapper,
 .gform_confirmation_wrapper {
