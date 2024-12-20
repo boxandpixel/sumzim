@@ -1,0 +1,17 @@
+#rank-math-faq {
+	margin: 1.5rem 0;
+	.rank-math-list {
+		display: flex;
+		flex-direction: column;
+		align-content: start;
+		gap: 24px;
+
+		.rank-math-list-item {
+			text-align: left;
+			
+			& > * {
+				text-align: left;
+			}
+		}
+	}
+}

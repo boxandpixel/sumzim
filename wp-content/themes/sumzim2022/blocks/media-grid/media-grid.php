@@ -32,7 +32,7 @@
 					<?php endif; ?>
 				</div>
 				<div class="media-grid-description">
-					<?php echo $video_title ? '<h3>' . $video_title . '</h3>' : ''; ?>
+					<?php echo $video_title ? '<h6>' . $video_title . '</h6>' : ''; ?>
 					<?php echo $video_subtitle ? '<p>' . $video_subtitle . '</p>' : ''; ?>
 				</div>
 			</section>

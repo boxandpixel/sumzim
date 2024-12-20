@@ -1,0 +1,14 @@
+{
+    "name": "acf/faqs",
+    "title": "FAQs",
+    "description": "A block for frequently asked questions.",
+    "style": [ "file:./testimonial.css" ],
+    "category": "theme",
+    "icon": "admin-page",
+    "keywords": ["about", "faq"],
+    "acf": {
+        "mode": "edit",
+        "renderTemplate": "faqs.php"
+    },
+    "align": "full"
+}

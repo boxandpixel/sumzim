@@ -1019,6 +1019,12 @@ function register_block_media_grid() {
     register_block_type( __DIR__ . '/blocks/media-grid/block.json' );
 }
 
+/** Block: FAQs */
+add_action( 'init', 'register_block_faq' );
+function register_block_faq() {
+    register_block_type( __DIR__ . '/blocks/faqs/block.json' );
+}
+
 /** Add new user role */
 
 add_role( 'seo-admin', 'SEO Administrator',

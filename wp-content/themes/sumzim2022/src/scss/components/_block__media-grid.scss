@@ -83,15 +83,9 @@
 					@include breakpoint(medium) {
 						margin-top: 1rem;
 					}
-					h3 {
-						font-size: 20px;
-						font-weight: 800;
-						margin-bottom: 7px;
-						color: var(--color__primary);
-
-						@include breakpoint(medium) {
-							font-size: 24px;
-						}
+					
+					& > * {
+						text-align: left;
 					}
 
 					p {

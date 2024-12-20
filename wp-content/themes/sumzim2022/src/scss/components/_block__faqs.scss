@@ -1,0 +1,28 @@
+.block__faqs {
+   margin: 1.5rem auto;
+   font-size: 1.125rem;
+   max-width: 800px;
+
+   dl {
+	dt {
+		h5 {
+			text-align: left !important;
+			font-size: 23px;
+			font-weight: 600;
+		}
+	}
+
+	dd {
+		p {
+			font-size: 16px;
+			line-height: 1.4 !important;
+		}
+	}
+   }
+
+   /** Rank Math FAQs */
+   .rank-math-list-item {
+	text-align: left;
+	margin-bottom: 2rem;
+   }
+}
