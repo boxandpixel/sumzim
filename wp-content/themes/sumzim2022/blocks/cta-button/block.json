@@ -1,0 +1,14 @@
+{
+    "name": "acf/cta-button",
+    "title": "CTA Button",
+    "description": "A block for CTA Buttons",
+    "style": [ "file:./testimonial.css" ],
+    "category": "theme",
+    "icon": "admin-page",
+    "keywords": ["about", "cta", "button"],
+    "acf": {
+        "mode": "edit",
+        "renderTemplate": "cta-button.php"
+    },
+    "align": "full"
+}

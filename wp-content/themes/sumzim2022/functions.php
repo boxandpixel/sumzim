@@ -1025,6 +1025,12 @@ function register_block_faq() {
     register_block_type( __DIR__ . '/blocks/faqs/block.json' );
 }
 
+/** Block: CTA Button */
+add_action( 'init', 'register_block_cta_button' );
+function register_block_cta_button() {
+    register_block_type( __DIR__ . '/blocks/cta-button/block.json' );
+}
+
 /** Add new user role */
 
 add_role( 'seo-admin', 'SEO Administrator',
