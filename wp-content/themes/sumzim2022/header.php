@@ -44,7 +44,7 @@
 
 	<!-- Start StackAdapt Click to Call Pixel -->
 	<script> 
-		document.getElementById("sa-click-to-call--m").addEventListener("click",function() { !function(s,a,e,v,n,t,z){if(s.saq)return;n=s.saq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!s._saq)s._saq=n;n.push=n;n.loaded=!0;n.version='1.0';n.queue=[];t=a.createElement(e);t.async=!0;t.src=v;z=a.getElementsByTagName(e)[0];z.parentNode.insertBefore(t,z)}(window,document,'script','https://tags.srv.stackadapt.com/events.js');saq('conv', 'cuJArc7ZMDOyfyEhCMMMuU'); });
+		document.getElementById("sa-click-to-call").addEventListener("click",function() { !function(s,a,e,v,n,t,z){if(s.saq)return;n=s.saq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!s._saq)s._saq=n;n.push=n;n.loaded=!0;n.version='1.0';n.queue=[];t=a.createElement(e);t.async=!0;t.src=v;z=a.getElementsByTagName(e)[0];z.parentNode.insertBefore(t,z)}(window,document,'script','https://tags.srv.stackadapt.com/events.js');saq('conv', 'cuJArc7ZMDOyfyEhCMMMuU'); });
 	</script>
 			
 	<!-- End StackAdapt Click to Call Pixel -->
@@ -227,7 +227,7 @@
 			</div>		
 		</div>
 		<div class="header__mobile-call">
-			<h2>Call us 24/7 at <a href="tel:6105935129" id="sa-click-to-call--m">610-593-5129</a></h2>
+			<h2>Call us 24/7 at <a href="tel:6105935129" id="sa-click-to-call">610-593-5129</a></h2>
 		</div>
 		<?php endif; ?>
 		<header class="site-header">
