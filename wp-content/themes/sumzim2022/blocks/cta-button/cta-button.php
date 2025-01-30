@@ -4,12 +4,20 @@
 */
 
 $cta_button = get_field('cta_button');
+$cta_button_heading = $cta_button['cta_button_heading'];
+$cta_button_description = $cta_button['cta_button_description'];
+
 $cta_button_color = $cta_button['cta_button_color'];
 $cta_button_type = $cta_button['cta_button_type'];
 $cta_button_schedule_engine_title = $cta_button['cta_button_schedule_engine_title'];
 $cta_button_page_link = $cta_button['cta_button_page_link'];
 ?>
 
+
+<section class="cta-button-section<?php if($cta_button_heading || $cta_button_description): ?> cta-button-has-content<?php endif; ?>">
+
+
+<?php echo $cta_button_description; ?>
 
 <?php if($cta_button): ?>
 	<?php if($cta_button_type == "Link"): ?>
@@ -24,3 +32,7 @@ $cta_button_page_link = $cta_button['cta_button_page_link'];
 	</div>
 	<?php endif; ?>
 <?php endif; ?>
+
+</section>
+
+

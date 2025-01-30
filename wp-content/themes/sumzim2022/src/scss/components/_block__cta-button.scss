@@ -1,7 +1,24 @@
+
+.cta-button-section {
+
+	text-align: center;
+	margin-bottom: 30px;
+
+	&.cta-button-has-content {
+		padding: 1.5rem 0;
+		background: var(--color__neutral--very-light);
+	}
+
+	p {
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+}
+
 .cta-button {
 	display: flex;
 	justify-content: center;
-	margin-bottom: 2rem;
 
 	a,button {
 		display: inline-flex;
