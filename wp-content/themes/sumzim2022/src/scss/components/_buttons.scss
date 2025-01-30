@@ -190,3 +190,11 @@ input[type="submit"] {
   -webkit-appearance: none;
   cursor: pointer;
 }
+
+.wp-block-button.whg-cta-button {
+  a {
+    &:visited {
+      color: white;
+    };
+  }
+}
