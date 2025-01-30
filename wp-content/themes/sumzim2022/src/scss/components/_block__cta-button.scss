@@ -52,14 +52,14 @@
 		  border-bottom-right-radius: 3px;
 		}
 	  
-		&:hover {
-		  background: hsla(0, 100%, 100%, 1);
+		// &:hover {
+		//   background: hsla(0, 100%, 100%, 1);
 	  
-		  &::after {
-			left: 0;
-			width: 100%;
-		  }
-		}	
+		//   &::after {
+		// 	left: 0;
+		// 	width: 100%;
+		//   }
+		// }	
 		
 		&.cta-button--primary {
 			background: var(--color__primary--dark); // 20220929 color__primarys

@@ -33,14 +33,14 @@ button.button-cta,
     border-bottom-right-radius: 3px;
   }
 
-  &:hover {
-    background: hsla(0, 100%, 100%, 1);
+  // &:hover {
+  //   background: hsla(0, 100%, 100%, 1);
 
-    &::after {
-      left: 0;
-      width: 100%;
-    }
-  }
+  //   &::after {
+  //     left: 0;
+  //     width: 100%;
+  //   }
+  // }
 
   &.--cta__new-window {
     background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iNDgiIHdpZHRoPSI0OCI+PHBhdGggZD0iTTQyIDI1LjA1VjM5UTQyIDQwLjIgNDEuMSA0MS4xUTQwLjIgNDIgMzkgNDJIOVE3LjggNDIgNi45IDQxLjFRNiA0MC4yIDYgMzlWOVE2IDcuOCA2LjkgNi45UTcuOCA2IDkgNkgyMi45NVY5SDlROSA5IDkgOVE5IDkgOSA5VjM5UTkgMzkgOSAzOVE5IDM5IDkgMzlIMzlRMzkgMzkgMzkgMzlRMzkgMzkgMzkgMzlWMjUuMDVaTTE5LjEgMzEuMDUgMTcgMjguOSAzNi45IDlIMjUuOTVWNkg0MlYyMi4wNUgzOVYxMS4xNVoiLz48L3N2Zz4=")
