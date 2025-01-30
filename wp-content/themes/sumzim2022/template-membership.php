@@ -779,57 +779,6 @@ get_header();
 				endwhile;
 			endif;
 		?>
-		<!-- 20230329 -->
-		<div class="mem__section">
-			<h2 class="mem__section-heading">Protect Your Investment with SZ Maintenance Plans</h2>
-		</div>
-		<div class="mem__section">
-			<a href="/design-your-customer-membership/" class="button button--primary button--big">Customize Your Membership Today</a>
-		</div>
-
-		<div class="mem__video video-embed">
-			<div class="video-embed__container">
-				<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/uL2pVtG4-8c" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-			</div>
-		</div>
-
-		<div class="mem__benefits">
-			<h2>Membership Benefits</h2>
-			<div class="mem__benefits-grid">			
-				<div class="mem__benefits-each mem__benefits-one">
-					<h3>1. Maintenance Visits</h3>
-					<p>A Good Natured technician visits once per year to thoroughly clean and performance test your system. They will make fine tuning adjustments and inform you if components are not performing as they should.</p>
-				</div>
-				<div class="mem__benefits-each mem__benefits-two">
-					<h3>2. 25% Discount on Repairs</h3>
-					<p>Repairs can be costly and unexpected! For members, any materials used and technician labor needed to solve the problem will be discounted at 25%.</p>
-				</div>
-				<div class="mem__benefits-each mem__benefits-three">
-					<h3>3. Access to On-Call Staff</h3>
-					<p>Emergencies never happen at convenient times. For this reason, our technical support staff is available 24/7, at no extra cost, to help solve the issue.</p>
-				</div>
-				<div class="mem__benefits-four">
-					<div id="google-reviews-site">
-						<div id="google-reviews">
-							<div class="review-item">
-								<div class="review-meta">
-									<span class="review-author">Dick Barrett</span><span class="review-sep">, </span><span class="review-date">Apr 11, 2023</span>
-								</div>
-								<div class="review-stars"><ul><li><i class="star"></i></li><li><i class="star"></i></li><li><i class="star"></i></li><li><i class="star"></i></li><li><i class="star"></i></li></ul></div>
-								<p class="review-text">Always a good experience with S&amp;Z. Great communications, service, and results. For over 25 years  we have had installs (heat and ac); maintenance (scheduled and unscheduled); and, work done that our aging home required in order to ensure a quality outcome.
-
-		Never once have  we been uncomfortable or dissatisfied with this firm’s team of skilled people  who go out of their way to satisfy the customer. It sounds corny but they do make us feel like family. I say that knowing there’s nothing  special about us!</p></div>	
-							</div>
-						</div>
-
-					<a href="/reviews" class="button button--primary">See More Reviews</a>
-				</div>
-			</div>
-		</div>
-
-		<div class="mem__section">
-			<a href="/design-your-customer-membership/" class="button button--primary button--big">Customize Your Membership Today</a>
-		</div>
 
 		<!-- 5-Point Guarantee -->
 		<?php 
