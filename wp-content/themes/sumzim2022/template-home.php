@@ -41,7 +41,8 @@ get_header();
 				<div class="home__hero-link--mobile">
 					<a href="tel:6105935129" class="button button-cta button--schedule button--large book-now-button" id="sa-click-to-call">Call 610-593-5129</a>
 					<div class="home__hero-link-mobile-alt">
-						or <button class="se-widget-button se-button-alt" onclick="ScheduleEngine.show()">Book Now</button>
+						or <a href="https://book.servicetitan.com/rodibizoajr2ydb24uw8s8x1?hl=en-US&gei=yhqdZ5W4OOjbptQP2LfRqA8&rwg_token=AAiGsoZe4ivBv_kqeIdkCTrg6eIJNfP2Ua2hQ-6jpoSUWDkpjd6tqFC7_hbu4o1_xLCztJazn15sMaNXLNElhKeI4wCveqVnQA%3D%3D" 
+                  class="se-widget-button se-button-alt">Book Now</a>
 					</div>
 				</div>
 				
