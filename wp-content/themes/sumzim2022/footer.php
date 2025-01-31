@@ -34,24 +34,6 @@
   </div>
 </footer>
 
-    <script>
-  const navBookNow = document.querySelector(".nav-book-now");
-
-  if(navBookNow) {
-    navBookNow.innerHTML = "";
-    const navBookButton = document.createElement('button');
-    navBookButton.innerText = "Book Now";
-    navBookButton.classList.add('button-cta', 'button--schedule');
-    navBookNow.insertAdjacentElement('afterbegin', navBookButton);
-  }
-
-  const navSchedule = () => {
-    ScheduleEngine.show();
-  }
-
-  navBookNow.addEventListener('click', navSchedule);
-  
-  </script>
 
 <?php if(is_page("contact-us")): ?>        
   <script>
