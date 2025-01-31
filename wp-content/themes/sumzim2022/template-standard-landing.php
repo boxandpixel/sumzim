@@ -45,7 +45,10 @@ get_header();
 			if($display_button): 
 				if($button_type == 'Book Now'): ?>
 			<div class="display-button">
-				<button class="se-widget-button button button-cta button--schedule button--large book-now-button" onclick="ScheduleEngine.show()">Book Now</button>
+				<a 
+					href="https://book.servicetitan.com/rodibizoajr2ydb24uw8s8x1?hl=en-US&gei=yhqdZ5W4OOjbptQP2LfRqA8&rwg_token=AAiGsoZe4ivBv_kqeIdkCTrg6eIJNfP2Ua2hQ-6jpoSUWDkpjd6tqFC7_hbu4o1_xLCztJazn15sMaNXLNElhKeI4wCveqVnQA%3D%3D" 
+					class="button button-cta button--schedule button--large book-now-button" target="_blank">Book Now
+				</a>								
 			</div>            
 		<?php
 				elseif($button_type == 'Link to Form'): ?>
@@ -686,7 +689,9 @@ get_header();
 		?>
 			<!-- Icon Grid -->
 			<div class="display-button">
-				<button class="se-widget-button button button-cta button--schedule button--large book-now-button" onclick="ScheduleEngine.show()"><?php echo get_sub_field('book_now_button_text'); ?></button>
+			<a href="https://book.servicetitan.com/rodibizoajr2ydb24uw8s8x1?hl=en-US&gei=yhqdZ5W4OOjbptQP2LfRqA8&rwg_token=AAiGsoZe4ivBv_kqeIdkCTrg6eIJNfP2Ua2hQ-6jpoSUWDkpjd6tqFC7_hbu4o1_xLCztJazn15sMaNXLNElhKeI4wCveqVnQA%3D%3D" 
+				class="button button-cta button--schedule button--large book-now-button" target="_blank">Book Now
+			</a>					
 			</div>    		
 
 
@@ -766,7 +771,10 @@ get_header();
 									elseif(get_row_layout() == 'book_now_button'):
 									?>
 									<div class="display-button" style="display: flex; justify-content: center; margin-bottom: 1rem;">
-										<button class="se-widget-button button button-cta button--schedule button--large book-now-button" onclick="ScheduleEngine.show()"><?php echo get_sub_field('book_now_button_text', 'option'); ?></button>
+										<a 
+											href="https://book.servicetitan.com/rodibizoajr2ydb24uw8s8x1?hl=en-US&gei=yhqdZ5W4OOjbptQP2LfRqA8&rwg_token=AAiGsoZe4ivBv_kqeIdkCTrg6eIJNfP2Ua2hQ-6jpoSUWDkpjd6tqFC7_hbu4o1_xLCztJazn15sMaNXLNElhKeI4wCveqVnQA%3D%3D" 
+											class="button button-cta button--schedule button--large book-now-button" target="_blank">Book Now
+										</a>														
 									</div>
 									<?php 
 									elseif(get_row_layout() == 'heating_guarantee_icon'):
@@ -786,7 +794,7 @@ get_header();
 									elseif(get_row_layout() == 'book_now_button'):
 									?>
 									<div class="display-button" style="display: flex; justify-content: center; margin-bottom: 1rem;">
-										<button class="se-widget-button button button-cta button--schedule button--large book-now-button" onclick="ScheduleEngine.show()"><?php echo get_sub_field('book_now_button_text', 'option'); ?></button>
+										<a href="https://book.servicetitan.com/rodibizoajr2ydb24uw8s8x1?hl=en-US&gei=yhqdZ5W4OOjbptQP2LfRqA8&rwg_token=AAiGsoZe4ivBv_kqeIdkCTrg6eIJNfP2Ua2hQ-6jpoSUWDkpjd6tqFC7_hbu4o1_xLCztJazn15sMaNXLNElhKeI4wCveqVnQA%3D%3D" class="button button-cta button--schedule button--large book-now-button" target="_blank">Book Now</a>
 									</div>
 									<?php 
 									elseif(get_row_layout() == 'air_conditioning_guarantee_icon'):
