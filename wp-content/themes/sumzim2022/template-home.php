@@ -35,7 +35,7 @@ get_header();
 				<div class="home__hero-link--desktop">
 					<a 
             href="https://book.servicetitan.com/rodibizoajr2ydb24uw8s8x1?hl=en-US&gei=yhqdZ5W4OOjbptQP2LfRqA8&rwg_token=AAiGsoZe4ivBv_kqeIdkCTrg6eIJNfP2Ua2hQ-6jpoSUWDkpjd6tqFC7_hbu4o1_xLCztJazn15sMaNXLNElhKeI4wCveqVnQA%3D%3D" 
-            class="button button-cta button--schedule button--large book-now-button" target="_blank">Book Now</button>
+            class="button button-cta button--schedule button--large book-now-button" target="_blank">Book Now</a>
 				</div>
 
 				<div class="home__hero-link--mobile">
