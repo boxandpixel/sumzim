@@ -46,7 +46,7 @@ get_header();
 				if($button_type == 'Book Now'): ?>
 			<div class="display-button">
 				<a 
-					href="https://book.servicetitan.com/rodibizoajr2ydb24uw8s8x1?hl=en-US&gei=yhqdZ5W4OOjbptQP2LfRqA8&rwg_token=AAiGsoZe4ivBv_kqeIdkCTrg6eIJNfP2Ua2hQ-6jpoSUWDkpjd6tqFC7_hbu4o1_xLCztJazn15sMaNXLNElhKeI4wCveqVnQA%3D%3D" 
+					href="https://sumzim.com/about-us/free-estimate/?ref=service" 
 					class="button button-cta button--schedule button--large book-now-button" target="_blank">Book Now
 				</a>								
 			</div>            
@@ -689,7 +689,7 @@ get_header();
 		?>
 			<!-- Icon Grid -->
 			<div class="display-button">
-			<a href="https://book.servicetitan.com/rodibizoajr2ydb24uw8s8x1?hl=en-US&gei=yhqdZ5W4OOjbptQP2LfRqA8&rwg_token=AAiGsoZe4ivBv_kqeIdkCTrg6eIJNfP2Ua2hQ-6jpoSUWDkpjd6tqFC7_hbu4o1_xLCztJazn15sMaNXLNElhKeI4wCveqVnQA%3D%3D" 
+			<a href="https://sumzim.com/about-us/free-estimate/?ref=service" 
 				class="button button-cta button--schedule button--large book-now-button" target="_blank">Book Now
 			</a>					
 			</div>    		
@@ -772,7 +772,7 @@ get_header();
 									?>
 									<div class="display-button" style="display: flex; justify-content: center; margin-bottom: 1rem;">
 										<a 
-											href="https://book.servicetitan.com/rodibizoajr2ydb24uw8s8x1?hl=en-US&gei=yhqdZ5W4OOjbptQP2LfRqA8&rwg_token=AAiGsoZe4ivBv_kqeIdkCTrg6eIJNfP2Ua2hQ-6jpoSUWDkpjd6tqFC7_hbu4o1_xLCztJazn15sMaNXLNElhKeI4wCveqVnQA%3D%3D" 
+											href="https://sumzim.com/about-us/free-estimate/?ref=service" 
 											class="button button-cta button--schedule button--large book-now-button" target="_blank">Book Now
 										</a>														
 									</div>
@@ -794,7 +794,7 @@ get_header();
 									elseif(get_row_layout() == 'book_now_button'):
 									?>
 									<div class="display-button" style="display: flex; justify-content: center; margin-bottom: 1rem;">
-										<a href="https://book.servicetitan.com/rodibizoajr2ydb24uw8s8x1?hl=en-US&gei=yhqdZ5W4OOjbptQP2LfRqA8&rwg_token=AAiGsoZe4ivBv_kqeIdkCTrg6eIJNfP2Ua2hQ-6jpoSUWDkpjd6tqFC7_hbu4o1_xLCztJazn15sMaNXLNElhKeI4wCveqVnQA%3D%3D" class="button button-cta button--schedule button--large book-now-button" target="_blank">Book Now</a>
+										<a href="https://sumzim.com/about-us/free-estimate/?ref=service" class="button button-cta button--schedule button--large book-now-button" target="_blank">Book Now</a>
 									</div>
 									<?php 
 									elseif(get_row_layout() == 'air_conditioning_guarantee_icon'):

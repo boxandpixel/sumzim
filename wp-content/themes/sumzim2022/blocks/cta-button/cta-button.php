@@ -28,7 +28,7 @@ $cta_button_page_link = $cta_button['cta_button_page_link'];
 
 	<?php if($cta_button_type == "Schedule Engine"): ?>
 	<div class="cta-button">
-		<a href="https://book.servicetitan.com/rodibizoajr2ydb24uw8s8x1?hl=en-US&gei=yhqdZ5W4OOjbptQP2LfRqA8&rwg_token=AAiGsoZe4ivBv_kqeIdkCTrg6eIJNfP2Ua2hQ-6jpoSUWDkpjd6tqFC7_hbu4o1_xLCztJazn15sMaNXLNElhKeI4wCveqVnQA%3D%3D" class="button button-cta button--schedule button--large book-now-button" target="_blank">Book Now</a>
+		<a href="https://sumzim.com/about-us/free-estimate/?ref=service" class="button button-cta button--schedule button--large book-now-button" target="_blank">Book Now</a>
 	</div>
 	<?php endif; ?>
 <?php endif; ?>
