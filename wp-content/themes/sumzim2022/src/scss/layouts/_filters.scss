@@ -79,11 +79,14 @@
 }
 
 .single-filters {
-  ul {
-    margin: 0 0 1rem 0;
-    padding-left: 1.5rem;
-    list-style: disc;
+  article {
+    ul {
+      margin: 0 0 1rem 0;
+      padding-left: 1.5rem;
+      list-style: disc;
+    }
   }
+
 
   .filter-specs {
     margin-top: 2rem;
