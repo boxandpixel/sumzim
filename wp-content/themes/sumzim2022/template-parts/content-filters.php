@@ -22,15 +22,26 @@
   
     $specs = get_field('specs');
 
-    if($specs): echo $specs; endif;
+    if($specs): 
+    ?>
 
+    <div class="filter-specs">
+      <?php echo $specs; ?>
+    </div>
+
+    <?php endif; ?>
+
+    <?php 
     $affiliate_link = get_field('affiliate_link');
 
     if($affiliate_link):
 ?>
-    <a href="<?php echo $affiliate_link['url']; ?>" class="button button--primary">
-    <?php echo $affiliate_link['title']; ?>
-    </a>
+    <div class="filter-link">
+      <a href="<?php echo $affiliate_link['url']; ?>" class="button button--primary">
+      <?php echo $affiliate_link['title']; ?>
+      </a>
+    </div>
+
 
 <?php
     endif;
