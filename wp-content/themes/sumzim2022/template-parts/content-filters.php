@@ -10,42 +10,49 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-      <div class="filter-single">
-          <figure class="filter-single__figure">
-            <?php the_post_thumbnail(); ?>
-          </figure>
-          
-          <div class="filter-single__detail">
-              <h2 class="entry-title"><?php the_title(); ?></h2>
-              <h6>Description</h6>
-				<?php the_content(); ?>
+	<header class="entry-header">
+		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+	</header><!-- .entry-header -->
 
-            <?php
-              $specs = get_field('specs');
-            ?>
+	<?php sumzim_post_thumbnail(); ?>
 
-            <?php if($specs): ?>
-            <div class="filter-single__specs">
+	<div class="entry-content">
+		<?php
+		the_content();
 
-              <h6>Specs</h6>
-              <?php echo $specs; ?>
-            </div>
-            <?php endif; ?>
+    $specs = get_field('specs');
 
-            <?php 
-                $affiliate_link = get_field('affiliate_link');
+    if($specs): echo $specs; endif;
 
-                if($affiliate_link):
-            ?>
-                <a href="<?php echo $affiliate_link['url']; ?>" class="button button--primary">
-                <?php echo $affiliate_link['title']; ?>
-                </a>
-            
-            <?php
-                endif;
-            ?>
-          </div>
-          
-      </div>
+		wp_link_pages(
+			array(
+				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'sumzim' ),
+				'after'  => '</div>',
+			)
+		);
+		?>
+	</div><!-- .entry-content -->
 
+	<?php if ( get_edit_post_link() ) : ?>
+		<footer class="entry-footer">
+			<?php
+			edit_post_link(
+				sprintf(
+					wp_kses(
+						/* translators: %s: Name of current post. Only visible to screen readers */
+						__( 'Edit <span class="screen-reader-text">%s</span>', 'sumzim' ),
+						array(
+							'span' => array(
+								'class' => array(),
+							),
+						)
+					),
+					wp_kses_post( get_the_title() )
+				),
+				'<span class="edit-link">',
+				'</span>'
+			);
+			?>
+		</footer><!-- .entry-footer -->
+	<?php endif; ?>
 </article><!-- #post-<?php the_ID(); ?> -->
