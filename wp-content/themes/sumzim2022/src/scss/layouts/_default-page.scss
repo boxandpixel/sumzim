@@ -12,13 +12,6 @@
 
 	.entry-header {
 
-		& > p {
-			width: 1200px;
-			max-width: 1200px;
-			margin-left: auto;
-			margin-right: auto;
-		}
-
 		h1 {
 			font-family: var(--font);
 			font-weight: 800;
@@ -45,6 +38,13 @@
 		// 	width: 1200px;
 		// 	max-width: 1200px;
 		// }
+
+		& > p {
+			width: 1200px;
+			max-width: 1200px;
+			margin-left: auto;
+			margin-right: auto;
+		}		
 
 		h2 {
 			font-family: var(--font);
