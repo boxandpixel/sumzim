@@ -139,6 +139,15 @@ button.button-cta,
     }
   }
 
+  &.button--white {
+    background: white;
+    color: var(--color__primary--dark);
+
+    // &::after {
+    //   background: var(--color__neutral--very-dark);
+    // }
+  }  
+
   &.button--attention {
     background: white;
     color: var(--color__attention);

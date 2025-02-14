@@ -23,6 +23,7 @@ import "./js/membershipDesignDisable.js";
 // import "./js/applyHeaderOffset.js";
 // import "./js/drawLineOnScroll.js";
 import "./js/wpcf7submit.js";
+import "./js/toggle.js";
 
 
 

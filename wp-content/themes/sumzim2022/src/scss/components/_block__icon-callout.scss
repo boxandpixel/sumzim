@@ -1,0 +1,30 @@
+.icon-callout {
+    margin: 80px 0;
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+
+    color: #e86d57;
+
+    .icon {
+        span {
+            font-size: 38px; 
+        }
+    }
+
+    .content {
+        display: flex;
+        align-items: center;
+        
+        p {
+            font-size: 18px;
+            font-weight: 600;
+            display: flex;
+            align-content: center;
+            margin-bottom: 0;
+        }
+    }
+    
+
+    
+}

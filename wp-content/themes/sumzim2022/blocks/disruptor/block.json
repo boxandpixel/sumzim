@@ -1,0 +1,14 @@
+{
+    "name": "acf/disruptor",
+    "title": "Disruptor",
+    "description": "A block for disruptor content",
+    "style": [ "file:./testimonial.css" ],
+    "category": "theme",
+    "icon": "admin-page",
+    "keywords": ["disruptor", "cta"],
+    "acf": {
+        "mode": "edit",
+        "renderTemplate": "disruptor.php"
+    },
+    "align": "full"
+}

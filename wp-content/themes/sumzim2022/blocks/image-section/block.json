@@ -1,0 +1,14 @@
+{
+    "name": "acf/image-section",
+    "title": "Image Section",
+    "description": "A block for image sections",
+    "style": [ "file:./testimonial.css" ],
+    "category": "theme",
+    "icon": "admin-page",
+    "keywords": ["image", "image section"],
+    "acf": {
+        "mode": "edit",
+        "renderTemplate": "image-section.php"
+    },
+    "align": "full"
+}

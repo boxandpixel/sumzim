@@ -14,7 +14,7 @@ $cta_button_page_link = $cta_button['cta_button_page_link'];
 ?>
 
 
-<section class="cta-button-section<?php if($cta_button_heading || $cta_button_description): ?> cta-button-has-content<?php endif; ?>">
+<section class="cta-button-section<?php if($cta_button_heading || $cta_button_description): ?> cta-button-has-content<?php endif; ?> contain">
 
 
 <?php echo $cta_button_description; ?>

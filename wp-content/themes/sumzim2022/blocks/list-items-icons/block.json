@@ -1,0 +1,14 @@
+{
+    "name": "acf/list-items-icons",
+    "title": "List Items Icons",
+    "description": "A block for a checklist of icons",
+    "style": [ "file:./testimonial.css" ],
+    "category": "theme",
+    "icon": "admin-page",
+    "keywords": ["checklist", "list", "icons", "checklist icons", "list icons"],
+    "acf": {
+        "mode": "edit",
+        "renderTemplate": "list-items-icons.php"
+    },
+    "align": "full"
+}

@@ -1,0 +1,14 @@
+{
+    "name": "acf/diagonal-image-callout",
+    "title": "Diagonal Image Callout",
+    "description": "A block for a diagonal image callout",
+    "style": [ "file:./testimonial.css" ],
+    "category": "theme",
+    "icon": "admin-page",
+    "keywords": ["about", "cta", "button"],
+    "acf": {
+        "mode": "edit",
+        "renderTemplate": "diagonal-image-callout.php"
+    },
+    "align": "full"
+}

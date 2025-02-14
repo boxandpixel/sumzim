@@ -22,7 +22,7 @@
 
 ?>
 
-<div class="block__list-wysiwyg">
+<div class="block__list-wysiwyg contain">
 	<?php $list_type = get_field('list_type'); ?>
 	<?php if($list_type == "ul"): ?>
 		<ul>

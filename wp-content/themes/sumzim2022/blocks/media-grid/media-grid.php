@@ -5,7 +5,7 @@
 	$media_items = get_field("media_items");
 ?>
 
-<div class="block__media-grid">
+<div class="block__media-grid contain">
 	<div class="interior-container">
 		<h1><?php echo $heading ? $heading : ''; ?></h1>
 		<?php echo $description ? $description : ''; ?>

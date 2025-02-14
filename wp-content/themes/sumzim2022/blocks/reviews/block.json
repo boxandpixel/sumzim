@@ -1,0 +1,14 @@
+{
+    "name": "acf/reviews",
+    "title": "Reviews",
+    "description": "A block for Google reviews",
+    "style": [ "file:./testimonial.css" ],
+    "category": "theme",
+    "icon": "admin-page",
+    "keywords": ["reviews"],
+    "acf": {
+        "mode": "edit",
+        "renderTemplate": "reviews.php"
+    },
+    "align": "full"
+}

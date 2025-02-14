@@ -1019,16 +1019,82 @@ function register_block_media_grid() {
     register_block_type( __DIR__ . '/blocks/media-grid/block.json' );
 }
 
-/** Block: FAQs */
-add_action( 'init', 'register_block_faq' );
-function register_block_faq() {
-    register_block_type( __DIR__ . '/blocks/faqs/block.json' );
-}
+// /** Block: FAQs */
+// add_action( 'init', 'register_block_faq' );
+// function register_block_faq() {
+//     register_block_type( __DIR__ . '/blocks/faqs/block.json' );
+// }
 
 /** Block: CTA Button */
 add_action( 'init', 'register_block_cta_button' );
 function register_block_cta_button() {
     register_block_type( __DIR__ . '/blocks/cta-button/block.json' );
+}
+
+/** Block: Diagonal Image Callout */
+add_action( 'init', 'register_block_diagonal_image_callout' );
+function register_block_diagonal_image_callout() {
+    register_block_type( __DIR__ . '/blocks/diagonal-image-callout/block.json' );
+}
+
+/** Block: Reviews */
+add_action( 'init', 'register_block_reviews' );
+function register_block_reviews() {
+    register_block_type( __DIR__ . '/blocks/reviews/block.json' );
+}
+
+/** Block: Cards */
+add_action( 'init', 'register_block_cards' );
+function register_block_cards() {
+    register_block_type( __DIR__ . '/blocks/cards/block.json' );
+}
+
+/** Block: List Icons */
+add_action( 'init', 'register_block_list_items_icons' );
+function register_block_list_items_icons() {
+    register_block_type( __DIR__ . '/blocks/list-items-icons/block.json' );
+}
+
+/** Block: Content Divider */
+add_action( 'init', 'register_block_content_divider' );
+function register_block_content_divider() {
+    register_block_type( __DIR__ . '/blocks/content-divider/block.json' );
+}
+
+/** Block: Image Section */
+add_action( 'init', 'register_block_image_section' );
+function register_block_image_section() {
+    register_block_type( __DIR__ . '/blocks/image-section/block.json' );
+}
+
+/** Block: iFrame */
+add_action( 'init', 'register_block_iframe' );
+function register_block_iframe() {
+    register_block_type( __DIR__ . '/blocks/iframe/block.json' );
+}
+
+/** Block: Toggle */
+add_action( 'init', 'register_block_toggle' );
+function register_block_toggle() {
+    register_block_type( __DIR__ . '/blocks/toggle/block.json' );
+}
+
+/** Block: Disruptor */
+add_action( 'init', 'register_block_disruptor' );
+function register_block_disruptor() {
+    register_block_type( __DIR__ . '/blocks/disruptor/block.json' );
+}
+
+/** Block: Icon Callout */
+add_action( 'init', 'register_block_icon_callout' );
+function register_block_icon_callout() {
+    register_block_type( __DIR__ . '/blocks/icon-callout/block.json' );
+}
+
+/** Block: Membership Table */
+add_action( 'init', 'register_block_membership_table' );
+function register_block_membership_table() {
+    register_block_type( __DIR__ . '/blocks/membership-table/block.json' );
 }
 
 /** Add new user role */

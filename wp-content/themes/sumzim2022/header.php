@@ -43,9 +43,9 @@
 	<!-- End StackAdapt Universal Pixel -->
 
 	<!-- Start StackAdapt Click to Call Pixel -->
-	<script> 
+	<!-- <script> 
 		document.getElementById("sa-click-to-call").addEventListener("click",function() { !function(s,a,e,v,n,t,z){if(s.saq)return;n=s.saq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!s._saq)s._saq=n;n.push=n;n.loaded=!0;n.version='1.0';n.queue=[];t=a.createElement(e);t.async=!0;t.src=v;z=a.getElementsByTagName(e)[0];z.parentNode.insertBefore(t,z)}(window,document,'script','https://tags.srv.stackadapt.com/events.js');saq('conv', 'cuJArc7ZMDOyfyEhCMMMuU'); });
-	</script>
+	</script> -->
 			
 	<!-- End StackAdapt Click to Call Pixel -->
 
@@ -72,56 +72,12 @@
   <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#000000">
   <meta name="msapplication-TileColor" content="#16375a">
   <meta name="theme-color" content="#ffffff">
-
-  <!-- Schedule Engine -->
-  <?php
-    if(is_page(array(
-      'schedule-an-appointment',
-    ))):
-  ?>
-  	<script data-api-key="ckgglkkxp00ni07qd3tkfudr5" data-defer="true" id="se-widget-embed" src="https://embed.scheduleengine.net/schedule-engine-v3.js"></script>
-
-  <?php else: ?>
-	<script data-api-key="ckgglkkxp00ni07qd3tkfudr5" data-defer="true" id="se-widget-embed" src="https://embed.scheduleengine.net/schedule-engine-v3.js"></script>
-
-  <?php endif; ?>
   
-  <?php
-    // Contact Form 7: Only load scripts on pages with form 
-    if(is_page(array(
-        'contact-joe-zimmerman', 
-        'schedule-service', 
-        'free-estimate', 
-        'contact-us',
-        'hvac-service-repair-technician-application',
-        'plumbing-technician-application',
-        'general-application',
-		'heating-system-maintenance',
-      ))): 
-      if(function_exists('wpcf7_enqueue_scripts')):
-        wpcf7_enqueue_scripts();
-      endif; 
-      if(function_exists('wpcf7_enqueue_styles')):
-        wpcf7_enqueue_styles();
-      endif;
-    endif;
-?>
 
-
-  <?php 
-  // Load scripts if on a page with a testimonial
-  if(is_page(array(
-    'reviews',
-	'service-memberships',
-	'membership-benefits',
-	'heating-system-repair',
-	'heating-system-maintenance',
-	'heating-system-installation',
-  ))): ?>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="/wp-content/themes/sumzim2022/google-places.js"></script>
   <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&key=AIzaSyDSRvqTsYQXGTJ3gCbaaSXvAIqnnT3MMiM"></script>
-  <?php endif; ?>
+
 
   <?php if(is_page(array('reviews'))): ?>
   <script>
@@ -150,7 +106,21 @@
         });
     });
   </script>	
-  <?php endif; ?>
+  <?php endif; ?>  
+
+	<!-- Reviews Block -->
+  	<script>
+		jQuery(document).ready(function() {
+			$("#reviews-container").googlePlaces({
+				placeId: 'ChIJd5IeY6tFxokR8QWJk68CUpI',
+				render: ['reviews'],
+				min_rating: 5,
+				max_rows: 3,
+				shorten_names: false,
+				staticMap: false,
+			});
+		});
+	</script>	  
 
   <!-- Audacy -->
   <style>

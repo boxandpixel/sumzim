@@ -1,0 +1,14 @@
+{
+    "name": "acf/iframe",
+    "title": "iFrame",
+    "description": "A block for embedding iframe content",
+    "style": [ "file:./testimonial.css" ],
+    "category": "theme",
+    "icon": "admin-page",
+    "keywords": ["iframe", "frame"],
+    "acf": {
+        "mode": "edit",
+        "renderTemplate": "iframe.php"
+    },
+    "align": "full"
+}

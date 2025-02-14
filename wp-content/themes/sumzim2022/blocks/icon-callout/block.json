@@ -1,0 +1,14 @@
+{
+    "name": "acf/icon-callout",
+    "title": "Icon Callout",
+    "description": "A block for icon callout text",
+    "style": [ "file:./testimonial.css" ],
+    "category": "theme",
+    "icon": "admin-page",
+    "keywords": ["icon", "callout"],
+    "acf": {
+        "mode": "edit",
+        "renderTemplate": "icon-callout.php"
+    },
+    "align": "full"
+}

@@ -1,11 +1,11 @@
 .type-page {
 	padding: 200px 1rem 100px 1rem;
-	display: flex;
-	align-items: center;
-	flex-direction: column;
+	// display: flex;
+	// align-items: center;
+	// flex-direction: column;
 
 	@include breakpoint(large) {
-		padding: 260px 1rem 100px 1rem;
+		padding: 260px 0 100px 0;
 	}
 
 	
@@ -29,14 +29,14 @@
 	.entry-content {
 		max-width: 100%;
 
-		@include breakpoint(medium){
-			padding: 0 1rem;
-		}		
+		// @include breakpoint(medium){
+		// 	padding: 0 1rem;
+		// }		
 
-		@include breakpoint(xlarge){
-			width: 1200px;
-			max-width: 1200px;
-		}
+		// @include breakpoint(xlarge){
+		// 	width: 1200px;
+		// 	max-width: 1200px;
+		// }
 
 		h2 {
 			font-family: var(--font);
@@ -91,6 +91,17 @@
 			@include breakpoint(medium) {
 				font-size: 19px;
 			}
-		}			
+		}	
+		
+		.contain {
+			@include breakpoint(xlarge){
+				width: 1200px;
+				max-width: 1200px;
+				margin-left: auto;
+				margin-right: auto;
+			}			
+		}		
 	}
+
+
 }

@@ -79,12 +79,12 @@
             , plugin.place_data.formatted_phone_number
           );
         }
-        if (plugin.settings.render.indexOf('staticMap') > -1) {
-          renderStaticMap(
-            capture_element(plugin.settings.staticMap.displayElement)
-            , plugin.place_data.formatted_address
-          );
-        }
+        // if (plugin.settings.render.indexOf('staticMap') > -1) {
+        //   renderStaticMap(
+        //     capture_element(plugin.settings.staticMap.displayElement)
+        //     , plugin.place_data.formatted_address
+        //   );
+        // }
         if (plugin.settings.render.indexOf('hours') > -1) {
           renderHours(
             capture_element(plugin.settings.hours.displayElement)
@@ -188,7 +188,8 @@
         } else {
           var name = reviews[i].author_name + "</span><span class='review-sep'>, </span>";
         };
-        html = html + "<div class='review-item'><div class='review-meta'><span class='review-author'>" + name + "<span class='review-date'>" + date + "</span></div>" + stars + "<p class='review-text'>" + reviews[i].text + "</p></div>"
+        // html = html + "<div class='review-item'><div class='review-meta'><span class='review-author'>" + name + "<span class='review-date'>" + date + "</span></div>" + stars + "<p class='review-text'>" + reviews[i].text + "</p></div>"
+        html = html + "<div class='review-item'>" + stars + "<p class='review-text'>" + reviews[i].text + "</p><div class='review-meta'><span class='review-author'>" + name + "<span class='review-date'>" + date + "</span></div></div>"
       };
       $element.append(html);
     }
@@ -204,18 +205,18 @@
       }
     }
 
-    var renderStaticMap = function (element, data) {
-      if (element instanceof jQuery) {
-        var map = plugin.settings.staticMap;
-        element.append(
-          "<img src='https://maps.googleapis.com/maps/api/staticmap" +
-          "?size=" + map.width + "x" + map.height +
-          "&zoom=" + map.zoom +
-          "&maptype=" + map.type +
-          "&markers=size:large%7Ccolor:red%7C" + data + "'>" +
-          "</img>");
-      }
-    }
+    // var renderStaticMap = function (element, data) {
+    //   if (element instanceof jQuery) {
+    //     var map = plugin.settings.staticMap;
+    //     element.append(
+    //       "<img src='https://maps.googleapis.com/maps/api/staticmap" +
+    //       "?size=" + map.width + "x" + map.height +
+    //       "&zoom=" + map.zoom +
+    //       "&maptype=" + map.type +
+    //       "&markers=size:large%7Ccolor:red%7C" + data + "'>" +
+    //       "</img>");
+    //   }
+    // }
 
     var renderAddress = function (element, data) {
       if (element instanceof jQuery) {

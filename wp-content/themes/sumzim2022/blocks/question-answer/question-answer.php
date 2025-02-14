@@ -22,7 +22,7 @@
 
 ?>
 
-<div class="block__question-answer">
+<div class="block__question-answer contain">
 	<?php if(have_rows('questions_&_answers')): while(have_rows('questions_&_answers')): the_row(); ?>
 	<strong><?php echo get_sub_field("question"); ?></strong>
 	<?php echo get_sub_field("answer"); ?>

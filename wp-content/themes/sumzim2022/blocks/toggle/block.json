@@ -1,0 +1,14 @@
+{
+    "name": "acf/toggle",
+    "title": "Toggle",
+    "description": "A block for toggle content",
+    "style": [ "file:./testimonial.css" ],
+    "category": "theme",
+    "icon": "admin-page",
+    "keywords": ["toggle", "accordion"],
+    "acf": {
+        "mode": "edit",
+        "renderTemplate": "toggle.php"
+    },
+    "align": "full"
+}

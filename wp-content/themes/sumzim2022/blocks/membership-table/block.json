@@ -1,0 +1,14 @@
+{
+    "name": "acf/membership-table",
+    "title": "Membership Table",
+    "description": "A block for a Membership Table",
+    "style": [ "file:./testimonial.css" ],
+    "category": "theme",
+    "icon": "admin-page",
+    "keywords": ["membership", "membership table"],
+    "acf": {
+        "mode": "edit",
+        "renderTemplate": "membership-table.php"
+    },
+    "align": "full"
+}

@@ -1,0 +1,41 @@
+.disruptor-block {
+    margin: 80px 0;
+    // background-image: linear-gradient(to right, #0c1e31, #4e3762, #a64870, #e86d57, #f5b330);
+    background-image: linear-gradient(to right, #0c1e31, #e86d57, #f5b330);
+    // https://mycolor.space/gradient?ori=to+right&hex=%230C1E31&hex2=%23F5B330&sub=1
+
+    .disruptor-container {
+        padding: 80px 0;
+        width: 1200px;
+        max-width: 1200px;
+        margin-left: auto;
+        margin-right: auto;        
+        display: grid;
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+        align-content: center;
+
+        @include breakpoint(medium) {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+        
+        .disruptor-content {
+            color: white;
+            h1,h2,h3,h4,h5,h6,p,li,a {
+                color: white;
+            }
+
+            p {
+                &:last-child {
+                    margin-bottom: 0;
+                }
+            }
+        }
+
+        .disruptor-button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+
+}

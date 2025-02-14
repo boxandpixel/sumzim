@@ -1,0 +1,14 @@
+{
+    "name": "acf/content-divider",
+    "title": "Content Divider",
+    "description": "A block for content dividers",
+    "style": [ "file:./testimonial.css" ],
+    "category": "theme",
+    "icon": "admin-page",
+    "keywords": ["content", "divider"],
+    "acf": {
+        "mode": "edit",
+        "renderTemplate": "content-divider.php"
+    },
+    "align": "full"
+}

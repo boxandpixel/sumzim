@@ -1,0 +1,14 @@
+{
+    "name": "acf/cards",
+    "title": "Cards",
+    "description": "A block for Cards",
+    "style": [ "file:./testimonial.css" ],
+    "category": "theme",
+    "icon": "admin-page",
+    "keywords": ["cards"],
+    "acf": {
+        "mode": "edit",
+        "renderTemplate": "cards.php"
+    },
+    "align": "full"
+}
