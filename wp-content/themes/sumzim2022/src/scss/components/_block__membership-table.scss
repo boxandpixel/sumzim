@@ -1,0 +1,84 @@
+.membership-table {
+	table {
+		thead {
+			background: white;
+
+			@include breakpoint(mobilemax) {
+				border: none;
+				clip: rect(0 0 0 0);
+				height: 1px;
+				margin: -1px;
+				overflow: hidden;
+				padding: 0;
+				position: absolute;
+				width: 1px;
+			}
+
+			tr {
+
+				@include breakpoint(mobilemax) {
+					display: block;
+				}
+
+				th {
+					padding: .5rem;
+
+					&:first-child {
+						width: auto;
+					}
+
+					&:not(:first-child) {
+						width: 200px;
+					}
+
+					img {
+						max-height: 200px;
+					}
+				}
+			}
+		}
+		tbody {
+			tr {
+
+				@include breakpoint(mobilemax) {
+					display: block;
+				}
+
+				&:nth-child(even) {
+					background: white;
+				}
+		
+				&:nth-child(odd) {
+					background: #CAD3CF;
+				}	
+				
+				td {
+					padding: .5rem;
+					text-align: center;
+
+					@include breakpoint(mobilemax) {
+						display: block;
+						text-align: right;
+					}
+					
+					&::before {
+						@include breakpoint(mobilemax) {
+							content: attr(data-label);
+							float: left;
+							font-weight: bold;
+						}
+					}
+
+					&:first-child {
+						text-align: left;
+						font-weight: 600;
+
+						@include breakpoint(mobilemax) {
+							text-align: right;
+						}
+					}
+				}
+			}
+		}
+	}
+}

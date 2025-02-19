@@ -4,7 +4,7 @@
 	// align-items: center;
 	// flex-direction: column;
 
-	@include breakpoint(large) {
+	@include breakpoint(xlarge) {
 		padding: 260px 0 100px 0;
 	}
 
@@ -39,8 +39,10 @@
 		// 	max-width: 1200px;
 		// }
 
+		/** Figure this out */
+
 		& > p,h2,h3,h4,h5,h6,ul,ol {
-			width: 1200px;
+			// width: 1200px;
 			max-width: 1200px;
 			margin-left: auto;
 			margin-right: auto;

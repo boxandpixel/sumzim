@@ -3,6 +3,10 @@
     @media (min-width: $breakpoint__small) {
       @content;
     }
+  } @else if $point == mobilemax {
+    @media (max-width: $breakpoint__medium) {
+      @content;
+    }
   } @else if $point == medium {
     @media (min-width: $breakpoint__medium) {
       @content;

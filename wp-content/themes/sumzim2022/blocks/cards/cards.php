@@ -5,12 +5,13 @@
 
 $cards = get_field('cards');
 
+$cards_columns = $cards['cards_columns'];
 $cards_set = $cards['cards_set'];
 
 ?>
 
 
-<section class="cards-block contain">
+<section class="cards-block cards-<?php echo $cards_columns; ?> contain">
 	<?php foreach($cards_set as $card): ?>
 	<?php
 		$card_heading = $card['card_heading'];
