@@ -113,8 +113,12 @@ wp-content/mu-plugins/wpe-wp-sign-on-plugin*
 # theme specific
 wp-content/themes/*
 !wp-content/themes/sumzim2022
+
 wp-content/themes/sumzim2022/vendor/
 wp-content/themes/sumzim2022/node_modules
+
+!wp-content/themes/sumzim
+wp-content/themes/sumzim/node_modules
 wp-content/wp-rocket-config/
 
 # DDEV specific

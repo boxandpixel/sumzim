@@ -1,0 +1,48 @@
+@mixin breakpoint($point) {
+  @if $point ==medium {
+    @media (min-width: $medium) {
+      @content;
+    }
+  }
+
+  @else if $point ==small-medium {
+    @media (min-width: $small-medium) {
+      @content;
+    }
+  }
+
+  @else if $point ==medium-large {
+    @media (min-width: $medium-large) {
+      @content;
+    }
+  }
+
+  @else if $point ==large {
+    @media (min-width: $large) {
+      @content;
+    }
+  }
+
+  @else if $point ==x-large {
+    @media (min-width: $x-large) {
+      @content;
+    }
+  }
+
+  @else if $point ==mobile-only {
+    @media (max-width: $mobile-only) {
+      @content;
+    }
+  }
+}
+
+@mixin clearSearchReset {
+  &::-ms-clear,
+  &::-ms-reveal,
+  &::-webkit-search-decoration,
+  &::-webkit-search-cancel-button,
+  &::-webkit-search-results-button,
+  &::-webkit-search-results-decoration {
+    @content;
+  }
+}
