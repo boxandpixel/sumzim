@@ -3,9 +3,9 @@
  * List Icons
 */
 
-$list_items_icons = get_field('list_items_icons');
+$icon_list_items = get_field('icon_list_items');
 
-$list_items = $list_items_icons['list_items'];
+$list_items = $icon_list_items['list_items'];
 
 
 ?>

@@ -15,14 +15,14 @@
 		h1 {
 			font-family: var(--font);
 			font-weight: 800;
-			font-size: 23px;
+			font-size: 47.78px;
 			color: var(--color__primary--dark);
 			text-align: center;
 			text-wrap: balance;
 			
 
 			@include breakpoint(medium) {
-				font-size: 47px;
+				font-size: 61.04px;
 			}
 		}	
 	}
@@ -58,56 +58,56 @@
 
 		h2 {
 			font-family: var(--font);
-			font-weight: 800;
-			font-size: 22px;
+			font-weight: 700;
+			font-size: 39.81px;
 			color: var(--color__primary--dark);
 
 			@include breakpoint(medium) {
-				font-size: 40px;
+				font-size: 48.83px;
 			}
 		}	
 		
 		h3 {
 			font-family: var(--font);
-			font-weight: 800;
-			font-size: 20px;
+			font-weight: 700;
+			font-size: 33.18px;
 			color: var(--color__primary--dark);
 
 			@include breakpoint(medium) {
-				font-size: 33px;
+				font-size: 39.06px;
 			}
 		}			
 
 		h4 {
 			font-family: var(--font);
-			font-weight: 600;
-			font-size: 19px;
+			font-weight: 700;
+			font-size: 27.65px;
 			color: var(--color__primary--dark);
 
 			@include breakpoint(medium) {
-				font-size: 27px;
+				font-size: 31.25px;
 			}
 		}	
 		
 		h5 {
 			font-family: var(--font);
-			font-weight: 600;
-			font-size: 18px;
+			font-weight: 700;
+			font-size: 23.04px;
 			color: var(--color__primary--dark);
 
 			@include breakpoint(medium) {
-				font-size: 23px;
+				font-size: 25px;
 			}
 		}	
 		
 		h6 {
 			font-family: var(--font);
-			font-weight: 600;
-			font-size: 17px;
+			font-weight: 700;
+			font-size: 19.2px;
 			color: var(--color__primary--dark);
 
 			@include breakpoint(medium) {
-				font-size: 19px;
+				font-size: 20px;
 			}
 		}	
 		

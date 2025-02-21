@@ -1049,10 +1049,10 @@ function register_block_cards() {
     register_block_type( __DIR__ . '/blocks/cards/block.json' );
 }
 
-/** Block: List Icons */
-add_action( 'init', 'register_block_list_items_icons' );
-function register_block_list_items_icons() {
-    register_block_type( __DIR__ . '/blocks/list-items-icons/block.json' );
+/** Block: Icon List Items */
+add_action( 'init', 'register_block_icon_list_items' );
+function register_block_icon_list_items() {
+    register_block_type( __DIR__ . '/blocks/icon-list-items/block.json' );
 }
 
 /** Block: Content Divider */
