@@ -1,8 +1,11 @@
 .gform_wrapper {
-	width: 1200px;
-	max-width: 1200px;
 	margin-left: auto;
 	margin-right: auto;
+
+	&:has(form.design-your-membership-form) {
+		width: 1200px;
+		max-width: 1200px;
+	}
 	
 	form {
 		&:not(.design-your-membership-form) {
