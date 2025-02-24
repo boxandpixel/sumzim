@@ -100,7 +100,7 @@ function minimizeHeader() {
 	  }
 
 	  if(headerReviews) {
-		headerReviews.classList.add("--hide");
+		headerReviews.classList.add("header-google-reviews--scroll");
 	  }
 	  
     } else if (window.pageYOffset <= 1) {
@@ -172,7 +172,7 @@ function minimizeHeader() {
 		headerSocial.classList.remove("header__social--scroll");
 	  }
 	  if(headerReviews) {
-		headerReviews.classList.remove("--hide");
+		headerReviews.classList.remove("header-google-reviews--scroll");
 	  }	  
     }
   });
