@@ -98,6 +98,10 @@ function minimizeHeader() {
 	  if(headerSocial) {
 		headerSocial.classList.add("header__social--scroll");
 	  }
+
+	  if(headerReviews) {
+		headerReviews.classList.add("--hide");
+	  }
 	  
     } else if (window.pageYOffset <= 1) {
       if (headerContent) {
@@ -167,6 +171,9 @@ function minimizeHeader() {
 	  if(headerSocial) {
 		headerSocial.classList.remove("header__social--scroll");
 	  }
+	  if(headerReviews) {
+		headerReviews.classList.remove("--hide");
+	  }	  
     }
   });
 }
