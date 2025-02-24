@@ -25,6 +25,8 @@ function minimizeHeader() {
   var mobileCall = document.querySelector(".header__mobile-call");
   var headerSocial = document.querySelector(".header__social");
 
+  var headerReviews = document.querySelector(".header-google-reviews");
+
   window.addEventListener("scroll", function () {
     if (window.pageYOffset >= 1) {
       if (headerContent) {
