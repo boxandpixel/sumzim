@@ -224,6 +224,8 @@
 		?>
 
 		<div class="header__content">
+
+			
 			<div class="header__content-branding">
 			<a class="header__brand-link" href="<?php echo home_url('/'); ?>" title="Summers &amp; Zim's">
 				<img class="header__brand-logo-min" src="<?php echo $logo_min['url']; ?>" alt="<?php echo $logo_min['alt']; ?>">
@@ -244,16 +246,53 @@
 			</div>   
 			</div>
 			<div class="header__content-actions">
-				<div class="header__social">
-					<p>Find us on:</p>
-					<div class="header__social-icons">
-						<a href="https://www.facebook.com/SumZim" target="_blank">
-							<img src="/wp-content/themes/sumzim2022/assets/facebook-logo.svg" alt="Facebook">
-						</a>
-						<a href="https://www.instagram.com/summerszims/" target="_blank">
-							<img src="/wp-content/themes/sumzim2022/assets/instagram-logo.svg" alt="Instagram">
-						</a>
-					</div>
+
+				<div class="header__reviews-social">
+					<a href="https://g.page/r/CfEFiZOvAlKSEB0/review" target="_blank" class="header-google-reviews">
+						<div class="header-google-reviews--excellent">
+							<p>Excellent</p>
+						</div>
+						<div class="header-google-reviews--stars">
+							<span class="material-symbols-outlined">star</span>
+							<span class="material-symbols-outlined">star</span>
+							<span class="material-symbols-outlined">star</span>
+							<span class="material-symbols-outlined">star</span>
+							<span class="material-symbols-outlined">star</span>
+						</div>
+						<div class="header-google-reviews--reviewTotal">
+							<p id="reviewsCount">Fetching total...</p>
+							<script>
+								async function fetchGoogleReviews() {
+									try {
+										const response = await fetch("/wp-content/themes/sumzim2022/proxy.php"); // Call the PHP script
+										const data = await response.json();
+
+										if (data.result && data.result.user_ratings_total) {
+											document.getElementById("reviewsCount").innerText = `${data.result.user_ratings_total} Google reviews`;
+										} else {
+											document.getElementById("reviewsCount").innerText = "Could not retrieve the total number of reviews.";
+										}
+									} catch (error) {
+										console.error("Error fetching reviews:", error);
+										document.getElementById("reviewsCount").innerText = "Error fetching data.";
+									}
+								}
+
+								fetchGoogleReviews();
+							</script>					 
+						</div>
+					</a>				
+					<div class="header__social">
+						<p>Find us on:</p>
+						<div class="header__social-icons">
+							<a href="https://www.facebook.com/SumZim" target="_blank">
+								<img src="/wp-content/themes/sumzim2022/assets/facebook-logo.svg" alt="Facebook">
+							</a>
+							<a href="https://www.instagram.com/summerszims/" target="_blank">
+								<img src="/wp-content/themes/sumzim2022/assets/instagram-logo.svg" alt="Instagram">
+							</a>
+						</div>
+					</div>					
 				</div>
 				<p class="header__call">Call us 24/7 at <a href="tel:+16105935129">(610) 593-5129</a></p>
 
@@ -263,7 +302,7 @@
 						array('menu' => 'primary_navigation')
 					);
 					?>
-			</nav>
+				</nav>
 			</div>
 		</div>
 		</header>

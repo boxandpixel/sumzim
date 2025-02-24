@@ -160,7 +160,83 @@ header.site-header {
     position: relative;
     display: flex;
     justify-content: space-between;
-    min-height: 7rem;
+    min-height: 8rem;
+
+	.header-google-reviews {
+		position: absolute;
+		top: 0;
+		left: 50%;
+		transform: translateX(-50%) translateY(-40%);
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: 10px;
+		text-decoration: none;
+		background: white;
+		width: 100%;
+		padding: .25rem 1rem;
+
+		@include breakpoint(large) {
+			// top: -5px;
+			// left: 500px;
+			position: static;
+			width: auto;
+			transform: translateX(0) translateY(0);
+			background: transparent;
+			padding: .25rem 1rem;
+			border-right: solid 1px #7D9392;
+		}
+
+		.header-google-reviews--excellent {
+
+			p {
+				margin-bottom: 0;
+				color: var(--color__primary--dark);
+				font-family: var(--font);
+				font-weight: 800;
+				text-transform: uppercase;
+				letter-spacing: var(--letter-spacing);
+				font-size: 14px;
+
+				@include breakpoint(large) {
+					font-size: 1rem;
+					color: white;
+				}
+			}
+			
+		}
+
+		.header-google-reviews--stars {
+			display: flex;
+			gap: 1px;
+
+			span {
+				font-variation-settings:
+				'FILL' 1,
+				'wght' 400,
+				'GRAD' 0,
+				'opsz' 24;
+				color: var(--color__secondary);
+			}
+		}
+
+		.header-google-reviews--reviewTotal {
+
+			p {
+				color: white;
+				font-family: var(--font);
+				font-weight: 400;
+				font-size: 11px;
+				margin-bottom: 0;
+				color: var(--color__primary--dark);
+
+				@include breakpoint(large) {
+					font-size: 12px;
+					color: white;
+				}
+			}
+		}
+	}
 
     &.header__content--min {
       min-height: 3.3rem;
@@ -312,12 +388,18 @@ header.site-header {
       // }
 
       @include breakpoint(large) {
-        width: calc(100% - 490px); // 400
+        width: calc(100% - 390px); // 400
+		gap: 10px;
       }
 
       @include breakpoint(xlarge) {
         justify-content: space-between;
       }
+
+	  .header__reviews-social {
+		display: flex;
+		gap: 15px;
+	  }
 
       /** Header Status Message & Phone Number */
 
