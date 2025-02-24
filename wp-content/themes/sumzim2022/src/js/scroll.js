@@ -25,7 +25,7 @@ function minimizeHeader() {
   var mobileCall = document.querySelector(".header__mobile-call");
   var headerSocial = document.querySelector(".header__social");
 
-  var headerReviews = document.querySelector(".header-google-reviews");
+  var headerGoogleReviews = document.querySelector(".header-google-reviews");
 
   window.addEventListener("scroll", function () {
     if (window.pageYOffset >= 1) {
@@ -99,7 +99,7 @@ function minimizeHeader() {
 		headerSocial.classList.add("header__social--scroll");
 	  }
 
-	  if(headerReviews) {
+	  if(headerGoogleReviews) {
 		// headerReviews.classList.add("header-google-reviews--scroll");
 		console.log("have reviews");
 	  }
