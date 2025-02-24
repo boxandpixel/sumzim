@@ -100,8 +100,8 @@ function minimizeHeader() {
 	  }
 
 	  if(headerReviews) {
-		headerReviews.classList.add("header-google-reviews--scroll");
-		// console.log("have reviews");
+		// headerReviews.classList.add("header-google-reviews--scroll");
+		console.log("have reviews");
 	  }
 	  
     } else if (window.pageYOffset <= 1) {
