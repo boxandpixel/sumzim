@@ -260,7 +260,7 @@
 							<span class="material-symbols-outlined">star</span>
 						</div>
 						<div class="header-google-reviews--reviewTotal">
-							<p id="reviewsCount">Fetching total...</p>
+							<p id="reviewsCount">Fetching reviews...</p>
 							<script>
 								async function fetchGoogleReviews() {
 									try {
