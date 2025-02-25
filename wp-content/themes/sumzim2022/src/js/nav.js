@@ -107,6 +107,6 @@ function mobileNavControl() {
   window.addEventListener("resize", hideMobileNav);
 }
 
-document.addEventListener("DOMContentLoaded", () => {
+// document.addEventListener("DOMContentLoaded", () => {
   mobileNavControl();
-});
+// });

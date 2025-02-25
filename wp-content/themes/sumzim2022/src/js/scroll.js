@@ -25,7 +25,7 @@ function minimizeHeader() {
   var mobileCall = document.querySelector(".header__mobile-call");
   var headerSocial = document.querySelector(".header__social");
 
-//   var headerGoogleReviews = document.querySelector(".header-google-reviews");
+  var headerGoogleReviews = document.querySelector(".header-google-reviews");
 
 //   console.log(headerGoogleReviews);
 
@@ -100,6 +100,10 @@ function minimizeHeader() {
 	  if(headerSocial) {
 		headerSocial.classList.add("header__social--scroll");
 	  }
+
+	  if(headerGoogleReviews) {
+		headerGoogleReviews.classList.add("header-google-reviews--scroll");
+	  }
 	  
     } else if (window.pageYOffset <= 1) {
       if (headerContent) {
@@ -169,10 +173,15 @@ function minimizeHeader() {
 	  if(headerSocial) {
 		headerSocial.classList.remove("header__social--scroll");
 	  }
+
+	  if(headerGoogleReviews) {
+		headerGoogleReviews.classList.remove("header-google-reviews--scroll");
+	  }
+
     }
   });
 }
 
-document.addEventListener("DOMContentLoaded", () => {
+// document.addEventListener("DOMContentLoaded", () => {
   minimizeHeader();
-});
+// });
