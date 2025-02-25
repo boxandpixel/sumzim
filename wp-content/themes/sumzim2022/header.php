@@ -247,6 +247,7 @@
 			</div>
 			<div class="header__content-actions">
 
+				<!-- Added 20250225 -->
 				<div class="header__reviews-social">
 					<a href="https://g.page/r/CfEFiZOvAlKSEB0/review" target="_blank" class="header-google-reviews">
 						<div class="header-google-reviews--excellent">
