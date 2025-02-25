@@ -162,6 +162,7 @@ header.site-header {
     justify-content: space-between;
     min-height: 8rem;
 
+
 	.header-google-reviews {
 		position: absolute;
 		top: 0;
@@ -178,6 +179,7 @@ header.site-header {
 
 		&.header-google-reviews--scroll {
 			display: none;
+			background: transparent;
 		}
 
 		@include breakpoint(large) {
