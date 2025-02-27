@@ -50,7 +50,7 @@ import "./js/toggle.js";
 // 	}
 // });
 
-document.addEventListener("DOMContentLoaded", () => {
+// document.addEventListener("DOMContentLoaded", () => {
 	const form = document.getElementById('gform_4');
 	const gas_furnace = document.getElementById('input_4_15');
 	const gas_furnace_watchdog = document.getElementById('input_4_24');
@@ -139,7 +139,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	// 	console.log("no monthly total");
 	// }
 
-});
+// });
 
 // window.onbeforeunload = function () {
 // 	window.scrollTo(0, 0);

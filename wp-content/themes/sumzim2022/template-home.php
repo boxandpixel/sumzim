@@ -33,19 +33,17 @@ get_header();
           <?php if($hero_link): ?>
 			<div class="home__hero-link">
 				<div class="home__hero-link--desktop">
-					<a 
-            href="https://sumzim.com/about-us/free-estimate/?ref=service" 
-            class="button button-cta button--schedule button--large book-now-button" target="_blank">Book Now
-          </a>
+					<button class="button button-cta button--schedule button--large book-now-button" onclick="_scheduler.show({ schedulerId: 'sched_ejqbmr1e0g7tagr59sdo4rr2' })" type="button">Book Now!</button>
 				</div>
 
 				<div class="home__hero-link--mobile">
 					<a href="tel:6105935129" class="button button-cta button--schedule button--large book-now-button" id="sa-click-to-call">Call 610-593-5129</a>
 					<div class="home__hero-link-mobile-alt">
-						or <a href="https://sumzim.com/about-us/free-estimate/?ref=service" 
-                  class="se-widget-button se-button-alt" target="_blank">Book Now</a>
+						or <button class="se-button-alt" onclick="_scheduler.show({ schedulerId: 'sched_ejqbmr1e0g7tagr59sdo4rr2' })">Book Now</a>
 					</div>
 				</div>
+
+				
 				
 			</div>
           <?php endif; ?>
