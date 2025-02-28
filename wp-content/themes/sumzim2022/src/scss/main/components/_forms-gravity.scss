@@ -780,13 +780,14 @@
 
 .gform_confirmation_wrapper {
 	width: 100%;
+	font-size: 24px;
+	text-align: center;
+	font-weight: 500;	
 
 	@include breakpoint(medium) {
 		width: 680px;
 		margin: 0 auto;
 	}
 
-	font-size: 24px;
-	text-align: center;
-	font-weight: 500;
+
 }

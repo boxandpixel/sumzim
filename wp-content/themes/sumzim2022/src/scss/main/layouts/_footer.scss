@@ -12,12 +12,13 @@ footer.footer {
 
   & > div {
     width: 100%;
+    color: white;	
 
     @include breakpoint(medium) {
       width: 50vw;
     }
 
-    color: white;
+
 
     &:first-child {
       margin-right: 0;

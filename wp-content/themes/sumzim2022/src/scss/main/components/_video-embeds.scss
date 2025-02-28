@@ -16,12 +16,12 @@
     }
 
     &.embed-container__map {
+		top: -55px;		
         & > iframe {
             @include breakpoint(medium) {
                 height: 75%;
             }
-            
-            top: -55px;
+
         }
     }
 }

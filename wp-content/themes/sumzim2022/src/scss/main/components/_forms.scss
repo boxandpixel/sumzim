@@ -179,14 +179,15 @@ div#wp_payeezy_payment_form,
         font-family: "Raleway", sans-serif;
         font-weight: 400;
         height: auto !important;
+        /** payeezy gateway */
+        color: var(--color__text--dark);
+        font-size: 0.875rem;		
 
         &.wpcf7-not-valid {
           border: solid 2px var(--color__attention);
         }
 
-        /** payeezy gateway */
-        color: var(--color__text--dark);
-        font-size: 0.875rem;
+
       }
 
       input {
@@ -505,11 +506,12 @@ div#wp_payeezy_payment_form,
     }
 
     .wpcf7-form-control-wrap {
+
+		margin: 0.25rem 0;		
       br {
         display: none;
       }
 
-      margin: 0.25rem 0;
     }
 
     .memtype__each {

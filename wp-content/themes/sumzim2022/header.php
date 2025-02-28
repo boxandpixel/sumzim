@@ -123,7 +123,7 @@
 
 	<!-- Start StackAdapt Click to Call Pixel -->
 	<script>
-		// document.getElementById("sa-click-to-call").addEventListener("click",function() { !function(s,a,e,v,n,t,z){if(s.saq)return;n=s.saq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!s._saq)s._saq=n;n.push=n;n.loaded=!0;n.version='1.0';n.queue=[];t=a.createElement(e);t.async=!0;t.src=v;z=a.getElementsByTagName(e)[0];z.parentNode.insertBefore(t,z)}(window,document,'script','https://tags.srv.stackadapt.com/events.js');saq('conv', 'cuJArc7ZMDOyfyEhCMMMuU'); });
+		document.getElementById("sa-click-to-call").addEventListener("click",function() { !function(s,a,e,v,n,t,z){if(s.saq)return;n=s.saq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!s._saq)s._saq=n;n.push=n;n.loaded=!0;n.version='1.0';n.queue=[];t=a.createElement(e);t.async=!0;t.src=v;z=a.getElementsByTagName(e)[0];z.parentNode.insertBefore(t,z)}(window,document,'script','https://tags.srv.stackadapt.com/events.js');saq('conv', 'cuJArc7ZMDOyfyEhCMMMuU'); });
 	</script>
 			
 	<!-- End StackAdapt Click to Call Pixel -->
@@ -164,45 +164,50 @@
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#000000">
   <meta name="msapplication-TileColor" content="#16375a">
-  <meta name="theme-color" content="#ffffff">
-  
-
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="/wp-content/themes/sumzim2022/google-places.js"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&key=AIzaSyDSRvqTsYQXGTJ3gCbaaSXvAIqnnT3MMiM"></script>
+  <meta name="theme-color" content="#ffffff">	
 
 
-  <?php if(is_page(array('reviews'))): ?>
-  <script>
-    jQuery(document).ready(function() {
-        $("#google-reviews").googlePlaces({
-            placeId: 'ChIJd5IeY6tFxokR8QWJk68CUpI',
-            render: ['reviews'],
-            min_rating: 5,
-            max_rows: 0,
-            shorten_names: false,
-        });
-    });
-  </script>	
-  <?php endif; ?>
+
+
+	<?php if(is_page(array('reviews'))): ?>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  	<script src="/wp-content/themes/sumzim2022/google-places.js"></script>
+  	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&key=AIzaSyDSRvqTsYQXGTJ3gCbaaSXvAIqnnT3MMiM"></script>
+
+	<script>
+		jQuery(document).ready(function() {
+			$("#google-reviews").googlePlaces({
+				placeId: 'ChIJd5IeY6tFxokR8QWJk68CUpI',
+				render: ['reviews'],
+				min_rating: 5,
+				max_rows: 0,
+				shorten_names: false,
+			});
+		});
+	</script>	
+	<?php endif; ?>
 
     <?php if(is_page(array('memberships', 'membership-benefits', 'heating-system-repair', 'heating-system-maintenance',
 	'heating-system-installation'))): ?>
-  <script>
-    jQuery(document).ready(function() {
-        $("#google-reviews-site").googlePlaces({
-            placeId: 'ChIJd5IeY6tFxokR8QWJk68CUpI',
-            render: ['reviews'],
-            min_rating: 5,
-            max_rows: 1,
-            shorten_names: false,
-        });
-    });
-  </script>	
-  <?php endif; ?>  
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  	<script src="/wp-content/themes/sumzim2022/google-places.js"></script>
+  	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&key=AIzaSyDSRvqTsYQXGTJ3gCbaaSXvAIqnnT3MMiM"></script>
+
+	<script>
+		jQuery(document).ready(function() {
+			$("#google-reviews-site").googlePlaces({
+				placeId: 'ChIJd5IeY6tFxokR8QWJk68CUpI',
+				render: ['reviews'],
+				min_rating: 5,
+				max_rows: 1,
+				shorten_names: false,
+			});
+		});
+	</script>	
+	<?php endif; ?>  	
 
 	<!-- Reviews Block -->
-  	<script>
+	<script>
 		jQuery(document).ready(function() {
 			$("#reviews-container").googlePlaces({
 				placeId: 'ChIJd5IeY6tFxokR8QWJk68CUpI',
@@ -213,22 +218,22 @@
 				staticMap: false,
 			});
 		});
-	</script>	  
+	</script>	  	
 
-  <!-- Audacy -->
-  <style>
-    .audacy {
-      position: absolute;
-            width: 1px;
-            height: 1px;
-            padding: 0;
-            margin: -1px;
-            overflow: hidden;
-            clip: rect(0, 0, 0, 0);
-            white-space: nowrap; /* added line */
-            border: 0;
-    }
-    </style>
+	<!-- Audacy -->
+	<style>
+		.audacy {
+		position: absolute;
+				width: 1px;
+				height: 1px;
+				padding: 0;
+				margin: -1px;
+				overflow: hidden;
+				clip: rect(0, 0, 0, 0);
+				white-space: nowrap; /* added line */
+				border: 0;
+		}
+		</style>
 
 
 </head>
