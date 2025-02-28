@@ -140,30 +140,10 @@ add_action( 'widgets_init', 'sumzim_widgets_init' );
 function sumzim_scripts() {
 	wp_enqueue_style( ' sumzim-style', get_stylesheet_uri(), array(), sumzim_VERSION );
 
-	wp_enqueue_script( 'liteYouTube-scripts', get_template_directory_uri() . '/dist/liteYouTube.js');
-	wp_enqueue_style( 'liteYouTube-styles', get_template_directory_uri() . '/dist/liteYouTube.css');
 	
 	$rand = rand( 0, 999999999999 );
-	if(is_front_page()) {
-		wp_enqueue_style( 'home-styles', get_template_directory_uri() . '/dist/home.css', array(), '20240716');
-
-		wp_enqueue_script( 'home-scripts', get_template_directory_uri() . '/dist/home.js', array(), '20250225',
-			array(
-				'strategy' => 'async'
-			));
-		
-
-	} elseif(is_page('through-the-years')) {
-		wp_enqueue_style( 'timeline-styles', get_template_directory_uri() . '/dist/timeline.css');
-		wp_enqueue_script( 'timeline-scripts', get_template_directory_uri() . '/dist/timeline.js');
-	} else {
-		wp_enqueue_style( 'site-styles', get_template_directory_uri() . '/dist/site.css', $rand);
-		wp_enqueue_script( 'site-scripts', get_template_directory_uri() . '/dist/site.js', $rand);
-	}
-
-	wp_localize_script("site-scripts", "WPVars", array(
-        "GOOGLE_API" => "AIzaSyCHHeuBppENoo0gFHnxYtAA3aoV3LG0Dfc",
-    ));
+	wp_enqueue_style( 'home-styles', get_template_directory_uri() . '/dist/site.css', $rand);
+	wp_enqueue_script( 'site-scripts', get_template_directory_uri() . '/dist/site.js', $rand);
 	
 	wp_style_add_data( ' sumzim-style', 'rtl', 'replace' );
 
@@ -175,14 +155,7 @@ function sumzim_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'sumzim_scripts' );
 
-/**
- * Partytown if we can figure out how to use it.
- */
-// function my_plugin_partytown_config( $config ) {
-// 	$config["forward"] = ['dataLayer.push'];
-// 	return $config;
-//   }
-//   add_filter( 'partytown_configuration', 'my_plugin_partytown_config' );
+
   
 /** 
  * Remove versions from CSS & JS

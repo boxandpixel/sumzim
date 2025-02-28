@@ -1,0 +1,125 @@
+.mem__section {
+  display: flex;
+  justify-content: center;
+
+  &.mem__section-cta {
+	margin: 40px 0;
+  }
+}
+
+.mem__section-heading {
+  text-align: center;
+}
+
+.mem__video {
+  width: 100%;
+
+  @include breakpoint(medium) {
+    max-width: 40%;
+  }
+}
+
+.mem__benefits-grid {
+  display: grid;
+  grid-column-gap: 16px;
+  grid-row-gap: 16px;
+
+  @include breakpoint(large) {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+  }
+
+  .mem__benefits-each {
+    padding: 2rem;
+    background: var(--color__neutral--very-light);
+  }
+
+  .mem__benefits-one {
+    // grid-area: 1 / 1 / 2 / 2;
+
+    @include breakpoint(large) {
+      grid-area: 1 / 1 / 2 / 2;
+    }
+  }
+  .mem__benefits-two {
+    // grid-area: 2 / 1 / 3 / 2;
+
+    @include breakpoint(large) {
+      grid-area: 2 / 1 / 3 / 2;
+    }
+  }
+  .mem__benefits-three {
+    // grid-area: 3 / 1 / 4 / 2;
+
+    @include breakpoint(large) {
+      grid-area: 3 / 1 / 4 / 2;
+    }
+  }
+  .mem__benefits-four {
+    // grid-area: 1 / 2 / 4 / 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    @include breakpoint(large) {
+      grid-area: 1 / 2 / 4 / 3;
+    }
+
+    & > * {
+      margin: 1rem 0;
+    }
+  }
+}
+
+/** Membership Design */
+body:not(:-moz-handler-blocked) fieldset {
+  display: table-cell;
+}
+
+#membership-design {
+  //   position: relative;
+
+  .mem__totals {
+    padding: 1rem;
+    position: sticky;
+    background: var(--color__success);
+    top: 69px; /** 3.3rem wtf */
+    z-index: 2;
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+
+    h4 {
+      color: white;
+    }
+
+    span {
+      color: white;
+      font-weight: 800;
+
+      &#mem__discount {
+        &.mem__discount--on {
+          color: var(--color__primary);
+          font-style: italic;
+          background: white;
+          padding: 0.5rem 1rem;
+          border-radius: var(--border-radius);
+          display: inline-block;
+        }
+      }
+    }
+  }
+}
+
+.memdesign {
+  .memdesign__section {
+    margin-bottom: 3rem;
+    background: var(--color__neutral--very-light);
+    padding: 1rem;
+
+    h3 {
+      font-weight: 600;
+    }
+  }
+}

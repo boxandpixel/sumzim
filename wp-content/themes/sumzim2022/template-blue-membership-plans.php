@@ -45,7 +45,7 @@ get_header();
 				if($button_type == 'Book Now'): ?>
 			<div class="display-button">
 				<a 
-					href="https://sumzim.com/about-us/free-estimate/?ref=service" 
+					href="https://sumzim.com/about-us/free-estimate/" 
 					class="button button-cta button--schedule button--large book-now-button" target="_blank">Book Now
 				</a>				
 			</div>            
@@ -91,24 +91,15 @@ get_header();
 				</div>
 				<div class="mem__benefits-four">
 					<div id="google-reviews-site">
-						<div id="google-reviews">
-							<div class="review-item">
-								<div class="review-meta">
-									<span class="review-author">Dick Barrett</span><span class="review-sep">, </span><span class="review-date">Apr 11, 2023</span>
-								</div>
-								<div class="review-stars"><ul><li><i class="star"></i></li><li><i class="star"></i></li><li><i class="star"></i></li><li><i class="star"></i></li><li><i class="star"></i></li></ul></div>
-								<p class="review-text">Always a good experience with S&amp;Z. Great communications, service, and results. For over 25 years  we have had installs (heat and ac); maintenance (scheduled and unscheduled); and, work done that our aging home required in order to ensure a quality outcome.
-
-		Never once have  we been uncomfortable or dissatisfied with this firm’s team of skilled people  who go out of their way to satisfy the customer. It sounds corny but they do make us feel like family. I say that knowing there’s nothing  special about us!</p></div>	
-							</div>
-						</div>
+					
+						<div id="google-reviews"></div>
 
 					<a href="/reviews" class="button button--primary">See More Reviews</a>
 				</div>
 			</div>
 		</div>
 
-		<div class="mem__section">
+		<div class="mem__section mem__section-cta">
 			<a href="/design-your-customer-membership/" class="button button--primary button--big">Customize Your Membership Today</a>
 		</div>
 

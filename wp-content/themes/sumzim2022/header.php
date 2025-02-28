@@ -29,6 +29,85 @@
 
 	<?php wp_head(); ?>
 
+	<!-- Load Swiper -->
+	<link
+	rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+	/>
+	<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>	 
+
+	<!-- Load AOS -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" integrity="sha512-A7AYk1fGKX6S2SsHywmPkrnzTZHrgiVT7GcQkLGDe2ev0aWb8zejytzS8wjo7PGEXKqJOrjQ4oORtnimIRZBtw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" integrity="sha512-1cK78a1o+ht2JcaW6g8OXYwqpev9+6GqOkz9xmBN9iUUhIndKtxwILGWYOSibOKjLsEdjyjZvYDq/cZwNeak0w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	
+	<!-- Initialize AOS and Swiper -->
+	<script>
+		document.addEventListener("DOMContentLoaded", () => {
+			AOS.init();
+
+			const swiper = new Swiper(".home__staff-slides", {
+				slidesPerView: 2,
+				slidesPerGroup: 2,
+				spaceBetween: 10,
+				lazy: true,
+				loop: true,
+				autoHeight: true,
+				breakpoints: {
+					480: {
+					slidesPerView: 3,
+					slidesPerGroup: 3,
+					spaceBetween: 10,
+					},
+					768: {
+					slidesPerView: 4,
+					slidesPerGroup: 4,
+					spaceBetween: 10,
+					},
+					960: {
+					slidesPerView: 5,
+					slidesPerGroup: 5,
+					spaceBetween: 10,
+					},
+					1280: {
+					slidesPerView: 6,
+					slidesPerGroup: 6,
+					spaceBetween: 20,
+					},
+					1600: {
+					slidesPerView: 8,
+					slidesPerGroup: 8,
+					spaceBetween: 20,
+					},
+				},
+				pagination: {
+					el: ".swiper-pagination",
+					clickable: true,
+				},
+				navigation: {
+					nextEl: ".swiper-button-next",
+					prevEl: ".swiper-button-prev",
+				},
+				});
+
+				const content_features = new Swiper(".home__content-features-slides", {
+				slidesPerView: 1,
+				slidesPerGroup: 1,
+				lazy: true,
+				loop: true,
+				autoHeight: true,
+				observer: true,
+				pagination: {
+					el: ".swiper-pagination",
+					clickable: true,
+				},
+				navigation: {
+					nextEl: ".swiper-button-next",
+					prevEl: ".swiper-button-prev",
+				},
+				});			
+		});
+	</script>
+		
 
 	<!-- Google Tag Manager -->
 	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -44,7 +123,7 @@
 
 	<!-- Start StackAdapt Click to Call Pixel -->
 	<script>
-		document.getElementById("sa-click-to-call").addEventListener("click",function() { !function(s,a,e,v,n,t,z){if(s.saq)return;n=s.saq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!s._saq)s._saq=n;n.push=n;n.loaded=!0;n.version='1.0';n.queue=[];t=a.createElement(e);t.async=!0;t.src=v;z=a.getElementsByTagName(e)[0];z.parentNode.insertBefore(t,z)}(window,document,'script','https://tags.srv.stackadapt.com/events.js');saq('conv', 'cuJArc7ZMDOyfyEhCMMMuU'); });
+		// document.getElementById("sa-click-to-call").addEventListener("click",function() { !function(s,a,e,v,n,t,z){if(s.saq)return;n=s.saq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!s._saq)s._saq=n;n.push=n;n.loaded=!0;n.version='1.0';n.queue=[];t=a.createElement(e);t.async=!0;t.src=v;z=a.getElementsByTagName(e)[0];z.parentNode.insertBefore(t,z)}(window,document,'script','https://tags.srv.stackadapt.com/events.js');saq('conv', 'cuJArc7ZMDOyfyEhCMMMuU'); });
 	</script>
 			
 	<!-- End StackAdapt Click to Call Pixel -->
