@@ -33,31 +33,16 @@ get_header();
 		<div class="content__page">
 		<!-- Begin Page Content Options -->
 		 
-		<div class="display-button">
-			<a href="tel:6105935129" class="button button-cta button--schedule button--large book-now-button">Call Now 610-593-5129</a>
-		</div>		
+		<div class="display-button display-button--desktop">
+			<button class="button button-cta button--schedule button--large book-now-button" onclick="_scheduler.show({ schedulerId: 'sched_ejqbmr1e0g7tagr59sdo4rr2' })" type="button">Book Now!</button>
+		</div>
 
-		<?php 
-			$display_button = get_field('display_button');
-			$button_type = get_field('button_type');
-
-			if($display_button): 
-				if($button_type == 'Book Now'): ?>
-			<div class="display-button">
-				<a 
-					href="https://sumzim.com/about-us/free-estimate/" 
-					class="button button-cta button--schedule button--large book-now-button" target="_blank">Book Now
-				</a>				
-			</div>            
-		<?php
-				elseif($button_type == 'Link to Form'): ?>
-			<div class="display-button">
-				<a href="/schedule-estimate" class="button button--primary button--large">Schedule a Consulation</a>
+		<div class="display-button display-button--mobile">
+			<a href="tel:6105935129" class="button button-cta button--schedule button--large book-now-button" id="sa-click-to-call">Call 610-593-5129</a>
+			<div class="home__hero-link-mobile-alt">
+				or <button class="se-button-alt" onclick="_scheduler.show({ schedulerId: 'sched_ejqbmr1e0g7tagr59sdo4rr2' })">Book Now</button>
 			</div>
-		<?php
-				endif;
-			endif;
-		?>
+		</div>		
 
 
 		<!-- 20230329 -->

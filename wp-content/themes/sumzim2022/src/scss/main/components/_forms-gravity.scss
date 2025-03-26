@@ -171,6 +171,11 @@
 			display: block;
 		}
 
+		.gfield--type-captcha {
+			display: flex;
+			justify-content: center;
+		}
+
 		.gfield--type-name {
 
 			.ginput_container--name {

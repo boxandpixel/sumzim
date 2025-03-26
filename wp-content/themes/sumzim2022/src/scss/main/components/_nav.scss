@@ -22,6 +22,10 @@ button.header__nav-button {
   height: 1.25em;
   display: flex;
 
+  &.header__nav-button--scroll {
+	position: fixed;
+  }
+
   @include breakpoint(large) {
 	top: 0;
   }

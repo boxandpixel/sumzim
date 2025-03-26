@@ -29,9 +29,16 @@ get_header();
 		<div class="content__page">
 		<!-- Begin Page Content Options -->
 
-			<div class="display-button">
-				<a href="/about-us/free-estimate" class="button button--primary button--large">Get a Free Estimate</a>
+			<div class="display-button display-button--desktop">
+				<button class="button button-cta button--schedule button--large book-now-button" onclick="_scheduler.show({ schedulerId: 'sched_ejqbmr1e0g7tagr59sdo4rr2' })" type="button">Book Now!</button>
 			</div>
+
+			<div class="display-button display-button--mobile">
+				<a href="tel:6105935129" class="button button-cta button--schedule button--large book-now-button" id="sa-click-to-call">Call 610-593-5129</a>
+				<div class="home__hero-link-mobile-alt">
+					or <button class="se-button-alt" onclick="_scheduler.show({ schedulerId: 'sched_ejqbmr1e0g7tagr59sdo4rr2' })">Book Now</button>
+				</div>
+			</div>		
 
 			<div class="hsr hsr-difference">
 				<h2>The Summers & Zim's Difference</h2>
@@ -105,7 +112,7 @@ get_header();
 					</div>	
 
 					<div class="hsr-attention-grid-item">
-						<img src="https://sumzim.com/wp-content/uploads/2023/06/redundancy-checking.jpg" alt="">
+						<img src="https://sumzim.com/wp-content/uploads/2024/01/sz-technician-steam-boiler-maintenance-1.jpg" alt="">
 						<div class="hsr-attention-desc">
 							<h3>Redundancy Checking</h3>
 							<p>We perform a detailed system commissioning at the conclusion of each installation, checking combustion and/or refrigeration pressures for optimal performance according to manufacturer specifications.</p>

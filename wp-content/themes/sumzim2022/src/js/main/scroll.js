@@ -27,6 +27,8 @@ function minimizeHeader() {
 
   var headerGoogleReviews = document.querySelector(".header-google-reviews");
 
+  var headerNavButton = document.querySelector(".header__nav-button");
+
 //   console.log(headerGoogleReviews);
 
   window.addEventListener("scroll", function () {
@@ -105,6 +107,10 @@ function minimizeHeader() {
 	  if(headerGoogleReviews) {
 		headerGoogleReviews.classList.add("header-google-reviews--scroll");
 	  }
+
+	  if(headerNavButton) {
+		headerNavButton.classList.add("header__nav-button--scroll");
+	  }
 	  
     } else if (window.pageYOffset <= 1) {
       if (headerContent) {
@@ -178,6 +184,10 @@ function minimizeHeader() {
 	  if(headerGoogleReviews) {
 		headerGoogleReviews.classList.remove("header-google-reviews--scroll");
 	  }
+
+	  if(headerNavButton) {
+		headerNavButton.classList.remove("header__nav-button--scroll");
+	  }	  
 
     }
   });

@@ -39,7 +39,7 @@ get_header();
 				<div class="home__hero-link--mobile">
 					<a href="tel:6105935129" class="button button-cta button--schedule button--large book-now-button" id="sa-click-to-call">Call 610-593-5129</a>
 					<div class="home__hero-link-mobile-alt">
-						or <button class="se-button-alt" onclick="_scheduler.show({ schedulerId: 'sched_ejqbmr1e0g7tagr59sdo4rr2' })">Book Now</a>
+						or <button class="se-button-alt" onclick="_scheduler.show({ schedulerId: 'sched_ejqbmr1e0g7tagr59sdo4rr2' })">Book Now</button>
 					</div>
 				</div>
 

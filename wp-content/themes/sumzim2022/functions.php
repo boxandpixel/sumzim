@@ -1336,3 +1336,13 @@ function additional_equipment_selections_fieldset( $field_container, $field, $fo
 // add_filter( 'gform_confirmation_anchor', function() {
 //     return 20;
 // } );
+
+function replace_menu_item_with_button($item_output, $item, $depth, $args) {
+    // Change only specific menu items (adjust ID as needed)
+    if ($item->title === 'Book Now') { // Change to match your menu item
+        // $item_output = '<button class="menu-button" onclick="location.href=\'' . esc_url($item->url) . '\'">' . esc_html($item->title) . '</button>';
+		$item_output = '<button class="button button-cta button--schedule book-now-button" onclick="_scheduler.show({ schedulerId: \'sched_ejqbmr1e0g7tagr59sdo4rr2\' })" type="button">' . esc_html($item->title) . '</button>';
+    }
+    return $item_output;
+}
+add_filter('walker_nav_menu_start_el', 'replace_menu_item_with_button', 10, 4);
