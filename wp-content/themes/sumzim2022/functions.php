@@ -50,6 +50,7 @@ function sumzim_setup() {
 	register_nav_menus(
 		array(
 			'menu-1' => esc_html__( 'Primary', 'sumzim' ),
+			'utility-menu' => esc_html__( 'Utility Menu', 'sumzim' ),
 		)
 	);
 
@@ -1346,3 +1347,92 @@ function replace_menu_item_with_button($item_output, $item, $depth, $args) {
     return $item_output;
 }
 add_filter('walker_nav_menu_start_el', 'replace_menu_item_with_button', 10, 4);
+
+/** 
+ * Gravity Forms: Require zip code in service area  
+ * */
+
+// ZIP code validation for Form ID 1 (single-page form)
+add_filter('gform_validation_1', 'validate_zip_code_service_area_form_1');
+
+function validate_zip_code_service_area_form_1($validation_result) {
+    return validate_zip_core($validation_result, 1, false);
+}
+
+// ZIP code validation for Form ID 10 (multi-page form)
+add_filter('gform_validation_10', 'validate_zip_code_service_area_form_10');
+
+function validate_zip_code_service_area_form_10($validation_result) {
+    return validate_zip_core($validation_result, 10, true);
+}
+
+// Shared ZIP validation logic
+function validate_zip_core($validation_result, $form_id, $is_multipage) {
+    $form = $validation_result['form'];
+
+    // If multipage and transitioning between pages, skip validation
+    if ($is_multipage &&
+        rgpost("gform_target_page_number_{$form_id}") != 0 &&
+        rgpost("gform_target_page_number_{$form_id}") != rgpost("gform_page_number_{$form_id}")) {
+        return $validation_result;
+    }
+
+    $allowed_zips = [
+        '19320', '19382', '19380', '19335', '19460', '19087', '19355', '19348', '19341', '19073',
+        '19465', '19363', '19425', '19390', '19344', '19312', '19475', '19350', '19311', '19317',
+        '19352', '19343', '19365', '19301', '19333', '19520', '19362', '19330', '19310', '19383',
+        '19372', '19483', '19487', '19489', '19488', '19374', '19319', '19358', '19388', '19457',
+        '19371', '19347', '19351', '19353', '19354', '19357', '19360', '19367', '19366', '19369',
+        '19375', '19376', '19381', '19395', '19399', '19398', '19421', '19432', '19442', '19496',
+        '19316', '19318', '19346', '19345', '19480', '19482', '19481', '19493', '19495', '19494',
+        '19470', '17603', '17601', '17602', '17543', '17522', '17022', '17545', '17512', '17552',
+        '17517', '17557', '17566', '19540', '17551', '17540', '17584', '17547', '17555', '17368',
+        '17073', '17569', '17538', '17554', '19362', '17527', '17578', '19543', '17519', '17560',
+        '17579', '17562', '17572', '17529', '17520', '17501', '17509', '17516', '17532', '17535',
+        '17563', '17536', '17505', '17502', '17565', '17518', '19501', '17582', '17581', '17508',
+        '17583', '17576', '17528', '17533', '17534', '17537', '17549', '17550', '17564', '17567',
+        '17568', '17570', '17573', '17575', '17580', '17585', '17604', '17605', '17606', '17607',
+        '17608', '17699', '17503', '17504', '17506', '17507', '17521', '17611', '17622', '19082',
+        '19063', '19087', '19083', '19013', '19050', '19026', '19064', '19023', '19018', '19010',
+        '19342', '19014', '19073', '19008', '19061', '19015', '19003', '19153', '19036', '19086',
+        '19060', '19081', '19078', '19317', '19079', '19085', '19033', '19041', '19070', '19076',
+        '19032', '19074', '19094', '19022', '19029', '19043', '19373', '19319', '19113', '19080',
+        '19089', '19088', '19052', '19397', '19331', '19340', '19339', '19016', '19017', '19028',
+        '19037', '19039', '19065', '19091', '19098'
+    ];
+
+    foreach ($form['fields'] as &$field) {
+        if ($field->type === 'address') {
+            $zip = rgpost("input_{$field->id}_5");
+
+            // Clean the ZIP to remove +4 codes (e.g., 17603-1234 -> 17603)
+            $zip = preg_replace('/[^0-9\-]/', '', $zip); // keep only digits and hyphen
+            $zip = preg_replace('/^(\d{5})-\d{4}$/', '$1', $zip); // trim +4 if present
+
+            error_log("Cleaned ZIP Code: " . print_r($zip, true));
+
+            if (!in_array($zip, $allowed_zips)) {
+                $field->failed_validation = true;
+                $field->validation_message = 'Sorry, but this address is not in our service area. <a href="/about-us/where-we-work/" target="_blank" rel="noopener">See where we work</a>.';
+                $validation_result['is_valid'] = false;
+                break;
+            }
+        }
+    }
+
+    $validation_result['form'] = $form;
+    return $validation_result;
+}
+
+
+
+
+
+/** Adds a validation block message at the top of the page if there's an error */
+
+add_filter('gform_validation_message_1', 'custom_top_error_message', 10, 2);
+add_filter('gform_validation_message_10', 'custom_top_error_message', 10, 2);
+
+function custom_top_error_message($message, $form) {
+    return '<div class="validation_error">There is an error on the page. Please check the highlighted fields below.</div>';
+}

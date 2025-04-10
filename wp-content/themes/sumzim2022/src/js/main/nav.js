@@ -11,6 +11,7 @@ function mobileNavControl() {
     // var navItems = document.querySelector('#menu-primary-navigation');
     // var headerEl = document.querySelector('header.site-header');
     var headerNav = document.querySelector(".header__nav");
+	var utilityNav = document.querySelector(".utility-menu");
     // var statusMessage = document.querySelector('.header__status-message-phone-book-container');
     // var headerStatus = document.querySelector('.header__status');
     var menuIconClose = document.querySelector(
@@ -36,6 +37,7 @@ function mobileNavControl() {
 	  siteHeader.classList.toggle("header__nav--open");
 	  menuIconSpan.classList.toggle("header__nav-button-span--open");
 	  headerSocialIcons.classList.toggle("header__social--navOpen");
+	  utilityNav.classList.toggle("utility-menu--show");
     } else {
       ariaStatus = "true";
       headerNav.classList.toggle("header__nav--show");
@@ -50,6 +52,7 @@ function mobileNavControl() {
 	  siteHeader.classList.toggle("header__nav--open");
 	  menuIconSpan.classList.toggle("header__nav-button-span--open");
 	  headerSocialIcons.classList.toggle("header__social--navOpen");
+	  utilityNav.classList.toggle("utility-menu--show");
     }
 
     navControl.setAttribute("aria-expanded", ariaStatus);

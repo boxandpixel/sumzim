@@ -1,7 +1,7 @@
 function minimizeHeader() {
   var alertMessage = document.querySelector(".alert");
   var headerContent = document.querySelector(".header__content");
-  var statusMessageTime = document.querySelector(".header__status");
+//   var statusMessageTime = document.querySelector(".header__status");
   var statusMessagePhone = document.querySelector(
     ".header__status-message-phone"
   );
@@ -50,9 +50,9 @@ function minimizeHeader() {
         alertMessage.classList.add("alert--hide");
       }
 
-      if (statusMessageTime) {
-        statusMessageTime.classList.add("header__status--hide");
-      }
+    //   if (statusMessageTime) {
+    //     statusMessageTime.classList.add("header__status--hide");
+    //   }
 
       if (statusMessagePhone) {
         statusMessagePhone.classList.add("header__status-message-phone--pad");
@@ -129,9 +129,9 @@ function minimizeHeader() {
         alertMessage.classList.remove("alert--hide");
       }
 
-      if (statusMessageTime) {
-        statusMessageTime.classList.remove("header__status--hide");
-      }
+    //   if (statusMessageTime) {
+    //     statusMessageTime.classList.remove("header__status--hide");
+    //   }
 
       if (statusMessagePhone) {
         statusMessagePhone.classList.remove(

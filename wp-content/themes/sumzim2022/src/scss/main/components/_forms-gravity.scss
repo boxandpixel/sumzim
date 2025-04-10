@@ -320,6 +320,18 @@
 	}
 
 	/** validation */
+
+	.gfield_error {
+		input,select {
+			border: solid 2px #c00;
+		}
+	}
+
+
+	
+
+
+	
 	.gfield_validation_message {
 		color: #c00;
 		margin-top: 0.5rem;
@@ -795,4 +807,42 @@
 	}
 
 
+}
+
+/* Remove borders/outlines from the validation message container */
+body .gform_wrapper .gform_validation_errors {
+	border: none !important;
+	background: none !important;
+	box-shadow: none !important;
+	padding: 0 !important;
+	color: #c00;
+	font-weight: bold;
+
+	&:focus-visible {
+		outline: none !important;
+	}
+}
+
+body .gform_wrapper .validation_error {
+	max-width: 800px;
+	margin: 0 auto;
+	border: 2px solid #c00 !important;
+	border-radius: var(--border-radius);
+	background: hsl(0 100% 95%);
+	box-shadow: none !important;
+	padding: 1rem;
+	color: #c00;
+	font-weight: bold;
+
+	&:focus-visible {
+		outline: none !important;
+	}
+}
+
+/* Remove focus styles from fields inside validation error blocks */
+body .gform_wrapper .gform_validation_errors *:focus-visible,
+body .gform_wrapper .validation_error *:focus-visible {
+	outline: none !important;
+	box-shadow: none !important;
+	border-color: inherit !important; /* optionally avoid blue border */
 }

@@ -122,9 +122,11 @@
 	<!-- End StackAdapt Universal Pixel -->
 
 	<!-- Start StackAdapt Click to Call Pixel -->
+	<?php if(!is_page("free-estimate")): ?>
 	<script>
 		document.getElementById("sa-click-to-call").addEventListener("click",function() { !function(s,a,e,v,n,t,z){if(s.saq)return;n=s.saq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!s._saq)s._saq=n;n.push=n;n.loaded=!0;n.version='1.0';n.queue=[];t=a.createElement(e);t.async=!0;t.src=v;z=a.getElementsByTagName(e)[0];z.parentNode.insertBefore(t,z)}(window,document,'script','https://tags.srv.stackadapt.com/events.js');saq('conv', 'cuJArc7ZMDOyfyEhCMMMuU'); });
 	</script>
+	<?php endif; ?>
 			
 	<!-- End StackAdapt Click to Call Pixel -->
 
@@ -206,6 +208,7 @@
 	</script>	
 	<?php endif; ?>  	
 
+	<?php if(!is_page('free-estimate')): ?>
 	<!-- Reviews Block -->
 	<script>
 		jQuery(document).ready(function() {
@@ -218,7 +221,8 @@
 				staticMap: false,
 			});
 		});
-	</script>	  	
+	</script>	
+	<?php endif; ?>  	
 
 	<!-- Audacy -->
 	<style>
@@ -282,6 +286,13 @@
 		?>
 		<div class="header__status">
 			<p class="header__status-message" id="statusAll"></p>
+			<div class="utility-menu">
+			<?php
+					wp_nav_menu(
+						array('menu' => 'utility-menu')
+					);
+					?>				
+			</div>
 		</div>
 		<div class="banner__tommys-electric">
 			<div>
@@ -289,8 +300,7 @@
 					<img src="/wp-content/themes/sumzim2022/assets/tommys-electric-logo.png" alt="">
 				</div>
 				<div class="banner__tommys-electric-content">
-					<h3>Tommy's Electric has joined the Summers &amp; Zim's family</h3>
-					<p>We now offer a full suite of electrical services for your home needs.</p>
+					<p><a href="/services/electrical-service/"><span>Tommy's Electric has joined the Summers & Zim's family.</span> <span>We now offer full electrical services for your home.</span></a></p>
 				</div>	
 			</div>		
 		</div>

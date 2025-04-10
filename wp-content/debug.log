@@ -1,0 +1,69 @@
+[09-Apr-2025 16:50:45 UTC] Debugging enabled
+[09-Apr-2025 16:50:45 UTC] Debugging enabled
+[09-Apr-2025 16:51:07 UTC] Debugging enabled
+[09-Apr-2025 16:51:07 UTC] Entered ZIP Code: 
+[09-Apr-2025 16:51:25 UTC] Debugging enabled
+[09-Apr-2025 16:53:27 UTC] Debugging enabled
+[09-Apr-2025 16:53:27 UTC] Debugging enabled
+[09-Apr-2025 16:53:49 UTC] Debugging enabled
+[09-Apr-2025 16:53:49 UTC] Debugging enabled
+[09-Apr-2025 16:54:35 UTC] Debugging enabled
+[09-Apr-2025 16:54:35 UTC] Debugging enabled
+[09-Apr-2025 16:54:45 UTC] Debugging enabled
+[09-Apr-2025 16:55:06 UTC] Debugging enabled
+[09-Apr-2025 16:55:06 UTC] Entered ZIP Code: 11111
+[09-Apr-2025 16:55:27 UTC] Debugging enabled
+[09-Apr-2025 16:55:29 UTC] Debugging enabled
+[09-Apr-2025 16:55:44 UTC] Debugging enabled
+[09-Apr-2025 16:55:44 UTC] Debugging enabled
+[09-Apr-2025 16:55:44 UTC] Entered ZIP Code: 17603-4471
+[09-Apr-2025 16:55:48 UTC] Debugging enabled
+[09-Apr-2025 16:55:48 UTC] Debugging enabled
+[09-Apr-2025 16:56:17 UTC] Debugging enabled
+[09-Apr-2025 16:56:17 UTC] Entered ZIP Code: 17603
+[09-Apr-2025 16:58:02 UTC] Debugging enabled
+[09-Apr-2025 16:58:02 UTC] Debugging enabled
+[09-Apr-2025 16:58:05 UTC] Debugging enabled
+[09-Apr-2025 16:58:17 UTC] Debugging enabled
+[09-Apr-2025 16:58:17 UTC] Entered ZIP Code: 17603
+[09-Apr-2025 16:58:17 UTC] Cleaned ZIP Code: 1
+[09-Apr-2025 16:59:38 UTC] Entered ZIP Code: 17603-4471
+[09-Apr-2025 16:59:38 UTC] Cleaned ZIP Code: 17603
+[09-Apr-2025 17:00:06 UTC] Entered ZIP Code: 91601-3783
+[09-Apr-2025 17:00:06 UTC] Cleaned ZIP Code: 91601
+[09-Apr-2025 17:02:54 UTC] Entered ZIP Code: 17603
+[09-Apr-2025 17:02:54 UTC] Cleaned ZIP Code: 17603
+[09-Apr-2025 17:07:49 UTC] Entered ZIP Code: 91601-3783
+[09-Apr-2025 17:07:49 UTC] Cleaned ZIP Code: 91601
+[09-Apr-2025 17:08:11 UTC] Entered ZIP Code: 17603-4471
+[09-Apr-2025 17:08:11 UTC] Cleaned ZIP Code: 17603
+[09-Apr-2025 17:22:27 UTC] WPMDB: {"type":"initiate","location":"local","target":false,"sites":{"local":"https:\/\/sumzim.com.ddev.site","remote":"https:\/\/stg-summerszims-staging.kinsta.cloud"}}
+[09-Apr-2025 17:23:17 UTC] WPMDB Error: Data cannot be unserialized. Scope: DeliciousBrains\WPMDB\Common\Replace::recursive_unserialize_replace().
+[09-Apr-2025 17:23:17 UTC] WPMDB Error: Data cannot be unserialized. Scope: DeliciousBrains\WPMDB\Common\Replace::recursive_unserialize_replace().
+[09-Apr-2025 17:23:17 UTC] WPMDB Error: Data cannot be unserialized. Scope: DeliciousBrains\WPMDB\Common\Replace::recursive_unserialize_replace().
+[09-Apr-2025 17:23:17 UTC] WPMDB Error: Data cannot be unserialized. Scope: DeliciousBrains\WPMDB\Common\Replace::recursive_unserialize_replace().
+[09-Apr-2025 17:23:47 UTC] WPMDB Error: Data cannot be unserialized. Scope: DeliciousBrains\WPMDB\Common\Replace::recursive_unserialize_replace().
+[09-Apr-2025 17:24:44 UTC] WPMDB: {"type":"complete","location":"local","target":false,"sites":{"local":"https:\/\/sumzim.com.ddev.site","remote":"https:\/\/stg-summerszims-staging.kinsta.cloud"},"migration_id":"1a596370-8182-4e1d-bd9b-0548013f2e16"}
+[09-Apr-2025 17:30:26 UTC] Entered ZIP Code: 
+[09-Apr-2025 17:30:26 UTC] Cleaned ZIP Code: 
+[09-Apr-2025 17:30:38 UTC] Entered ZIP Code: 
+[09-Apr-2025 17:30:38 UTC] Cleaned ZIP Code: 
+[09-Apr-2025 17:35:14 UTC] PHP Parse error:  syntax error, unexpected token "<", expecting end of file in /var/www/html/wp-content/themes/sumzim2022/functions.php on line 1353
+[09-Apr-2025 17:36:05 UTC] Cleaned ZIP Code: 91601
+[09-Apr-2025 17:36:17 UTC] Cleaned ZIP Code: 17603
+[09-Apr-2025 17:36:47 UTC] Cleaned ZIP Code: 91601
+[09-Apr-2025 17:37:10 UTC] Cleaned ZIP Code: 17603
+[09-Apr-2025 17:37:26 UTC] WPMDB: {"type":"initiate","location":"local","target":false,"sites":{"local":"https:\/\/sumzim.com.ddev.site","remote":"https:\/\/stg-summerszims-staging.kinsta.cloud"}}
+[09-Apr-2025 17:38:24 UTC] WPMDB Error: Data cannot be unserialized. Scope: DeliciousBrains\WPMDB\Common\Replace::recursive_unserialize_replace().
+[09-Apr-2025 17:38:24 UTC] WPMDB Error: Data cannot be unserialized. Scope: DeliciousBrains\WPMDB\Common\Replace::recursive_unserialize_replace().
+[09-Apr-2025 17:38:24 UTC] WPMDB Error: Data cannot be unserialized. Scope: DeliciousBrains\WPMDB\Common\Replace::recursive_unserialize_replace().
+[09-Apr-2025 17:38:24 UTC] WPMDB Error: Data cannot be unserialized. Scope: DeliciousBrains\WPMDB\Common\Replace::recursive_unserialize_replace().
+[09-Apr-2025 17:39:00 UTC] WPMDB Error: Data cannot be unserialized. Scope: DeliciousBrains\WPMDB\Common\Replace::recursive_unserialize_replace().
+[09-Apr-2025 17:39:52 UTC] WPMDB: {"type":"complete","location":"local","target":false,"sites":{"local":"https:\/\/sumzim.com.ddev.site","remote":"https:\/\/stg-summerszims-staging.kinsta.cloud"},"migration_id":"d805afc9-e9db-4592-96ce-91eaea149a4c"}
+[09-Apr-2025 19:36:09 UTC] WPMDB: {"type":"initiate","location":"local","target":false,"sites":{"local":"https:\/\/sumzim.com.ddev.site","remote":"https:\/\/sumzim.com"}}
+[09-Apr-2025 19:36:38 UTC] WPMDB Error: Data cannot be unserialized. Scope: DeliciousBrains\WPMDB\Common\Replace::recursive_unserialize_replace().
+[09-Apr-2025 19:36:38 UTC] WPMDB Error: Data cannot be unserialized. Scope: DeliciousBrains\WPMDB\Common\Replace::recursive_unserialize_replace().
+[09-Apr-2025 19:36:38 UTC] WPMDB Error: Data cannot be unserialized. Scope: DeliciousBrains\WPMDB\Common\Replace::recursive_unserialize_replace().
+[09-Apr-2025 19:36:38 UTC] WPMDB Error: Data cannot be unserialized. Scope: DeliciousBrains\WPMDB\Common\Replace::recursive_unserialize_replace().
+[09-Apr-2025 19:36:59 UTC] WPMDB Error: Data cannot be unserialized. Scope: DeliciousBrains\WPMDB\Common\Replace::recursive_unserialize_replace().
+[09-Apr-2025 19:37:37 UTC] WPMDB: {"type":"complete","location":"local","target":false,"sites":{"local":"https:\/\/sumzim.com.ddev.site","remote":"https:\/\/sumzim.com"},"migration_id":"85a67e12-5d80-41a2-b631-611ae1c5e7e2"}

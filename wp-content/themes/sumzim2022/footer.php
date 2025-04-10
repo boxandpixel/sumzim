@@ -67,17 +67,46 @@
 
 <?php wp_footer(); ?>
 
-<?php
-$args = array(
-	'fields' => 'ids',
-	'numberposts' => -1,
-	'post_type' => 'post',
-);
-$posts = get_posts($args);
+<script>
 
-if (!is_single($posts) && !is_page('blog')) { ?>
-<script async src="https://connect.podium.com/widget.js#ORG_TOKEN=de2c3c70-a55d-4045-b2db-c32074c317f6" id="podium-widget" organization-api-token="de2c3c70-a55d-4045-b2db-c32074c317f6"></script>	
-<?php } ?>
+(function(q,w,e,r,t,y,u){q[t]=q[t]||function(){(q[t].q = q[t].q || []).push(arguments)};
+
+  q[t].l=1*new Date();y=w.createElement(e);u=w.getElementsByTagName(e)[0];y.async=true;
+
+  y.src=r;u.parentNode.insertBefore(y,u);q[t]('init', '05e09310-291c-4804-8f21-0a371f946097');
+
+})(window, document, 'script', 'https://static.servicetitan.com/text2chat/shim.js', 'T2CWidgetManager');
+
+</script>
+
+<!-- <script>
+  jQuery(document).ready(function($) {
+    $(document).on('gform_pre_submission', function(event, formId) {
+      console.log("submitted!");
+      if (formId === 1 || formId === 10) {
+          // Get the ZIP code from the address input (input_3.5)
+          var zipCode = $("input[name='input_3.5']").val();
+
+          console.log(zipCode);
+
+          // Check if the ZIP code is populated
+          if (zipCode) {
+              // Create a new hidden field to store the ZIP code
+              var zipHiddenField = $("<input>", {
+                  type: "hidden",
+                  name: "input_zip_code",
+                  value: zipCode
+              });
+
+              // Append the hidden field to the form before submission
+              $(event.target).append(zipHiddenField);
+          }
+      }
+    });
+  });
+</script> -->
+
+
 
 </body>
 </html>
