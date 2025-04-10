@@ -26,7 +26,7 @@ jobs:
         with:
           host: ${{ secrets.KINSTA_SERVER_IP }}
           username: ${{ secrets.KINSTA_USERNAME }}
-          password: ${{ secrets.PASSWORD }}
+          password: ${{ secrets.PASSWORD_STAGING }}
           port: ${{ secrets.PORT_STAGING }} # Optional, default is 22
           script: |
             # Navigate to the live site directory
