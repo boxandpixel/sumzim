@@ -1,16 +1,37 @@
-name: Deploy to WP Engine
+name: Deploy to Kinsta
+
 on:
   push:
     branches:
-     - main
+      - main # Trigger the workflow only when changes are pushed to the main branch
+
 jobs:
-  build:
-    runs-on: ubuntu-latest  
-    steps: 
-    - uses: actions/checkout@v3
-    - name: GitHub Action Deploy to WP Engine
-      uses: wpengine/github-action-wpe-site-deploy@v3
-      with:
-        WPE_SSHG_KEY_PRIVATE: ${{ secrets.WPE_SSHG_KEY_PRIVATE }} 
-        WPE_ENV: sumzimdev
-        
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Setup Node.js (only if needed for build tasks)
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+
+      # Checkout the latest code from the GitHub repository
+      - name: Checkout code
+        uses: actions/checkout@v4.1.6
+
+      # Deploy to Kinsta via SSH
+      - name: Deploy via SSH
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.KINSTA_SERVER_IP }}
+          username: ${{ secrets.KINSTA_USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          port: ${{ secrets.PORT }} # Optional, default is 22
+          script: |
+            # Navigate to the live site directory
+            cd /www/your-site/public
+
+            # Pull the latest changes from the GitHub repository
+            git fetch origin main
+            git reset --hard origin/main  # Ensure the live site matches the latest main branch
