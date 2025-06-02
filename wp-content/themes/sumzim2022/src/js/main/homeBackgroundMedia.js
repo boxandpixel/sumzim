@@ -40,7 +40,7 @@
 // })
 
 
-function backgroundContainer() {
+document.addEventListener("DOMContentLoaded", () => {
 	const container = document.getElementById("backgroundContainer");
 
 	if (!container) return;
@@ -48,32 +48,36 @@ function backgroundContainer() {
 	const isMobile = window.matchMedia("(max-width: 390px)").matches;
 
 	if (isMobile) {
-		// Show fallback image immediately
 		container.parentElement.classList.add("hasImage");
 		container.style.backgroundImage = "url('https://sumzim.com/wp-content/uploads/2024/11/home-background.webp')";
 		container.style.backgroundSize = "cover";
 		return;
 	}
 
-	// Delay video load until after full page load
-	window.addEventListener("load", () => {
-		const video = document.createElement("video");
+	// Only inject video AFTER LCP has occurred
+	const observer = new PerformanceObserver((list) => {
+		const entries = list.getEntries();
+		for (const entry of entries) {
+			if (entry.entryType === "largest-contentful-paint") {
+				observer.disconnect();
 
-		video.muted = true;
-		video.autoplay = true;
-		video.loop = true;
-		video.playsInline = true;
-		video.poster = "https://sumzim.com/wp-content/uploads/2024/11/home-background.webp"; // fallback poster
+				const video = document.createElement("video");
+				video.muted = true;
+				video.autoplay = true;
+				video.loop = true;
+				video.playsInline = true;
+				video.poster = "https://sumzim.com/wp-content/uploads/2024/11/home-background.webp";
+				video.setAttribute("preload", "none");
 
-		video.setAttribute("preload", "none"); // Don't block rendering
+				const source = document.createElement("source");
+				source.src = "https://sumzim.com/wp-content/uploads/2025/05/sz-b-roll.webm";
+				source.type = "video/webm";
 
-		const source = document.createElement("source");
-		source.src = "https://sumzim.com/wp-content/uploads/2025/05/sz-b-roll.webm";
-		source.type = "video/webm";
-
-		video.appendChild(source);
-		container.appendChild(video);
+				video.appendChild(source);
+				container.appendChild(video);
+			}
+		}
 	});
-}
 
-document.addEventListener("DOMContentLoaded", backgroundContainer);
+	observer.observe({ type: "largest-contentful-paint", buffered: true });
+});
