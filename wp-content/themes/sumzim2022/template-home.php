@@ -27,7 +27,7 @@ get_header();
         ?>
         
           <?php if($hero_headline): ?>
-            <h1 style="text-shadow: 2px 2px 2px black; font-weight: 700; color: white;"><?php echo $hero_headline ?></h1>
+            <h1 style="font-weight: 700; color: white;"><?php echo $hero_headline ?></h1>
           <?php endif ?>
           
           <?php if($hero_link): ?>
