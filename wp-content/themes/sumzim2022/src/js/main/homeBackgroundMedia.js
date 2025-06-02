@@ -41,6 +41,7 @@
 
 
 document.addEventListener("DOMContentLoaded", () => {
+	console.log("Video LCP Opt");
 	const container = document.getElementById("backgroundContainer");
 
 	if (!container) return;
