@@ -164,6 +164,10 @@
         href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800;900&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" />
 </noscript>
 
+	<!-- preload video poster -->
+	 <link rel="preload" as="image" href="https://sumzim.com/wp-content/uploads/2024/11/home-background.webp">
+
+
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#000000">
   <meta name="msapplication-TileColor" content="#16375a">
