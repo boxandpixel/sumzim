@@ -40,14 +40,13 @@
 // })
 
 
-document.addEventListener("DOMContentLoaded", () => {
-	console.log("Video LCP Opt");
+function backgroundContainer() {
 	const container = document.getElementById("backgroundContainer");
-
 	if (!container) return;
 
-	const isMobile = window.matchMedia("(max-width: 390px)").matches;
+	const isMobile = window.matchMedia("(max-width: 767px)").matches;
 
+	// === MOBILE VIEW: Use background image only ===
 	if (isMobile) {
 		container.parentElement.classList.add("hasImage");
 		container.style.backgroundImage = "url('https://sumzim.com/wp-content/uploads/2024/11/home-background.webp')";
@@ -55,7 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		return;
 	}
 
-	// Only inject video AFTER LCP has occurred
+	// === DESKTOP VIEW: Inject video AFTER LCP ===
 	const observer = new PerformanceObserver((list) => {
 		const entries = list.getEntries();
 		for (const entry of entries) {
@@ -81,4 +80,6 @@ document.addEventListener("DOMContentLoaded", () => {
 	});
 
 	observer.observe({ type: "largest-contentful-paint", buffered: true });
-});
+}
+
+document.addEventListener("DOMContentLoaded", backgroundContainer);
