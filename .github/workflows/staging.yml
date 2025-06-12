@@ -33,5 +33,5 @@ jobs:
             cd /www/summerszims_390/public
 
             # Pull the latest changes from the GitHub repository
-            git fetch origin main
-            git reset --hard origin/main  # Ensure the live site matches the latest main branch
+            git fetch origin staging
+            git reset --hard origin/staging  # Ensure the live site matches the latest main branch
