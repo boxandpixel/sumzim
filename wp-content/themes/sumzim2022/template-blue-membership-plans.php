@@ -47,6 +47,9 @@ get_header();
 
 		<!-- 20230329 -->
 		<div class="mem__section">
+			<img src="/wp-content/uploads/2025/06/blue-collar-club-card.webp" alt="" style="width: 60%">
+		</div>		 
+		<div class="mem__section">
 			<h2 class="mem__section-heading">Protect your investment with a Blue Collar Club Maintenance Plan</h2>
 		</div>
 		<div class="mem__section">
