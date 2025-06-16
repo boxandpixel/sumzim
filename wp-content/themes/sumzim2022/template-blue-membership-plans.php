@@ -26,7 +26,7 @@ get_header();
 		<div class="hero-landing">
 			<div class="hero__page-title">
 				<h1><?php the_title(); ?></h1>
-				<h4><?php echo $hero_subheading; ?></h4>
+				<h4>Membership Plans</h4>
 			</div>  
 		</div>
 
@@ -47,7 +47,10 @@ get_header();
 
 		<!-- 20230329 -->
 		<div class="mem__section">
-			<h2 class="mem__section-heading">Protect Your Investment with SZ Maintenance Plans</h2>
+			<img src="/wp-content/uploads/2025/06/blue-collar-club-card.webp" alt="" style="width: 60%">
+		</div>		 
+		<div class="mem__section">
+			<h2 class="mem__section-heading">Protect your investment with a Blue Collar Club Maintenance Plan</h2>
 		</div>
 		<div class="mem__section">
 			<a href="/design-your-customer-membership/" class="button button--primary button--big">Customize Your Membership Today</a>
