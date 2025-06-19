@@ -1424,6 +1424,23 @@ function validate_zip_core($validation_result, $form_id, $is_multipage) {
     return $validation_result;
 }
 
+/**
+ * Add ID to nav Pay Online button
+ */
+
+add_filter('nav_menu_link_attributes', 'add_custom_attributes_to_menu_link', 10, 3);
+function add_custom_attributes_to_menu_link($atts, $item, $args) {
+    // Target a specific menu item by ID or title
+    if ($item->ID === 30615) {
+        // Add or append class
+        $atts['id'] = isset($atts['id']) 
+            ? $atts['id'] . ' pay-online-menu-item' 
+            : 'pay-online-menu-item';
+    }
+
+    return $atts;
+}
+
 
 
 
