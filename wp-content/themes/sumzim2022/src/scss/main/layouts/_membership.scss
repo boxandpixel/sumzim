@@ -123,3 +123,23 @@ body:not(:-moz-handler-blocked) fieldset {
     }
   }
 }
+
+.equipment-fieldsets-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+
+  @include breakpoint(medium) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .hvac-equipment-fieldset,
+  .column-2-wrapper,
+  .plumbing-fieldset {
+    @include breakpoint(medium) {
+      width: calc((100% - 80px) / 3); /* Three columns, two 40px gaps = 80px total gap */
+    }
+    
+  }  
+}
