@@ -494,30 +494,27 @@ header.site-header {
 		color: white;
 		font-size: 20px;
 		align-items: center;
-
-		@include breakpoint(large) {
-			display: flex;
-		}
+		display: flex;
+		align-items: center;
 
 		&.header__social--scroll {
 			display: none;
 		}
 
-		p {
-			margin-bottom: 0;
-			display: none;
+		a {
+			display: flex;
+		}
 
+		svg {
+			aspect-ratio: 512 / 143;
+			width: 80px;
+			
 			@include breakpoint(large) {
-				display: block;
+				width: 160px;
 			}
 		}
 
-		.header__social-icons {
-			display: flex;
-			align-items: center;
-			margin-left: 10px;
-			gap: 10px;
-		}
+
 	  }
 
 	  .header__call {
