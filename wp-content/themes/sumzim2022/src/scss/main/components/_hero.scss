@@ -12,23 +12,16 @@
 	}
 
     & > .hero__page-title {
-max-width: 60vw;
-margin: 0 auto;
+        max-width: 60vw;
+        margin: 0 auto;
 
         @include breakpoint(medium) {
             max-width: 80vw;
         }        
-        // position: absolute;
-        // bottom: 0;
-        // width: 100%;
-        // // background: var(--page-title-background);
-        // padding: 2rem 4rem;
-        // text-align: center;
-
-        // @include breakpoint(medium) {
-        //     width: 60vw;
-        //     left: calc(50% - (60vw / 2));
-        // }
+        h1 {
+            color: var(--color__primary--dark);
+            @include apply-type(heading-xl);
+        }
     }
 }
 
@@ -51,6 +44,7 @@ margin: 0 auto;
         }
 
         h1 {
+            color: var(--color__primary--dark);
             @include apply-type(heading-xl);
         }
 	}
