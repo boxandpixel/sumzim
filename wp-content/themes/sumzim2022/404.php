@@ -17,7 +17,7 @@ get_header();
         $hero_subheading = get_field('404_hero_subheading', 'option');
         $hero_content = get_field('404_content', 'option');
     ?>
-    <div class="hero" style="background: url('<?php echo $hero_image['url']; ?>') center / cover no-repeat">
+    <div class="hero">
         <div class="hero__page-title">
             <h1><?php echo $hero_page_title; ?></h1>
             <h4><?php echo $hero_subheading; ?></h4>

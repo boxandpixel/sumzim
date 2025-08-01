@@ -53,7 +53,7 @@ get_header();
 			<h2 class="mem__section-heading">Protect your investment with a Blue Collar Club Maintenance Plan</h2>
 		</div>
 		<div class="mem__section">
-			<a href="/design-your-customer-membership/" class="button button--primary button--big">Customize Your Membership Today</a>
+			<a href="/design-your-customer-membership/" class="button button--primary button--large">Customize Your Membership Today</a>
 		</div>
 
 		<div class="mem__video video-embed">
@@ -88,7 +88,7 @@ get_header();
 		</div>
 
 		<div class="mem__section mem__section-cta">
-			<a href="/design-your-customer-membership/" class="button button--primary button--big">Customize Your Membership Today</a>
+			<a href="/design-your-customer-membership/" class="button button--primary button--large">Customize Your Membership Today</a>
 		</div>
 
 		<!-- 5-Point Guarantee -->

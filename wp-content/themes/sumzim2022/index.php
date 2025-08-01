@@ -27,7 +27,7 @@ get_header();
       $hero_image_default = get_field('hero_image_default', 'option');
       $hero_subheading = get_field('hero_subheading');
   ?>
-  <div class="hero" style="background: url('<?php if($hero_image): echo $hero_image['url']; else: echo $hero_image_default['url']; endif; ?>') center / cover no-repeat">
+  <div class="hero">
       <div class="hero__page-title">
           <h1><?php echo get_the_title(32); ?></h1>
           <h4><?php echo $hero_subheading; ?></h4>

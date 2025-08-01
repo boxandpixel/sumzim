@@ -49,8 +49,12 @@ function sumzim_setup() {
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus(
 		array(
-			'menu-1' => esc_html__( 'Primary', 'sumzim' ),
+			'primary-menu' => esc_html__( 'Primary Menu', 'sumzim' ),
 			'utility-menu' => esc_html__( 'Utility Menu', 'sumzim' ),
+			'footer-services-menu' => esc_html__( 'Footer Services Menu', 'sumzim' ),
+			'footer-about-menu' => esc_html__( 'Footer About Menu', 'sumzim' ),
+			'footer-locations-menu' => esc_html__( 'Footer Locations Menu', 'sumzim' ),
+			'footer-utility-menu' => esc_html__( 'Footer Utility Menu', 'sumzim' ),
 		)
 	);
 
@@ -139,7 +143,7 @@ add_action( 'widgets_init', 'sumzim_widgets_init' );
  * Enqueue scripts and styles.
  */
 function sumzim_scripts() {
-	wp_enqueue_style( ' sumzim-style', get_stylesheet_uri(), array(), sumzim_VERSION );
+	// wp_enqueue_style( ' sumzim-style', get_stylesheet_uri(), array(), sumzim_VERSION );
 
 	
 	$rand = rand( 0, 999999999999 );
@@ -396,11 +400,19 @@ function posts_link_attributes() {
  if( function_exists('acf_add_options_page') ) {
 
 	acf_add_options_page(array(
+		'page_title' 	=> 'Theme Settings',
+		'menu_slug' 	=> 'theme-settings',
+		'capability'	=> 'edit_posts',
+		'redirect'		=> false
+	));	
+
+	acf_add_options_page(array(
 		'page_title' 	=> 'Content Settings',
 		'menu_slug' 	=> 'content-settings',
 		'capability'	=> 'edit_posts',
 		'redirect'		=> false
 	));
+
 	acf_add_options_sub_page(array(
 		'page_title' 	=> 'Footer Content',
 		'menu_title'	=> 'Footer Content',
@@ -1213,7 +1225,7 @@ function replace_menu_item_with_button($item_output, $item, $depth, $args) {
     // Change only specific menu items (adjust ID as needed)
     if ($item->title === 'Book Now') { // Change to match your menu item
         // $item_output = '<button class="menu-button" onclick="location.href=\'' . esc_url($item->url) . '\'">' . esc_html($item->title) . '</button>';
-		$item_output = '<button class="button button-cta button--schedule book-now-button" onclick="_scheduler.show({ schedulerId: \'sched_ejqbmr1e0g7tagr59sdo4rr2\' })" type="button">' . esc_html($item->title) . '</button>';
+		$item_output = '<button class="button button-cta button--schedule book-now-button menu-book-now-button" onclick="_scheduler.show({ schedulerId: \'sched_ejqbmr1e0g7tagr59sdo4rr2\' })" type="button">' . esc_html($item->title) . '</button>';
     }
     return $item_output;
 }
@@ -1324,3 +1336,4 @@ add_filter('gform_validation_message_10', 'custom_top_error_message', 10, 2);
 function custom_top_error_message($message, $form) {
     return '<div class="validation_error">There is an error on the page. Please check the highlighted fields below.</div>';
 }
+

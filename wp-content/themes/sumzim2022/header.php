@@ -402,8 +402,11 @@
 				<nav class="header__nav">
 					<?php
 					wp_nav_menu(
-						array('menu' => 'primary_navigation')
-					);
+						array(
+							'theme_location' => 'primary-menu',
+							'menu_id'        => 'primary-menu',
+						)
+					);					
 					?>
 				</nav>
 			</div>

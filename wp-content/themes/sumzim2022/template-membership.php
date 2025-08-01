@@ -142,7 +142,7 @@ get_header();
 							?>
 							<div class="card <?php if($card_color == 'Primary Brand Color'): echo 'card--color-primary'; elseif($card_color == 'Neutral Gray'): echo 'card--color-neutral'; endif; ?>">
 								<?php if($card_title): ?>
-								<h4><?php echo $card_title; ?></h4>
+								<h5><?php echo $card_title; ?></h5>
 								<?php endif; ?>
 
 								<?php if($card_image): ?>

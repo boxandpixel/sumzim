@@ -156,7 +156,7 @@ get_header();
 						<?php endif; ?> 
 
 						<?php if($card_title): ?>
-						<h4><?php echo $card_title; ?></h4>
+						<h5><?php echo $card_title; ?></h5>
 						<?php endif; ?>
 
 						<?php if($card_image): ?>

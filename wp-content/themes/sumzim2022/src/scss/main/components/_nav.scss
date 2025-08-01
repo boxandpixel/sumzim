@@ -130,7 +130,7 @@ nav.header__nav {
   .menu-primary-navigation-container {
     display: flex;
 
-    #menu-primary-navigation {
+    #primary-menu {
       display: flex;
       flex-direction: column;
 
@@ -311,7 +311,7 @@ nav.header__nav {
         a {
           background: hsla(0, 100%, 100%, 1);
           padding: 0.5rem;
-          border-radius: 3px;
+          border-radius: 0px; // 3px
           font-weight: 600;
           color: var(--color__primary--dark); // 20220929 color__primary
           text-decoration: none;

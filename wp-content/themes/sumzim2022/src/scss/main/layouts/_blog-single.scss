@@ -1,7 +1,8 @@
 .blog-single {
-	padding-top: 226px;
-	
-	
+	padding-top: 190px;
 
+	@include breakpoint(medium) {
+		padding-top: 290px;
+	}
 
 }

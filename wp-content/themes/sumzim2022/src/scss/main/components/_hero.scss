@@ -1,25 +1,34 @@
-.hero {
-    width: 100%;
-    height: 85vh;
-    background-size: contain;
-    position: relative;
+@use 'sass:map';
+@use '../common/typography.functions' as *;
+@use '../common/typography.mixins' as *;
 
-    @include breakpoint(large) {
-        height: 65vh;
-    }
+.hero {
+	width: 100%;
+	margin-top: 190px;
+    text-align: center;
+
+	@include breakpoint(large) {
+		margin-top: 290px;
+	}
 
     & > .hero__page-title {
-        position: absolute;
-        bottom: 0;
-        width: 100%;
-        background: var(--page-title-background);
-        padding: 2rem 4rem;
-        text-align: center;
+max-width: 60vw;
+margin: 0 auto;
 
         @include breakpoint(medium) {
-            width: 60vw;
-            left: calc(50% - (60vw / 2));
-        }
+            max-width: 80vw;
+        }        
+        // position: absolute;
+        // bottom: 0;
+        // width: 100%;
+        // // background: var(--page-title-background);
+        // padding: 2rem 4rem;
+        // text-align: center;
+
+        // @include breakpoint(medium) {
+        //     width: 60vw;
+        //     left: calc(50% - (60vw / 2));
+        // }
     }
 }
 
@@ -34,5 +43,15 @@
 	.hero__page-title {
 		text-align: center;
 		padding: 0;
+        max-width: 60vw;
+        margin: 0 auto;
+
+        @include breakpoint(medium) {
+            max-width: 80vw;
+        }
+
+        h1 {
+            @include apply-type(heading-xl);
+        }
 	}
 }

@@ -27,7 +27,7 @@ get_header();
         ?>
         
           <?php if($hero_headline): ?>
-            <h1 style="font-weight: 700; color: white;"><?php echo $hero_headline ?></h1>
+            <h1 style="color: white;" class="heading-xl --variable-background"><?php echo $hero_headline ?></h1>
           <?php endif ?>
           
           <?php if($hero_link): ?>
@@ -64,7 +64,7 @@ get_header();
           <section class="home__featured-card card card--color-primary">
 
             <?php if($featured_card_title): ?>
-            <h4><?php echo $featured_card_title; ?></h4>
+            <h2 class="heading-xs"><?php echo $featured_card_title; ?></h2>
             <?php endif; ?>
 
             <?php if($featured_card_image): ?>
@@ -148,7 +148,7 @@ get_header();
       ?>
       <section class="home__the-difference-card card card--color-primary">
         <?php if($the_difference_card_title): ?>
-        <h4><?php echo $the_difference_card_title; ?></h4>
+        <h3 class="heading-xs"><?php echo $the_difference_card_title; ?></h3>
         <?php endif; ?>
         
         <?php if($the_difference_card_image): ?>
@@ -193,7 +193,7 @@ get_header();
       ?>
 
       <?php if($staff_heading): ?>
-        <h2 class="--variable-background"><?php echo $staff_heading; ?></h2>  
+        <h2 class="heading-lg --variable-background"><?php echo $staff_heading; ?></h2>  
       <?php endif; ?>
 
       <div class="home__staff-slides swiper-container">
@@ -393,7 +393,7 @@ get_header();
             ?>
 
             <?php if($circle_heading): ?>
-                <h4><?php echo $circle_heading; ?></h4>
+                <h3 class="heading-sm"><?php echo $circle_heading; ?></h3>
             <?php endif; ?>
 
             <?php if($circle_detail): ?>
@@ -420,7 +420,7 @@ get_header();
       ?>
         <header class="home__content-features-header">
       <?php if($content_features_heading): ?>
-          <h2 class="home__content-features-heading"><?php echo $content_features_heading; ?></h2>
+          <h2 class="heading-lg home__content-features-heading"><?php echo $content_features_heading; ?></h2>
       <?php endif; ?>
 
       <?php if($content_features_introduction): ?>
@@ -429,7 +429,7 @@ get_header();
         </header>
 
 		<main class="home__content-feature-video">
-				<h3>Joe &amp; Alli discuss Why We Are Different</h3>
+				<h3 class="heading-md" >Joe &amp; Alli discuss Why We Are Different</h3>
 				<div class="video">
 					<!-- Use the element. You may use it before the lite-yt-embed JS is executed. -->
 					<lite-youtube videoid="ztj3eRrrwjc" playlabel="Play: Family"></lite-youtube>
@@ -455,7 +455,7 @@ get_header();
         $brands_introduction = get_field('brands_introduction');
       ?>
       <?php if($brands_heading): ?>
-      <h3 class="--variable-background"><?php echo $brands_heading; ?></h3>
+      <h3 class="heading-lg --variable-background"><?php echo $brands_heading; ?></h3>
       <?php endif; ?>
 
       <?php if($brands_introduction): ?>
