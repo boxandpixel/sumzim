@@ -22,6 +22,7 @@
   $associations = $footer['associations'] ?? [];
   $social_icons = $footer['social_icons'] ?? [];
 
+
   
   
   /** Get Menu Names */
@@ -120,6 +121,25 @@
             )
           );					
         ?>  
+
+        <?php if(!empty($social_icons)): ?>
+        <div class="footer__menu-about-social">
+          <ul class="footer__menu-about-social-icons">
+          <?php foreach($social_icons as $social_icon): 
+            $social_icon_image = $social_icon['image'] ?? '';
+            $social_icon_image_url = $social_icon_image['url'] ?? '';
+            $social_icon_image_alt = $social_icon_image['alt'] ?? '';
+            $social_icon_link = $social_icon['link'];
+          ?>
+            <li class="footer__menu-about-social-icon">
+              <a href="<?= esc_attr($social_icon_link); ?>" target="_blank" class="footer__menu-about-social-icon-link">
+                <img src="<?= $social_icon_image_url; ?>" alt="<?= $social_icon_image_alt; ?>" class="footer__menu-about-social-icon-link-image">
+              </a>
+            </li>
+            <?php endforeach; ?>
+          </ul>
+        </div>
+        <?php endif; ?>
       </div>
       <div class="footer__menu-locations">
         <h5><?php echo $footer_locations_menu->name; ?></h5>

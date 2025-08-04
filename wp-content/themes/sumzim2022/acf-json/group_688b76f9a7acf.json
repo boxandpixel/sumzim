@@ -310,6 +310,24 @@
                             "allow_in_bindings": 0,
                             "preview_size": "medium",
                             "parent_repeater": "field_688bc6915ead2"
+                        },
+                        {
+                            "key": "field_6890d308be2a9",
+                            "label": "Link",
+                            "name": "link",
+                            "aria-label": "",
+                            "type": "link",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "return_format": "array",
+                            "allow_in_bindings": 0,
+                            "parent_repeater": "field_688bc6915ead2"
                         }
                     ]
                 }
@@ -334,5 +352,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1754064084
+    "modified": 1754321683
 }

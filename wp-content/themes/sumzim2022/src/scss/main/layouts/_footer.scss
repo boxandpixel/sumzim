@@ -237,6 +237,25 @@ footer.site-footer {
           }
         }
       }
+
+      .footer__menu-about-social {
+        .footer__menu-about-social-icons {
+          display: flex;
+          flex-direction: row;
+          gap: 5px;
+          list-style: none;
+          .footer__menu-about-social-icon {
+            .footer__menu-about-social-icon-link {
+              display: block;
+
+              .footer__menu-about-social-icon-link-image {
+                width: 24px;
+                height: 24px;  
+              }
+            }
+          }
+        }
+      }
     }
 
     .footer__main-brand-associations {

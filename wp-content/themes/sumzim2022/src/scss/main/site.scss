@@ -527,9 +527,10 @@
 		& > .home__circle-feature {
 		  background: hsla(0, 0%, 100%, 0.9);
 		  border: solid 1px var(--color__primary--dark);
-		  border-radius: calc(20rem / 2);
-		  width: 20rem;
-		  height: 20rem;
+		  border-radius: 99%;
+		//   aspect-ratio: 1 / 1;
+		  width: 360px;
+		  height: 360px;
 		  padding: 3rem;
 		  text-align: center;
 		  display: flex;
@@ -566,7 +567,7 @@
   
 			&::before {
 			  font-size: 4rem;
-			  left: 1rem;
+			  left: -.5rem;
   
 			  @include breakpoint(medium) {
 				font-size: 8rem;
