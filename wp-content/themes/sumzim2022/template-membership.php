@@ -358,48 +358,64 @@ get_header();
 						</div>
 					</div>  
 				
-				<!-- Content Breakout Module -->
-				<?php 
-					elseif(get_row_layout() == 'content_breakout'):
-						$content_breakout = get_sub_field('visual_editor');
-						$content_breakout_image = get_sub_field('content_breakout_image');
-						$has_background_image = get_sub_field('has_background_image');
-						$content_breakout_cta_button = get_sub_field('cta_button');
-						$content_breakout_new_window = get_sub_field('new_window');
-						$content_breakout_button_style = get_sub_field('button_style');
-						// $content_breakout_button_target = $content_breakout_cta_button['target'] ? $content_breakout_cta_button['target'] : '_self';
+<?php 
+elseif(get_row_layout() == 'content_breakout'):
+	$content_breakout = get_sub_field('visual_editor');
+	$content_breakout_image = get_sub_field('content_breakout_image');
+	$has_background_image = get_sub_field('has_background_image');
+	$content_breakout_cta_button = get_sub_field('cta_button');
+	$content_breakout_new_window = get_sub_field('new_window');
+	$content_breakout_button_style = get_sub_field('button_style');
+
+	// Default values to avoid undefined warnings
+	$content_breakout_image_url = '';
+	$content_breakout_image_medium = '';
+	$button_class = '';
+
+	if ($content_breakout_image && is_array($content_breakout_image)) {
+		$content_breakout_image_url = isset($content_breakout_image['url']) ? $content_breakout_image['url'] : '';
+		$content_breakout_image_medium = isset($content_breakout_image['sizes']['medium']) ? $content_breakout_image['sizes']['medium'] : '';
+	}
+
+	switch($content_breakout_button_style) {
+		case "Primary Background":
+			$button_class = 'button--primary';
+			break;
+		case "Secondary Background":
+			$button_class = 'button--secondary';
+			break;
+		case "Text Only - No Background":
+			$button_class = 'button--textOnly';
+			break;
+		default:
+			$button_class = '';
+	}
+?>
+	<div class="breakout content-breakout <?php echo ($has_background_image == 1) ? 'breakout--background-image' : ''; ?>"
+		<?php if ($has_background_image == 1 && $content_breakout_image_url): ?>
+			style="background: url('<?php echo $content_breakout_image_url; ?>') center / cover no-repeat"
+		<?php endif; ?>
+	>
+		<div class="content-breakout__content <?php echo ($has_background_image == 1) ? 'content-breakout__content--background-image' : ''; ?>">
+			<?php echo $content_breakout; ?>
 			
+			<?php if ($has_background_image == 0 && $content_breakout_image_medium): ?>
+				<img src="<?php echo $content_breakout_image_medium; ?>" alt="">
+			<?php endif; ?>
 
-						switch($content_breakout_button_style) {
-							case "Primary Background":
-								$button_class = 'button--primary';
-								break;
-							case "Secondary Background":
-								$button_class = 'button--secondary';
-								break;
-							case "Text Only - No Background";
-								$button_class = 'button--textOnly';
-								break;
-						}
-				?>
-					<div class="breakout content-breakout <?php echo ($has_background_image == 1) ? 'breakout--background-image' : ''; ?>" <?php echo ($has_background_image == 1) ? 'style="background: url(' . $content_breakout_image['url'] . ') center / cover no-repeat"' : '' ?>>
-						<div class="content-breakout__content <?php echo ($has_background_image == 1) ? 'content-breakout__content--background-image' : ''; ?>">
-							<?php echo $content_breakout; ?>
-							<?php echo ($has_background_image == 0) ? '<img src=" ' . $content_breakout_image['sizes']['medium'] . '" alt="">' : '' ?>
-							
-							<?php 
-								if($content_breakout_cta_button):
-							?>
-							<div class="cta-button">
-								<a href="<?php echo $content_breakout_cta_button['url'] ?>" <?php if($content_breakout_cta_button['target']): echo 'target="'. $content_breakout_cta_button['target'] . '"'; endif; ?> class="button <?php echo $button_class; if($content_breakout_new_window): echo ' --cta__new-window'; endif; ?>"><?php echo $content_breakout_cta_button['title']; ?></a>
-							</div>
-							<?php 
-								endif;
-							?>
-
-
-						</div>
-					</div>            
+			<?php if ($content_breakout_cta_button && is_array($content_breakout_cta_button)): ?>
+				<div class="cta-button">
+					<a href="<?php echo esc_url($content_breakout_cta_button['url']); ?>"
+					   <?php if (!empty($content_breakout_cta_button['target'])): ?>
+						   target="<?php echo esc_attr($content_breakout_cta_button['target']); ?>"
+					   <?php endif; ?>
+					   class="button <?php echo esc_attr($button_class); ?><?php echo ($content_breakout_new_window) ? ' --cta__new-window' : ''; ?>">
+					   <?php echo esc_html($content_breakout_cta_button['title']); ?>
+					</a>
+				</div>
+			<?php endif; ?>
+		</div>
+	</div>         
 
 				<!-- Anchor Links -->
 				<?php 
@@ -457,35 +473,53 @@ get_header();
 						<?php endwhile; endif; ?>
 					</div>  
 
-				<!-- Single Image -->
-				<?php 
-					elseif(get_row_layout() == 'single_image'):
-						$single_image = get_sub_field('single_image');
-						$single_image_caption = $single_image['caption'];
-						$single_image_header = get_sub_field('single_image_header');
-				?>        
-					<div class="single-image">
-						<?php if($single_image_header): echo $single_image_header; endif; ?>
-						<figure class="single-image__figure">
-							<img 
-								class="single-image_img"
-								src="<?php echo $single_image['url'];?>"
-								srcset="
-									<?php echo $single_image['sizes']['medium']; ?> 570w,
-									<?php echo $single_image['sizes']['large']; ?> 740w,
-								"
-								sizes="
-									(min-width: 768px) 75vw,
-									(min-width: 960px) 66vw,
-									80vw
-								"
-								alt="<?php echo $single_image['alt']; ?>"
-							>
-							<?php if($single_image_caption): ?>
-							<figcaption class="single-image__caption"><?php echo $single_image['caption']; ?></figcaption>
-							<?php endif; ?>
-						</figure>
-					</div>
+<?php 
+elseif(get_row_layout() == 'single_image'):
+	$single_image = get_sub_field('single_image');
+	$single_image_header = get_sub_field('single_image_header');
+
+	// Set default empty values
+	$single_image_caption = '';
+	$single_image_alt = '';
+	$single_image_url = '';
+	$single_image_sizes = [];
+
+	if ($single_image && is_array($single_image)) {
+		$single_image_caption = isset($single_image['caption']) ? $single_image['caption'] : '';
+		$single_image_alt = isset($single_image['alt']) ? $single_image['alt'] : '';
+		$single_image_url = isset($single_image['url']) ? $single_image['url'] : '';
+		$single_image_sizes = isset($single_image['sizes']) ? $single_image['sizes'] : [];
+	}
+?>
+	<div class="single-image">
+		<?php if($single_image_header): echo $single_image_header; endif; ?>
+		<figure class="single-image__figure">
+			<?php if($single_image_url): ?>
+			<img 
+				class="single-image_img"
+				src="<?php echo $single_image_url;?>"
+				<?php if (!empty($single_image_sizes)): ?>
+				srcset="
+					<?php echo $single_image_sizes['medium']; ?> 570w,
+					<?php echo $single_image_sizes['large']; ?> 740w,
+				"
+				<?php endif; ?>
+				sizes="
+					(min-width: 768px) 75vw,
+					(min-width: 960px) 66vw,
+					80vw
+				"
+				<?php if($single_image_alt): ?>
+				alt="<?php echo $single_image_alt; ?>"
+				<?php endif; ?>
+			>
+			<?php endif; ?>
+
+			<?php if($single_image_caption): ?>
+			<figcaption class="single-image__caption"><?php echo $single_image_caption; ?></figcaption>
+			<?php endif; ?>
+		</figure>
+	</div>
 					
 				<!-- iFrame Embed -->
 				<?php 

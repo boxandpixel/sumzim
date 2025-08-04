@@ -513,35 +513,52 @@ get_header();
 			</div>
 
 		
-		<?php 
-			elseif(get_row_layout() == 'single_image'):
-				$single_image = get_sub_field('single_image');
-				$single_image_caption = $single_image['caption'];
-				$single_image_header = get_sub_field('single_image_header');
-		?> 
-			<!-- Single Image -->       
-			<div class="single-image">
-				<?php if($single_image_header): echo $single_image_header; endif; ?>
-				<figure class="single-image__figure">
-					<img 
-						class="single-image_img"
-						src="<?php echo $single_image['url'];?>"
-						srcset="
-							<?php echo $single_image['sizes']['medium']; ?> 570w,
-							<?php echo $single_image['sizes']['large']; ?> 740w,
-						"
-						sizes="
-							(min-width: 768px) 75vw,
-							(min-width: 960px) 66vw,
-							80vw
-						"
-						alt="<?php echo $single_image['alt']; ?>"
-					>
-					<?php if($single_image_caption): ?>
-					<figcaption class="single-image__caption"><?php echo $single_image['caption']; ?></figcaption>
-					<?php endif; ?>
-				</figure>
-			</div>
+<?php 
+elseif(get_row_layout() == 'single_image'):
+	$single_image = get_sub_field('single_image');
+	$single_image_header = get_sub_field('single_image_header');
+
+	// Define defaults
+	$single_image_url = '';
+	$single_image_caption = '';
+	$single_image_alt = '';
+	$single_image_sizes = [];
+
+	if ($single_image && is_array($single_image)) {
+		$single_image_url = isset($single_image['url']) ? $single_image['url'] : '';
+		$single_image_caption = isset($single_image['caption']) ? $single_image['caption'] : '';
+		$single_image_alt = isset($single_image['alt']) ? $single_image['alt'] : '';
+		$single_image_sizes = isset($single_image['sizes']) ? $single_image['sizes'] : [];
+	}
+?> 
+	<!-- Single Image -->       
+	<div class="single-image">
+		<?php if($single_image_header): echo $single_image_header; endif; ?>
+		<figure class="single-image__figure">
+			<?php if($single_image_url): ?>
+			<img 
+				class="single-image_img"
+				src="<?php echo esc_url($single_image_url); ?>"
+				<?php if (!empty($single_image_sizes['medium']) && !empty($single_image_sizes['large'])): ?>
+				srcset="
+					<?php echo esc_url($single_image_sizes['medium']); ?> 570w,
+					<?php echo esc_url($single_image_sizes['large']); ?> 740w
+				"
+				<?php endif; ?>
+				sizes="
+					(min-width: 768px) 75vw,
+					(min-width: 960px) 66vw,
+					80vw
+				"
+				alt="<?php echo esc_attr($single_image_alt); ?>"
+			>
+			<?php endif; ?>
+			
+			<?php if($single_image_caption): ?>
+			<figcaption class="single-image__caption"><?php echo esc_html($single_image_caption); ?></figcaption>
+			<?php endif; ?>
+		</figure>
+	</div>
 		
 		
 		<?php 

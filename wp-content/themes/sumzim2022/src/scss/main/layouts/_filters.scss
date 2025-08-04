@@ -73,6 +73,10 @@
             }
           }
         }
+
+        h6 {
+          @include apply-type(heading-xxs);
+        }
       }
     }
   }

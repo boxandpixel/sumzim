@@ -14,6 +14,12 @@
     }
   }
 
+  h2 {
+    margin-bottom: 8px;
+    @include apply-type(heading-md);
+    
+  }
+
   .mejs-container {
     width: 300px !important;
     min-width: 300px !important;

@@ -62,8 +62,13 @@ button.button-cta,
     color: var(--color__primary--dark); // 20220929 color__primary
     text-transform: capitalize;
 
-    &::after {
+    &::after,
+    &::before {
       display: none;
+    }
+
+    &.--cta__new-window {
+      padding-right: 20px;
     }
   }
 
@@ -78,15 +83,15 @@ button.button-cta,
   &.button--primary {
     background: var(--color__primary--dark); // 20220929 color__primarys
     color: white;
+
+    &:hover {
+      color: var(--color__secondary);
+    }
   }
 
   &.button--secondary {
     background: var(--color__secondary);
     color: black;
-
-    &::after {
-      background: var(--color__secondary--dark);
-    }
   }
 
   &.button--payment {

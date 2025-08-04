@@ -5,13 +5,22 @@
   border-radius: var(--border-radius);
   gap: 5px;
 
+  .card__group-content {
+    display: flex;
+  flex-direction: column;
+    gap: 5px;
+  }
+
+  h4,h5 {
+    color: white;
+    @include apply-type(heading-xs);
+  }  
+
   &.card--color-primary {
     background: var(--color__primary--dark); // 20220929 color__primary
     border: solid 1px white;
 
-    h4,h5 {
-      color: white;
-    }
+
 
     p {
       color: white;
@@ -25,13 +34,15 @@
 
   &.card--color-neutral {
     background: var(--color__neutral--very-light);
+    color: var(--color__primary--dark);
 
-    h4 {
-      color: var(--color__headings);
+    h4,h5 {
+      // color: var(--color__headings);
+      color: var(--color__primary--dark);
     }
 
     p {
-      color: var(--color__text--dark);
+      color: var(--color__primary--dark);
     }
   }
 

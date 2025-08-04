@@ -1,4 +1,9 @@
 .heading-list {
+    h3 {
+        margin-bottom: 8px;
+        @include apply-type(heading-sm);
+    }
+
     & > ul.heading-list__list {
         & > li.heading-list__list-item {
             padding-bottom: 1rem;
@@ -17,6 +22,12 @@
 
             & > p:last-child {
                 margin-bottom: 0;
+            }
+
+
+
+            h4 {
+                @include apply-type(heading-xs);
             }
         }
     }

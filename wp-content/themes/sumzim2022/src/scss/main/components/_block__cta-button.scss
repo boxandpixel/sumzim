@@ -23,34 +23,21 @@
 	a,button {
 		display: inline-flex;
 
-		padding: 1rem 1.25rem calc(1rem - 1px) 1.25rem;
+		padding: 16px 40px;
 		display: inline-flex;
 		flex-direction: column;
 		text-transform: uppercase;
 		font-weight: 600;
 		text-decoration: none;
-		font-size: 1.25rem;
+		font-size: 14px;
 		line-height: 1;
 		letter-spacing: var(--letter-spacing);
 		width: auto;
-		border-radius: 3px;
+		border-radius: 999px;
 		border: none;
 		position: relative;
 		cursor: pointer;
-		text-align: center;		
 	  
-		&::after {
-		  content: "";
-		  position: absolute;
-		  bottom: 0;
-		  left: 0;
-		  width: 0;
-		  height: 3px;
-		  background: var(--color__primary--dark); // 20220929 color__primary
-		  transition: width 0.2s ease-in-out;
-		  border-bottom-left-radius: 3px;
-		  border-bottom-right-radius: 3px;
-		}
 	  
 		// &:hover {
 		//   background: hsla(0, 100%, 100%, 1);

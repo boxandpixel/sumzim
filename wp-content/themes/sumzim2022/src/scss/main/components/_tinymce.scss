@@ -3,17 +3,17 @@ button {
 }
 
 .primary-button > p > a {
-  padding: 0.75rem 1rem calc(0.75rem - 1px) 1rem;
+  padding: 16px 40px;
   display: inline-flex;
   flex-direction: column;
   text-transform: uppercase;
   font-weight: 600;
   text-decoration: none;
-  font-size: 0.875rem;
+  font-size: 14px;
   line-height: 1;
   letter-spacing: var(--letter-spacing);
   width: auto;
-  border-radius: 3px;
+  border-radius: 999px;
   border: none;
   position: relative;
   cursor: pointer;
@@ -22,39 +22,25 @@ button {
   background: var(--color__primary--dark); // 20220929 color__primary
   color: white;
 
-  &::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 3px;
-    background: var(--color__primary--dark);
-    transition: width 0.2s ease-in-out;
-    border-bottom-left-radius: 3px;
-    border-bottom-right-radius: 3px;
-  }
+
 
   &:hover {
-    &::after {
-      left: 0;
-      width: 100%;
-    }
+    color: var(--color__secondary);
   }
 }
 
 .secondary-button > p > a {
-  padding: 0.75rem 1rem calc(0.75rem - 1px) 1rem;
+  padding: 16px 40px;
   display: inline-flex;
   flex-direction: column;
   text-transform: uppercase;
   font-weight: 600;
   text-decoration: none;
-  font-size: 0.875rem;
+  font-size: 14px;
   line-height: 1;
   letter-spacing: var(--letter-spacing);
   width: auto;
-  border-radius: 3px;
+  border-radius: 999px;
   border: none;
   position: relative;
   cursor: pointer;
@@ -62,26 +48,6 @@ button {
   // Secondary colors
   background: var(--color__secondary);
   color: black;
-
-  &::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 3px;
-    background: var(--color__secondary--dark);
-    transition: width 0.2s ease-in-out;
-    border-bottom-left-radius: 3px;
-    border-bottom-right-radius: 3px;
-  }
-
-  &:hover {
-    &::after {
-      left: 0;
-      width: 100%;
-    }
-  }
 }
 
 .small-print {

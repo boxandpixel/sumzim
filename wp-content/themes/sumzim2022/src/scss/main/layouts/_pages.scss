@@ -5,6 +5,7 @@
   align-items: center;
   padding: 3rem 0 0;
   position: relative;
+  color: var(--color__primary--dark);
 
   & > div[class^="breakout"] {
     width: 100%;
@@ -117,10 +118,17 @@
       @include breakpoint(medium) {
         width: 70vw;
       }
+
+      h2 {
+        @include apply-type(heading-lg);
+      }
     }
   }
 
-  h2 {
-    color: var(--color__text--dark);
+  .the-content {
+    color: var(--color__primary--dark);
+    h3 {
+      @include apply-type(heading-sm);
+    }
   }
 }

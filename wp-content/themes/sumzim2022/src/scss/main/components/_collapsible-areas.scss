@@ -14,7 +14,7 @@
       cursor: pointer;
       border-bottom: solid 1px var(--color__primary--dark); // 20220929 color__primary
       position: relative;
-      font-size: 1.125rem;
+      @include apply-type(heading-xxs);
 
       @include breakpoint(large) {
         background-size: 32px;
@@ -72,6 +72,10 @@
         width: auto;
         overflow: auto;
         border-bottom: solid 1px var(--color__primary--dark); // 20220929 color__primary
+      }
+
+      .primary-button p {
+        margin-bottom: 20px !important;
       }
 
       p {

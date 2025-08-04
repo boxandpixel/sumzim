@@ -56,57 +56,42 @@
 
 		h2 {
 			font-family: var(--font);
-			font-weight: 700;
-			font-size: 39.81px;
 			color: var(--color__primary--dark);
+			margin-bottom: 8px;
 
-			@include breakpoint(medium) {
-				font-size: 48.83px;
-			}
+			@include apply-type(heading-md);
 		}	
 		
 		h3 {
 			font-family: var(--font);
-			font-weight: 700;
-			font-size: 33.18px;
 			color: var(--color__primary--dark);
+			margin-bottom: 8px;
 
-			@include breakpoint(medium) {
-				font-size: 39.06px;
-			}
+			@include apply-type(heading-xs);
 		}			
 
 		h4 {
 			font-family: var(--font);
-			font-weight: 700;
-			font-size: 27.65px;
 			color: var(--color__primary--dark);
+			margin-bottom: 8px;
 
-			@include breakpoint(medium) {
-				font-size: 31.25px;
-			}
+			@include apply-type(heading-sm);
 		}	
 		
 		h5 {
 			font-family: var(--font);
-			font-weight: 700;
-			font-size: 23.04px;
 			color: var(--color__primary--dark);
+			margin-bottom: 8px;
 
-			@include breakpoint(medium) {
-				font-size: 25px;
-			}
+			@include apply-type(heading-xs);
 		}	
 		
 		h6 {
 			font-family: var(--font);
-			font-weight: 700;
-			font-size: 19.2px;
 			color: var(--color__primary--dark);
+			margin-bottom: 8px;
 
-			@include breakpoint(medium) {
-				font-size: 20px;
-			}
+			@include apply-type(heading-xxs);
 		}	
 		
 		.contain {

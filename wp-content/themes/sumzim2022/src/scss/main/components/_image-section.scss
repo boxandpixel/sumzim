@@ -1,4 +1,8 @@
 .image-section {
+
+  h3 {
+    @include apply-type(heading-md);
+  }
   .image-section__figure-content {
     display: grid;
     grid-template-columns: 100%;
@@ -23,5 +27,10 @@
 
   .image-section__content {
     padding: 1.5rem;
+    align-content: center;
+
+    h2 {
+      @include apply-type(heading-md);
+    }
   }
 }

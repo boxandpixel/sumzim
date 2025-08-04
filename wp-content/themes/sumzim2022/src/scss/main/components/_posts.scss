@@ -11,9 +11,14 @@
   article.post {
     & > header {
       & > h2.entry-title {
+
         & > a {
           color: var(--color__primary--dark); // 20220929 color__primary
+          text-decoration: none;
         }
+
+        
+        @include apply-type(heading-lg);        
       }
     }
 
@@ -42,7 +47,9 @@
         line-height: 1.25;
         // font-weight: 400;
         margin: 0 0 1rem 0;
-		text-wrap: balance;
+        text-wrap: balance;
+
+        @include apply-type(heading-xl);
 
         @include breakpoint(medium) {
 			color: var(--color__primary--dark);
@@ -58,6 +65,7 @@
 		ul li {
 			font-size: 18px;
 			line-height: 1.5;
+      margin-bottom: 20px;
 		}
 
 		.wp-block-image {
