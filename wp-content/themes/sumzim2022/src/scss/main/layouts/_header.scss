@@ -216,6 +216,8 @@ header.site-header {
 	top: 0;
 
 	button.header__nav-button {
+		top: 16px;
+		
 		@include breakpoint(mobilemax) {
 			top: 4px;
 		}

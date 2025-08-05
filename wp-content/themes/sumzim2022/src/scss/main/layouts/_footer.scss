@@ -97,6 +97,7 @@ footer.site-footer {
     flex-direction: column;
     padding-bottom: 20px;
     border-bottom: solid 1px var(--color__primary--dark);
+    gap: 16px;
     
 
     @include breakpoint(medium) {
@@ -107,11 +108,19 @@ footer.site-footer {
     .footer__header-brand {
       display: flex;
       flex-direction: column;
-      gap: 16px;
+      gap: 8px;
+
+      @include breakpoint(medium) {
+        gap: 16px;
+      }
 
       .footer__header-brand-logo {
         width: 100%;
-        max-width: 127px;
+        max-width: 80px;
+
+        @include breakpoint(medium) {
+          max-width: 127px;
+        }
       }
 
       .footer__header-brand-tagline {
@@ -127,6 +136,7 @@ footer.site-footer {
       gap: 21px;
 
       .button__book-now {
+        max-width: fit-content;
         &.button__book-now--secondary {
           background: none;
           border: solid 1px var(--color__primary--dark);
@@ -170,6 +180,7 @@ footer.site-footer {
     padding-top: 20px;
     display: flex;
     flex-direction: column;
+    gap: 30px;
 
     @include breakpoint(medium) {
       flex-direction: row;
@@ -181,7 +192,7 @@ footer.site-footer {
       display: flex;
       flex-direction: column;
       width: 100%;
-      gap: 20px;
+      gap: 30px;
 
       @include breakpoint(medium) {
         
@@ -203,11 +214,12 @@ footer.site-footer {
       & > div {
         display: flex;
         flex-direction: column;
-        gap: 10px;
+        gap: 5px;
 
         @include breakpoint(medium) {
           width: 100%;
           max-width: 370px;
+          gap: 10px;
         }   
         
         @include breakpoint(large) {
@@ -228,11 +240,16 @@ footer.site-footer {
         ul {
           display: flex;
           flex-direction: column;
-          gap: 5px;
+          gap: 3px;
+
+          @include breakpoint(medium) {
+            gap: 5px;
+          }
 
           li {
             a {
               text-decoration: none;
+              @include apply-type(small);
             }
           }
         }
@@ -263,7 +280,7 @@ footer.site-footer {
       flex-direction: column;
       align-content: flex-end;
       flex-basis: 230px;
-      gap: 16px;
+      gap: 30px;
 
       .footer__brand-associations-badge {
 
@@ -287,7 +304,11 @@ footer.site-footer {
           max-height: 70px;
 
           img {
-            max-height: 70px;
+            max-height: 50px;
+
+            @include breakpoint(medium) {
+              max-height: 70px;
+            }
           }
         }
       }
@@ -300,6 +321,7 @@ footer.site-footer {
     padding-top: 20px;
     font-size: 12px;
     color: rgba(#0c1e31, .5);
+    gap: 16px;
 
     @include breakpoint(medium) {
       flex-direction: row;
