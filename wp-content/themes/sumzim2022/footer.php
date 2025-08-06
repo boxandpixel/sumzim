@@ -132,7 +132,7 @@
             $social_icon_link = $social_icon['link'];
           ?>
             <li class="footer__menu-about-social-icon">
-              <a href="<?= esc_attr($social_icon_link); ?>" target="_blank" class="footer__menu-about-social-icon-link">
+              <a href="<?= esc_attr($social_icon_link['url']); ?>" target="_blank" class="footer__menu-about-social-icon-link">
                 <img src="<?= $social_icon_image_url; ?>" alt="<?= $social_icon_image_alt; ?>" class="footer__menu-about-social-icon-link-image">
               </a>
             </li>
