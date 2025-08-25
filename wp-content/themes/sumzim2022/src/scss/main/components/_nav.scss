@@ -172,28 +172,7 @@ nav.header__nav {
         &:hover {
           background: var(--color__success);
         }
-
-        &::after {
-          content: "";
-          position: absolute;
-          bottom: 0;
-          left: 0;
-          width: 0;
-          height: 3px;
-          background: hsla(150, 100%, 20%, 1); // 20220929 color__primary
-          transition: width 0.2s ease-in-out;
-          border-bottom-left-radius: 3px;
-          border-bottom-right-radius: 3px;
-        }
-    
-        &:hover {
-          background: var(--color__success);
-
-          &::after {
-            left: 0;
-            width: 100%;
-          }
-        }			
+		
       }	
 
       &.nav-book-now > a {
@@ -331,27 +310,6 @@ nav.header__nav {
             font-size: 15px;
           }
 
-          &::after {
-            content: "";
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 3px;
-            background: var(--color__primary--dark); // 20220929 color__primary
-            transition: width 0.2s ease-in-out;
-            border-bottom-left-radius: 3px;
-            border-bottom-right-radius: 3px;
-          }
-
-          &:hover {
-            background: hsla(0, 100%, 100%, 1);
-
-            &::after {
-              left: 0;
-              width: 100%;
-            }
-          }
         }
 
         &.nav__schedule-service > a {
@@ -404,28 +362,7 @@ nav.header__nav {
 						background: var(--color__success);
 						color: white;
 					}
-
-					&::after {
-						content: "";
-						position: absolute;
-						bottom: 0;
-						left: 0;
-						width: 0;
-						height: 3px;
-						background: hsla(150, 100%, 20%, 1); // 20220929 color__primary
-						transition: width 0.2s ease-in-out;
-						border-bottom-left-radius: 3px;
-						border-bottom-right-radius: 3px;
-					}
-			
-					&:hover {
-						background: var(--color__success);
-		
-						&::after {
-							left: 0;
-							width: 100%;
-						}
-					}					
+				
 				}
 			}
 		}
@@ -434,11 +371,12 @@ nav.header__nav {
           @include breakpoint(large) {
             position: absolute;
             left: 0;
-            top: 2.5rem;
+            top: 37px;
             transition: transform 0.3s;
             transform-origin: top;
             transition-delay: 0s;
             width: 14rem;
+            border-top: solid 2px var(--color__primary--dark);
           }
 
           a {
@@ -498,7 +436,8 @@ nav.header__nav {
       & > li.menu-item-has-children {
         .sub-menu {
           @include breakpoint(medium) {
-            top: 2.35rem !important;
+            // top: 2.35rem !important;
+            top: 35px !important;
           }
         }
       }
