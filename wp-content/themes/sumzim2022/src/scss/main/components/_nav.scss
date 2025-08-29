@@ -209,6 +209,12 @@ nav.header__nav {
         &.menu-item-has-children {
           position: relative;
 
+          &:hover a {
+            @include breakpoint(large) {
+              color: hsla(0, 100%, 100%, .5);
+            }
+          }
+
 		  /** Pay Buttons Drop */
 
 		  &.nav-pay {
@@ -217,6 +223,10 @@ nav.header__nav {
 				a {
 					background: var(--color__success);
 					color: white;
+
+          &:hover {
+            color: white;
+          }
 				}
 			}
 
@@ -288,13 +298,13 @@ nav.header__nav {
         }
 
         a {
-          background: hsla(0, 100%, 100%, 1);
+          color: var(--color__primary--dark);
+            background: white;
           transition: background 0.2s ease;
           // background: green;
           padding: 0.5rem;
           border-radius: 0px; // 3px
           font-weight: 600;
-          color: var(--color__primary--dark); // 20220929 color__primary
           text-decoration: none;
           display: block;
           position: relative;
@@ -305,17 +315,29 @@ nav.header__nav {
           @include breakpoint(large) {
             width: clamp(200px, 300px, 50vw);
             font-size: 15px;
+            background: var(--color__primary--dark);
+            color: white;
           }
 
           @include breakpoint(xlarge) {
-			width: auto;
+			      width: auto;
             font-size: 15px;
           }
 
           &:hover {
-            background: #CAD3CF;
+            @include breakpoint(large) {
+              color: hsla(0, 100%, 100%, .5);
+            }
           }
 
+
+        }
+
+        &.menu-item__blue-collar-club > a {
+          background-color: white;
+          &:hover {
+            background-color: white;
+          }
         }
 
         &.nav__schedule-service > a {
@@ -344,9 +366,11 @@ nav.header__nav {
         animation: navAnimation 5s ease infinite;
         color: white;
         width: clamp(200px, 200px, 30vw);
+        height: 40px;
 
         @include breakpoint(large) {
           width: clamp(100px, 300px, 50vw);
+        height: unset;
         }
 
         @include breakpoint(xlarge) {
@@ -368,6 +392,13 @@ nav.header__nav {
 						background: var(--color__success);
 						color: white;
 					}
+
+          &:hover {
+            @include breakpoint(large) {
+              color: white;
+            }
+             
+          }
 				
 				}
 			}
@@ -385,11 +416,25 @@ nav.header__nav {
             border-top: solid 2px var(--color__primary--dark);
           }
 
+          li {
+            background-color: var(--color__primary--dark);
+          }
+
           a {
             @include breakpoint(large) {
             //   background: var(--color__neutral--very-light);
-			background: #CAD3CF;
+              // background: #CAD3CF;
+              // background-color: hsla(0, 100%, 100%, 0.3);
+              background-color: var(--color__primary--dark);
+              color: white;
             }
+
+            &:hover {
+              @include breakpoint(large) {
+                color: hsla(0, 100%, 100%, .5);
+              }
+            }
+            
           }
 
           &:not(:hover) {
@@ -402,7 +447,7 @@ nav.header__nav {
           }
 
           & > li {
-            margin: 0.125rem 0;
+            // margin: 0.125rem 0;
           }
         }
       }
