@@ -370,7 +370,7 @@ nav.header__nav {
 
         @include breakpoint(large) {
           width: clamp(100px, 300px, 50vw);
-        height: unset;
+          height: 38px;
         }
 
         @include breakpoint(xlarge) {
