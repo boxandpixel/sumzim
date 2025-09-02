@@ -288,16 +288,6 @@
 					?>				
 			</div>
 		</div>
-		<div class="banner__tommys-electric">
-			<div>
-				<div class="banner__tommys-electric-logo">
-					<img src="/wp-content/themes/sumzim2022/assets/tommys-electric-logo.png" alt="">
-				</div>
-				<div class="banner__tommys-electric-content">
-					<p><a href="/services/electrical-service/"><span>Tommy's Electric has joined the Summers & Zim's family.</span> <span>We now offer full electrical services for your home.</span></a></p>
-				</div>	
-			</div>		
-		</div>
 		<div class="header__mobile-call">
 			<h2>Call us 24/7 at <a href="tel:6105935129" id="sa-click-to-call">610-593-5129</a></h2>
 		</div>
