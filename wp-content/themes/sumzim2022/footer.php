@@ -193,25 +193,6 @@
   </script>
 <?php endif; ?>
 
-  <script type="application/ld+json">
-  {
-    "@context" : "http://schema.org",
-    "@type" : "LocalBusiness",
-    "name" : "Summers & Zim’s",
-    "image" : "https://sumzim.com/wp-content/uploads/2018/07/logo-summers-and-zims.svg",
-    "telephone" : "(610) 593-5129",
-    "email" : "info@sumzim.com",
-    "address" : {
-      "@type" : "PostalAddress",
-      "streetAddress" : "403 Valley Avenue, P.O. Box 220",
-      "addressLocality" : "Atglen",
-      "addressRegion" : "PA",
-      "addressCountry" : "US",
-      "postalCode" : "19310"
-    },
-    "url" : "https://sumzim.com/"
-  }
-</script>
 
 
 

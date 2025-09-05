@@ -239,15 +239,17 @@
 	"@context": "https://schema.org",
 	"@graph": [
 		{
-		"@type": ["HVACBusiness", "LocalBusiness", "Organization"],
+		"@type": ["HVACBusiness","LocalBusiness","Organization"],
 		"@id": "https://sumzim.com/#organization",
 		"name": "Summers & Zim’s",
 		"alternateName": "Summers & Zim’s Inc",
 		"url": "https://sumzim.com/",
 		"logo": { "@id": "https://sumzim.com/#logo" },
 		"image": { "@id": "https://sumzim.com/#logo" },
+
 		"telephone": "+1-610-467-7137",
 		"email": "info@sumzim.com",
+
 		"address": {
 			"@type": "PostalAddress",
 			"streetAddress": "403 Valley Avenue, P.O. Box 220",
@@ -256,27 +258,25 @@
 			"postalCode": "19310",
 			"addressCountry": "US"
 		},
+
 		"geo": {
 			"@type": "GeoCoordinates",
 			"latitude": 39.84668883693398,
 			"longitude": -75.71155054588307
 		},
+
 		"openingHoursSpecification": [
 			{
 			"@type": "OpeningHoursSpecification",
 			"dayOfWeek": [
-				"Monday",
-				"Tuesday",
-				"Wednesday",
-				"Thursday",
-				"Friday",
-				"Saturday",
-				"Sunday"
+				"Monday","Tuesday","Wednesday",
+				"Thursday","Friday","Saturday","Sunday"
 			],
 			"opens": "09:00",
 			"closes": "17:00"
 			}
 		],
+
 		"contactPoint": [
 			{
 			"@type": "ContactPoint",
@@ -286,6 +286,7 @@
 			"availableLanguage": ["en"]
 			}
 		],
+
 		"sameAs": [
 			"https://www.facebook.com/SumZim",
 			"https://www.instagram.com/summerszims/",
@@ -293,14 +294,17 @@
 			"https://www.youtube.com/channel/UCuv_dHhfdnoxwBg3OFG3mSA",
 			"https://share.google/z7DCVibK8vBktQKqh"
 		],
+
 		"hasMap": "https://maps.google.com/?q=39.84668883693398,-75.71155054588307",
 		"priceRange": "$$",
+
 		"areaServed": [
 			{ "@type": "AdministrativeArea", "name": "Chester County, PA" },
 			{ "@type": "AdministrativeArea", "name": "Delaware County, PA" },
 			{ "@type": "AdministrativeArea", "name": "Lancaster County, PA" },
 			{ "@type": "AdministrativeArea", "name": "Designated areas within Berks County, PA" }
 		],
+
 		"hasOfferCatalog": {
 			"@type": "OfferCatalog",
 			"name": "Core Services",
@@ -340,6 +344,7 @@
 			]
 		}
 		},
+
 		{
 		"@type": "ImageObject",
 		"@id": "https://sumzim.com/#logo",
@@ -350,6 +355,35 @@
 		"width": 700,
 		"height": 572
 		},
+
+		{
+		"@type": "WebSite",
+		"@id": "https://sumzim.com/#website",
+		"url": "https://sumzim.com/",
+		"name": "Summers & Zim’s",
+		"publisher": { "@id": "https://sumzim.com/#organization" },
+		"inLanguage": "en-US",
+		"potentialAction": {
+			"@type": "SearchAction",
+			"target": {
+			"@type": "EntryPoint",
+			"urlTemplate": "https://sumzim.com/?s={search_term_string}"
+			},
+			"query-input": "required name=search_term_string"
+		}
+		},
+
+		{
+		"@type": "WebPage",
+		"@id": "https://sumzim.com/#webpage",
+		"url": "https://sumzim.com/",
+		"name": "Expert HVAC & Plumbing Services in Southeastern PA | Summers & Zim’s",
+		"isPartOf": { "@id": "https://sumzim.com/#website" },
+		"about": { "@id": "https://sumzim.com/#organization" },
+		"primaryImageOfPage": { "@id": "https://sumzim.com/#logo" },
+		"inLanguage": "en-US"
+		},
+
 		{
 		"@type": "BreadcrumbList",
 		"@id": "https://sumzim.com/#breadcrumbs",
@@ -364,7 +398,7 @@
 		}
 	]
 	}
-	</script>	 
+	</script> 
 
 
 </head>
