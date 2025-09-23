@@ -390,7 +390,12 @@ get_header();
               $circle_heading = get_sub_field('circle_heading');
               $circle_detail = get_sub_field('circle_detail');
               $circle_link = get_sub_field('circle_link');
+              $circle_image = get_sub_field('circle_image');
             ?>
+
+            <?php if($circle_image): ?>
+              <img class="home__circle-feature-image" src="<?= esc_attr($circle_image['url']); ?>" alt="<?= esc_attr($circle_image['alt']); ?>">
+            <?php endif; ?>
 
             <?php if($circle_heading): ?>
                 <h3><?php echo $circle_heading; ?></h3>

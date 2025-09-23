@@ -576,6 +576,25 @@
 			  }
 			}
 		  }
+
+		  .home__circle-feature-image {
+			max-width: 140px;
+
+			@include breakpoint(medium) {
+				max-width: 200px;
+			}
+		  }
+
+		  .home__circle-feature-stars {
+			display: flex;
+			gap: 1px;
+			margin-bottom: 1rem;
+
+			span {
+				font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
+				color: var(--color__secondary);
+			}
+		  }
 		}
   
 		&:nth-of-type(2) {
