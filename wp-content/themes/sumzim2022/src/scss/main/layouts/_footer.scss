@@ -96,7 +96,7 @@ footer.site-footer {
     display: flex;
     flex-direction: column;
     padding-bottom: 20px;
-    border-bottom: solid 1px var(--color__primary--dark);
+    border-bottom: solid 1px rgba(#0c1e31, .2);
     gap: 16px;
     
 
@@ -181,18 +181,55 @@ footer.site-footer {
     display: flex;
     flex-direction: column;
     gap: 30px;
+    padding-bottom: 20px;
+    border-bottom: solid 1px rgba(#0c1e31, .2);
+    
 
     @include breakpoint(medium) {
-      flex-direction: row;
-      justify-content: space-between;
-      gap: 100px;
+      // flex-direction: row;
+      // justify-content: space-between;
+      // gap: 100px;
+    }
+
+    .footer__main-group {
+      display: flex;
+      flex-direction: column;
+
+      @include breakpoint(medium) {
+        flex-direction: row;
+      }
+    }
+
+
+    .footer__address {
+      
+      @include breakpoint(medium) {
+        flex: 0 0 400px;
+      }
+
+      h5 {
+        text-transform: uppercase;
+        font-weight: 800;
+        font-size: 12px;
+        color: rgba(#0c1e31, .75);
+
+        @include breakpoint(medium) {
+          font-size: 14px;
+        }
+      }
+        
+      p {
+        @include apply-type(small);
+      }
     }
 
     .footer__main-menus {
-      display: flex;
-      flex-direction: column;
+      display: grid;
+      // grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: auto;
       width: 100%;
       gap: 30px;
+      // gap: 30px;
 
       @include breakpoint(medium) {
         
@@ -200,13 +237,14 @@ footer.site-footer {
       }
 
       @include breakpoint(large) {
-        gap: 100px;
-        flex-direction: row;
+        // gap: 100px;
+        // flex-direction: row;
+        grid-template-columns: repeat(3, minmax(200px, 380px));
       }
 
       @include breakpoint(xlarge) {
-        gap: 180px;
-        width: 70%;
+        // gap: 180px;
+        // width: 70%;
       }      
 
 
@@ -217,13 +255,13 @@ footer.site-footer {
         gap: 5px;
 
         @include breakpoint(medium) {
-          width: 100%;
-          max-width: 370px;
-          gap: 10px;
+          // width: 100%;
+          // max-width: 370px;
+          // gap: 10px;
         }   
         
         @include breakpoint(large) {
-          width: auto;
+          // width: auto;
         }   
 
         h5 {
@@ -274,13 +312,34 @@ footer.site-footer {
         }
       }
     }
+  }
 
-    .footer__main-brand-associations {
+  .footer__footer {
+    display: flex;
+    flex-direction: column-reverse;
+    padding-top: 20px;
+    font-size: 12px;
+    color: rgba(#0c1e31, .5);
+    gap: 16px;
+
+    @include breakpoint(medium) {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-end;
+      font-size: 14px;
+    }
+
+    .footer__footer-brand-associations {
       display: flex;
-      flex-direction: column;
-      align-content: flex-end;
-      flex-basis: 230px;
+      align-items: center;
+
+      
       gap: 30px;
+
+      @include breakpoint(medium) {
+        flex-direction: column;
+        flex: 0 0 260px;
+      }
 
       .footer__brand-associations-badge {
 
@@ -291,7 +350,7 @@ footer.site-footer {
 
         .footer__brand-badge {
           // width: 100%;
-          max-width: 227px;
+          // max-width: 227px;
         }
       }
 
@@ -301,38 +360,46 @@ footer.site-footer {
         gap: 20px;
 
         li {
-          max-height: 70px;
+          // max-height: 70px;
 
           img {
-            max-height: 50px;
+            // max-height: 50px;
 
             @include breakpoint(medium) {
-              max-height: 70px;
+              // max-height: 70px;
             }
           }
         }
       }
-    }
-  }
+    }  
+    
+    .footer__footer-site-info {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+  
 
-  .footer__footer {
-    display: flex;
-    flex-direction: column;
-    padding-top: 20px;
-    font-size: 12px;
-    color: rgba(#0c1e31, .5);
-    gap: 16px;
+      h5 {
+        text-transform: capitalize;
+        font-weight: 800;
+        font-size: 12px;
+        color: rgba(#0c1e31, .75);
 
-    @include breakpoint(medium) {
-      flex-direction: row;
-      justify-content: space-between;
-      font-size: 14px;
+        @include breakpoint(medium) {
+          font-size: 14px;
+        }
+      }      
     }
 
     .menu-footer-utility-menu-container {
       ul {
         display: flex;
-        gap: 10px;
+        flex-direction: column;
+        gap: 8px;
+        
+        @include breakpoint(medium) {
+          flex-direction: row;
+        }
 
         li {
           a {

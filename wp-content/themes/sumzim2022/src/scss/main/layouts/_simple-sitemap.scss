@@ -1,0 +1,16 @@
+.simple-sitemap-container {
+    .simple-sitemap-page {
+        list-style: disc;
+
+        li {
+            margin-left: 20px;
+
+            ul {
+                list-style: disc;
+                li {
+                    margin-left: 20px;
+                }
+            }
+        }
+    }
+}

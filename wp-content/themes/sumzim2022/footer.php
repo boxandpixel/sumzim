@@ -22,6 +22,8 @@
   $associations = $footer['associations'] ?? [];
   $social_icons = $footer['social_icons'] ?? [];
 
+  $address = $footer['address'] ?? '';
+
 
   
   
@@ -99,62 +101,88 @@
     </div>
   </div>
   <div class="footer__main">
-    <div class="footer__main-menus">
-      <div class="footer__menu-services">
-        <h5><?php echo $footer_services_menu->name; ?></h5>
-        <?php
-          wp_nav_menu(
-            array(
-              'theme_location' => 'footer-services-menu',
-              'menu_id'        => 'footer-services-menu',
-            )
-          );					
-        ?>  
+    <div class="footer__main-group">
+      <div class="footer__address">
+        <h5><?php bloginfo('name'); ?></h5>
+        <?= wp_kses_post($address); ?>
       </div>
-      <div class="footer__menu-about">
-        <h5><?php echo $footer_about_menu->name; ?></h5>
-        <?php
-          wp_nav_menu(
-            array(
-              'theme_location' => 'footer-about-menu',
-              'menu_id'        => 'footer-about-menu',
-            )
-          );					
-        ?>  
 
-        <?php if(!empty($social_icons)): ?>
-        <div class="footer__menu-about-social">
-          <ul class="footer__menu-about-social-icons">
-          <?php foreach($social_icons as $social_icon): 
-            $social_icon_image = $social_icon['image'] ?? '';
-            $social_icon_image_url = $social_icon_image['url'] ?? '';
-            $social_icon_image_alt = $social_icon_image['alt'] ?? '';
-            $social_icon_link = $social_icon['link'];
-          ?>
-            <li class="footer__menu-about-social-icon">
-              <a href="<?= esc_attr($social_icon_link['url']); ?>" target="_blank" class="footer__menu-about-social-icon-link">
-                <img src="<?= $social_icon_image_url; ?>" alt="<?= $social_icon_image_alt; ?>" class="footer__menu-about-social-icon-link-image">
-              </a>
-            </li>
-            <?php endforeach; ?>
-          </ul>
+      <div class="footer__main-menus">
+        <div class="footer__menu-services">
+          <h5><?php echo $footer_services_menu->name; ?></h5>
+          <?php
+            wp_nav_menu(
+              array(
+                'theme_location' => 'footer-services-menu',
+                'menu_id'        => 'footer-services-menu',
+              )
+            );					
+          ?>  
         </div>
-        <?php endif; ?>
-      </div>
-      <div class="footer__menu-locations">
-        <h5><?php echo $footer_locations_menu->name; ?></h5>
-        <?php
-          wp_nav_menu(
-            array(
-              'theme_location' => 'footer-locations-menu',
-              'menu_id'        => 'footer-locations-menu',
-            )
-          );					
-        ?>  
-      </div>
+        <div class="footer__menu-about">
+          <h5><?php echo $footer_about_menu->name; ?></h5>
+          <?php
+            wp_nav_menu(
+              array(
+                'theme_location' => 'footer-about-menu',
+                'menu_id'        => 'footer-about-menu',
+              )
+            );					
+          ?>  
+
+          <?php if(!empty($social_icons)): ?>
+          <div class="footer__menu-about-social">
+            <ul class="footer__menu-about-social-icons">
+            <?php foreach($social_icons as $social_icon): 
+              $social_icon_image = $social_icon['image'] ?? '';
+              $social_icon_image_url = $social_icon_image['url'] ?? '';
+              $social_icon_image_alt = $social_icon_image['alt'] ?? '';
+              $social_icon_link = $social_icon['link'];
+            ?>
+              <li class="footer__menu-about-social-icon">
+                <a href="<?= esc_attr($social_icon_link['url']); ?>" target="_blank" class="footer__menu-about-social-icon-link">
+                  <img src="<?= $social_icon_image_url; ?>" alt="<?= $social_icon_image_alt; ?>" class="footer__menu-about-social-icon-link-image">
+                </a>
+              </li>
+              <?php endforeach; ?>
+            </ul>
+          </div>
+          <?php endif; ?>
+        </div>
+        <div class="footer__menu-locations">
+          <h5><?php echo $footer_locations_menu->name; ?></h5>
+          <?php
+            wp_nav_menu(
+              array(
+                'theme_location' => 'footer-locations-menu',
+                'menu_id'        => 'footer-locations-menu',
+              )
+            );					
+          ?>  
+        </div>
+      </div>      
     </div>
-    <div class="footer__main-brand-associations">
-      <div class="footer__brand-associations-badge">
+
+  
+  </div>
+
+  <div class="footer__footer">
+
+    <div class="footer__footer-site-info">
+      <h5><?= '&copy; ' . date('Y') . ' Summers &amp; Zim\'s'; ?></h5>
+
+      <?php
+        wp_nav_menu(
+          array(
+            'theme_location' => 'footer-utility-menu',
+            'menu_id'        => 'footer-utility-menu',
+          )
+        );					
+      ?>  
+    </div>
+ 
+    <div class="footer__footer-brand-associations">
+      <div class="footer__footer-associations-badge">
           <img src="<?= esc_attr($safety_seal['url']); ?>" alt="<?= esc_attr($safety_seal['alt']); ?>" class="footer__brand-badge">
       </div>
       <ul class="footer__associations">
@@ -165,19 +193,10 @@
           </li>
         <?php endforeach; ?>
       </ul>
-    </div>
-  </div>
-  <div class="footer__footer">
-    <?= '&copy; ' . date('Y') . ' Summers &amp; Zim\'s'; ?>
+    </div>   
+    
 
-    <?php
-      wp_nav_menu(
-        array(
-          'theme_location' => 'footer-utility-menu',
-          'menu_id'        => 'footer-utility-menu',
-        )
-      );					
-    ?>    
+  
   </div>
 
 
