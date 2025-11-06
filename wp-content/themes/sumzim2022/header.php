@@ -257,7 +257,7 @@
 		"ratingCount": 1276,
 		"bestRating": "5",
 		"worstRating": "1"
-		}		
+		},		
 
 		"address": {
 			"@type": "PostalAddress",
