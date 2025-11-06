@@ -250,6 +250,15 @@
 		"telephone": "+1-610-467-7137",
 		"email": "info@sumzim.com",
 
+		"aggregateRating": {
+		"@type": "AggregateRating",
+		"ratingValue": "4.9",
+		"reviewCount": 1276,
+		"ratingCount": 1276,
+		"bestRating": "5",
+		"worstRating": "1"
+		}		
+
 		"address": {
 			"@type": "PostalAddress",
 			"streetAddress": "403 Valley Avenue, P.O. Box 220",
