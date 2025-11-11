@@ -1336,8 +1336,3 @@ add_filter('gform_validation_message_10', 'custom_top_error_message', 10, 2);
 function custom_top_error_message($message, $form) {
     return '<div class="validation_error">There is an error on the page. Please check the highlighted fields below.</div>';
 }
-
-// Override Rank Math og:image
-add_filter( 'rank_math/opengraph/facebook/image', function( $image ) {
-    return 'https://sumzim.com/wp-content/uploads/2024/05/sz-logo-rev20240408-3.svg';
-}, 99 );
