@@ -70,6 +70,39 @@ get_header();
 				<?php echo $visual_editor; ?>
 			</div>
 
+		<?php 
+		elseif(get_row_layout() == 'featured_articles'):
+			$featured_articles_heading = get_sub_field('featured_articles_heading');
+		?>
+			<!-- Featured Articles -->
+			<div class="breakout featured-articles">
+				<?php if($featured_articles_heading): ?>
+					<h2><?php echo $featured_articles_heading; ?></h2>
+				<?php endif; ?>
+				
+				<?php if(have_rows('featured_articles')): ?>
+				<div class="featured-articles__grid">
+					<?php while(have_rows('featured_articles')): the_row(); 
+						$featured_article = get_sub_field('featured_article');
+						
+						if($featured_article):
+							// Get the article data
+							$article_title = get_the_title($featured_article->ID);
+							$article_image = get_the_post_thumbnail_url($featured_article->ID, 'large');
+							$article_permalink = get_permalink($featured_article->ID);
+					?>
+					<a href="<?php echo esc_url($article_permalink); ?>" class="featured-articles__article" style="--bg-image: url(<?= esc_url($article_image); ?>);">
+						<h5 class="featured-articles__title">
+							<?php echo esc_html($article_title); ?>
+						</h5>
+					</a>
+					<?php 
+						endif;
+					endwhile; ?>
+				</div>
+				<?php endif; ?>
+			</div>				
+
 		
 		<?php 
 			elseif(get_row_layout() == 'video_embed'):
