@@ -380,11 +380,10 @@ get_header();
 
       <!-- Circle Features -->
       <div class="home__section home__circle-features">
-        <div class="home__circle-anchor" id="circle-trigger"></div>
             <?php if(have_rows('circle_features')): while(have_rows('circle_features')): the_row(); ?>
             
-            <div class="home__circle-feature-wrap" data-aos="example-anim2" data-aos-duration="1500" data-aos-anchor="#circle-trigger">
-              <div class="home__circle-feature" data-aos="example-anim3" data-aos-duration="1500" data-aos-anchor="#circle-trigger">
+            
+              <div class="home__circle-feature">
             <?php
               /** Get Circle Feature Variables */
               $circle_heading = get_sub_field('circle_heading');
@@ -392,25 +391,26 @@ get_header();
               $circle_link = get_sub_field('circle_link');
               $circle_image = get_sub_field('circle_image');
             ?>
+                <div class="home__circle-feature-head">
+                  <?php if($circle_image): ?>
+                    <img class="home__circle-feature-image" src="<?= esc_attr($circle_image['url']); ?>" alt="<?= esc_attr($circle_image['alt']); ?>">
+                  <?php endif; ?>
 
-            <?php if($circle_image): ?>
-              <img class="home__circle-feature-image" src="<?= esc_attr($circle_image['url']); ?>" alt="<?= esc_attr($circle_image['alt']); ?>">
-            <?php endif; ?>
+                  <?php if($circle_heading): ?>
+                      <h3><?php echo $circle_heading; ?></h3>
+                  <?php endif; ?>
 
-            <?php if($circle_heading): ?>
-                <h3><?php echo $circle_heading; ?></h3>
-            <?php endif; ?>
-
-            <?php if($circle_detail): ?>
-                <?php echo $circle_detail; ?>
-            <?php endif; ?>
-
-            <?php if($circle_link): ?>
-                <a href="<?php echo $circle_link['url']; ?>" class="button button--secondary"><?php echo $circle_link['title']; ?></a>
-            <?php endif; ?>
+                  <?php if($circle_detail): ?>
+                      <?php echo $circle_detail; ?>
+                  <?php endif; ?>
+                </div>
+                <div class="home__circle-feature-body">
+                  <?php if($circle_link): ?>
+                      <a href="<?php echo $circle_link['url']; ?>" class="button button--secondary"><?php echo $circle_link['title']; ?></a>
+                  <?php endif; ?>
+                </div>
 
               </div>
-            </div>
             <?php endwhile; endif; ?>
       </div>
 
