@@ -1341,13 +1341,13 @@ function custom_top_error_message($message, $form) {
 /**
  * Custom og:image for /?spdirect
  */
-add_filter( 'wpseo_opengraph_image', 'custom_og_image_for_spdirect', 10, 1 );
+add_filter( 'wpseo_opengraph_image', 'custom_og_image_for_spdirect', 99, 1 );
 
 function custom_og_image_for_spdirect( $image ) {
-    // Check if the spdirect parameter exists
+    // Check if the spdirect parameter exists and we're on the front page
     if ( isset( $_GET['spdirect'] ) && is_front_page() ) {
-        // Replace with your custom image URL
-        $image = 'https://sumzim.com/wp-content/uploads/2025/12/og-image-spdirect@2x.webp';
+        // Return the custom image URL
+        return 'https://sumzim.com/wp-content/uploads/2025/12/og-image-spdirect@2x.webp';
     }
     
     return $image;
