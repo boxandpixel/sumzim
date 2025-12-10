@@ -1341,17 +1341,12 @@ function custom_top_error_message($message, $form) {
 /**
  * Custom og:image for /?spdirect
  */
-add_filter( 'wpseo_frontend_presentation', 'custom_og_image_for_spdirect_presentation', 99 );
+add_filter( 'wpseo_opengraph_image', 'custom_og_image_for_spdirect', 1 );
+add_filter( 'wpseo_twitter_image', 'custom_og_image_for_spdirect', 1 );
 
-function custom_og_image_for_spdirect_presentation( $presentation ) {
-    // Check if the spdirect parameter exists and we're on the front page
+function custom_og_image_for_spdirect( $image ) {
     if ( isset( $_GET['spdirect'] ) && is_front_page() ) {
-        $presentation->open_graph_images = [
-            [
-                'url' => 'https://sumzim.com/wp-content/uploads/2025/12/og-image-spdirect@2x.webp',
-            ]
-        ];
+        return 'https://sumzim.com/wp-content/uploads/2025/12/og-image-spdirect@2x.webp';
     }
-    
-    return $presentation;
+    return $image;
 }
