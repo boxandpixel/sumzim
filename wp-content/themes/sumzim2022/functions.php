@@ -1336,3 +1336,19 @@ add_filter('gform_validation_message_10', 'custom_top_error_message', 10, 2);
 function custom_top_error_message($message, $form) {
     return '<div class="validation_error">There is an error on the page. Please check the highlighted fields below.</div>';
 }
+
+
+/**
+ * Custom og:image for /?spdirect
+ */
+add_filter( 'wpseo_opengraph_image', 'custom_og_image_for_spdirect', 10, 1 );
+
+function custom_og_image_for_spdirect( $image ) {
+    // Check if the spdirect parameter exists
+    if ( isset( $_GET['spdirect'] ) && is_front_page() ) {
+        // Replace with your custom image URL
+        $image = 'https://sumzim.com/wp-content/uploads/2025/12/og-image-spdirect@2x.webp';
+    }
+    
+    return $image;
+}
