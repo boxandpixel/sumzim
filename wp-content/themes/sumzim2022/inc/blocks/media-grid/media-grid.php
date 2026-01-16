@@ -7,7 +7,7 @@
 
 <div class="block__media-grid contain">
 	<div class="interior-container">
-		<h1><?php echo $heading ? $heading : ''; ?></h1>
+		<h2><?php echo $heading ? $heading : ''; ?></h2>
 		<?php echo $description ? $description : ''; ?>
 
 		<div class="media-grid">
@@ -23,11 +23,11 @@
 			?>
 			<section class="media-grid-card">
 				<div class="media-grid-item">
-					<?php if($media_type = "Video"): ?>
+					<?php if($media_type == "Video"): ?>
 					<div class="video">
 						<lite-youtube videoid="<?php echo $video_id; ?>" playlabel="Play <?php echo $video_title; ?>"></lite-youtube>
 					</div>
-					<?php elseif($media_Type = "Image"): ?>
+					<?php elseif($media_type == "Image"): ?>
 					<img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>">
 					<?php endif; ?>
 				</div>

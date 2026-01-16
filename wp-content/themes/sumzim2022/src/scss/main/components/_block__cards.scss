@@ -6,7 +6,6 @@
     gap: 36px;
 
     @include breakpoint(medium) {
-
         &.cards-2,
         &.cards-4 {
             grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -15,14 +14,12 @@
         &.cards-3 {
             grid-template-columns: repeat(3, minmax(0, 1fr));
         }
-
     }    
 
     @include breakpoint(xlarge) {
         &.cards-4 {
             grid-template-columns: repeat(4, minmax(0, 1fr));
         }
-
     }
 
     .card {
@@ -30,37 +27,109 @@
         flex-direction: column;
         background: white;
         padding: 0;
-        border-top-left-radius: var(--border-radius);
-        border-top-right-radius: var(--border-radius);
-        color: var(--color--primary);
+        border-radius: var(--border-radius);
+        color: white;
         text-decoration: none;
-        border: solid 1px #ddd;
-
+        overflow: hidden;
         
-        
-        .card-image {
-            aspect-ratio: 16/9;
+        .card-image-wrapper {
+            position: relative;
             width: 100%;
-            background-size: cover;
-            // background-clip: padding-box;            
-            border-top-left-radius: var(--border-radius);
-            border-top-right-radius: var(--border-radius);
-
+            aspect-ratio: 3/4;
+            border-radius: var(--border-radius);
+            overflow: hidden;
         }
 
-        .card-content {
-            padding: 1rem;
+        .card-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.5s ease;
+        }
+
+        .card-gradient {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 60%;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.4) 50%, transparent 100%);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .card-overlay-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 1.5rem;
+            z-index: 2;
+            color: white;
         }
 
         .card-heading {
-            text-decoration: none;
-        }        
+            margin-bottom: 0.5rem;
+
+            h5 {
+                color: white;
+                margin: 0;
+                font-size: 1.5rem;
+                font-weight: 700;
+                text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            }
+        }
 
         .card-description {
+            color: white;
+            margin-bottom: 0.75rem;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+            line-height: 1.4;
+
+            p {
+                margin: 0;
+            }
         }
 
         .card-button {
-            text-align: center;
-        }        
+            .button-text {
+                color: white;
+                font-weight: 600;
+                text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+                display: inline-block;
+            }
+        }
+
+        // Fallback styles for cards without images
+        .card-content {
+            padding: 1.5rem;
+            color: var(--color--primary);
+
+            .card-heading {
+                h5 {
+                    color: var(--color--primary);
+                    text-shadow: none;
+                }
+            }
+
+            .card-description {
+                color: var(--color--primary);
+                text-shadow: none;
+            }
+
+            .card-button {
+                text-align: center;
+                margin-top: 1rem;
+            }
+        }
+    }
+    
+    // Apply scale effect only to anchor cards
+    a.card:hover .card-image {
+        transform: scale(1.1);
     }
 }

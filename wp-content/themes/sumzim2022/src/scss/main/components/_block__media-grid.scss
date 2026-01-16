@@ -76,6 +76,12 @@
 							width: 600px;
 						}
 					}
+
+					img {
+						width: 100%;
+						aspect-ratio: 16 / 9;
+						object-fit: cover;
+					}					
 				}
 				.media-grid-description {
 					margin-top: 12px;

@@ -983,100 +983,134 @@ function backupGeneratorMaintenanceYearly( $content ) {
 // add_filter('wpcf7_autop_or_not', '__return_false');
 
 /** Block: Question & Answer */
-add_action( 'init', 'register_block_question_answer' );
-function register_block_question_answer() {
-    register_block_type( __DIR__ . '/blocks/question-answer/block.json' );
-}
-
-/** Block: List WYSIWYG */
-add_action( 'init', 'register_block_list_wysiwyg' );
-function register_block_list_wysiwyg() {
-    register_block_type( __DIR__ . '/blocks/list-wysiwyg/block.json' );
-}
-
-/** Block: Media Grid */
-add_action( 'init', 'register_block_media_grid' );
-function register_block_media_grid() {
-    register_block_type( __DIR__ . '/blocks/media-grid/block.json' );
-}
-
-// /** Block: FAQs */
-// add_action( 'init', 'register_block_faq' );
-// function register_block_faq() {
-//     register_block_type( __DIR__ . '/blocks/faqs/block.json' );
+// add_action( 'init', 'register_block_question_answer' );
+// function register_block_question_answer() {
+//     register_block_type( __DIR__ . '/blocks/question-answer/block.json' );
 // }
 
-/** Block: CTA Button */
-add_action( 'init', 'register_block_cta_button' );
-function register_block_cta_button() {
-    register_block_type( __DIR__ . '/blocks/cta-button/block.json' );
-}
+/** Block: List WYSIWYG */
+// add_action( 'init', 'register_block_list_wysiwyg' );
+// function register_block_list_wysiwyg() {
+//     register_block_type( __DIR__ . '/blocks/list-wysiwyg/block.json' );
+// }
 
-/** Block: Diagonal Image Callout */
-add_action( 'init', 'register_block_diagonal_image_callout' );
-function register_block_diagonal_image_callout() {
-    register_block_type( __DIR__ . '/blocks/diagonal-image-callout/block.json' );
-}
 
-/** Block: Reviews */
-add_action( 'init', 'register_block_reviews' );
-function register_block_reviews() {
-    register_block_type( __DIR__ . '/blocks/reviews/block.json' );
-}
+/** 
+ * Initialize Blocks
+ */
 
-/** Block: Cards */
-add_action( 'init', 'register_block_cards' );
-function register_block_cards() {
-    register_block_type( __DIR__ . '/blocks/cards/block.json' );
-}
+add_action( 'acf/init', function () {
+	if ( ! function_exists( 'acf_register_block_type' ) ) {
+		return;
+	}
 
-/** Block: Icon List Items */
-add_action( 'init', 'register_block_icon_list_items' );
-function register_block_icon_list_items() {
-    register_block_type( __DIR__ . '/blocks/icon-list-items/block.json' );
-}
+	$blocks = [
+		'cta-button' => [
+			'title'       => __( 'CTA Button', 'psychotherapy' ),
+			'description' => __( 'A section with a simple CTA button.', 'psychotherapy' ),
+			'icon'        => 'format-image',
+		],   
+		'diagonal-image-callout' => [
+			'title'       => __( 'Diagonal Image Callout', 'psychotherapy' ),
+			'description' => __( 'A section with a content area and image.', 'psychotherapy' ),
+			'icon'        => 'format-image',
+		],   	
+		'media-grid' => [
+			'title'       => __( 'Media Grid', 'psychotherapy' ),
+			'description' => __( 'A section with a grid of media items.', 'psychotherapy' ),
+			'icon'        => 'format-image',
+		],  
+		'question-answer' => [
+			'title'       => __( 'Question / Answer ', 'psychotherapy' ),
+			'description' => __( 'A section with QA items.', 'psychotherapy' ),
+			'icon'        => 'format-image',
+		],  	
+		'cards' => [
+			'title'       => __( 'Cards', 'psychotherapy' ),
+			'description' => __( 'A section with cards.', 'psychotherapy' ),
+			'icon'        => 'format-image',
+		], 
+		'icon-list-items' => [
+			'title'       => __( 'Icon List Items', 'psychotherapy' ),
+			'description' => __( 'A section with cards.', 'psychotherapy' ),
+			'icon'        => 'format-image',
+		], 
+		'content-divider' => [
+			'title'       => __( 'Content Divider', 'psychotherapy' ),
+			'description' => __( 'A section with cards.', 'psychotherapy' ),
+			'icon'        => 'format-image',
+		], 
+		'image-section' => [
+			'title'       => __( 'Image Section', 'psychotherapy' ),
+			'description' => __( 'A section with cards.', 'psychotherapy' ),
+			'icon'        => 'format-image',
+		], 
+		'iframe' => [
+			'title'       => __( 'iFrame', 'psychotherapy' ),
+			'description' => __( 'A section with cards.', 'psychotherapy' ),
+			'icon'        => 'format-image',
+		], 
+		'toggle' => [
+			'title'       => __( 'Toggle', 'psychotherapy' ),
+			'description' => __( 'A section with cards.', 'psychotherapy' ),
+			'icon'        => 'format-image',
+		], 
+		'disruptor' => [
+			'title'       => __( 'Disruptor', 'psychotherapy' ),
+			'description' => __( 'A section with cards.', 'psychotherapy' ),
+			'icon'        => 'format-image',
+		], 
+		'icon-callout' => [
+			'title'       => __( 'Icon Callout', 'psychotherapy' ),
+			'description' => __( 'A section with cards.', 'psychotherapy' ),
+			'icon'        => 'format-image',
+		], 
+		'membership-table' => [
+			'title'       => __( 'Membership Table', 'psychotherapy' ),
+			'description' => __( 'A section with cards.', 'psychotherapy' ),
+			'icon'        => 'format-image',
+		],
+		'list-wysiwyg' => [
+			'title'       => __( 'List WYSIWYG', 'psychotherapy' ),
+			'description' => __( 'A section with cards.', 'psychotherapy' ),
+			'icon'        => 'format-image',
+		], 	
+		'featured-articles' => [
+			'title'       => __( 'Featured Articles', 'psychotherapy' ),
+			'description' => __( 'A section with cards.', 'psychotherapy' ),
+			'icon'        => 'format-image',
+		], 	
+		'google-reviews' => [
+			'title'       => __( 'Google Reviews', 'psychotherapy' ),
+			'description' => __( 'A section with reviews.', 'psychotherapy' ),
+			'icon'        => 'format-image',
+		], 	
+		'expandable-cards' => [
+			'title'       => __( 'Expandable Cards', 'psychotherapy' ),
+			'description' => __( 'A section with expandable cards.', 'psychotherapy' ),
+			'icon'        => 'format-image',
+		], 									
+																	 						 				     
+	];
 
-/** Block: Content Divider */
-add_action( 'init', 'register_block_content_divider' );
-function register_block_content_divider() {
-    register_block_type( __DIR__ . '/blocks/content-divider/block.json' );
-}
-
-/** Block: Image Section */
-add_action( 'init', 'register_block_image_section' );
-function register_block_image_section() {
-    register_block_type( __DIR__ . '/blocks/image-section/block.json' );
-}
-
-/** Block: iFrame */
-add_action( 'init', 'register_block_iframe' );
-function register_block_iframe() {
-    register_block_type( __DIR__ . '/blocks/iframe/block.json' );
-}
-
-/** Block: Toggle */
-add_action( 'init', 'register_block_toggle' );
-function register_block_toggle() {
-    register_block_type( __DIR__ . '/blocks/toggle/block.json' );
-}
-
-/** Block: Disruptor */
-add_action( 'init', 'register_block_disruptor' );
-function register_block_disruptor() {
-    register_block_type( __DIR__ . '/blocks/disruptor/block.json' );
-}
-
-/** Block: Icon Callout */
-add_action( 'init', 'register_block_icon_callout' );
-function register_block_icon_callout() {
-    register_block_type( __DIR__ . '/blocks/icon-callout/block.json' );
-}
-
-/** Block: Membership Table */
-add_action( 'init', 'register_block_membership_table' );
-function register_block_membership_table() {
-    register_block_type( __DIR__ . '/blocks/membership-table/block.json' );
-}
+	foreach ( $blocks as $slug => $block ) {
+		acf_register_block_type( [
+			'name'            => $slug,
+			'title'           => $block['title'],
+			'description'     => $block['description'],
+			'render_template' => get_template_directory() . "/inc/blocks/{$slug}/{$slug}.php",
+			'category'        => 'formatting',
+			'icon'            => $block['icon'],
+			'keywords'        => [ $slug ],
+			'mode'            => 'edit',
+			'supports'        => [
+				'align' => [ 'full', 'wide' ],
+				'mode'  => true,
+                'className' => true,
+			],
+		] );
+	}
+} );
 
 /** Add new user role */
 
