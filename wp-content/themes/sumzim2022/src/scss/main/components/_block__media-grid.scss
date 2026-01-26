@@ -1,8 +1,17 @@
+@use '../common/mixins' as *;
+// @use '../abstracts/colors.functions' as *;
+@use '../common/typography.mixins' as *;
+
 .block__media-grid {
 	// background: hsla(211 60.7% 12% / 0.1);
 	display: flex;
 	justify-content: center;
 	// padding: 60px 0;
+	margin-bottom: 60px;
+
+	@include breakpoint(medium) {
+		margin-bottom: 120px;
+	}
 
 	.interior-container {
 		max-width: 100%;
@@ -10,22 +19,25 @@
 		display: flex;
 		justify-content: center;
 		flex-direction: column;
+		@include content-wide;
 
 		@include breakpoint(large) {
 			width: 1200px;
 			max-width: 1200px;
 		}
 
-		h1 {
-			font-family: var(--font);
-			font-weight: 800;
-			font-size: 44px;
-			color: var(--color__primary);
-			text-align: center;
+		h2 {
+			margin-left: 0;
+			@include apply-type(heading-lg);
+			// font-family: var(--font);
+			// font-weight: 800;
+			// font-size: 44px;
+			// color: var(--color__primary);
+			// margin-left: 0;
 
-			@include breakpoint(medium) {
-				font-size: 56px;
-			}
+			// @include breakpoint(medium) {
+			// 	font-size: 56px;
+			// }
 		}
 
 		p {
@@ -70,7 +82,7 @@
 					lite-youtube {
 						max-width: 100%;
 						width: 100%;
-						aspect-ratio: 16 / 9;
+						aspect-ratio: 4 / 3;
 			
 						@include breakpoint(large) {
 							width: 600px;
@@ -79,7 +91,7 @@
 
 					img {
 						width: 100%;
-						aspect-ratio: 16 / 9;
+						aspect-ratio: 4 / 3;
 						object-fit: cover;
 					}					
 				}

@@ -146,9 +146,9 @@ function sumzim_scripts() {
 	// wp_enqueue_style( ' sumzim-style', get_stylesheet_uri(), array(), sumzim_VERSION );
 
 	
-	$rand = rand( 0, 999999999999 );
-	wp_enqueue_style( 'home-styles', get_template_directory_uri() . '/dist/site.css', $rand);
-	wp_enqueue_script( 'site-scripts', get_template_directory_uri() . '/dist/site.js', $rand);
+$rand = rand( 0, 999999999999 );
+wp_enqueue_style( 'home-styles', get_template_directory_uri() . '/dist/site.css', array(), $rand);
+wp_enqueue_script( 'site-scripts', get_template_directory_uri() . '/dist/site.js', array(), $rand, true);
 	
 	wp_style_add_data( ' sumzim-style', 'rtl', 'replace' );
 
@@ -1085,9 +1085,9 @@ add_action( 'acf/init', function () {
 			'description' => __( 'A section with reviews.', 'psychotherapy' ),
 			'icon'        => 'format-image',
 		], 	
-		'expandable-cards' => [
-			'title'       => __( 'Expandable Cards', 'psychotherapy' ),
-			'description' => __( 'A section with expandable cards.', 'psychotherapy' ),
+		'expandable-slider' => [
+			'title'       => __( 'Expandable Slider', 'psychotherapy' ),
+			'description' => __( 'A slider with expandable cards.', 'psychotherapy' ),
 			'icon'        => 'format-image',
 		], 									
 																	 						 				     

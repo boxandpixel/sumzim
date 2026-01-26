@@ -1,4 +1,17 @@
 $typography: (
+  display-xl: (
+    element: "h1",
+    desktop: (size: 64px, line-height: 100%), // Larger than heading-xl
+    mobile:  (size: 52px, line-height: 100%),
+    weight: 700
+  ),
+  eyebrow: (
+    element: ".eyebrow",
+    desktop: (size: 14px, line-height: 150%),
+    mobile:  (size: 12px, line-height: 150%),
+    weight: 700,
+    text-transform: uppercase
+  ),  
   heading-xl: (
     element: "h1",
     desktop: (size: 56px, line-height: 100%), // -2%

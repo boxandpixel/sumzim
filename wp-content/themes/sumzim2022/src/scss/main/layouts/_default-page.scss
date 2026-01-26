@@ -1,5 +1,9 @@
+@use '../common/mixins' as *;
+// @use '../abstracts/colors.functions' as *;
+@use '../common/typography.mixins' as *;
+
 .type-page {
-	padding: 200px 1rem 100px 1rem;
+	padding: 200px 0rem 100px 0rem;
 	// display: flex;
 	// align-items: center;
 	// flex-direction: column;
@@ -11,17 +15,25 @@
 	
 
 	.entry-header {
+		margin-bottom: 60px;
+		color: var(--color__primary--dark);
+
+		@include breakpoint(medium) {
+			margin-bottom: 120px;
+		}
 
 		h1 {
-			font-family: var(--font);
-			color: var(--color__primary--dark);
-			text-align: center;
-			text-wrap: balance;
+			// font-family: var(--font);
+			// color: var(--color__primary--dark);
+			// text-align: center;
+			// text-wrap: balance;
 			
 
-			@include breakpoint(medium) {
-				font-size: 61.04px;
-			}
+			// @include breakpoint(medium) {
+			// 	font-size: 61.04px;
+			// }
+			text-align: center;
+			@include apply-type(display-xl)
 		}	
 	}
 

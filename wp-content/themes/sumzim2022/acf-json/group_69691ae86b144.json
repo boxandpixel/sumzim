@@ -40,6 +40,27 @@
                     "append": ""
                 },
                 {
+                    "key": "field_6977bbcd0b44e",
+                    "label": "Description",
+                    "name": "description",
+                    "aria-label": "",
+                    "type": "wysiwyg",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "allow_in_bindings": 0,
+                    "tabs": "all",
+                    "toolbar": "full",
+                    "media_upload": 1,
+                    "delay": 0
+                },
+                {
                     "key": "field_69691b219dac1",
                     "label": "Filter by Keyword",
                     "name": "filter_keyword",
@@ -104,11 +125,12 @@
                                 "id": ""
                             },
                             "choices": [
-                                "⭐⭐⭐⭐⭐ - John Federoff - \"Summers &amp; Zim did an excellent and professional&hellip;...\"",
-                                "⭐⭐⭐⭐⭐ - Erica McD - \"Office responded to email quickly, got me scheduled&hellip;...\"",
-                                "⭐⭐⭐⭐⭐ - Lori Piazza - \"Gee was a most competent professional explaining how&hellip;...\"",
-                                "⭐⭐⭐⭐⭐ - Bill Donohue - \"As expected It was good. Your man was&hellip;...\" [help]",
-                                "⭐⭐ - Dylan Sczechowicz - \"My oil furnace stopped working for me and&hellip;...\""
+                                "⭐⭐⭐⭐⭐ - John Federoff - \"Summers &amp; Zim did an excellent and professional&hellip;...\" (Google)",
+                                "⭐⭐⭐⭐⭐ - Erica McD - \"Office responded to email quickly, got me scheduled&hellip;...\" (Google)",
+                                "⭐⭐⭐⭐⭐ - Lori Piazza - \"Gee was a most competent professional explaining how&hellip;...\" (Google)",
+                                "⭐⭐⭐⭐⭐ - Bill Donohue - \"As expected It was good. Your man was&hellip;...\" [help] (Google)",
+                                "⭐⭐ - Dylan Sczechowicz - \"My oil furnace stopped working for me and&hellip;...\" (Google)",
+                                "⭐⭐⭐⭐ - Brian G - \"This is a test review...\" (Manual)"
                             ],
                             "default_value": false,
                             "return_format": "value",
@@ -164,5 +186,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1768496341
+    "modified": 1769454554
 }

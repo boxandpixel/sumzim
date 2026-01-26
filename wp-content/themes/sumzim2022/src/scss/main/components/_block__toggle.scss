@@ -1,5 +1,40 @@
+@use '../common/mixins' as *;
+// @use '../abstracts/colors.functions' as *;
+@use '../common/typography.mixins' as *;
+
 .toggle-block {
-    margin: 80px 0;
+    margin-bottom: 60px;
+
+    @include breakpoint(medium) {
+        margin-bottom: 120px;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        @include content-wide;
+
+        @include breakpoint(medium) {
+            gap: 48px;
+        }   
+        
+        .toggle-block__header {
+            .toggle-block__header-heading {
+
+            }
+
+            .toggle-block__header-description {
+                p:last-child {
+                    margin-bottom: 0;
+                }
+            }
+        }
+
+        .toggle-block__body {
+
+        }
+    }
     
     ul {
         margin: 0;
@@ -29,30 +64,26 @@
                     padding: 0 2.5rem 0 0;
                 }
 
-                &:before {
+                .toggle-heading__icon {
                     position: absolute;
                     top: 0;
                     right: 0;
-                    font-family: "Material Symbols Outlined";
-                    
-                    font-variation-settings:
-                    'FILL' 1,
-                    'wght' 300,
-                    'GRAD' 0,
-                    'opsz' 24;
-            
-                    content: '\e7cd';
-                    font-size: 19px;
-                    color: var(--color__primary--dark);
-    
-                    @include breakpoint(medium) {
-                        font-size: 36px;
+                    transform: rotate(180deg);
+                    @include button-chevron--md(var(--color__primary--dark), white);
+
+                    & {
+                        position: absolute;
                     }
-                } 
+                }
                 
                 &.expand {
-                    &:before {
-                        content: '\f5d2';
+                    .toggle-heading__icon {
+                        transform: rotate(0deg);
+                        @include button-chevron--md(var(--color__secondary), var(--color__primary--dark));
+
+                        & {
+                            position: absolute;
+                        }
                     }
                 }                
             }

@@ -26,6 +26,16 @@
   }
 }
 
+
+@mixin icon-font-loader {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    
+    .fonts-loaded & {
+        opacity: 1;
+    }
+}
+
 @mixin content-wide {
     & {
         width: auto;
@@ -33,7 +43,7 @@
         padding-right: 24px;
     }
     
-    @include breakpoint(tablet) {
+    @include breakpoint(medium) {
         // width: calc(1223px + 48px);
         // max-width: 100%;
         width: 1223px; // content width only
@@ -44,15 +54,59 @@
 }
 
 @mixin button-expand--lg($fillColor, $strokeColor) {
-    transition: background-image 0.3s ease;
-    background-image: url('data:image/svg+xml,%3Csvg width="51" height="51" viewBox="0 0 51 51" fill="none" xmlns="http://www.w3.org/2000/svg"%3E%3Crect x="0.810547" y="0.84375" width="49.9798" height="49.9798" rx="24.9899" fill="#{$fillColor}"/%3E%3Cpath d="M34.0807 25.3965H19.6426" stroke="#{$strokeColor}" stroke-width="1.56187"/%3E%3Cpath d="M26.8613 18.1771V32.6152" stroke="#{$strokeColor}" stroke-width="1.56187"/%3E%3C/svg%3E%0A');
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
-    background-color: transparent;
+    // position: relative;
+    background-color: $fillColor;
     border: none;
+    border-radius: 50%;
     width: 50px;
     height: 50px;
+    transition: background-color 0.3s ease;
+    
+    &::before {
+        content: '\f830';
+        font-family: 'Material Symbols Outlined';
+        font-size: 24px;
+        font-variation-settings:
+          'FILL' 1,
+          'wght' 200,
+          'GRAD' 0,
+          'opsz' 24;        
+        color: $strokeColor;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-indent: 0;
+        @include icon-font-loader;
+    }
+}
+
+@mixin button-collapse--lg($fillColor, $strokeColor) {
+    // position: relative;
+    background-color: $fillColor;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    transition: background-color 0.3s ease;
+    
+    &::before {
+        content: '\f507';
+        font-family: 'Material Symbols Outlined';
+        font-size: 24px;
+        font-variation-settings:
+          'FILL' 1,
+          'wght' 200,
+          'GRAD' 0,
+          'opsz' 24;        
+        color: $strokeColor;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-indent: 0;
+        @include icon-font-loader;
+    }
 }
 
 @mixin button-close--lg($fillColor, $strokeColor) {
@@ -65,4 +119,58 @@
     border: none;
     width: 50px;
     height: 50px;
+}
+
+@mixin button-arrow--lg($fillColor, $strokeColor) {
+    position: relative;
+    background-color: $fillColor;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    transition: background-color 0.3s ease;
+    
+    &::before {
+        content: '\e5c8'; // arrow_forward code point
+        font-family: 'Material Symbols Outlined';
+        font-size: 24px;
+        font-variation-settings:
+          'FILL' 1,
+          'wght' 200,
+          'GRAD' 0,
+          'opsz' 24;        
+        color: $strokeColor;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        @include icon-font-loader;
+    }
+}
+
+@mixin button-chevron--md($fillColor, $strokeColor) {
+    position: relative;
+    background-color: $fillColor;
+    border: none;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    transition: background-color 0.3s ease;
+    
+    &::before {
+        content: '\e316'; // arrow_forward code point
+        font-family: 'Material Symbols Outlined';
+        font-size: 18px;
+        font-variation-settings:
+          'FILL' 1,
+          'wght' 200,
+          'GRAD' 0,
+          'opsz' 24;        
+        color: $strokeColor;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        @include icon-font-loader;
+    }
 }

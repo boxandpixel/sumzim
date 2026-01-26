@@ -1,11 +1,11 @@
 {
-    "key": "group_68c44ea61df8d",
-    "title": "Expandable Slider",
+    "key": "group_67aba763ccc18",
+    "title": "Block - Cards",
     "fields": [
         {
-            "key": "field_68c44ea61e6ca",
-            "label": "Expandable Slider",
-            "name": "expandable_slider",
+            "key": "field_67aba7648fd99",
+            "label": "Cards",
+            "name": "cards",
             "aria-label": "",
             "type": "group",
             "instructions": "",
@@ -19,7 +19,7 @@
             "layout": "block",
             "sub_fields": [
                 {
-                    "key": "field_6977a6caf7a74",
+                    "key": "field_6977b4c339009",
                     "label": "Heading",
                     "name": "heading",
                     "aria-label": "",
@@ -40,7 +40,7 @@
                     "append": ""
                 },
                 {
-                    "key": "field_6977a6d3f7a75",
+                    "key": "field_6977b4cc3900a",
                     "label": "Description",
                     "name": "description",
                     "aria-label": "",
@@ -61,9 +61,9 @@
                     "delay": 0
                 },
                 {
-                    "key": "field_68c44ea61ec4c",
-                    "label": "Cards",
-                    "name": "cards",
+                    "key": "field_67aba8c1496a7",
+                    "label": "Cards Set",
+                    "name": "cards_set",
                     "aria-label": "",
                     "type": "repeater",
                     "instructions": "",
@@ -74,7 +74,7 @@
                         "class": "",
                         "id": ""
                     },
-                    "layout": "block",
+                    "layout": "table",
                     "pagination": 0,
                     "min": 0,
                     "max": 0,
@@ -83,9 +83,9 @@
                     "rows_per_page": 20,
                     "sub_fields": [
                         {
-                            "key": "field_68c8222cc7a8a",
-                            "label": "Image",
-                            "name": "image",
+                            "key": "field_67aba8dd496a9",
+                            "label": "Card Image",
+                            "name": "card_image",
                             "aria-label": "",
                             "type": "image",
                             "instructions": "",
@@ -107,14 +107,14 @@
                             "mime_types": "",
                             "allow_in_bindings": 0,
                             "preview_size": "medium",
-                            "parent_repeater": "field_68c44ea61ec4c"
+                            "parent_repeater": "field_67aba8c1496a7"
                         },
                         {
-                            "key": "field_68c44eef25b22",
-                            "label": "Heading",
-                            "name": "heading",
+                            "key": "field_67aba8d6496a8",
+                            "label": "Card Heading",
+                            "name": "card_heading",
                             "aria-label": "",
-                            "type": "textarea",
+                            "type": "text",
                             "instructions": "",
                             "required": 0,
                             "conditional_logic": 0,
@@ -126,15 +126,15 @@
                             "default_value": "",
                             "maxlength": "",
                             "allow_in_bindings": 0,
-                            "rows": "",
                             "placeholder": "",
-                            "new_lines": "",
-                            "parent_repeater": "field_68c44ea61ec4c"
+                            "prepend": "",
+                            "append": "",
+                            "parent_repeater": "field_67aba8c1496a7"
                         },
                         {
-                            "key": "field_68c821cbc7a85",
-                            "label": "Description",
-                            "name": "description",
+                            "key": "field_67aba8e3496aa",
+                            "label": "Card Description",
+                            "name": "card_description",
                             "aria-label": "",
                             "type": "wysiwyg",
                             "instructions": "",
@@ -151,12 +151,12 @@
                             "toolbar": "full",
                             "media_upload": 1,
                             "delay": 0,
-                            "parent_repeater": "field_68c44ea61ec4c"
+                            "parent_repeater": "field_67aba8c1496a7"
                         },
                         {
-                            "key": "field_68c821d7c7a86",
-                            "label": "Link",
-                            "name": "link",
+                            "key": "field_67aba8f3496ab",
+                            "label": "Card Button",
+                            "name": "card_button",
                             "aria-label": "",
                             "type": "link",
                             "instructions": "",
@@ -169,7 +169,7 @@
                             },
                             "return_format": "array",
                             "allow_in_bindings": 0,
-                            "parent_repeater": "field_68c44ea61ec4c"
+                            "parent_repeater": "field_67aba8c1496a7"
                         }
                     ]
                 }
@@ -181,7 +181,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "acf\/expandable-slider"
+                "value": "acf\/cards"
             }
         ]
     ],
@@ -194,5 +194,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1769449311
+    "modified": 1769453695
 }

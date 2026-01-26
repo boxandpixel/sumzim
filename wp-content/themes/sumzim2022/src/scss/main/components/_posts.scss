@@ -18,7 +18,7 @@
         }
 
         
-        @include apply-type(heading-lg);        
+        @include apply-type(heading-xl);        
       }
     }
 
@@ -49,7 +49,7 @@
         margin: 0 0 1rem 0;
         text-wrap: balance;
 
-        @include apply-type(heading-xl);
+        @include apply-type(display-xl);
 
         @include breakpoint(medium) {
 			color: var(--color__primary--dark);
