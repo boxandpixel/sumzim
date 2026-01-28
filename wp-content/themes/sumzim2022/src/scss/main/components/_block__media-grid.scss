@@ -29,15 +29,6 @@
 		h2 {
 			margin-left: 0;
 			@include apply-type(heading-lg);
-			// font-family: var(--font);
-			// font-weight: 800;
-			// font-size: 44px;
-			// color: var(--color__primary);
-			// margin-left: 0;
-
-			// @include breakpoint(medium) {
-			// 	font-size: 56px;
-			// }
 		}
 
 		p {
@@ -67,52 +58,108 @@
 				column-gap: 30px;
 				row-gap: 60px;				
 			}
+
 			.media-grid-card {
-				background: white;
-				padding: 1rem;
+				display: flex;
+				flex-direction: column;
+				padding: 0;
+				// border-radius: var(--border-radius);
+				overflow: hidden;
+				position: relative;
 
 				.media-grid-item {
+					position: relative;
+					width: 100%;
+					aspect-ratio: 4 / 3;
+					// border-radius: var(--border-radius);
+					border-radius: 24px;
+					overflow: hidden;
+
 					.video {
-						max-width: 100%;
+						position: absolute;
+						top: 0;
+						left: 0;
+						width: 100%;
+						height: 100%;
 						display: flex;
 						flex-direction: column;
 						align-items: center;
 					}
 			
 					lite-youtube {
-						max-width: 100%;
+						position: absolute;
+						top: 0;
+						left: 0;
 						width: 100%;
-						aspect-ratio: 4 / 3;
-			
-						@include breakpoint(large) {
-							width: 600px;
-						}
+						height: 100%;
+						max-width: 100%;
+						transition: transform 0.5s ease;
 					}
 
 					img {
+						position: absolute;
+						top: 0;
+						left: 0;
 						width: 100%;
-						aspect-ratio: 4 / 3;
+						height: 100%;
 						object-fit: cover;
-					}					
-				}
-				.media-grid-description {
-					margin-top: 12px;
-
-					@include breakpoint(medium) {
-						margin-top: 1rem;
+						transition: transform 0.5s ease;
 					}
+
+					// Gradient overlay
+					&::after {
+						content: '';
+						position: absolute;
+						bottom: 0;
+						left: 0;
+						width: 100%;
+						height: 60%;
+						// background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.7) 50%, transparent 100%);
+						pointer-events: none;
+						z-index: 1;
+						transition: opacity 0.3s ease;
+					}
+
+					// Hide gradient when video is playing
+					&:has(lite-youtube.lyt-activated)::after {
+						opacity: 0;
+					}	
+					
+					// Hide description when video is playing
+					&:has(.media-grid-item lite-youtube.lyt-activated) .media-grid-description {
+						opacity: 0;
+						pointer-events: none;
+					}						
+				}
+
+				.media-grid-description {
+					// position: absolute;
+					// bottom: 0;
+					// left: 0;
+					width: 100%;
+					margin-top: .5rem;
 					
 					& > * {
 						text-align: left;
 					}
 
-					p {
-						font-size: 16px;
-						color: var(--color__primary);
-						margin-bottom: 0;
-
+					.media-grid-description__title {
+						color: var(--color__primary--dark);
+						@include apply-type(heading-xxs);
 					}
 				}
+
+			
+
+				// Hover effect for scaling media
+				// &:hover {
+				// 	.media-grid-item {
+				// 		img,
+				// 		lite-youtube {
+				// 			transform: scale(1.1);
+				// 		}
+				// 	}
+				// }
 			}
 		}
 	}

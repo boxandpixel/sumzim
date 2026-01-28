@@ -32,8 +32,8 @@
 					<?php endif; ?>
 				</div>
 				<div class="media-grid-description">
-					<?php echo $video_title ? '<h6>' . $video_title . '</h6>' : ''; ?>
-					<?php echo $video_subtitle ? '<p>' . $video_subtitle . '</p>' : ''; ?>
+					<?php echo $video_title ? '<h4 class="media-grid-description__title">' . $video_title . '</h4>' : ''; ?>
+					<?php //echo $video_subtitle ? '<p>' . $video_subtitle . '</p>' : ''; ?>
 				</div>
 			</section>
 			<?php endforeach; ?>

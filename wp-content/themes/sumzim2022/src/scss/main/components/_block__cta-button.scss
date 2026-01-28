@@ -1,24 +1,28 @@
 
-.cta-button-section {
-
-	text-align: center;
-	margin-bottom: 30px;
-
-	&.cta-button-has-content {
-		padding: 1.5rem 0;
-		background: var(--color__neutral--very-light);
-	}
-
-	p {
-		&:last-child {
-			margin-bottom: 0;
-		}
-	}
-}
 
 .cta-button {
-	display: flex;
-	justify-content: center;
+	margin-bottom: 60px;
+
+	@include breakpoint(medium) {
+		margin-bottom: 120px;
+	}
+
+	.container {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        @include content-wide;
+
+        @include breakpoint(medium) {
+            gap: 48px;
+        }		
+	}
+
+	&__link,
+	&__book-now {
+		display: flex;
+		justify-content: center;
+	}
 
 	a,button {
 		display: inline-flex;
@@ -36,48 +40,11 @@
 		border-radius: 999px;
 		border: none;
 		position: relative;
-		cursor: pointer;
-	  
-	  
-		// &:hover {
-		//   background: hsla(0, 100%, 100%, 1);
-	  
-		//   &::after {
-		// 	left: 0;
-		// 	width: 100%;
-		//   }
-		// }	
+		cursor: pointer;	
 		
 		&.cta-button--primary {
 			background: var(--color__primary--dark); // 20220929 color__primarys
 			color: white;
-		}
-		
-		&.cta-button--secondary {
-			background: var(--color__secondary);
-			color: black;
-		
-			&::after {
-				background: var(--color__secondary--dark);
-			}
-		}
-
-		&.cta-button--gradient {
-			background: linear-gradient(
-				130deg,
-				var(--color__secondary),
-				var(--color__attention)
-			  );
-			  background-size: 200% 200%;
-			  animation: navAnimation 5s ease infinite;
-			  color: white;
-			  display: flex;
-			  height: 100%;
-			  justify-content: center;
-		  
-			  &::after {
-				background: var(--color__attention);
-			  }			
 		}
 	}
 }

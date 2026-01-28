@@ -1,11 +1,43 @@
 .featured-articles {
   background-color: var(--color__neutral--very-light);
   position: relative; 
-  padding-top: 3rem;
-  padding-bottom: 4rem;
+  margin-bottom: 60px;
   display: flex;
   flex-direction: column;
   gap: 30px;
+  padding: 80px 0;
+
+  @include breakpoint(medium) {
+    margin-bottom: 120px;
+  }
+
+  .container {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      @include content-wide;
+
+      @include breakpoint(medium) {
+          gap: 48px;
+      }    
+
+      .featured-articles__header {
+        text-align: center;
+        .featured-articles__header-heading {
+          @include apply-type(heading-lg);
+        }
+
+        .featured-articles__header-description {
+          p {
+            @include apply-type(body);
+
+            &:last-child {
+              margin-bottom: 0;
+            }
+          }
+        }
+      }
+  }
 
   .featured-articles__grid {
     display: grid;

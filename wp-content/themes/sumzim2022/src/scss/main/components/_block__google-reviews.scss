@@ -22,6 +22,7 @@
         }  
         
         .google-reviews__header {
+            text-align: center;
 
             .google-reviews__header-heading {
                 @include apply-type(heading-lg);

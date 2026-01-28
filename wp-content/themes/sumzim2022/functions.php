@@ -1089,7 +1089,12 @@ add_action( 'acf/init', function () {
 			'title'       => __( 'Expandable Slider', 'psychotherapy' ),
 			'description' => __( 'A slider with expandable cards.', 'psychotherapy' ),
 			'icon'        => 'format-image',
-		], 									
+		], 	
+		'comparison-table' => [
+			'title'       => __( 'Comparison Table', 'psychotherapy' ),
+			'description' => __( 'A table with rows and columns.', 'psychotherapy' ),
+			'icon'        => 'format-image',
+		], 											
 																	 						 				     
 	];
 

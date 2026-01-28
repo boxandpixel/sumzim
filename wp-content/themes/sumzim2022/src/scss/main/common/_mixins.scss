@@ -174,3 +174,30 @@
         @include icon-font-loader;
     }
 }
+
+@mixin button-check--sm($fillColor, $strokeColor) {
+    position: relative;
+    background-color: $fillColor;
+    border: none;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    transition: background-color 0.3s ease;
+    
+    &::before {
+        content: '\e5ca'; // arrow_forward code point
+        font-family: 'Material Symbols Outlined';
+        font-size: 16px;
+        font-variation-settings:
+          'FILL' 1,
+          'wght' 200,
+          'GRAD' 0,
+          'opsz' 24;        
+        color: $strokeColor;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        @include icon-font-loader;
+    }
+}

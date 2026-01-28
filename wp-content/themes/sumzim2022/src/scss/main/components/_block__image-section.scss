@@ -1,28 +1,88 @@
-.image-section-block {
-    margin: 80px 0;
-
-    display: grid;
-    grid-template-columns: repeat(1, minmax(0, 1fr));
-    gap: 36px;
-
+.image-section {
+    margin-bottom: 60px;
 
     @include breakpoint(medium) {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+        margin-bottom: 120px;
     }
 
-    figure {
+    .container {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        @include content-wide;
 
-        img {
-            margin-bottom: .5rem;
+        @include breakpoint(medium) {
+            gap: 48px;
         }
-        figcaption {
-            font-size: 13.3px; 
-            font-style: italic;
-            
+
+        .image-section__container {
+            text-decoration: none;
+            color: initial;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            &:has(.image-section__content) {
+                gap: 36px;
+                
+                @include breakpoint(medium) {
+                    flex-direction: row;
+                    gap: 60px;
+                   
+                }
+
+                // When content is present, make image 50% width
+                .image-section__image {
+                    @include breakpoint(medium) {
+                        flex: 0 0 50%;
+                        max-width: 50%;
+                    }
+                }
+
+                // Make content take remaining space
+                .image-section__content {
+                    @include breakpoint(medium) {
+                        flex: 1;
+                    }
+                }
+            }
+        }
+        
+        .image-section__image {
+            figure {
+                max-width: 800px; // Default: 800px when no content
+                width: 100%; // Ensure figure fills its container
+
+                img {
+                    width: 100%; // Image fills the figure
+                    height: auto;
+                    margin-bottom: .5rem;
+                    border-radius: 30px;
+                }
+                
+                figcaption {
+                    font-size: 13.3px; 
+                    font-style: italic;
+                    
+                    @include breakpoint(medium) {
+                        font-size: 12.8px;
+                    }
+                }
+            }
+        }
+
+        .image-section__content {
             @include breakpoint(medium) {
-                font-size: 12.8px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+
+            .image-section__content-header {
+                .image-section__content-heading {
+                    @include apply-type(heading-md);
+                }
             }
         }
     }
-
 }
