@@ -3,7 +3,7 @@
 @use '../common/typography.mixins' as *;
 
 .google-reviews {
-    background-color: #e8e8e8;
+    background: linear-gradient(180deg, rgba(12, 30, 49, 0) 0%, #dde4eb 100%);
     padding: 4rem 0;
     margin-bottom: 60px;
 
