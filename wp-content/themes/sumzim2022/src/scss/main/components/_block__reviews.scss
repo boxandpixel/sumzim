@@ -25,7 +25,8 @@
 
         .review-item {
             background: white;
-            border-radius: 7px;
+            // border-radius: 7px;
+            border-radius: var(--border-radius);
             margin-bottom: 0;
             box-shadow: 4px 4px 4px 0px rgba(204,204,204,0.7);
 
