@@ -495,8 +495,9 @@ header.site-header {
 	  .header__social {
 		color: white;
 		font-size: 20px;
-		align-items: center;
 		display: flex;
+		gap: 16px;
+		justify-content: space-between;		
 		align-items: center;
 
 		&.header__social--scroll {
@@ -505,14 +506,28 @@ header.site-header {
 
 		a {
 			display: flex;
-		}
 
-		svg {
-			aspect-ratio: 512 / 143;
-			width: 80px;
+
+			&:nth-child(1) {
+				svg {
+					aspect-ratio: 512 / 143;
+					width: 80px;
+					
+					@include breakpoint(large) {
+						width: 160px;
+					}
+				}
+			}
+
+			&:nth-child(2) {
+				svg {
+					aspect-ratio: 1 / 1;
+					width: 22px;
 			
-			@include breakpoint(large) {
-				width: 160px;
+					@include breakpoint(large) {
+						width: 45px;
+					}
+				}
 			}
 		}
 
