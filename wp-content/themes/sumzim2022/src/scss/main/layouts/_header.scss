@@ -496,9 +496,16 @@ header.site-header {
 		color: white;
 		font-size: 20px;
 		display: flex;
-		gap: 16px;
+		gap: 8px;
 		justify-content: space-between;		
 		align-items: center;
+		margin-top: 8px;
+		margin-right: -8px;
+
+		@include breakpoint(large) {
+			margin-right: unset;
+			margin-top: 0;
+		}
 
 		&.header__social--scroll {
 			display: none;
@@ -508,25 +515,15 @@ header.site-header {
 			display: flex;
 
 
-			&:nth-child(1) {
-				svg {
-					aspect-ratio: 512 / 143;
-					width: 80px;
-					
-					@include breakpoint(large) {
-						width: 160px;
-					}
-				}
-			}
 
-			&:nth-child(2) {
-				svg {
-					aspect-ratio: 1 / 1;
-					width: 22px;
-			
-					@include breakpoint(large) {
-						width: 45px;
-					}
+
+			svg {
+				aspect-ratio: 1 / 1;
+				// width: 22px;
+				width: 36px;
+		
+				@include breakpoint(large) {
+					width: 48px;
 				}
 			}
 		}
