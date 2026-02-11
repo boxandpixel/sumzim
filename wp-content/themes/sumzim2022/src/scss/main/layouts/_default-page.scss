@@ -51,7 +51,14 @@
 
 		/** Figure this out */
 
-		& > p,h2,h3,h4,h5,h6,ul,ol {
+		& > p,
+		& > h2,
+		& > h3,
+		& > h4,
+		& > h5,
+		& > h6,
+		& > ul,
+		& > ol {
 			// width: 1200px;
 			max-width: 1200px;
 			margin-left: auto;
@@ -71,40 +78,60 @@
 			color: var(--color__primary--dark);
 			margin-bottom: 8px;
 
-			@include apply-type(heading-md);
+			// @include apply-type(heading-md);
 		}	
+
+		& > h2 {
+			@include apply-type(heading-md);
+		}
 		
 		h3 {
 			font-family: var(--font);
 			color: var(--color__primary--dark);
 			margin-bottom: 8px;
 
+			// @include apply-type(heading-xs);
+		}	
+		
+		& > h3 {
 			@include apply-type(heading-xs);
-		}			
+		}		
 
 		h4 {
 			font-family: var(--font);
 			color: var(--color__primary--dark);
 			margin-bottom: 8px;
 
-			@include apply-type(heading-sm);
+			// @include apply-type(heading-sm);
 		}	
+
+		& > h4 {
+			@include apply-type(heading-sm);
+		}		
 		
 		h5 {
 			font-family: var(--font);
 			color: var(--color__primary--dark);
 			margin-bottom: 8px;
 
-			@include apply-type(heading-xs);
+			// @include apply-type(heading-xs);
 		}	
+
+		& > h5 {
+			@include apply-type(heading-xs);
+		}		
 		
 		h6 {
 			font-family: var(--font);
 			color: var(--color__primary--dark);
 			margin-bottom: 8px;
 
-			@include apply-type(heading-xxs);
+			// @include apply-type(heading-xxs);
 		}	
+
+		& > h6 {
+			@include apply-type(heading-xxs);
+		}		
 		
 		.contain {
 			@include breakpoint(xlarge){

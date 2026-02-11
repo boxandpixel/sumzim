@@ -1,12 +1,11 @@
 .diagonal-image-callout {
-    margin: 80px 1rem;
+    margin: 80px 0;
     background-size: 0%;
     background-position: none;
     display: flex;
     flex-direction: column;
 
     @include breakpoint(large) {
-        margin: 80px 0;
         height: 360px;
         background-position: center right;
         background-size: 70%;
@@ -18,7 +17,7 @@
         content: "";
         display: block;
         width: 100%;
-        height: 300px; // Adjust as needed
+        height: 300px;
         background-image: inherit;
         background-size: cover;
         background-position: center;
@@ -29,25 +28,31 @@
         }
     }
 
-    .diagonal-content-container {
-        padding: 40px 20px 40px 30px;
-        background: var(--color__secondary);
-        display: flex;
-        justify-content: center;
-        position: relative;
-        z-index: 0;
-        width: 100%;
-        text-align: center;
-        order: 1;
+.diagonal-content-container {
+    padding: 40px 24px;
+    background: var(--color__secondary);
+    display: flex;
+    justify-content: center;
+    position: relative;
+    z-index: 0;
+    width: 100%;
+    text-align: center;
+    order: 1;
 
-        @include breakpoint(large) {
-            padding: 10px 20px 10px 30px;
-            height: 100%;
-            width: 40%;
-            justify-content: flex-end;
-            transform: none;
-        }
+    @include breakpoint(medium) {
+        padding-left: max(48px, calc((100% - 1223px) / 2 + 24px));
+        padding-right: 24px;
+        justify-content: flex-start;
     }
+
+    @include breakpoint(large) {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        height: 100%;
+        width: 40%;
+        transform: none;
+    }
+}
     
     .diagonal-content-container::after {
         content: "";
@@ -75,6 +80,12 @@
         align-items: center;
         flex-direction: column;
         height: fit-content;
+        max-width: 1223px;
+
+        @include breakpoint(medium) {
+            align-items: flex-start;
+            text-align: left;
+        }
 
         @include breakpoint(large) {
             transform: none;

@@ -1,0 +1,75 @@
+@use '../common/mixins' as *;
+@use '../common/typography.mixins' as *;
+
+.brands-list {
+    margin-bottom: 60px;
+
+    @include breakpoint(medium) {
+        margin-bottom: 120px;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        @include content-wide;
+
+        @include breakpoint(medium) {
+            gap: 48px;
+        }
+    }
+
+    &__header {
+        text-align: center;
+
+        &-heading {
+            @include apply-type(heading-lg);
+            margin-bottom: 16px;
+        }
+
+        &-description {
+            @include apply-type(body);
+            max-width: 700px;
+            margin: 0 auto;
+            
+            p:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    &__grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 40px;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+.brand-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 auto;
+
+    &__image-wrapper {
+        width: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        @include breakpoint(medium) {
+            width: 100px;
+        }
+
+        @include breakpoint(large) {
+            width: 120px;
+        }
+    }
+
+    &__image {
+        width: 100%;
+        height: auto;
+    }
+}

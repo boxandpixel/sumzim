@@ -1094,7 +1094,27 @@ add_action( 'acf/init', function () {
 			'title'       => __( 'Comparison Table', 'psychotherapy' ),
 			'description' => __( 'A table with rows and columns.', 'psychotherapy' ),
 			'icon'        => 'format-image',
-		], 											
+		], 	
+		'flip-cards' => [
+			'title'       => __( 'Flip Cards', 'psychotherapy' ),
+			'description' => __( 'A section with cards that have content on the back.', 'psychotherapy' ),
+			'icon'        => 'format-image',
+		], 
+		'featured-staff' => [
+			'title'       => __( 'Featured Staff', 'psychotherapy' ),
+			'description' => __( 'A section with cards that have content on the back.', 'psychotherapy' ),
+			'icon'        => 'format-image',
+		], 	
+		'staff-slider' => [
+			'title'       => __( 'Staff Slider', 'psychotherapy' ),
+			'description' => __( 'A section with cards that have content on the back.', 'psychotherapy' ),
+			'icon'        => 'format-image',
+		], 		
+		'brands-list' => [
+			'title'       => __( 'Brands List', 'psychotherapy' ),
+			'description' => __( 'A section with cards that have content on the back.', 'psychotherapy' ),
+			'icon'        => 'format-image',
+		], 																			
 																	 						 				     
 	];
 

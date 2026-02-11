@@ -1,0 +1,179 @@
+@use '../common/mixins' as *;
+@use '../common/typography.mixins' as *;
+
+.staff-slider {
+    margin-bottom: 60px;
+
+    @include breakpoint(medium) {
+        margin-bottom: 120px;
+    }
+
+    .container {
+        @include content-wide;
+    }
+
+    &__header {
+        margin-bottom: 48px;
+        text-align: center;
+
+        &-heading {
+            @include apply-type(heading-lg);
+            margin-bottom: 16px;
+        }
+
+        &-description {
+            @include apply-type(body);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+    }
+
+    &__wrapper {
+        position: relative;
+        margin-bottom: 48px;
+    }
+
+    &__nav {
+        display: flex;
+        gap: 16px;
+        justify-content: center;
+        margin-top: 32px;
+    }
+
+    &__prev,
+    &__next {
+        
+        &.swiper-button-disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+    }
+
+    &__prev {
+        font-size: 0;
+        transform: rotate(-90deg);
+        @include button-chevron--md(var(--color__primary--dark), white);
+    }
+
+    &__next {
+        font-size: 0;transform: rotate(90deg);
+        @include button-chevron--md(var(--color__primary--dark), white);
+    }
+
+    &__cta {
+        text-align: center;
+    }
+}
+
+// Staff card styles (reused from featured-staff)
+.staff-slider {
+    .staff-card {
+        display: block;
+        text-decoration: none;
+        color: inherit;
+        aspect-ratio: 3 / 4;
+
+        // Remove the hover transform from here
+        // &:hover {
+        //     transform: translateY(-4px);
+        // }
+
+        &__image-wrapper {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            border-radius: 4px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        // Add the hover transform here instead
+        &:hover &__image-wrapper {
+            transform: translateY(-4px);
+        }
+
+        &__image {
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.3s ease;
+        }
+
+        &:hover &__image {
+            transform: scale(1.1);
+        }
+
+        &__gradient {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                180deg,
+                rgba(0, 0, 0, 0) 40%,
+                rgba(0, 0, 0, 0.7) 100%
+            );
+            z-index: 1;
+        }
+
+        &__overlay-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 20px;
+            padding-bottom: 20px;
+            z-index: 2;
+            color: white;
+            
+            @include breakpoint(large) {
+                transition: transform 0.3s ease;
+            }
+        }
+
+        &__name {
+            margin-bottom: 4px;
+            
+            @include breakpoint(large) {
+                margin-bottom: 0;
+                transition: margin-bottom 0.3s ease;
+            }
+
+            h5 {
+                @include apply-type(heading-xxs);
+                color: white;
+                margin: 0;
+            }
+        }
+
+        &__title {
+            opacity: 0.9;
+            @include apply-type(small);
+
+            @include breakpoint(large) {
+                opacity: 0;
+                max-height: 0;
+                overflow: hidden;
+                transition: opacity 0.3s ease, max-height 0.3s ease;
+            }
+        }
+
+        &:hover &__overlay-content {
+            @include breakpoint(large) {
+                transform: translateY(-100%);
+            }
+        }
+
+        &:hover &__title {
+            @include breakpoint(large) {
+                opacity: 0.9;
+                max-height: 100px;
+            }    
+        }
+
+        &:hover &__name {
+            @include breakpoint(large) {
+                margin-bottom: 4px;
+            }
+        }
+    }
+}
