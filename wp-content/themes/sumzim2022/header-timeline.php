@@ -248,9 +248,52 @@
 
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'sumzim' ); ?></a>
+	<?php
+		$show_alert = get_field('show_alert', 'option');
+		$alert_message = get_field('alert_message', 'option');
+		$alert_link = get_field('alert_link', 'option');
 
+		if($show_alert): ?> 
+		
+		<div class="alert">
+		<?php if($alert_message): ?>
+		<?php echo $alert_message; ?>
+		<?php endif; ?>
+		<?php if($alert_link): ?>
+			<a href="<?php echo $alert_link['url']; ?>" class="button button--attention"><?php echo $alert_link['title']; ?></a>
+		<?php endif; ?>
+		
+			<button class="alert__button-close">
+				<span>Close</span>
+				<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
+				<path d="M0 0h24v24H0z" fill="none"/>
+				<path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
+				</svg>
+			</button>
+		</div>
+		<?php endif; ?>
 
+		<?php 
+			$date = time();
 
+			$contestStart = strtotime('2024-04-24 11:00:00');
+
+			if ($date > $contestStart):
+		?>
+		<div class="header__status">
+			<p class="header__status-message" id="statusAll"></p>
+			<div class="utility-menu">
+			<?php
+					wp_nav_menu(
+						array('menu' => 'utility-menu')
+					);
+					?>				
+			</div>
+		</div>
+		<div class="header__mobile-call">
+			<h2>Call us 24/7 at <a href="tel:6105935129" id="sa-click-to-call">610-593-5129</a></h2>
+		</div>
+		<?php endif; ?>
 		<header class="site-header">
 		<button class="header__nav-button" aria-haspopup="true" aria-controls="menu-primary-navigation" aria-expanded="false">
 			<span class="header__nav-button-span">Menu</span>
@@ -271,6 +314,7 @@
 			$logo = get_field('logo', 'options');
 			$logo_min = get_field('logo_minified', 'options');
 			$badge = get_field('years_of_experience', 'options');
+			$social_icons = get_field('social_icons', 'options') ?? [];
 
 		?>
 
@@ -333,26 +377,37 @@
 								fetchGoogleReviews();
 							</script>					 
 						</div>
-					</a>				
+					</a>			
+					<?php if($social_icons && !empty($social_icons)): ?>	
 					<div class="header__social">
-						<p>Find us on:</p>
-						<div class="header__social-icons">
-							<a href="https://www.facebook.com/SumZim" target="_blank">
-								<img src="/wp-content/themes/sumzim2022/assets/facebook-logo.svg" alt="Facebook">
-							</a>
-							<a href="https://www.instagram.com/summerszims/" target="_blank">
-								<img src="/wp-content/themes/sumzim2022/assets/instagram-logo.svg" alt="Instagram">
-							</a>
-						</div>
-					</div>					
+						<?php 
+							foreach($social_icons as $item): 
+								$social_icon = $item['social_icon'] ?? [];
+								$social_link = $item['social_link'] ?? [];
+
+								if($social_link): 
+									$social_link_url = $social_link['url'] ?? '';
+									$social_link_target = $social_link['target'] ? $social_link['target'] : '_blank'; 
+								endif;
+						?>
+
+						<a href="<?= $social_link_url; ?>" target="<?= $social_link_target; ?>">
+							<img src="<?= $social_icon['url']; ?>" alt="<?= $social_icon['alt']; ?>">
+						</a>
+						<?php endforeach; ?>						
+					</div>	
+					<?php endif; ?>				
 				</div>
 				<p class="header__call">Call us 24/7 at <a href="tel:+16105935129">(610) 593-5129</a></p>
 
 				<nav class="header__nav">
 					<?php
 					wp_nav_menu(
-						array('menu' => 'primary_navigation')
-					);
+						array(
+							'theme_location' => 'primary-menu',
+							'menu_id'        => 'primary-menu',
+						)
+					);					
 					?>
 				</nav>
 			</div>
