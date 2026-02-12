@@ -23,6 +23,9 @@
         
         .google-reviews__header {
             text-align: center;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
 
             .google-reviews__header-heading {
                 @include apply-type(heading-lg);

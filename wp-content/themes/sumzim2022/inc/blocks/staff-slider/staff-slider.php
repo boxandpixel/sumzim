@@ -160,8 +160,8 @@ $slider_id = 'staff-slider-' . uniqid();
         }
 
         const swiper = new Swiper('.<?= esc_js($slider_id); ?>', {
-            slidesPerView: 1,
-            slidesPerGroup: 1,
+            slidesPerView: 2,
+            slidesPerGroup: 2,
             spaceBetween: 24,
             loop: false,
             navigation: {

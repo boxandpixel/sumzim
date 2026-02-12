@@ -35,10 +35,10 @@
             .expandable-slider__header-group {
                 display: flex;
                 flex-direction: column;
-                gap: 13px;
+                gap: 8px;
 
                 @include breakpoint(medium) {
-                    gap: 18px;
+                    // gap: 8px;
                 }
 
                 .expandable-slider__header-group-heading {
@@ -168,7 +168,7 @@
                             left: 0;
                             width: 100%;
                             height: 100%;
-                            background: linear-gradient(180deg, rgba(0, 0, 0, 0.00) 40%, rgba(0, 0, 0, 0.50) 65.09%), 50% / cover no-repeat;
+                            background: linear-gradient(180deg, rgba(0, 0, 0, 0.3) 40%, rgba(0, 0, 0, 0.50) 100%), 50% / cover no-repeat;
                             z-index: 2;
                         }
                         
@@ -188,7 +188,7 @@
                                 &:after {
                                     background: 
                                         linear-gradient(135deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 50%),
-                                        linear-gradient(180deg, rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, 0.5) 65.09%);                                    
+                                        linear-gradient(180deg, rgba(0, 0, 0, 0.3) 40%, rgba(0, 0, 0, 0.7) 100%);                                    
                                 }
                             }
                         }
@@ -283,10 +283,8 @@
                                                 display: none; // Completely hidden by default
                                                 align-items: center;
                                                 gap: 8px;
-                                                color: black;
-                                                font-weight: 500;
                                                 text-decoration: none;
-                                                @include apply-type(body);
+                                                // @include apply-type(body);
 
                                                 &:hover {
                                                     // opacity: 0.7;
@@ -568,7 +566,7 @@
 
     .card-modal__content {
         // background: white;
-        border-radius: 16px;
+        border-radius: 4px;
         width: 100%;
         max-width: 400px;
         max-height: 90vh;
@@ -661,7 +659,7 @@
                 // font-weight: 500;
                 // text-decoration: none;
                 max-width: fit-content;
-                @include apply-type(body);
+                // @include apply-type(body);
             }
 
             .card-modal__stats {

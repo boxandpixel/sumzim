@@ -13,7 +13,7 @@
 
   .footer-cta__card {
     background: white;
-    border-radius: 20px;
+    border-radius: 4px;
     padding: 20px 40px;
     text-align: center;
     width: 100%;
@@ -54,7 +54,7 @@
         animation: navAnimation 5s ease infinite;
         color: white;
         border: none;
-        border-radius: 40px;
+        border-radius: 4px;
         padding-top: 12px;
         padding-bottom: 12px;
         padding-left: 50px;
@@ -83,8 +83,8 @@ footer.site-footer {
   flex-direction: column;
   z-index: 2;
   position: relative;
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
   color: var(--color__primary--dark);
   margin-top: -30px;
 
@@ -141,7 +141,7 @@ footer.site-footer {
           background: none;
           border: solid 1px var(--color__primary--dark);
           color: var(--color__primary--dark);
-          border-radius: 40px;
+          border-radius: 4px;
           padding-top: 12px;
           padding-bottom: 12px;
           padding-left: 50px;

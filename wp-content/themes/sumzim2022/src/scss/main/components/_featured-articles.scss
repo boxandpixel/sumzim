@@ -23,6 +23,10 @@
 
       .featured-articles__header {
         text-align: center;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+                
         .featured-articles__header-heading {
           @include apply-type(heading-lg);
         }
@@ -42,6 +46,7 @@
   .featured-articles__grid {
     display: grid;
     grid-template-columns: auto;
+    row-gap: 30px;
 
     @include breakpoint(medium) {
       grid-template-columns: repeat(3, 1fr);
@@ -81,10 +86,7 @@
         position: relative;
         z-index: 9999;
         color: white;
-        
-          
-
-        
+        @include apply-type(heading-xs);
       }
 
 

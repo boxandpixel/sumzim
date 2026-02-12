@@ -24,6 +24,33 @@
             "append": ""
         },
         {
+            "key": "field_698df43efb5d0",
+            "label": "Heading Position",
+            "name": "heading_position",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "Left": "Left",
+                "Center": "Center"
+            },
+            "default_value": false,
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "allow_in_bindings": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
             "key": "field_672d0ab2f8d9e",
             "label": "Description",
             "name": "description",
@@ -234,6 +261,23 @@
                     "parent_repeater": "field_672d0af1bfc4b"
                 }
             ]
+        },
+        {
+            "key": "field_698df44ffb5d1",
+            "label": "Link",
+            "name": "link",
+            "aria-label": "",
+            "type": "link",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "allow_in_bindings": 0
         }
     ],
     "location": [
@@ -254,5 +298,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1768500594
+    "modified": 1770910810
 }

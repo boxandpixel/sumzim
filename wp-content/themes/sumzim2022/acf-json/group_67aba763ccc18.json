@@ -40,6 +40,33 @@
                     "append": ""
                 },
                 {
+                    "key": "field_698df2050b2e0",
+                    "label": "Heading Position",
+                    "name": "heading_position",
+                    "aria-label": "",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "Left": "Left",
+                        "Center": "Center"
+                    },
+                    "default_value": false,
+                    "return_format": "value",
+                    "multiple": 0,
+                    "allow_null": 0,
+                    "allow_in_bindings": 0,
+                    "ui": 0,
+                    "ajax": 0,
+                    "placeholder": ""
+                },
+                {
                     "key": "field_6977b4cc3900a",
                     "label": "Description",
                     "name": "description",
@@ -172,6 +199,23 @@
                             "parent_repeater": "field_67aba8c1496a7"
                         }
                     ]
+                },
+                {
+                    "key": "field_698df1fb0b2df",
+                    "label": "Link",
+                    "name": "link",
+                    "aria-label": "",
+                    "type": "link",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "allow_in_bindings": 0
                 }
             ]
         }
@@ -194,5 +238,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1769453695
+    "modified": 1770910539
 }

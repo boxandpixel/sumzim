@@ -1114,7 +1114,12 @@ add_action( 'acf/init', function () {
 			'title'       => __( 'Brands List', 'psychotherapy' ),
 			'description' => __( 'A section with cards that have content on the back.', 'psychotherapy' ),
 			'icon'        => 'format-image',
-		], 																			
+		], 		
+		'homepage-hero' => [
+			'title'       => __( 'Homepage Hero', 'psychotherapy' ),
+			'description' => __( 'A hero section with a title, image, headline, and CTA.', 'psychotherapy' ),
+			'icon'        => 'format-image',
+		], 																					
 																	 						 				     
 	];
 
@@ -1409,3 +1414,35 @@ function custom_og_image_for_spdirect( $image ) {
     }
     return $image;
 }
+
+/**
+ * Hide page title when Homepage Hero block is present
+ * 
+ * Add to functions.php: require_once get_template_directory() . '/inc/homepage-hero.php';
+ */
+
+add_filter('the_title', 'hide_title_when_hero_block', 10, 2);
+
+function hide_title_when_hero_block($title, $post_id = null) {
+    // Only filter on singular front-end views, not admin
+    if (is_admin() || !is_singular() || !in_the_loop() || !is_main_query()) {
+        return $title;
+    }
+
+    if (has_block('acf/homepage-hero', $post_id)) {
+        return '';
+    }
+
+    return $title;
+}
+
+/**
+ * Add body class when Homepage Hero block is present
+ * Used to remove page top padding and hide page title
+ */
+add_filter('body_class', function ($classes) {
+    if (is_singular() && has_block('acf/homepage-hero')) {
+        $classes[] = 'has-homepage-hero';
+    }
+    return $classes;
+});

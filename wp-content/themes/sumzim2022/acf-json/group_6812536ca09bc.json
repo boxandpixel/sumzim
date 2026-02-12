@@ -172,8 +172,8 @@
                                 "id": ""
                             },
                             "choices": {
-                                "primaryNoIcon": "Dark Blue Button",
-                                "textonly": "Text Link"
+                                "primary": "Dark Blue",
+                                "secondary": "Yellow"
                             },
                             "default_value": false,
                             "return_format": "value",
@@ -183,8 +183,6 @@
                             "ui": 0,
                             "ajax": 0,
                             "placeholder": "",
-                            "create_options": 0,
-                            "save_options": 0,
                             "parent_repeater": "field_basic_column_links"
                         }
                     ]
@@ -303,8 +301,8 @@
                                 "id": ""
                             },
                             "choices": {
-                                "primaryNoIcon": "Dark Blue Button",
-                                "textonly": "Text Link"
+                                "primary": "Dark Blue",
+                                "secondary": "Yellow"
                             },
                             "default_value": false,
                             "return_format": "value",
@@ -314,8 +312,6 @@
                             "ui": 0,
                             "ajax": 0,
                             "placeholder": "",
-                            "create_options": 0,
-                            "save_options": 0,
                             "parent_repeater": "field_full_column_links"
                         }
                     ]
@@ -590,5 +586,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1769624988
+    "modified": 1770923323
 }

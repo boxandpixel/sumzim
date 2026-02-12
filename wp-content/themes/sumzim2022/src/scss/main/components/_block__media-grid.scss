@@ -19,33 +19,58 @@
 		display: flex;
 		justify-content: center;
 		flex-direction: column;
+		gap: 24px;
 		@include content-wide;
+
+		@include breakpoint(medium) {
+			gap: 48px;
+		}
 
 		@include breakpoint(large) {
 			width: 1200px;
 			max-width: 1200px;
 		}
 
-		h2 {
-			margin-left: 0;
-			@include apply-type(heading-lg);
-		}
+		.media-grid__header {
+			display: flex;
+			flex-direction: column;
+			gap: 8px;
+			
+			&.media-grid__header--left {
+				text-align: left;
+			}
 
-		p {
-			font-family: var(--font);
-			font-weight: 500;
-			font-size: 16px;
+			&.media-grid__header--center {
+				text-align: center;
+			}
 
-			@include breakpoint(medium) {
-				font-size: 20px;
-			}			
+			h2 {
+				margin-left: 0;
+				@include apply-type(heading-lg);
+			}
+
+			.media-grid__description {
+				p {
+					font-family: var(--font);
+					font-weight: 500;
+					font-size: 16px;
+
+					@include breakpoint(medium) {
+						font-size: 20px;
+					}
+
+					&:last-child {
+						margin-bottom: 0;
+					}
+				}
+			}
 		}
 
 		.media-grid {
 			display: grid;
 			grid-template-columns: minmax(0, 1fr);
 			column-gap: 30px;
-			row-gap: 60px;
+			row-gap: 30px;
 
 			@include breakpoint(medium) {
 				grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -149,8 +174,6 @@
 					}
 				}
 
-			
-
 				// Hover effect for scaling media
 				// &:hover {
 				// 	.media-grid-item {
@@ -160,6 +183,16 @@
 				// 		}
 				// 	}
 				// }
+			}
+		}
+
+		.media-grid__footer {
+			display: flex;
+			justify-content: center;
+			margin-top: 24px;
+
+			@include breakpoint(medium) {
+				margin-top: 0;
 			}
 		}
 	}

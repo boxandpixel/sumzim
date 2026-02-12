@@ -82,7 +82,7 @@
                                                         <?php endif; ?>
                                                         
                                                         <?php if($link && $link_url): ?>
-                                                            <a href="<?= esc_attr($link_url); ?>" class="card__link button button--tertiary" target="<?= esc_attr($link_target); ?>">
+                                                            <a href="<?= esc_attr($link_url); ?>" class="card__link button button--secondary" target="<?= esc_attr($link_target); ?>">
                                                                 <?= esc_html($link_title ?: 'Learn More'); ?>
                                                             </a>
                                                         <?php endif; ?>
@@ -124,7 +124,7 @@
         <div class="card-modal__body">
             <h3 class="card-modal__title" data-modal-title></h3>
             <div class="card-modal__description" data-modal-description></div>
-            <a href="#" class="card-modal__link button button--tertiary" data-modal-link style="display: none;"></a>
+            <a href="#" class="card-modal__link button button--secondary" data-modal-link style="display: none;"></a>
             <div class="card-modal__stats" data-modal-stats style="display: none;"></div>
         </div>
     </div>

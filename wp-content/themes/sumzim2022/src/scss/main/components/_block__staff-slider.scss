@@ -9,28 +9,42 @@
     }
 
     .container {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;        
         @include content-wide;
+
+        @include breakpoint(medium) {
+            gap: 48px;
+        }
     }
 
     &__header {
-        margin-bottom: 48px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
         text-align: center;
 
         &-heading {
             @include apply-type(heading-lg);
-            margin-bottom: 16px;
         }
 
         &-description {
             @include apply-type(body);
             max-width: 700px;
             margin: 0 auto;
+
+            p {
+                &:last-child {
+                    margin-bottom: 0;
+                }
+            }
         }
     }
 
     &__wrapper {
         position: relative;
-        margin-bottom: 48px;
+        // margin-bottom: 48px;
     }
 
     &__nav {

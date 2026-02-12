@@ -25,7 +25,13 @@ if (empty($articles)) {
 
 ?>
 
-<section class="breakout featured-articles">
+<?php
+$className = 'featured-articles';
+if (!empty($block['className'])) {
+    $className .= ' ' . $block['className'];
+}
+?>
+<div class="<?php echo esc_attr($className); ?>">
 
     <div class="container">
         <?php if($heading || $description): ?>

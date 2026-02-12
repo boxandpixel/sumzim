@@ -76,7 +76,15 @@ $carousel_id = 'google-reviews-' . uniqid();
 
 ?>
 
-<section class="breakout google-reviews">
+<?php
+$className = 'breakout google-reviews';
+if (!empty($block['className'])) {
+    $className .= ' ' . $block['className'];
+}
+?>
+<section class="<?php echo esc_attr($className); ?>">
+
+<!-- <section class="breakout google-reviews"> -->
 
     <div class="container">
         <?php if(!empty($heading) || !empty($description)): ?>

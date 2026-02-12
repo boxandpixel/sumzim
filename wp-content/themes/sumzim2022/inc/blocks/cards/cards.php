@@ -18,6 +18,8 @@ $cards_columns = !empty($cards['cards_columns']) ? $cards['cards_columns'] : '3'
 $cards_set = !empty($cards['cards_set']) ? $cards['cards_set'] : array();
 $heading = $cards['heading'] ?? '';
 $description = $cards['description'] ?? '';
+$heading_position = !empty($cards['heading_position']) ? strtolower($cards['heading_position']) : 'left';
+$link = $cards['link'] ?? null;
 
 // Bail if no cards in the set
 if (empty($cards_set)) {
@@ -29,8 +31,10 @@ if (empty($cards_set)) {
 <section class="cards">
     <div class="container">
         <?php if($heading || $description): ?>
-        <div class="cards__header">
+        <div class="cards__header cards__header--<?php echo esc_attr($heading_position); ?>">
+            <?php if($heading): ?>
             <h2 class="cards__header-heading"><?= esc_html($heading); ?></h2>
+            <?php endif; ?>
             <?php if($description): ?>
             <div class="cards__header-description">
                 <?= wp_kses_post($description); ?>
@@ -38,7 +42,8 @@ if (empty($cards_set)) {
             <?php endif; ?>
         </div>
         <?php endif; ?>
-        <div class="cards-block cards-<?php echo esc_attr($cards_columns); ?> contain">
+        
+        <div class="cards-block cards-<?php echo esc_attr($cards_columns); ?>">
         <?php foreach($cards_set as $card): ?>
             <?php
                 // Extract card data with defensive checks
@@ -71,7 +76,13 @@ if (empty($cards_set)) {
 
                             <?php if($card_description): ?>
                                 <div class="card-description">
-                                    <?php echo wp_kses_post($card_description); ?>
+                                    <?php
+                                        if ($is_link) {
+                                            echo wp_kses_post(preg_replace('/<a[^>]*>(.*?)<\/a>/i', '$1', $card_description));
+                                        } else {
+                                            echo wp_kses_post($card_description);
+                                        }                                    
+                                    ?>
                                 </div>
                             <?php endif; ?>
 
@@ -113,5 +124,13 @@ if (empty($cards_set)) {
 
         <?php endforeach; ?>
         </div>
+        
+        <?php if($link && !empty($link['url'])): ?>
+        <div class="cards__footer">
+            <a href="<?php echo esc_url($link['url']); ?>" class="button button-cta button--primary" <?php echo !empty($link['target']) ? 'target="' . esc_attr($link['target']) . '"' : ''; ?>>
+                <?php echo esc_html($link['title']); ?>
+            </a>
+        </div>
+        <?php endif; ?>
     </div>
 </section>

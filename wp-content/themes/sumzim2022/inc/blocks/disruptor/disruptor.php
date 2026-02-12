@@ -5,17 +5,26 @@
 
 $disruptor = get_field('disruptor');
 $heading = $disruptor['heading'] ?? '';
+$image = $disruptor['image'] ?? null;
 $description = $disruptor['description'] ?? '';
 $button = $disruptor['button'] ?? [];
+
+$has_image = !empty($image);
 ?>
 
-
-<section class="disruptor">
+<section class="disruptor<?php echo $has_image ? ' disruptor--has-image' : ''; ?>">
 	<div class="container">
 		<div class="disruptor__content">
-			<h3 class="disruptor__content-heading"><?= esc_html($heading); ?></h3>
-			<div class="disruptor__content-description">
-				<?= wp_kses_post($description); ?>
+			<?php if ($has_image): ?>
+			<div class="disruptor__image">
+				<img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
+			</div>
+			<?php endif; ?>
+			<div class="disruptor__content-text">
+				<h3 class="disruptor__content-heading"><?= esc_html($heading); ?></h3>
+				<div class="disruptor__content-description">
+					<?= wp_kses_post($description); ?>
+				</div>
 			</div>
 		</div>
 
@@ -26,4 +35,3 @@ $button = $disruptor['button'] ?? [];
 		<?php endif; ?>
 	</div>
 </section>
-

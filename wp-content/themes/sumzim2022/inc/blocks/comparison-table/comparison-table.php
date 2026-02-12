@@ -30,7 +30,15 @@
     $alt_svg = '' ?? '';    
 ?>
 
-<section class="acf-block comparison-table" id="comparison-table">
+<?php
+$className = 'comparison-table';
+if (!empty($block['className'])) {
+    $className .= ' ' . $block['className'];
+}
+?>
+<section class="<?php echo esc_attr($className); ?>" id="comparison-table">
+
+<!-- <section class="acf-block comparison-table" id="comparison-table"> -->
     <div class="container">
 
         <div class="comparison-table__header">

@@ -1,8 +1,8 @@
 $typography: (
   display-xl: (
     element: "h1",
-    desktop: (size: 64px, line-height: 100%), // Larger than heading-xl
-    mobile:  (size: 52px, line-height: 100%),
+    desktop: (size: 72px, line-height: 110%), // Hero only
+    mobile:  (size: 48px, line-height: 110%),
     weight: 700
   ),
   eyebrow: (
@@ -14,69 +14,69 @@ $typography: (
   ),  
   heading-xl: (
     element: "h1",
-    desktop: (size: 56px, line-height: 100%), // -2%
-    mobile:  (size: 48px, line-height: 100%), // -2%
+    desktop: (size: 64px, line-height: 110%), // Page titles
+    mobile:  (size: 40px, line-height: 110%),
     weight: 700
   ),
   heading-lg: (
     element: "h2",
-    desktop: (size: 48px, line-height: 110%), // 0% 64px
-    mobile:  (size: 36px, line-height: 120%), // -1%
+    desktop: (size: 56px, line-height: 110%), // Major sections
+    mobile:  (size: 36px, line-height: 115%),
     weight: 700
   ),
   heading-md: (
     element: "h3",
-    desktop: (size: 40px, line-height: 110%), // 0%
-    mobile:  (size: 28px, line-height: 120%), // -1%
+    desktop: (size: 40px, line-height: 115%), // ~1.4x ratio
+    mobile:  (size: 28px, line-height: 120%),
     weight: 700
   ),
   heading-sm: (
     element: "h4",
-    desktop: (size: 32px, line-height: 120%), // -1%
-    mobile:  (size: 26px, line-height: 120%), // -1%
+    desktop: (size: 32px, line-height: 120%), // ~1.25x ratio
+    mobile:  (size: 24px, line-height: 125%),
     weight: 700
   ),
   heading-xs: (
     element: "h5",
-    desktop: (size: 24px, line-height: 120%), // -1%
-    mobile:  (size: 20px, line-height: 120%), // 0%
+    desktop: (size: 24px, line-height: 125%),
+    mobile:  (size: 20px, line-height: 130%),
     weight: 700
   ),
   heading-xxs: (
-    element: "h6", // was h6
-    desktop: (size: 20px, line-height: 120%), // 22px
-    mobile:  (size: 18px, line-height: 120%), // 0%
+    element: "h6",
+    desktop: (size: 20px, line-height: 130%),
+    mobile:  (size: 18px, line-height: 130%),
     weight: 700
   ),
   body: (
     element: "p",
-    desktop: (size: 18px, line-height: 140%, letter-spacing: 0em), // 0%
-    mobile:  (size: 16px, line-height: 140%, letter-spacing: 0em), // 0%
+    desktop: (size: 18px, line-height: 140%, letter-spacing: 0em),
+    mobile:  (size: 16px, line-height: 140%, letter-spacing: 0em),
     weight: 400
   ),
   small: (
     element: ".small",
-    desktop: (size: 16px, line-height: 120%), // 19%
-    mobile:  (size: 14px, line-height: 120%), // 19%
+    desktop: (size: 16px, line-height: 140%),
+    mobile:  (size: 14px, line-height: 140%),
     weight: 400
   ),    
   overline: (
     element: ".overline",
-    desktop: (size: 14px, line-height: 150%), // 19%
-    mobile:  (size: 12px, line-height: 150%), // 19%
+    desktop: (size: 14px, line-height: 150%),
+    mobile:  (size: 12px, line-height: 150%),
     weight: 700
   ),  
   caption: (
     element: ".caption",
-    desktop: (size: 14px, line-height: 150%), // 8%
-    mobile:  (size: 12px, line-height: 150%), // 8%
+    desktop: (size: 14px, line-height: 150%),
+    mobile:  (size: 12px, line-height: 150%),
     weight: 700,
     text-transform: uppercase
   ),
   button: (
     element: ".button",
-    desktop: (size: 14px, line-height: 140%, letter-spacing: 0em), // 0%
-    mobile:  (size: 14px, line-height: 140%, letter-spacing: 0em), // 0%
+    desktop: (size: 14px, line-height: 140%, letter-spacing: 0em),
+    mobile:  (size: 14px, line-height: 140%, letter-spacing: 0em),
     weight: 500
   ),
   body-link: (
@@ -85,5 +85,4 @@ $typography: (
     mobile:  (size: 16px, line-height: 140%, letter-spacing: 0%),
     weight: 400
   )
-
 );

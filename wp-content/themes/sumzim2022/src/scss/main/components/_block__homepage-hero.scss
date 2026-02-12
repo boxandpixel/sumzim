@@ -1,0 +1,152 @@
+@use '../common/mixins' as *;
+@use '../common/typography.mixins' as *;
+
+.homepage-hero {
+    position: relative;
+    width: 100%;
+    // Total height = visible hero + header offset
+    // The top portion sits behind the fixed header
+    height: calc(300px + 200px);
+    overflow: hidden;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    margin-bottom: 100px;
+
+    @include breakpoint(medium) {
+        height: calc(400px + 200px);
+    }
+
+    @include breakpoint(large) {
+        height: calc(600px + 260px);
+    }
+
+    @include breakpoint(xlarge) {
+        height: calc(600px + 260px);
+    }
+
+    // Media container — fills entire height including behind header
+    &__media {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        will-change: transform; // GPU acceleration for parallax
+    }
+
+    &__image {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        z-index: 1;
+    }
+
+    &__video {
+        display: none;
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        z-index: 2;
+
+        @include breakpoint(medium) {
+            display: block;
+        }
+    }
+
+    &__gradient {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0.5) 40%,
+            rgba(0, 0, 0, 0.9) 100%,
+            transparent 30%
+        );
+        z-index: 3;
+        pointer-events: none;
+    }
+
+    &__content {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        padding: 1.5rem;
+        z-index: 4;
+        color: white;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 50px;
+        align-items: center;
+        justify-content: center;   
+        will-change: transform; // GPU acceleration for parallax
+        
+        // &:after {
+        //     position: absolute;
+        //     top: 0;
+        //     left: 0;
+        //     width: 100%;
+        //     height: 100%;
+        //     content: "";
+        //     background: linear-gradient(
+        //         to bottom,
+        //         rgba(0, 0, 0, 0.2) 50%,
+        //         rgba(0, 0, 0, 0.4) 100%,
+        //         transparent 50%
+        //     );            
+        // }
+
+        @include breakpoint(medium) {
+            padding: 2rem;
+        }
+
+        @include breakpoint(large) {
+            padding: 3rem;
+        }
+    }
+
+    &__headline {
+        color: white;
+        margin: 0 0 1rem;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        text-align: center;
+        position: relative;
+        z-index: 2;
+        @include apply-type(display-xl);
+
+        @include breakpoint(large) {
+            max-width: 80%;
+        }
+    }
+
+    &__button {
+        position: relative;
+        z-index: 2;        
+
+        a, button {
+            display: inline-flex;
+            padding: 16px 40px;
+            flex-direction: column;
+            text-transform: uppercase;
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 14px;
+            line-height: 1;
+            letter-spacing: var(--letter-spacing);
+            border-radius: 4px;
+            border: none;
+            cursor: pointer;
+            background: var(--color__primary--dark);
+            color: white;
+        }
+    }
+}

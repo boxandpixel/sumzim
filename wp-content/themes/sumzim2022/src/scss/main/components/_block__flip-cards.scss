@@ -12,9 +12,17 @@
         @include content-wide;
         display: flex;
         flex-direction: column;
-        gap: 48px;
+        gap: 24px;
+
+        @include breakpoint(medium) {
+            gap: 48px;
+        }
 
         .flip-cards__header {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+                        
             .flip-cards__heading {
                 @include apply-type(heading-lg);
             }
@@ -31,23 +39,24 @@
 
     &__grid {
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: 1fr;
         gap: 24px;
 
         @include breakpoint(medium) {
+            grid-template-columns: repeat(2, 1fr);
             gap: 32px;
         }
     }
 }
 
 /* Individual Card */
-/* Individual Card */
 .flip-card {
     perspective: 1200px;
     cursor: pointer;
 
-    /* Enforce 4:3 ratio */
-    aspect-ratio: 4 / 3;
+    @include breakpoint(medium) {
+        aspect-ratio: 4 / 3;
+    }
 
     &__inner {
         position: relative;
@@ -55,6 +64,13 @@
         height: 100%;
         transform-style: preserve-3d;
         transition: transform 0.65s cubic-bezier(0.25, 0.46, 0.45, 1);
+
+        // Mobile: use grid stacking so both faces contribute to height
+        display: grid;
+
+        @include breakpoint(medium) {
+            display: block;
+        }
     }
 
     &.is-flipped {
@@ -64,8 +80,6 @@
     }
 
     &__face {
-        position: absolute;
-        inset: 0;
         border-radius: 4px;
         overflow: hidden;
         backface-visibility: hidden;
@@ -73,11 +87,26 @@
         align-items: flex-end;
         padding: 24px;
         background: var(--bg-image) center / cover no-repeat;
+
+        // Mobile: stack both faces in same grid cell, both contribute to height
+        grid-row: 1 / -1;
+        grid-column: 1 / -1;
+
+        @include breakpoint(medium) {
+            position: absolute;
+            inset: 0;
+        }
     }
 
     /* FRONT FACE */
     &__face--front {
         color: white;
+        // Mobile: front needs min-height to look good, but back determines actual height
+        min-height: 200px;
+
+        @include breakpoint(medium) {
+            min-height: unset;
+        }
 
         &:after {
             content: "";
@@ -86,7 +115,7 @@
             background: linear-gradient(
                 180deg,
                 rgba(0, 0, 0, 0) 40%,
-                rgba(0, 0, 0, 0.55) 100%
+                rgba(0, 0, 0, 0.7) 100%
             );
         }
 
@@ -94,7 +123,7 @@
             position: absolute;
             top: 1rem;
             right: 1rem;
-            z-index: 10; // Increase this to be above the gradient
+            z-index: 10;
             font-size: 0;
             @include button-360--lg(var(--color__primary--dark), white);
 
@@ -138,7 +167,7 @@
             position: absolute;
             top: 1rem;
             right: 1rem;
-            z-index: 10; // Increase this to be above the overlay
+            z-index: 10;
             font-size: 0;
             @include button-360--lg(white, var(--color__primary--dark));
 

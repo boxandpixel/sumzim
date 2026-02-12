@@ -20,8 +20,12 @@
         }   
         
         .toggle-block__header {
-            .toggle-block__header-heading {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;          
 
+            .toggle-block__header-heading {
+                @include apply-type(heading-lg);
             }
 
             .toggle-block__header-description {
@@ -44,6 +48,7 @@
         li {
             padding: 1rem 0;
             border-bottom: solid 1px var(--color__neutral--light);
+            list-style: none;
 
             &:last-child {
                 border-bottom: 0;
