@@ -1119,7 +1119,12 @@ add_action( 'acf/init', function () {
 			'title'       => __( 'Homepage Hero', 'psychotherapy' ),
 			'description' => __( 'A hero section with a title, image, headline, and CTA.', 'psychotherapy' ),
 			'icon'        => 'format-image',
-		], 																					
+		], 	
+		'cards-scroll' => [
+			'title'       => __( 'Cards Scroll', 'psychotherapy' ),
+			'description' => __( 'A section with scrollable cards', 'psychotherapy' ),
+			'icon'        => 'format-image',
+		], 																							
 																	 						 				     
 	];
 

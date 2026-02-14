@@ -1,0 +1,488 @@
+@use '../common/mixins' as *;
+@use '../common/typography.mixins' as *;
+
+.cards-scroll {
+    margin-bottom: 60px;
+
+    @include breakpoint(medium) {
+        margin-bottom: 120px;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        @include content-wide;
+
+        @include breakpoint(medium) {
+            gap: 48px;
+        }
+
+        .cards-scroll__header {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+
+            @include breakpoint(medium) {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: last baseline;
+                gap: unset;
+            }
+
+            .cards-scroll__header-group {
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+
+                .cards-scroll__header-group-heading {
+                    margin-left: 0;
+                    @include apply-type(heading-lg);
+                }    
+                
+                .cards-scroll__header-group-description {
+                    @include apply-type(body);
+
+                    p:last-child {
+                        margin-bottom: 0;
+                    }
+                }                    
+            }
+        }
+
+        .cards-scroll__body {
+            // Break completely out of the container
+            position: relative;
+            left: 50%;
+            right: 50%;
+            margin-left: -50vw;
+            margin-right: -50vw;
+            width: 100vw;
+            
+            // Prevent horizontal scroll by hiding overflow at this level
+            overflow-x: hidden;
+            
+            // Add padding to align the left edge with container content
+            padding-left: calc((100vw - 1223px) / 2 + 24px);
+            
+            @media (max-width: 1247px) {
+                padding-left: 24px;
+            }
+
+            @include breakpoint(desktop) {
+                margin-left: calc(-50vw - 24px);
+            }
+
+            .cards-container {
+                width: 100%;
+                
+                .cards-wrapper {
+                    overflow: hidden;
+                    position: relative;
+                    width: 100%;
+                }
+
+                .cards {
+                    display: flex;
+                    gap: 16px;
+                    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 1.0);
+                    will-change: transform;
+                    margin-bottom: unset;
+
+                    @include breakpoint(medium) {
+                        gap: 38px;
+                    }
+
+                    .card {
+                        position: relative;
+                        display: flex;
+                        flex-direction: column;
+                        flex-shrink: 0;
+                        // Mobile: 3/4 aspect ratio card, heading only
+                        width: 300px;
+                        aspect-ratio: 3 / 4;
+                        border-radius: 4px;
+                        overflow: hidden;
+                        cursor: pointer;
+
+                        // Background image via ::before
+                        &:before {
+                            content: "";
+                            width: 100%;
+                            height: 100%;
+                            position: absolute;
+                            inset: 0;
+                            background: var(--bg-image) center/cover no-repeat;
+                            z-index: 0;                       
+                            transform: scale(1);
+                            transition: transform 0.5s ease;
+                        }   
+                        
+                        &:hover:before {
+                            transform: scale(1.1);
+                        }
+
+                        // Gradient overlay
+                        &:after {
+                            content: "";
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            width: 100%;
+                            height: 100%;
+                            background: linear-gradient(180deg, rgba(0, 0, 0, 0.3) 40%, rgba(0, 0, 0, 0.50) 100%);
+                            z-index: 2;
+                        }
+
+                        // Tablet: 3/2 aspect ratio, show all content
+                        @include breakpoint(medium) {
+                            aspect-ratio: 3 / 2;
+                            width: auto;
+                            min-width: 380px;
+                            cursor: default;
+                        }
+
+                        // Desktop: slightly larger
+                        @include breakpoint(large) {
+                            min-width: 420px;
+                        }
+
+                        // =====================
+                        // No-image variant
+                        // =====================
+                        &.card--no-image {
+                            background-color: white;
+                            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0, 0, 0, 0.06);
+
+                            // Remove background image pseudo-element
+                            &:before {
+                                display: none;
+                            }
+
+                            // Remove gradient overlay
+                            &:after {
+                                display: none;
+                            }
+
+                            .card__content {
+                                .card__inner {
+                                    .card__main-content {
+                                        .card__heading {
+                                            color: var(--color__primary--dark);
+                                        }
+
+                                        .card__description {
+                                            color: var(--color__primary--dark);
+
+                                            a {
+                                                color: var(--color__primary--dark);
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        // Mobile trigger button (invisible overlay)
+                        .card__mobile-trigger {
+                            position: absolute;
+                            inset: 0;
+                            z-index: 4;
+                            background: transparent;
+                            border: none;
+                            cursor: pointer;
+
+                            span {
+                                display: block;
+                                text-indent: -9999rem;
+                            }
+
+                            // Hide on tablet+ where content is always visible
+                            @include breakpoint(medium) {
+                                display: none;
+                            }
+                        }
+
+                        .card__content {
+                            position: absolute;
+                            bottom: 0;
+                            left: 0;
+                            right: 0;
+                            padding: 0 16px 24px;
+                            z-index: 3;
+
+                            @include breakpoint(medium) {
+                                padding: 0 24px 32px;
+                            }
+
+                            .card__inner {
+                                display: flex;
+                                flex-direction: column;
+                                justify-content: flex-end;
+
+                                .card__main-content {
+                                    display: flex;
+                                    flex-direction: column;
+                                    gap: 12px;
+
+                                    .card__heading {
+                                        color: white;
+                                        margin-bottom: 0;
+                                        margin-left: 0;
+                                        @include apply-type(heading-sm);
+                                    }
+
+                                    // Mobile: hide description and link (shown in modal)
+                                    .card__description {
+                                        display: none;
+                                        color: white;
+                                        line-height: 1.6;
+                                        @include apply-type(body);
+
+                                        a {
+                                            color: white;
+                                        }
+
+                                        p:last-child {
+                                            margin-bottom: 0;
+                                        }
+
+                                        // Tablet+: show description
+                                        @include breakpoint(medium) {
+                                            display: block;
+                                        }
+
+                                        &:has(~ .card__link) {
+                                            margin-bottom: 4px;
+                                        }
+                                    }
+
+                                    .card__link {
+                                        display: none;
+                                        
+                                        // Tablet+: show link
+                                        @include breakpoint(medium) {
+                                            display: inline-flex;
+                                            max-width: fit-content;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .cards__nav {
+                    display: flex;
+                    gap: 42px;
+                    align-items: center;
+                    margin-top: 32px;
+                    max-width: calc(1223px - 48px);
+                    padding-right: 24px;
+                    
+                    @media (max-width: 1247px) {
+                        max-width: none;
+                        padding-right: 24px;
+                    }
+
+                    .cards__nav-progress {
+                        height: 2px;
+                        background-color: lightgray;
+                        position: relative;
+                        flex: 1;
+                        
+                        // Hide on mobile
+                        display: none;
+
+                        @include breakpoint(medium) {
+                            display: block;
+                            max-width: 1070px;
+                        }
+
+                        .cards__nav-progress-bar {
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            height: 2px;
+                            background-color: black;
+                            transition: width 0.5s cubic-bezier(0.25, 0.46, 0.45, 1.0);
+                            width: 0;
+                        }
+                    }
+
+                    .cards__nav-nav {
+                        display: flex;
+                        gap: 11px;
+
+                        .cards__nav-nav-prev {
+                            background-color: transparent;
+                            border: none;
+                            transform: rotate(180deg);
+                            font-size: 0;
+                            @include button-arrow--lg(var(--color__primary--dark), white);
+
+                            &:hover:not(.disabled):not([disabled]) {
+                                @include button-arrow--lg(var(--color__secondary), var(--color__primary--dark));
+                            }                                 
+
+                            &.disabled,
+                            &[disabled] {
+                                @include button-arrow--lg(lightgray, white);
+                            }
+                        }
+
+                        .cards__nav-nav-next {
+                            background-color: transparent;
+                            border: none;
+                            font-size: 0;
+                            @include button-arrow--lg(var(--color__primary--dark), white);
+
+                            &:hover:not(.disabled):not([disabled]) {
+                                @include button-arrow--lg(var(--color__secondary), var(--color__primary--dark));
+                            }                              
+
+                            &.disabled,
+                            &[disabled] {
+                                cursor: not-allowed;
+                                @include button-arrow--lg(lightgray, white);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Mobile modal styles
+.card-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(255, 255, 255, 0.8);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    padding: 20px;
+
+    &.active {
+        display: flex;
+    }
+
+    // Hide modal on tablet+
+    @include breakpoint(medium) {
+        display: none !important;
+    }
+
+    .card-modal__content {
+        border-radius: 4px;
+        width: 100%;
+        max-width: 400px;
+        max-height: 90vh;
+        overflow-y: auto;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+
+        &:before {
+            content: "";
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            inset: 0;
+            background: var(--bg-image) center/cover no-repeat;
+            z-index: 0;                       
+            transform: scale(1);
+            transition: transform 0.5s ease;
+        }  
+        
+        &:after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0.00) 20%, rgba(0, 0, 0, 0.50) 65.09%);
+            z-index: 1;                        
+        }
+
+        // No-image modal variant
+        &.card-modal__content--no-image {
+            background-color: white;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0, 0, 0, 0.06);
+
+            &:before,
+            &:after {
+                display: none;
+            }
+
+            .card-modal__close {
+                @include button-close--lg(var(--color__primary--dark), white);
+            }
+
+            .card-modal__body {
+                .card-modal__title {
+                    color: var(--color__primary--dark);
+                }
+
+                .card-modal__description {
+                    color: var(--color__primary--dark);
+                }
+            }
+        }
+
+        .card-modal__close {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            cursor: pointer;
+            z-index: 2;
+            @include button-close--lg(white, black);
+
+            span {
+                display: block;
+                text-indent: -9999rem;
+            }
+        }
+
+        .card-modal__body {
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            flex: 1;
+            z-index: 2;
+            min-height: 500px;
+
+            .card-modal__title {
+                margin-bottom: 14px;
+                color: white;
+                margin-left: 0;
+                @include apply-type(heading-md);
+            }
+
+            .card-modal__description {
+                line-height: 1.6;
+                color: white;
+                @include apply-type(body);
+
+                p:last-child {
+                    margin-bottom: 0;
+                }
+
+                &:has(~ .card-modal__link) {
+                    margin-bottom: 44px;
+                }
+            }
+
+            .card-modal__link {
+                display: inline-flex;
+                max-width: fit-content;
+            }
+        }
+    }
+}
