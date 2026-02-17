@@ -20,6 +20,7 @@ $heading = $cards['heading'] ?? '';
 $description = $cards['description'] ?? '';
 $heading_position = !empty($cards['heading_position']) ? strtolower($cards['heading_position']) : 'left';
 $link = $cards['link'] ?? null;
+$animate_cards = !empty($cards['animate_cards']) ? true : false;
 
 // Bail if no cards in the set
 if (empty($cards_set)) {
@@ -28,7 +29,7 @@ if (empty($cards_set)) {
 
 ?>
 
-<section class="cards">
+<section class="cards"<?php if($animate_cards): ?> data-cards-animate<?php endif; ?>>
     <div class="container">
         <?php if($heading || $description): ?>
         <div class="cards__header cards__header--<?php echo esc_attr($heading_position); ?>">

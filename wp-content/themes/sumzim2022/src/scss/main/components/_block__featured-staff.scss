@@ -30,12 +30,16 @@
         }
 
         &-description {
-            @include apply-type(body);
-
             p {
+                @include apply-type(heading-xxs);
+
+                & {
+                    font-weight: 400;
+                }
+                
                 &:last-child {
                     margin-bottom: 0;
-                }
+                }                
             }
         
         }
@@ -62,7 +66,7 @@
     display: block;
     text-decoration: none;
     color: inherit;
-    transition: transform 0.3s ease;
+    transition: transform 0.5s ease;
     aspect-ratio: 3 / 4;
 
     &:hover {
@@ -82,7 +86,7 @@
         inset: 0;
         background-size: cover;
         background-position: center;
-        transition: transform 0.3s ease;
+        transition: transform 0.5s ease;
     }
 
     &:hover &__image {
@@ -111,12 +115,12 @@
         
         @include breakpoint(large) {
             padding-bottom: 20px;
-            transition: padding-bottom 0.3s ease, transform 0.3s ease;
+            transition: padding-bottom 0.5s ease, transform 0.5s ease;
         }
     }
 
     &__name {
-        margin-bottom: 4px;
+        // margin-bottom: 4px;
         
         @include breakpoint(large) {
             margin-bottom: 0;
@@ -139,7 +143,7 @@
             opacity: 0;
             max-height: 0;
             overflow: hidden;
-            transition: opacity 0.3s ease, max-height 0.3s ease;
+            transition: opacity 0.5s ease, max-height 0.5s ease;
         }
     }
 
@@ -159,7 +163,7 @@
 
     &:hover &__name {
         @include breakpoint(large) {
-            margin-bottom: 4px;
+            // margin-bottom: 4px;
         }
     }
 }

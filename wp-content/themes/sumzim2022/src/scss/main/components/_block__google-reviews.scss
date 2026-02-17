@@ -5,10 +5,10 @@
 .google-reviews {
     background: linear-gradient(180deg, rgba(12, 30, 49, 0) 0%, #dde4eb 100%);
     padding: 4rem 0;
-    margin-bottom: 60px;
+    margin-bottom: 30px;
 
     @include breakpoint(medium) {
-        margin-bottom: 120px;
+        margin-bottom: 60px;
     }
 
     .container {
@@ -32,8 +32,17 @@
             }
 
             .google-reviews__header-description {
-                p:last-child {
-                    margin-bottom: 0;
+
+                p {
+                    @include apply-type(heading-xxs);
+
+                    & {
+                        font-weight: 400;
+                    }
+                    
+                    &:last-child {
+                        margin-bottom: 0;
+                    }
                 }
             }
         }

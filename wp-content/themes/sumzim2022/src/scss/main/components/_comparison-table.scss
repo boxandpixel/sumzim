@@ -72,6 +72,16 @@
 
                 p {
                     margin-bottom: 20px;
+                    @include apply-type(heading-xxs);
+
+                    & {
+                        font-weight: 400;
+                    }
+                    
+                    &:last-child {
+                        margin-bottom: 0;
+                    }                    
+                    
                 }
             }
         }
@@ -169,17 +179,20 @@
 
                             &:nth-child(2) {
                                 width: 252px;
-                                @include apply-type(eyebrow);
+                                @include apply-type(small);
                             }
 
                             &:nth-child(3) {
-                                width: 254px;
+                                width: 35px;
+                                
                                 @include apply-type(eyebrow);
                             }
 
                             &:nth-child(4) {
-                                width: 35px;
+                                width: 254px;
+                                // width: 35px;
                                 padding: 0;
+                                @include apply-type(small);
                             }
                         }
 

@@ -1124,7 +1124,12 @@ add_action( 'acf/init', function () {
 			'title'       => __( 'Cards Scroll', 'psychotherapy' ),
 			'description' => __( 'A section with scrollable cards', 'psychotherapy' ),
 			'icon'        => 'format-image',
-		], 																							
+		], 		
+		'page-intro' => [
+			'title'       => __( 'Page Intro', 'psychotherapy' ),
+			'description' => __( 'A section large intro text', 'psychotherapy' ),
+			'icon'        => 'format-image',
+		], 																									
 																	 						 				     
 	];
 

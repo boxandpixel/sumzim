@@ -69,22 +69,26 @@ if (empty($heading) && empty($cards)) {
                             </button>
                             
                             <div class="flip-card__overlay-content">
-                                <?php if ($heading): ?>
-                                    <h3 class="flip-card__title"><?= esc_html($heading); ?></h3>
-                                <?php endif; ?>
+                                <div class="flip-card__text-group">
+                                    <?php if ($heading): ?>
+                                        <h3 class="flip-card__title"><?= esc_html($heading); ?></h3>
+                                    <?php endif; ?>
 
-                                <?php if ($description): ?>
-                                    <div class="flip-card__description">
-                                        <?= wp_kses_post($description); ?>
-                                    </div>
-                                <?php endif; ?>
+                                    <?php if ($description): ?>
+                                        <div class="flip-card__description">
+                                            <?= wp_kses_post($description); ?>
+                                        </div>
+                                    <?php endif; ?>
+                                </div>
 
                                 <?php if ($link): ?>
+                                <div class="flip-card__action-group">
                                     <a class="flip-card__link button button--secondary"
                                     href="<?= esc_url($link['url']); ?>"
                                     target="<?= esc_attr($link['target'] ?: '_self'); ?>">
                                         <?= esc_html($link['title'] ?: 'Learn more'); ?>
                                     </a>
+                                </div>
                                 <?php endif; ?>
                             </div>
                         </div>

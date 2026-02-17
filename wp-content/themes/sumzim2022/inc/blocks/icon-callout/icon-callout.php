@@ -9,12 +9,14 @@ $content = $icon_callout['content'];
 ?>
 
 
-<section class="icon-callout contain">
-	<div class="icon">
-		<span class="material-symbols-outlined"><?php echo $icon; ?></span>
-	</div>
-	<div class="content">
-		<?php echo $content; ?>	
+<section class="icon-callout">
+	<div class="container">
+		<div class="icon">
+			<span class="material-symbols-outlined"><?php echo $icon; ?></span>
+		</div>
+		<div class="content">
+			<?php echo $content; ?>	
+		</div>
 	</div>
 </section>
 

@@ -34,8 +34,16 @@
             max-width: 700px;
             margin: 0 auto;
             
-            p:last-child {
-                margin-bottom: 0;
+            p {
+                @include apply-type(heading-xxs);
+
+                & {
+                    font-weight: 400;
+                }
+                
+                &:last-child {
+                    margin-bottom: 0;
+                }                
             }
         }
     }

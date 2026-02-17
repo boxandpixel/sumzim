@@ -1,10 +1,15 @@
 .icon-callout {
     margin: 80px 0;
-    display: flex;
-    justify-content: center;
-    gap: 12px;
 
-    color: #e86d57;
+
+    .container {
+        display: flex;
+        justify-content: center;
+        gap: 12px;
+
+        color: #e86d57;        
+        @include content-wide;
+    }
 
     .icon {
         span {

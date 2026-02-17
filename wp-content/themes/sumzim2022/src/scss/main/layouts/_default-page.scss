@@ -8,7 +8,7 @@
 	// align-items: center;
 	// flex-direction: column;
 
-	@include breakpoint(xlarge) {
+	@include breakpoint(large) {
 		padding: 260px 0 100px 0;
 	}
 
@@ -74,11 +74,13 @@
 		& > h5,
 		& > h6,
 		& > ul,
-		& > ol {
+		& > ol,
+		& > blockquote {
 			// width: 1200px;
-			max-width: 1200px;
-			margin-left: auto;
-			margin-right: auto;
+			// max-width: 1200px;
+			// margin-left: auto;
+			// margin-right: auto;
+			@include content-wide;
 		}
 		
 		& > ul,ol {

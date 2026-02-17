@@ -37,8 +37,16 @@
             }
             
             .cards__header-description {
-                p:last-child {
-                    margin-bottom: 0;
+                p {
+                    @include apply-type(heading-xxs);
+
+                    & {
+                        font-weight: 400;
+                    }
+                    
+                    &:last-child {
+                        margin-bottom: 0;
+                    }
                 }
             }
         }
@@ -114,25 +122,37 @@
                     padding: 1.5rem;
                     z-index: 2;
                     color: white;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 12px;
                 }
 
                 .card-heading {
-                    margin-bottom: 0.5rem;
-
                     h5 {
                         color: white;
                         margin: 0;
                         font-size: 1.5rem;
                         font-weight: 700;
                         text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+
+                        // Clamp to 2 lines
+                        display: -webkit-box;
+                        -webkit-line-clamp: 2;
+                        -webkit-box-orient: vertical;
+                        overflow: hidden;
                     }
                 }
 
                 .card-description {
                     color: white;
-                    margin-bottom: 0.75rem;
                     text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
                     line-height: 1.4;
+
+                    // Clamp to 5 lines
+                    display: -webkit-box;
+                    -webkit-line-clamp: 5;
+                    -webkit-box-orient: vertical;
+                    overflow: hidden;
 
                     p {
                         margin: 0;
@@ -152,29 +172,48 @@
                 .card-content {
                     padding: 1.5rem;
                     color: var(--color--primary);
+                    display: flex;
+                    flex-direction: column;
+                    gap: 12px;
 
                     .card-heading {
                         h5 {
                             color: var(--color--primary);
                             text-shadow: none;
+
+                            // Clamp to 2 lines
+                            display: -webkit-box;
+                            -webkit-line-clamp: 2;
+                            -webkit-box-orient: vertical;
+                            overflow: hidden;
                         }
                     }
 
                     .card-description {
                         color: var(--color--primary);
                         text-shadow: none;
+
+                        // Clamp to 5 lines
+                        display: -webkit-box;
+                        -webkit-line-clamp: 5;
+                        -webkit-box-orient: vertical;
+                        overflow: hidden;
                     }
 
                     .card-button {
                         text-align: center;
-                        margin-top: 1rem;
                     }
                 }
             }
-            
-            // Apply scale effect only to anchor cards
-            a.card:hover .card-image {
-                transform: scale(1.1);
+
+            // Trigger button hover when hovering anywhere on the card link
+            a.card .button--secondary {
+                transition: background 0.5s ease;
+            }
+
+            a.card:hover .button--secondary {
+                background: hsla(40, 91%, 47%, 1);
+                color: var(--color__primary--dark);
             }
         }
 
@@ -186,6 +225,55 @@
             @include breakpoint(medium) {
                 margin-top: 0;
             }
+        }
+    }
+}
+
+// =====================
+// Card scroll animation
+// =====================
+// Only applied when [data-cards-animate] is present on the section.
+// Uses GPU-accelerated properties only (transform, opacity).
+
+[data-cards-animate] {
+    .cards-block .card {
+        // Initial state: bg image scaled down, text shifted down
+
+        .card-image {
+            will-change: transform;
+            transform: scale(1.0);
+            transition: 
+                transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 1);
+        }
+
+        .card-overlay-content,
+        .card-content {
+            will-change: transform;
+            transform: translateY(12px);
+            transition: 
+                transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 1) 150ms;
+        }
+
+        // Visible state
+        &.is-visible {
+            .card-image {
+                transform: scale(1.1);
+            }
+
+            .card-overlay-content,
+            .card-content {
+                transform: translateY(0);
+            }
+        }
+    }
+
+    // Respect reduced motion preference
+    @media (prefers-reduced-motion: reduce) {
+        .cards-block .card .card-image,
+        .cards-block .card .card-overlay-content,
+        .cards-block .card .card-content {
+            transition: none !important;
+            transform: none !important;
         }
     }
 }

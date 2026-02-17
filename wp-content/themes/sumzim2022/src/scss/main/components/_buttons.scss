@@ -23,7 +23,8 @@ button {
 a.button,
 button.button-cta,
 .checkout-button,
-button.button {
+button.button,
+span.button {
   padding: 16px 40px;
   display: inline-flex;
   flex-direction: column;
@@ -39,6 +40,7 @@ button.button {
   border: none;
   position: relative;
   cursor: pointer;
+  transition: all 0.5s ease;
 
   &.menu-book-now-button {
     border-radius: 0px !important;
@@ -93,7 +95,12 @@ button.button {
 
   &.button--secondary {
     background: var(--color__secondary);
-    color: black;
+    color: var(--color__primary--dark);
+
+    &:hover {
+      background: hsla(40, 91%, 47%, 1);
+      color: var(--color__primary--dark);
+    }
   }
 
   &.button--payment {

@@ -33,11 +33,15 @@
 
         .featured-articles__header-description {
           p {
-            @include apply-type(body);
+              @include apply-type(heading-xxs);
 
-            &:last-child {
-              margin-bottom: 0;
-            }
+              & {
+                  font-weight: 400;
+              }
+              
+              &:last-child {
+                  margin-bottom: 0;
+              }
           }
         }
       }
@@ -48,7 +52,7 @@
     grid-template-columns: auto;
     row-gap: 30px;
 
-    @include breakpoint(medium) {
+    @include breakpoint(large) {
       grid-template-columns: repeat(3, 1fr);
       gap: 1rem;
     }
@@ -84,7 +88,7 @@
 
       h5 {
         position: relative;
-        z-index: 9999;
+        z-index: 2;
         color: white;
         @include apply-type(heading-xs);
       }

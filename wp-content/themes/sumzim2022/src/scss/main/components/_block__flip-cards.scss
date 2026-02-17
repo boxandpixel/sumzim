@@ -28,10 +28,16 @@
             }
 
             .flip-cards__description {
-                @include apply-type(body);
+                p {
+                    @include apply-type(heading-xxs);
 
-                p:last-child {
-                    margin-bottom: 0;
+                    & {
+                        font-weight: 400;
+                    }
+                    
+                    &:last-child {
+                        margin-bottom: 0;
+                    }                    
                 }
             }
         }
@@ -135,9 +141,15 @@
         .flip-card__title {
             position: relative;
             z-index: 1;
-            margin-left: 0;
+            margin: 0;
             color: white !important;
             @include apply-type(heading-md);
+
+            // Clamp to 2 lines
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
         }
     }
 
@@ -183,28 +195,49 @@
             flex-direction: column;
             gap: 16px;
             max-width: 90%;
-        }
 
-        .flip-card__title {
-            margin-left: 0;
-            color: white !important;
-            @include apply-type(heading-sm);
-        }
+            .flip-card__text-group {
+                display: flex;
+                flex-direction: column;
+                gap: 12px;
 
-        .flip-card__description {
-            @include apply-type(body);
+                .flip-card__title {
+                    margin: 0;
+                    color: white !important;
+                    @include apply-type(heading-sm);
 
-            p:last-child {
-                margin-bottom: 0;
+                    // Clamp to 2 lines
+                    display: -webkit-box;
+                    -webkit-line-clamp: 2;
+                    -webkit-box-orient: vertical;
+                    overflow: hidden;
+                }
+
+                .flip-card__description {
+                    @include apply-type(body);
+
+                    // Clamp to 5 lines
+                    display: -webkit-box;
+                    -webkit-line-clamp: 5;
+                    -webkit-box-orient: vertical;
+                    overflow: hidden;
+
+                    p:last-child {
+                        margin-bottom: 0;
+                    }
+
+                    a {
+                        color: white;
+                    }
+                }
             }
 
-            a {
-                color: white;
+            .flip-card__action-group {
+                .flip-card__link {
+                    display: inline-flex;
+                    max-width: fit-content;
+                }
             }
-        }
-
-        .flip-card__link {
-            align-self: flex-start;
         }
     }
 }
