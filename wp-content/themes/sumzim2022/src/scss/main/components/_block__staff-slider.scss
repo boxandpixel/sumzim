@@ -3,9 +3,43 @@
 
 .staff-slider {
     margin-bottom: 60px;
+    position: relative;
 
     @include breakpoint(medium) {
         margin-bottom: 120px;
+    }   
+
+    &--none {
+        background: none;
+    }
+
+    &--light-blue {
+        background-color: #dde4eb;
+		padding-top: 60px;
+		padding-bottom: 60px;
+
+		@include breakpoint(medium) {
+			padding-top: 80px;
+			padding-bottom: 80px;
+		}	        
+    }
+
+    &--light-blue-gradient-to-dark {
+        background: linear-gradient(to bottom, rgba(12, 30, 49, 0) 0%, #dde4eb 100%);
+		padding-bottom: 60px;
+
+		@include breakpoint(medium) {
+			padding-bottom: 80px;
+		}	        
+    }
+
+    &--light-blue-gradient-to-light {
+        background: linear-gradient(to top, rgba(12, 30, 49, 0) 0%, #dde4eb 100%);        
+		padding-top: 60px;
+
+		@include breakpoint(medium) {
+			padding-top: 80px;
+		}	        
     }
 
     .container {
@@ -30,9 +64,9 @@
         }
 
         &-description {
-            @include apply-type(body);
             max-width: 700px;
             margin: 0 auto;
+            @include apply-type(body);
 
             p {
                 @include apply-type(heading-xxs);
@@ -146,9 +180,9 @@
             }
 
             h5 {
-                @include apply-type(heading-xxs);
                 color: white;
                 margin-bottom: 4px;
+                @include apply-type(heading-xxs);
             }
         }
 

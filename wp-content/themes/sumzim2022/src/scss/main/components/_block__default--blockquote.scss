@@ -60,7 +60,7 @@ blockquote {
         margin-top: 16px;
         color: var(--color__primary--dark);
         font-style: normal;
-        @include apply-type(eyebrow);
         opacity: 0.6;
+        @include apply-type(eyebrow);
     }
 }

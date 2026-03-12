@@ -5,14 +5,18 @@
     margin-bottom: 60px;
 
     @include breakpoint(medium) {
+        margin-bottom: 80px;
+    }
+
+    @include breakpoint(large) {
         margin-bottom: 120px;
     }
 
     .container {
-        @include content-wide;
         display: flex;
         flex-direction: column;
         gap: 24px;
+        @include content-wide;
 
         @include breakpoint(medium) {
             gap: 48px;
@@ -74,16 +78,43 @@
         // Mobile: use grid stacking so both faces contribute to height
         display: grid;
 
+        &:before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: 4px;
+            box-shadow: 0 4px 16px -4px rgba(12, 30, 49, 0.45);
+            opacity: 1;
+            transition: opacity 0.1s ease 0.275s; // fade out at the midpoint
+            pointer-events: none;
+            z-index: 10;
+        }        
+
         @include breakpoint(medium) {
             display: block;
         }
     }
 
-    &.is-flipped {
-        .flip-card__inner {
-            transform: rotateY(180deg);
-        }
-    }
+    // &.is-flipped {
+    //     .flip-card__inner {
+    //         transform: rotateY(180deg);
+    //     }
+
+    //     // Collapse the shadow when flipped so it doesn't bleed through
+    //     .flip-card__face--front {
+    //         box-shadow: none;
+
+    //         // Mobile: hide the front face content so mirrored items don't show through
+    //         .flip-card__toggle,
+    //         .flip-card__title {
+    //             display: none;
+
+    //             @include breakpoint(medium) {
+    //                 display: block;
+    //             }
+    //         }            
+    //     }        
+    // }
 
     &__face {
         border-radius: 4px;
@@ -107,6 +138,8 @@
     /* FRONT FACE */
     &__face--front {
         color: white;
+        // box-shadow: 0 4px 16px -4px rgba(12, 30, 49, 0.45);
+        transition: box-shadow 0.65s cubic-bezier(0.25, 0.46, 0.45, 1);
         // Mobile: front needs min-height to look good, but back determines actual height
         min-height: 200px;
 
@@ -119,9 +152,9 @@
             position: absolute;
             inset: 0;
             background: linear-gradient(
-                180deg,
-                rgba(0, 0, 0, 0) 40%,
-                rgba(0, 0, 0, 0.7) 100%
+                to bottom,
+                rgba(25, 20, 18, 0) 40%,
+                rgba(25, 20, 18, 0.85) 100%
             );
         }
 
@@ -143,13 +176,15 @@
             z-index: 1;
             margin: 0;
             color: white !important;
-            @include apply-type(heading-md);
 
             // Clamp to 2 lines
             display: -webkit-box;
             -webkit-line-clamp: 2;
             -webkit-box-orient: vertical;
             overflow: hidden;
+
+
+            @include apply-type(heading-md);
         }
     }
 
@@ -162,7 +197,7 @@
             content: "";
             position: absolute;
             inset: 0;
-            background: rgba(0, 0, 0, 0.6);
+            background: rgba(25, 20, 18, 0.6);
             z-index: 0;
         }
 
@@ -204,23 +239,26 @@
                 .flip-card__title {
                     margin: 0;
                     color: white !important;
-                    @include apply-type(heading-sm);
 
                     // Clamp to 2 lines
                     display: -webkit-box;
                     -webkit-line-clamp: 2;
                     -webkit-box-orient: vertical;
                     overflow: hidden;
+
+
+                    @include apply-type(heading-sm);
                 }
 
                 .flip-card__description {
-                    @include apply-type(body);
 
                     // Clamp to 5 lines
                     display: -webkit-box;
                     -webkit-line-clamp: 5;
                     -webkit-box-orient: vertical;
                     overflow: hidden;
+
+                    @include apply-type(body);
 
                     p:last-child {
                         margin-bottom: 0;
@@ -240,4 +278,21 @@
             }
         }
     }
+
+    &.is-flipped {
+        .flip-card__inner {
+            transform: rotateY(180deg);
+        }
+
+        // Collapse the shadow when flipped so it doesn't bleed through
+        .flip-card__face--front {
+            box-shadow: none;
+
+            // hide the front face content so mirrored items don't show through
+            .flip-card__toggle,
+            .flip-card__title {
+                display: none;
+            }            
+        }        
+    }    
 }

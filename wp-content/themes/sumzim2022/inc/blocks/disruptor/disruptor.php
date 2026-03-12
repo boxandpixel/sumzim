@@ -8,11 +8,12 @@ $heading = $disruptor['heading'] ?? '';
 $image = $disruptor['image'] ?? null;
 $description = $disruptor['description'] ?? '';
 $button = $disruptor['button'] ?? [];
+$background_color = $disruptor['background_color'] ?? '';
 
 $has_image = !empty($image);
 ?>
 
-<section class="disruptor<?php echo $has_image ? ' disruptor--has-image' : ''; ?>">
+<section class="disruptor<?php echo $has_image ? ' disruptor--has-image' : ''; echo ' disruptor--' . $background_color?>">
 	<div class="container">
 		<div class="disruptor__content">
 			<?php if ($has_image): ?>
@@ -30,7 +31,7 @@ $has_image = !empty($image);
 
 		<?php if($button): ?>
 		<div class="disruptor__button">
-			<a href="<?php echo $button['url']; ?>" class="button button--white"><?php echo $button['title']; ?></a>
+			<a href="<?php echo $button['url']; ?>" class="button <?php if($background_color == 'gradient'): echo 'button--white'; else: echo 'button--primary'; endif; ?>"><?php echo $button['title']; ?></a>
 		</div>
 		<?php endif; ?>
 	</div>

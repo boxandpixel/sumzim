@@ -30,32 +30,26 @@
 
 function updateParallax() {
     if (!isVisible) {
-      ticking = false;
-      return;
+        ticking = false;
+        return;
     }
 
     const rect = hero.getBoundingClientRect();
-    const scrolled = -rect.top;
+    // Use heroHeight as origin so parallax starts immediately from page load
+    const scrolled = hero.offsetHeight - rect.bottom;
 
-    if (scrolled > 0) {
-      // Content moves up faster
-      const contentOffset = scrolled * 0.4;
-      content.style.transform = `translate3d(0, -${contentOffset}px, 0)`;
+    // Content moves up faster
+    const contentOffset = scrolled * 0.4;
+    content.style.transform = `translate3d(0, -${contentOffset}px, 0)`;
 
-      // Media moves up slower
-      if (media) {
+    // Media moves up slower
+    if (media) {
         const mediaOffset = scrolled * 0.15;
         media.style.transform = `translate3d(0, ${mediaOffset}px, 0)`;
-      }
-    } else {
-      content.style.transform = 'translate3d(0, 0, 0)';
-      if (media) {
-        media.style.transform = 'translate3d(0, 0, 0)';
-      }
     }
 
     ticking = false;
-  }
+}
 
   window.addEventListener(
     'scroll',

@@ -234,3 +234,21 @@
         @include icon-font-loader;
     }
 }
+
+@mixin card-gradient-overlay {
+  background: linear-gradient(
+    to top,
+    rgba(25, 20, 18, 0.85) 0%,
+    rgba(25, 20, 18, 0.85) 40%,
+    transparent 100%
+  );
+}
+
+@mixin featured-staff-gradient-overlay {
+  background: linear-gradient(
+    to top,
+    rgba(25, 20, 18, 0.7) 0%,
+    rgba(25, 20, 18, 0.7) 60%,
+    transparent 100%
+  );
+}

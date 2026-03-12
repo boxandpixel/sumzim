@@ -2,16 +2,55 @@
 // @use '../abstracts/colors.functions' as *;
 @use '../common/typography.mixins' as *;
 
-.block__media-grid {
-	// background: hsla(211 60.7% 12% / 0.1);
+.media-grid {
 	display: flex;
 	justify-content: center;
-	// padding: 60px 0;
 	margin-bottom: 60px;
 
 	@include breakpoint(medium) {
+		margin-bottom: 80px;
+	}
+
+	@include breakpoint(large) {
 		margin-bottom: 120px;
 	}
+
+    &--none {
+        background: none;
+    }
+
+    &--light-blue {
+        background-color: #dde4eb;
+		padding-top: 60px;
+		padding-bottom: 60px;
+
+		@include breakpoint(medium) {
+			padding-top: 80px;
+			padding-bottom: 80px;
+		}	
+    }
+
+    &--light-blue-gradient-to-dark {
+        background: linear-gradient(to bottom, rgba(12, 30, 49, 0) 0%, #dde4eb 100%);
+		padding-top: 60px;
+		padding-bottom: 60px;
+
+		@include breakpoint(medium) {
+			padding-top: 80px;
+			padding-bottom: 80px;
+		}			
+    }
+
+    &--light-blue-gradient-to-light {
+        background: linear-gradient(to top, rgba(12, 30, 49, 0) 0%, #dde4eb 100%);        
+		padding-top: 60px;
+		padding-bottom: 60px;
+
+		@include breakpoint(medium) {
+			padding-top: 80px;
+			padding-bottom: 80px;
+		}			
+    }	
 
 	.interior-container {
 		max-width: 100%;
@@ -64,7 +103,7 @@
 			}
 		}
 
-		.media-grid {
+		.media-grid__group {
 			display: grid;
 			grid-template-columns: minmax(0, 1fr);
 			column-gap: 30px;

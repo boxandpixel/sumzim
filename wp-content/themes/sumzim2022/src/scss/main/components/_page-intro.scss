@@ -7,6 +7,10 @@
 	margin-bottom: 60px;
 
 	@include breakpoint(medium) {
+		margin-bottom: 80px;
+	}
+
+	@include breakpoint(large) {
 		margin-bottom: 120px;
 	}
 

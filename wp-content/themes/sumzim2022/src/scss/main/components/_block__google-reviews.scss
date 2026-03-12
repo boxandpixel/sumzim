@@ -4,11 +4,18 @@
 
 .google-reviews {
     background: linear-gradient(180deg, rgba(12, 30, 49, 0) 0%, #dde4eb 100%);
-    padding: 4rem 0;
-    margin-bottom: 30px;
+    padding-top: 60px;
+    padding-bottom: 60px;
+    margin-bottom: 60px;
 
     @include breakpoint(medium) {
-        margin-bottom: 60px;
+        margin-bottom: 80px;
+        padding-top: 80px;
+        padding-bottom: 80px;
+    }
+
+    @include breakpoint(large) {
+        margin-bottom: 120px;
     }
 
     .container {

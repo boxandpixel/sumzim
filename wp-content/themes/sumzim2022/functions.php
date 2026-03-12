@@ -1456,3 +1456,14 @@ add_filter('body_class', function ($classes) {
     }
     return $classes;
 });
+
+/**
+ * Add class to body element for each page
+ */
+add_filter( 'body_class', function( $classes ) {
+    if ( is_page() ) {
+        $slug = get_post_field( 'post_name', get_the_ID() );
+        $classes[] = 'page-' . $slug;
+    }
+    return $classes;
+} );

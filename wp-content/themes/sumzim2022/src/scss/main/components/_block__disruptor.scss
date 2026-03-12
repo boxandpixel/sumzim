@@ -1,13 +1,21 @@
 .disruptor {
     margin-bottom: 60px;
-    background-image: linear-gradient(to right, #0c1e31, #f5b330);
+
+    @include breakpoint(medium) {
+        margin-bottom: 80px;
+    }    
 
     @include breakpoint(medium) {
         margin-bottom: 120px;
     }
 
+    &--gradient {
+        background-image: linear-gradient(to right, #0c1e31, #f5b330);
+    }
+  
+
     .container {
-        padding: 80px 0;
+        padding: 60px 0;
         display: grid;
         grid-template-columns: repeat(1, minmax(0, 1fr));
         align-content: center;
@@ -65,6 +73,8 @@
         }
     }
 
+  
+
     &--has-image {
         .container {
             @include breakpoint(medium) {
@@ -100,4 +110,54 @@
             }
         }
     }
+
+    &--none {
+        background-color: none;
+
+        .container {
+            .disruptor__content {
+                
+                color: var(--color__primary--dark);
+
+                &-heading {
+                    color: var(--color__primary--dark);
+                }
+
+                &-description {
+                    h1,h2,h3,h4,h5,h6,p,li,a {
+                        color: var(--color__primary--dark);
+                    }
+                }
+            }
+
+            .disruptor__image {
+                background-color: transparent;
+            }
+        }
+    }  
+
+    &--light-blue {
+        background-color: #dde4eb;
+
+        .container {
+            .disruptor__content {
+                
+                color: var(--color__primary--dark);
+
+                &-heading {
+                    color: var(--color__primary--dark);
+                }
+
+                &-description {
+                    h1,h2,h3,h4,h5,h6,p,li,a {
+                        color: var(--color__primary--dark);
+                    }
+                }
+            }
+
+            .disruptor__image {
+                background-color: transparent;
+            }
+        }
+    }         
 }

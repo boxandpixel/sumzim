@@ -4,9 +4,15 @@
 	$heading_position = !empty(get_field("heading_position")) ? strtolower(get_field("heading_position")) : 'left';
 	$link = get_field("link");
 	$media_items = get_field("media_items");
+	$background_color = get_field('background_color') ?? [];
 ?>
 
-<div class="block__media-grid contain">
+<div class="media-grid  
+    <?php if($background_color == "none"): echo ' media-grid--none'; 
+            elseif($background_color == "light-blue"): echo ' media-grid--light-blue'; 
+            elseif($background_color == "light-blue-gradient-to-dark"): echo ' media-grid--light-blue-gradient-to-dark';
+            elseif($background_color == "light-blue-gradient-to-light"): echo ' media-grid--light-blue-gradient-to-light'; 
+            endif; ?>">
 	<div class="interior-container">
 		<?php if($heading || $description): ?>
 		<div class="media-grid__header media-grid__header--<?php echo esc_attr($heading_position); ?>">
@@ -21,7 +27,7 @@
 		</div>
 		<?php endif; ?>
 
-		<div class="media-grid">
+		<div class="media-grid__group">
 			<?php 
 				foreach($media_items as $media_item): 
 

@@ -5,8 +5,12 @@
     margin-bottom: 60px;
 
     @include breakpoint(medium) {
-        margin-bottom: 120px;
+        margin-bottom: 80px;
     }
+
+    @include breakpoint(large) {
+        margin-bottom: 120px;
+    }    
 
     .container {
         display: flex;
@@ -49,7 +53,7 @@
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: 24px;
-        margin-bottom: 48px;
+        // margin-bottom: 48px;
 
         @include breakpoint(large) {
             grid-template-columns: repeat(4, 1fr);
@@ -58,6 +62,7 @@
     }
 
     &__cta {
+        margin-top: 12px;
         text-align: center;
     }
 }
@@ -68,6 +73,8 @@
     color: inherit;
     transition: transform 0.5s ease;
     aspect-ratio: 3 / 4;
+    box-shadow: 0 4px 16px -4px rgba(12, 30, 49, 0.45);
+    position: relative;
 
     &:hover {
         // transform: translateY(-4px);
@@ -98,10 +105,11 @@
         inset: 0;
         background: linear-gradient(
             180deg,
-            rgba(0, 0, 0, .2) 40%,
-            rgba(0, 0, 0, 0.8) 100%
+            rgba(0, 0, 0, 0) 40%,
+            rgba(0, 0, 0, 0.7) 100%
         );
         z-index: 1;
+        // @include featured-staff-gradient-overlay;
     }
 
     &__overlay-content {

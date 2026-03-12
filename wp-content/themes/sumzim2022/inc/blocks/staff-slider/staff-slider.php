@@ -19,6 +19,7 @@ $heading = $staff_slider['heading'] ?? '';
 $description = $staff_slider['description'] ?? '';
 $featured_staff = $staff_slider['staff_members'] ?? [];
 $view_all_link = $staff_slider['link'] ?? null;
+$background_color = $staff_slider['background_color'] ?? [];
 
 // Get IDs of hand-picked staff
 $featured_ids = array_filter(array_map(function($staff_row) {
@@ -66,7 +67,12 @@ $slider_id = 'staff-slider-' . uniqid();
 
 ?>
 
-<section class="staff-slider">
+<section class="staff-slider 
+    <?php if($background_color == "none"): echo ' staff-slider--none'; 
+            elseif($background_color == "light-blue"): echo ' staff-slider--light-blue'; 
+            elseif($background_color == "light-blue-gradient-to-dark"): echo ' staff-slider--light-blue-gradient-to-dark';
+            elseif($background_color == "light-blue-gradient-to-light"): echo ' staff-slider--light-blue-gradient-to-light'; 
+            endif; ?>">
     <div class="container">
         <?php if($heading || $description): ?>
         <div class="staff-slider__header">
