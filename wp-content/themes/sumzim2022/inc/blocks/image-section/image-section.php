@@ -9,6 +9,7 @@ $link = $image_section['link'] ?? [];
 $image_group = $image_section['image_group'];
 $image = $image_group['image'] ?? [];
 $image_caption = $image_group['image_caption'] ?? '';
+$image_size = $image_group['image_size'] ?? [];
 
 $content_group = $image_section['content_group'];
 $heading = $content_group['heading'] ?? '';
@@ -25,7 +26,7 @@ $description = $content_group['description'] ?? '';
 		<div class="image-section__container">
 		<?php endif; ?>
 
-			<div class="image-section__image">
+			<div class="image-section__image image-section__image-<?= esc_html($image_size); ?>">
 				<figure>
 					<?php if(!empty($image_link)): ?>
 					<a href="<?= esc_url($image_link['url']); ?>" target="<?= esc_attr($image_link_target); ?>">

@@ -6,7 +6,7 @@
  */
 
 // Get block fields
-$google_reviews = get_field('google_reviews');
+$google_reviews = get_query_var('google_reviews_data') ?: get_field('google_reviews');
 
 // Bail if no google reviews group
 if (empty($google_reviews)) {
@@ -19,6 +19,8 @@ $description = $google_reviews['description'] ?? '';
 $filter_keyword = $google_reviews['filter_keyword'] ?? '';
 $selected_reviews = $google_reviews['selected_reviews'] ?? array();
 $show_google_logo = $google_reviews['show_google_logo'] ?? true;
+$background_color = $google_reviews['background_color'] ?? [];
+$show_pagination = $google_reviews['show_pagination'] ?? true;
 
 // Get all available reviews
 $all_reviews = get_curated_google_reviews();
@@ -77,12 +79,18 @@ $carousel_id = 'google-reviews-' . uniqid();
 ?>
 
 <?php
-$className = 'breakout google-reviews';
-if (!empty($block['className'])) {
-    $className .= ' ' . $block['className'];
-}
+$is_embedded = !empty(get_query_var('google_reviews_data'));
+
+$className = 'google-reviews';
+if ($is_embedded) $className .= ' google-reviews--embedded';
+if (!empty($block['className'])) $className .= ' ' . $block['className'];
 ?>
-<section class="<?php echo esc_attr($className); ?>">
+<section class="<?php echo esc_attr($className); ?>
+        <?php if($background_color == "none"): echo ' google-reviews--none'; 
+            elseif($background_color == "light-blue"): echo ' google-reviews--light-blue'; 
+            elseif($background_color == "light-blue-gradient-to-dark"): echo ' google-reviews--light-blue-gradient-to-dark';
+            elseif($background_color == "light-blue-gradient-to-light"): echo ' google-reviews--light-blue-gradient-to-light'; 
+            endif; ?>">
 
 <!-- <section class="breakout google-reviews"> -->
 
@@ -148,6 +156,7 @@ if (!empty($block['className'])) {
                     <?php endforeach; ?>
                 </div>
                 
+                <?php if($show_pagination == true): ?>
                 <div class="google-reviews__navigation">
                     <button class="google-reviews__nav-btn google-reviews__nav-btn--prev" aria-label="Previous review">previous</button>
                     
@@ -159,6 +168,7 @@ if (!empty($block['className'])) {
                     
                     <button class="google-reviews__nav-btn google-reviews__nav-btn--next" aria-label="Next review">next</button>
                 </div>
+                <?php endif; ?>
                 
             </div>
         </div>

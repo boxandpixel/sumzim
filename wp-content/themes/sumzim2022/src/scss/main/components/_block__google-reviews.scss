@@ -18,6 +18,25 @@
         margin-bottom: 120px;
     }
 
+    &--none {
+        background: none;
+    }
+
+    &--light-blue {
+        background-color: #dde4eb;	        
+    }
+
+    &--light-blue-gradient-to-dark {
+        background: linear-gradient(to bottom, rgba(12, 30, 49, 0) 0%, #dde4eb 100%);
+        
+    }
+
+    &--light-blue-gradient-to-light {
+        background: linear-gradient(to top, rgba(12, 30, 49, 0) 0%, #dde4eb 100%);        
+        
+    }    
+    
+
     .container {
         display: flex;
         flex-direction: column;
@@ -53,7 +72,7 @@
                 }
             }
         }
-    }
+    }    
 
     .google-reviews__carousel {
         position: relative;
@@ -198,4 +217,41 @@
     .google-reviews__total {
         color: var(--color__primary--dark);
     }
+// everything else above...
+
+&--embedded {
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-bottom: 0;
+    background: none;
+
+    .container {
+        width: 100%;
+        max-width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+        padding-left: 0;
+        padding-right: 0;
+
+        @include breakpoint(medium) {
+            width: 100%;
+            max-width: 100%;
+            margin-left: 0;
+            margin-right: 0;
+            padding-left: 0;
+            padding-right: 0;
+        }
+
+        .google-reviews__carousel {
+            position: relative;
+            width: 100%;
+            max-width: 100%;
+            margin: 0;
+        }       
+        
+        .contain {
+            width: 100%;
+        }
+    }
 }
+}  // closing .google-reviews

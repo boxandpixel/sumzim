@@ -1,0 +1,211 @@
+{
+    "key": "group_69b846b896588",
+    "title": "Half Split",
+    "fields": [
+        {
+            "key": "field_69b846b814f49",
+            "label": "Half Split",
+            "name": "half_split",
+            "aria-label": "",
+            "type": "group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_69b846c014f4a",
+                    "label": "Left Column",
+                    "name": "left_column",
+                    "aria-label": "",
+                    "type": "flexible_content",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "layouts": {
+                        "layout_69b8475d7cd8f": {
+                            "key": "layout_69b8475d7cd8f",
+                            "name": "google_reviews",
+                            "label": "Google Reviews",
+                            "display": "block",
+                            "sub_fields": [
+                                {
+                                    "key": "field_69b84d6086244",
+                                    "label": "Google Reviews",
+                                    "name": "google_reviews",
+                                    "aria-label": "",
+                                    "type": "clone",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "clone": [
+                                        "group_69691ae86b144"
+                                    ],
+                                    "display": "seamless",
+                                    "layout": "block",
+                                    "prefix_label": 0,
+                                    "prefix_name": 0
+                                }
+                            ],
+                            "min": "",
+                            "max": ""
+                        },
+                        "layout_69b964f6f1232": {
+                            "key": "layout_69b964f6f1232",
+                            "name": "icon_items",
+                            "label": "Icon Items",
+                            "display": "block",
+                            "sub_fields": [
+                                {
+                                    "key": "field_69b964fbf1235",
+                                    "label": "Icon Items",
+                                    "name": "icon_items",
+                                    "aria-label": "",
+                                    "type": "clone",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "clone": [
+                                        "group_69b95c22ba2a1"
+                                    ],
+                                    "display": "seamless",
+                                    "layout": "block",
+                                    "prefix_label": 0,
+                                    "prefix_name": 0
+                                }
+                            ],
+                            "min": "",
+                            "max": ""
+                        }
+                    },
+                    "min": "",
+                    "max": "",
+                    "button_label": "Add Row"
+                },
+                {
+                    "key": "field_69b8476414f4b",
+                    "label": "Right Column",
+                    "name": "right_column",
+                    "aria-label": "",
+                    "type": "flexible_content",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "layouts": {
+                        "layout_69b847692723f": {
+                            "key": "layout_69b847692723f",
+                            "name": "google_reviews",
+                            "label": "Google Reviews",
+                            "display": "block",
+                            "sub_fields": [
+                                {
+                                    "key": "field_69b84a2914f4c",
+                                    "label": "Google Reviews",
+                                    "name": "google_reviews",
+                                    "aria-label": "",
+                                    "type": "clone",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "clone": [
+                                        "field_69691ae89dabf"
+                                    ],
+                                    "display": "seamless",
+                                    "layout": "block",
+                                    "prefix_label": 0,
+                                    "prefix_name": 0
+                                }
+                            ],
+                            "min": "",
+                            "max": ""
+                        },
+                        "layout_69b98c63f40fe": {
+                            "key": "layout_69b98c63f40fe",
+                            "name": "icon_items",
+                            "label": "Icon Items",
+                            "display": "block",
+                            "sub_fields": [
+                                {
+                                    "key": "field_69b98c68f4101",
+                                    "label": "Icon Items",
+                                    "name": "icon_items",
+                                    "aria-label": "",
+                                    "type": "clone",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "clone": [
+                                        "group_69b95c22ba2a1"
+                                    ],
+                                    "display": "seamless",
+                                    "layout": "block",
+                                    "prefix_label": 0,
+                                    "prefix_name": 0
+                                }
+                            ],
+                            "min": "",
+                            "max": ""
+                        }
+                    },
+                    "min": "",
+                    "max": "",
+                    "button_label": "Add Row"
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/half-split"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1773771012
+}

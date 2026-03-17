@@ -1129,7 +1129,17 @@ add_action( 'acf/init', function () {
 			'title'       => __( 'Page Intro', 'psychotherapy' ),
 			'description' => __( 'A section large intro text', 'psychotherapy' ),
 			'icon'        => 'format-image',
-		], 																									
+		], 	
+		'half-split' => [
+			'title'       => __( 'Half Split', 'psychotherapy' ),
+			'description' => __( 'A 50/50 section with flexible content fields', 'psychotherapy' ),
+			'icon'        => 'format-image',
+		], 	
+		'icon-items' => [
+			'title'       => __( 'Icon Items', 'psychotherapy' ),
+			'description' => __( 'A section with icons and text', 'psychotherapy' ),
+			'icon'        => 'format-image',
+		], 																													
 																	 						 				     
 	];
 
@@ -1151,6 +1161,33 @@ add_action( 'acf/init', function () {
 		] );
 	}
 } );
+
+/**
+ * Half Split Layouts
+ */
+
+function half_split_layouts(): array {
+    return [
+        'google_reviews' => [
+            'template'  => 'inc/blocks/google-reviews/google-reviews',
+            'data_key'  => 'google_reviews_data',
+            'field_key' => 'google_reviews',
+        ],
+        'icon_items' => [
+            'template'  => 'inc/blocks/icon-items/icon-items',
+            'data_key'  => 'icon_items_data',
+            'field_key' => 'icon_items',
+        ],		
+        // Add more layouts here...
+    ];
+}
+
+add_filter('query_vars', function($vars) {
+    foreach (half_split_layouts() as $config) {
+        $vars[] = $config['data_key'];
+    }
+    return $vars;
+});
 
 /** Add new user role */
 

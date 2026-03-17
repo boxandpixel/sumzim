@@ -1,0 +1,37 @@
+@use '../common/mixins' as *;
+@use '../common/typography.mixins' as *;
+
+.half-split {
+    margin-bottom: 60px;
+    position: relative;
+
+    @include breakpoint(medium) {
+        margin-bottom: 120px;
+    }
+
+    .container {
+        @include content-wide;
+    }
+
+    &__inner {
+        display: flex;
+        flex-direction: column;
+        gap: 36px;
+
+        @include breakpoint(medium) {
+            flex-direction: row;
+            gap: 48px;
+            align-items: center;
+        }
+    }
+
+    &__col {
+        width: 100%;
+
+        @include breakpoint(medium) {
+            flex: 1;
+            width: auto; // remove the 100% so flex: 1 can do its job
+            min-width: 0; // prevent flex blowout
+        }
+    }
+}

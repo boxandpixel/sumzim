@@ -1,0 +1,224 @@
+.icon-items {
+    margin-bottom: 60px;
+
+    @include breakpoint(medium) {
+        margin-bottom: 80px;
+    }
+
+    @include breakpoint(large) {
+        margin-bottom: 120px;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        @include content-wide;
+
+        @include breakpoint(medium) {
+            gap: 48px;
+        }
+    }
+
+    &__header {
+        display: flex;
+        justify-content: center;
+    }
+
+    &__heading {
+        @include apply-type(heading-lg);
+    }
+
+    &__grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 24px;
+
+        @include breakpoint(medium) {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 32px;
+        }
+
+        @include breakpoint(large) {
+            grid-template-columns: repeat(5, minmax(0, 1fr));
+            gap: 24px;
+        }
+    }
+
+    &__item {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        background-color: white;
+        padding: 1.5rem;
+        border-radius: 4px;
+
+        @include breakpoint(medium) {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+    }
+
+    &__icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        text-align: center;
+
+        span {
+            --icon-size: 56px;
+            width: var(--icon-size);
+            height: var(--icon-size);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .material-symbols-outlined {
+            font-size: 56px;
+            color: var(--color__primary--dark);
+            font-variation-settings:
+                'FILL' 0,
+                'wght' 200,
+                'GRAD' 0,
+                'opsz' 24;
+            @include icon-font-loader;
+        }
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__item-heading {
+        margin-bottom: 0;
+        @include apply-type(heading-xs);
+    }
+
+    &__item-description {
+        margin: 0;
+        color: var(--color__primary--dark);
+        @include apply-type(body);
+    }
+
+    &__footer {
+        display: flex;
+        justify-content: center;
+        padding-top: 8px;
+    }
+
+    // -------------------------
+    // Embedded (cloned, 50% col)
+    // -------------------------
+    &--embedded {
+        margin-bottom: 0;
+        background: none !important;
+
+        .container {
+            padding: 0;
+            gap: 24px;
+
+            @include breakpoint(medium) {
+                width: 100%;
+                max-width: 100%;
+                margin-left: 0;
+                margin-right: 0;
+                padding-left: 0;
+                padding-right: 0;
+            }
+        }
+
+        .icon-items__header {
+            justify-content: flex-start;
+        }
+
+        .icon-items__heading {
+            @include apply-type(heading-md);
+        }
+
+        .icon-items__grid {
+            grid-template-columns: 1fr;
+            gap: 16px;
+
+            @include breakpoint(medium) {
+                grid-template-columns: 1fr;
+            }
+
+            @include breakpoint(large) {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .icon-items__item {
+            flex-direction: row;
+            align-items: center;
+            gap: 16px;
+            background-color: transparent;
+            padding: 0;
+        }
+
+        .icon-items__icon {
+            margin: 0;
+
+            span {
+                --icon-size: 56px;
+                width: var(--icon-size);
+                height: var(--icon-size);
+                aspect-ratio: 1;
+            }
+
+            .material-symbols-outlined {
+                font-size: 48px;
+            }
+        }
+
+        .icon-items__content {
+            gap: 0;
+        }
+
+        .icon-items__item-heading {
+            font-weight: 700 !important;
+            margin-bottom: 4px !important;
+            @include apply-type(body);
+        }
+
+        .icon-items__item-description {
+            margin: 0;
+            @include apply-type(small);
+        }
+    }
+
+    // -------------------------
+    // Background modifiers
+    // -------------------------
+    &--light-blue {
+        background-color: #dde4eb;
+        padding-top: 60px;
+        padding-bottom: 60px;
+
+        @include breakpoint(medium) {
+            padding-top: 80px;
+            padding-bottom: 80px;
+        }
+    }
+
+    &--light-blue-gradient-to-dark {
+        background: linear-gradient(to bottom, rgba(12, 30, 49, 0) 0%, #dde4eb 100%);
+        padding-bottom: 60px;
+
+        @include breakpoint(medium) {
+            padding-bottom: 80px;
+        }
+    }
+
+    &--light-blue-gradient-to-light {
+        background: linear-gradient(to top, rgba(12, 30, 49, 0) 0%, #dde4eb 100%);
+        padding-top: 60px;
+
+        @include breakpoint(medium) {
+            padding-top: 80px;
+        }
+    }
+}

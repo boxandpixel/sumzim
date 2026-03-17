@@ -46,7 +46,7 @@
 @import "./components/file-list";
 @import "./components/forms--application";
 @import "./components/forms";
-@import "./components/guarantee";
+// @import "./components/guarantee";
 @import "./components/heading-list";
 @import "./components/hero";
 @import "./components/icon-grid";
@@ -92,6 +92,8 @@
 @import "./components/block__cards-scroll";
 @import "./components/page-intro";
 @import "./components/swiper";
+@import "./components/block__half-split";
+@import "./components/block__icon-items";
 
 /** Utilties */
 @import "./util/animUnderline";

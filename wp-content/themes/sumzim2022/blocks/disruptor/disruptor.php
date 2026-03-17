@@ -3,9 +3,16 @@
  * Disruptor
 */
 
+if (defined('WP_DEBUG') && WP_DEBUG): ?>
+<pre style="background:#fff;padding:1rem;font-size:11px;">
+<?php var_dump(get_field('disruptor')); ?>
+</pre>
+<?php endif; 
+
 $disruptor = get_field('disruptor');
 $content = $disruptor['content'];
 $button = $disruptor['button'];
+
 ?>
 
 

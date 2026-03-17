@@ -53,6 +53,7 @@
         }
         
         .image-section__image {
+
             figure {
                 max-width: 800px; // Default: 800px when no content
                 width: 100%; // Ensure figure fills its container
@@ -74,6 +75,31 @@
                     }
                 }
             }
+
+            &-50 {
+                display: flex;
+                justify-content: center;                
+                
+                figure {
+                    max-width: 50%;
+                }
+            }
+
+            &-75 {
+                display: flex;
+                justify-content: center;                                
+                
+                figure {
+                    max-width: 75%;
+                }
+            }
+
+            &-100 {
+                figure {
+                    max-width: 800px;
+                    width: 100%;
+                }
+            }            
         }
 
         .image-section__content {
