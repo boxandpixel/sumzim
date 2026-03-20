@@ -5,6 +5,9 @@
 .page-home,
 .page-home-preview {
 	.homepage-hero + .staff-slider {
-		// margin-top: -80px;
+		@include breakpoint(large) {
+			margin-bottom: 0;
+		}
 	}
+
 }

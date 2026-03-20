@@ -2,29 +2,23 @@
 @use '../common/typography.mixins' as *;
 
 .cards-scroll {
-    // The section itself becomes tall to create scroll runway
-    // Height is set dynamically via JS based on total scroll distance needed
     position: relative;
-    margin-top: -60px;
+    
+    // Mobile/tablet: standard block spacing
+    margin-bottom: 60px;
 
     @include breakpoint(medium) {
-        margin-top: -80px;
+        margin-bottom: 80px;
     }
 
     @include breakpoint(large) {
-        margin-top: -120px;
+        margin-bottom: 0; // Scroll hijack handles its own spacing
     }
 
+    // =============================================
+    // Mobile/tablet: normal flow, native swipe
+    // =============================================
     .cards-scroll__sticky {
-        // Sticky container pins the visible content while we scroll through the tall section
-        position: sticky;
-        top: 0;
-        height: 100vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        overflow: hidden;
-
         .container {
             display: flex;
             flex-direction: column;
@@ -36,50 +30,252 @@
                 gap: 48px;
                 margin-bottom: 48px;
             }
+        }
 
-            .cards-scroll__header {
+        .cards-scroll__header {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+
+            @include breakpoint(medium) {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: last baseline;
+                gap: unset;
+            }
+
+            .cards-scroll__header-group {
                 display: flex;
                 flex-direction: column;
-                gap: 18px;
+                gap: 8px;
+
+                .cards-scroll__header-group-heading {
+                    margin-left: 0;
+                    @include apply-type(heading-lg);
+                }    
+                
+                .cards-scroll__header-group-description {
+                    p {
+                        @include apply-type(heading-xxs);
+
+                        & {
+                            font-weight: 400;
+                        }
+                        
+                        &:last-child {
+                            margin-bottom: 0;
+                        }                            
+                    }
+                }                    
+            }
+        }
+    }
+
+    .cards-scroll__body {
+        position: relative;
+        width: 100vw;
+        padding-left: 24px;
+
+        .cards-container {
+            width: 100%;
+            
+            .cards-wrapper {
+                // Mobile/tablet: native horizontal scroll
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                position: relative;
+                width: 100%;
+
+                // Hide scrollbar
+                scrollbar-width: none;
+                &::-webkit-scrollbar {
+                    display: none;
+                }
+            }
+
+            .cards {
+                display: flex;
+                gap: 16px;
+                margin-bottom: unset;
+                padding-right: 24px;
 
                 @include breakpoint(medium) {
-                    flex-direction: row;
-                    justify-content: space-between;
-                    align-items: last baseline;
-                    gap: unset;
+                    gap: 38px;
                 }
 
-                .cards-scroll__header-group {
+                .card {
+                    position: relative;
                     display: flex;
                     flex-direction: column;
-                    gap: 8px;
+                    flex-shrink: 0;
+                    width: 300px;
+                    aspect-ratio: 3 / 4;
+                    border-radius: 4px;
+                    overflow: hidden;
+                    box-shadow: 0 4px 16px -4px rgba(12, 30, 49, 0.45);
 
-                    .cards-scroll__header-group-heading {
-                        margin-left: 0;
-                        @include apply-type(heading-lg);
-                    }    
+                    text-decoration: none;
+                    color: inherit;
+                    cursor: pointer;
+
+                    &.button--secondary,
+                    .button--secondary {
+                        transition: background 0.5s ease, color 0.5s ease;
+                    }
+
+                    &:hover .button--secondary {
+                        background: hsla(40, 91%, 47%, 1);
+                    }
+
+                    &:before {
+                        content: "";
+                        width: 100%;
+                        height: 100%;
+                        position: absolute;
+                        inset: 0;
+                        background: var(--bg-image) center/cover no-repeat;
+                        z-index: 0;                       
+                        transform: scale(1);
+                        transition: transform 0.5s ease;
+                    }   
                     
-                    .cards-scroll__header-group-description {
-                        p {
-                            @include apply-type(heading-xxs);
+                    &:hover:before {
+                        // transform: scale(1.1);
+                    }
 
-                            & {
-                                font-weight: 400;
-                            }
-                            
-                            &:last-child {
-                                margin-bottom: 0;
-                            }                            
+                    &:after {
+                        content: "";
+                        position: absolute;
+                        inset: 0;
+                        background: linear-gradient(
+                            to bottom,
+                            rgba(0, 0, 0, 0) 0%,
+                            rgba(0, 0, 0, .25) 40%,
+                            rgba(0, 0, 0, .6) 60%,
+                            rgba(0, 0, 0, 0.8) 100%
+                        );                         
+                        z-index: 2;
+                    }
+
+                    @include breakpoint(medium) {
+                        width: auto;
+                        min-width: 320px;
+                    }
+
+                    &.card--no-image {
+                        background-color: white;
+                        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0, 0, 0, 0.06);
+
+                        &:before {
+                            display: none;
                         }
-                    }                    
+
+                        &:after {
+                            display: none;
+                        }
+
+                        .card__content {
+                            .card__inner {
+                                .card__text-group {
+                                    .card__heading {
+                                        color: var(--color__primary--dark);
+                                    }
+
+                                    .card__description {
+                                        color: var(--color__primary--dark);
+
+                                        a {
+                                            color: var(--color__primary--dark);
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    .card__content {
+                        position: absolute;
+                        inset: 0;
+                        padding: 24px 16px;
+                        z-index: 3;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: flex-end;
+
+                        @include breakpoint(medium) {
+                            padding: 24px;
+                        }
+
+                        .card__inner {
+                            display: flex;
+                            flex-direction: column;
+                            gap: 16px;
+
+                            .card__text-group {
+                                display: flex;
+                                flex-direction: column;
+                                gap: 12px;
+
+                                .card__heading {
+                                    color: white;
+                                    margin-bottom: 0;
+                                    margin-left: 0;
+
+                                    display: -webkit-box;
+                                    -webkit-line-clamp: 2;
+                                    -webkit-box-orient: vertical;
+                                    overflow: hidden;
+                                    @include apply-type(heading-xs);
+                                }
+
+                                .card__description {
+                                    color: white;
+                                    line-height: 1.6;
+
+                                    display: -webkit-box;
+                                    -webkit-line-clamp: 5;
+                                    -webkit-box-orient: vertical;
+                                    overflow: hidden;
+                                    @include apply-type(body);
+
+                                    a {
+                                        color: white;
+                                    }
+
+                                    p:last-child {
+                                        margin-bottom: 0;
+                                    }
+                                }
+                            }
+
+                            .card__action-group {
+                                .card__link {
+                                    display: inline-flex;
+                                    max-width: fit-content;
+                                }
+                            }
+                        }
+                    }
                 }
             }
         }
+    }
+
+    // =============================================
+    // Desktop (1024px+): scroll hijack mode
+    // =============================================
+    @include breakpoint(large) {
+        .cards-scroll__sticky {
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            overflow: hidden;
+        }
 
         .cards-scroll__body {
-            // Break out of container to full width, align left edge with container content
-            position: relative;
-            width: 100vw;
             padding-left: calc((100vw - 1223px) / 2 + 24px);
             
             @media (max-width: 1247px) {
@@ -87,203 +283,19 @@
             }
 
             .cards-container {
-                width: 100%;
-                
                 .cards-wrapper {
                     overflow: visible;
-                    position: relative;
-                    width: 100%;
                 }
 
                 .cards {
-                    display: flex;
-                    gap: 16px;
                     will-change: transform;
-                    margin-bottom: unset;
-
-                    @include breakpoint(medium) {
-                        gap: 38px;
-                    }
+                    padding-right: 0;
 
                     .card {
-                        position: relative;
-                        display: flex;
-                        flex-direction: column;
-                        flex-shrink: 0;
-                        // 3/4 aspect ratio at all breakpoints
-                        width: 300px;
-                        aspect-ratio: 3 / 4;
-                        border-radius: 4px;
-                        overflow: hidden;
-                        box-shadow: 0 4px 16px -4px rgba(12, 30, 49, 0.45);
-
-                        // When card is an <a> tag, reset link defaults
-                        text-decoration: none;
-                        color: inherit;
-                        cursor: pointer;
-
-                        // Trigger button hover when hovering anywhere on the card link
-                        &.button--secondary,
-                        .button--secondary {
-                            transition: background 0.5s ease, color 0.5s ease;
-                        }
-
-                        &:hover .button--secondary {
-                            background: hsla(40, 91%, 47%, 1);
-                        }
-
-                        // Background image via ::before
-                        &:before {
-                            content: "";
-                            width: 100%;
-                            height: 100%;
-                            position: absolute;
-                            inset: 0;
-                            background: var(--bg-image) center/cover no-repeat;
-                            z-index: 0;                       
-                            transform: scale(1);
-                            transition: transform 0.5s ease;
-                        }   
-                        
-                        &:hover:before {
-                            // transform: scale(1.1);
-                        }
-
-                        // Gradient overlay
-                        &:after {
-                            content: "";
-                            position: absolute;
-                            // top: 0;
-                            // left: 0;
-                            // width: 100%;
-                            // height: 100%;
-                            // // background: linear-gradient(180deg, rgba(0, 0, 0, 0.3) 40%, rgba(0, 0, 0, 0.50) 100%);\\
-                            // background: linear-gradient(to top, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.7) 50%, transparent 100%);
-                            inset: 0;
-                            background: linear-gradient(
-                                to bottom,
-                                rgba(0, 0, 0, 0) 0%,
-                                rgba(0, 0, 0, .25) 40%,
-                                rgba(0, 0, 0, .6) 60%,
-                                rgba(0, 0, 0, 0.8) 100%
-                            );                         
-                            z-index: 2;
-                        }
-
-                        // Tablet
-                        @include breakpoint(medium) {
-                            width: auto;
-                            min-width: 320px;
-                        }
-
-                        // Desktop
-                        @include breakpoint(large) {
-                            min-width: 360px;
-                        }
-
-                        // =====================
-                        // No-image variant
-                        // =====================
-                        &.card--no-image {
-                            background-color: white;
-                            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0, 0, 0, 0.06);
-
-                            &:before {
-                                display: none;
-                            }
-
-                            &:after {
-                                display: none;
-                            }
-
-                            .card__content {
-                                .card__inner {
-                                    .card__text-group {
-                                        .card__heading {
-                                            color: var(--color__primary--dark);
-                                        }
-
-                                        .card__description {
-                                            color: var(--color__primary--dark);
-
-                                            a {
-                                                color: var(--color__primary--dark);
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
+                        min-width: 360px;
 
                         .card__content {
-                            position: absolute;
-                            inset: 0;
-                            padding: 24px 16px;
-                            z-index: 3;
-                            display: flex;
-                            flex-direction: column;
-                            justify-content: flex-end;
-
-                            @include breakpoint(medium) {
-                                padding: 24px;
-                            }
-
-                            @include breakpoint(large) {
-                                padding: 24px 32px;
-                            }
-
-                            .card__inner {
-                                display: flex;
-                                flex-direction: column;
-                                gap: 16px;
-
-                                .card__text-group {
-                                    display: flex;
-                                    flex-direction: column;
-                                    gap: 12px;
-
-                                    .card__heading {
-                                        color: white;
-                                        margin-bottom: 0;
-                                        margin-left: 0;
-
-                                        // Clamp to 2 lines
-                                        display: -webkit-box;
-                                        -webkit-line-clamp: 2;
-                                        -webkit-box-orient: vertical;
-                                        overflow: hidden;
-                                        @include apply-type(heading-xs);
-                                    }
-
-                                    .card__description {
-                                        color: white;
-                                        line-height: 1.6;
-
-                                        // Clamp to 5 lines
-                                        display: -webkit-box;
-                                        -webkit-line-clamp: 5;
-                                        -webkit-box-orient: vertical;
-                                        overflow: hidden;
-                                        @include apply-type(body);
-
-                                        a {
-                                            color: white;
-                                        }
-
-                                        p:last-child {
-                                            margin-bottom: 0;
-                                        }
-                                    }
-                                }
-
-                                .card__action-group {
-                                    .card__link {
-                                        display: inline-flex;
-                                        max-width: fit-content;
-                                        // color: white;
-                                    }
-                                }
-                            }
+                            padding: 24px 32px;
                         }
                     }
                 }
