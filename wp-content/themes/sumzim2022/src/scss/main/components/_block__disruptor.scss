@@ -5,7 +5,7 @@
         margin-bottom: 80px;
     }    
 
-    @include breakpoint(medium) {
+    @include breakpoint(large) {
         margin-bottom: 120px;
     }
 
@@ -89,10 +89,16 @@
 
             .disruptor__content {
                 display: flex;
+                flex-direction: column;
                 align-items: center;
                 gap: 24px;
 
                 @include breakpoint(medium) {
+                    align-items: flex-start;
+                }
+
+                @include breakpoint(large) {
+                    flex-direction: unset;
                     grid-column: 1;
                     grid-row: 1;
                 }
