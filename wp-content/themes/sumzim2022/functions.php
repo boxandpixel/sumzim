@@ -1504,3 +1504,10 @@ add_filter( 'body_class', function( $classes ) {
     }
     return $classes;
 } );
+
+/**
+ * Allow anchor tags in gravity forms
+ */
+add_filter( 'gform_allowable_tags', function( $tags, $field ) {
+    return '<a><strong><em>'; // only these tags survive strip_tags()
+}, 10, 2 );
