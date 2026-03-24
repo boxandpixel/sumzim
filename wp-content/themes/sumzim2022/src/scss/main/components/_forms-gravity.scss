@@ -744,6 +744,12 @@
 			font-size: 18px;
 			font-family: var(--font);
 			font-weight: 500;
+
+			a {
+				font-size: 14px;
+				color: var(--color__primary--dark);
+				display: block;
+			}
 		}
 	}
 
