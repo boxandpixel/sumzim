@@ -91,6 +91,21 @@ get_header();
 			<a href="/design-your-customer-membership/" class="button button--primary button--large">Customize Your Membership Today</a>
 		</div>
 
+		<div class="mem__section mem__evaluation-sheet-examples">
+			<h2>Example Evaluation Sheets</h2>
+
+			<ul>
+				<li><a href="https://stg-summerszims-staging.kinsta.cloud/wp-content/uploads/2026/03/membership-eval-gas-furnace-redacted.pdf" target="_blank">Example Gas Furnace Evaluation Sheet <span class="material-symbols-outlined">open_in_new</span></a></li>
+				<li><a href="https://stg-summerszims-staging.kinsta.cloud/wp-content/uploads/2026/03/membership-eval-oil-inspection.pdf" target="_blank">Example Oil Boiler/Furnace Evaluation Sheet <span class="material-symbols-outlined">open_in_new</span></a></li>
+				<li><a href="https://stg-summerszims-staging.kinsta.cloud/wp-content/uploads/2026/03/membership-eval-heat-pump-ac-redacted.pdf" target="_blank">Example Heat Pump Evaluation Sheet <span class="material-symbols-outlined">open_in_new</span></a></li>
+				<li><a href="https://stg-summerszims-staging.kinsta.cloud/wp-content/uploads/2026/03/membership-eval-heat-pump-ac-redacted.pdf" target="_blank">Example A/C Evaluation Sheet <span class="material-symbols-outlined">open_in_new</span></a></li>
+				<li><a href="https://stg-summerszims-staging.kinsta.cloud/wp-content/uploads/2026/03/membership-eval-water-treatment.pdf" target="_blank">Example Water Treatment Evaluation Sheet <span class="material-symbols-outlined">open_in_new</span></a></li>
+				<li><a href="https://stg-summerszims-staging.kinsta.cloud/wp-content/uploads/2026/03/membership-eval-generator-checklist.pdf" target="_blank">Example Generator Evaluation Sheet <span class="material-symbols-outlined">open_in_new</span></a></li>
+				<li><a href="https://stg-summerszims-staging.kinsta.cloud/wp-content/uploads/2026/03/membership-eval-electrical-safety.pdf" target="_blank">Example Electrical Safety Evaluation Sheet <span class="material-symbols-outlined">open_in_new</span></a></li>
+				<li><a href="https://stg-summerszims-staging.kinsta.cloud/wp-content/uploads/2026/03/membership-eval-backflow-test.pdf" target="_blank">Example Backflow Preventer Evaluation Sheet <span class="material-symbols-outlined">open_in_new</span></a></li>
+			</ul>
+		</div>
+
 		<!-- 5-Point Guarantee -->
 		<?php 
 			$display_5_point_guarantee = get_field('display_5_point_guarantee');

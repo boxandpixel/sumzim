@@ -5,6 +5,18 @@
   &.mem__section-cta {
 	margin: 40px 0;
   }
+
+  &.mem__evaluation-sheet-examples {
+    flex-direction: column;
+    background: var(--color__neutral--very-light);
+    padding: 1rem;
+    margin-bottom: 80px;
+    margin-top: 80px;
+
+    span {
+      font-size: 14px;
+    }
+  }
 }
 
 .mem__section-heading {
