@@ -1350,3 +1350,10 @@ function custom_og_image_for_spdirect( $image ) {
     }
     return $image;
 }
+
+/**
+ * Allow anchor tags in gravity forms
+ */
+add_filter( 'gform_allowable_tags', function( $tags, $field ) {
+    return '<a><strong><em>'; // only these tags survive strip_tags()
+}, 10, 2 );
