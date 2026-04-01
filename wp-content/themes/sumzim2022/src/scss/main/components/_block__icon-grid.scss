@@ -163,7 +163,7 @@
         }
 
         span {
-            --icon-size: 40px;
+            --icon-size: 48px;
             width: var(--icon-size);
             height: var(--icon-size);
             display: flex;
@@ -171,12 +171,12 @@
             justify-content: center;
 
             @include breakpoint(large) {
-                --icon-size: 48px;
+                --icon-size: 58px;
             }
         }
 
         .material-symbols-outlined {
-            font-size: 40px;
+            font-size: 48px;
             color: var(--color__primary--dark);
             font-variation-settings:
                 'FILL' 0,
@@ -186,19 +186,19 @@
             @include icon-font-loader;
 
             @include breakpoint(large) {
-                font-size: 48px;
+                font-size: 58px;
             }
         }
 
         &--image {
             img {
-                width: 40px;
-                height: 40px;
+                width: 48px;
+                height: 48px;
                 object-fit: contain;
 
                 @include breakpoint(large) {
-                    width: 48px;
-                    height: 48px;
+                    width: 58px;
+                    height: 58px;
                 }
             }
         }
