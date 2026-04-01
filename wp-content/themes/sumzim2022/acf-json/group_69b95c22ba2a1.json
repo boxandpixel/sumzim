@@ -126,6 +126,28 @@
                             "placeholder": "",
                             "new_lines": "",
                             "parent_repeater": "field_69b95c3083263"
+                        },
+                        {
+                            "key": "field_69cd1c3b28828",
+                            "label": "Show Numbers",
+                            "name": "show_numbers",
+                            "aria-label": "",
+                            "type": "true_false",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "",
+                            "default_value": 0,
+                            "allow_in_bindings": 0,
+                            "ui": 0,
+                            "ui_on_text": "",
+                            "ui_off_text": "",
+                            "parent_repeater": "field_69b95c3083263"
                         }
                     ]
                 },
@@ -196,5 +218,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1773771302
+    "modified": 1775049801
 }

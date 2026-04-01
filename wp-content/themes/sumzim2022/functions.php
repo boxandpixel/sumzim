@@ -1139,7 +1139,12 @@ add_action( 'acf/init', function () {
 			'title'       => __( 'Icon Items', 'psychotherapy' ),
 			'description' => __( 'A section with icons and text', 'psychotherapy' ),
 			'icon'        => 'format-image',
-		], 																													
+		], 	
+		'icon-grid' => [
+			'title'       => __( 'Icon Grid', 'psychotherapy' ),
+			'description' => __( 'A grid with icons and text, and a link', 'psychotherapy' ),
+			'icon'        => 'format-image',
+		], 																															
 																	 						 				     
 	];
 
