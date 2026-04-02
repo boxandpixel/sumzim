@@ -14,7 +14,7 @@
 @import "./layouts/footer";
 @import "./layouts/pages";
 @import "./layouts/posts";
-@import "./layouts/staff";
+// @import "./layouts/staff";
 @import "./layouts/tinymce";
 @import "./layouts/filters";
 @import "./layouts/reviews";
@@ -95,6 +95,8 @@
 @import "./components/block__half-split";
 @import "./components/block__icon-items";
 @import "./components/block__icon-grid";
+
+@import "./layouts/staff";
 
 /** Utilties */
 @import "./util/animUnderline";

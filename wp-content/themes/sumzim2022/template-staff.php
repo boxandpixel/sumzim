@@ -46,61 +46,52 @@ get_header();
 		
 			<div class="staff">
 				<div class="staff__grid">
-			
+
 			<?php
-			
+
 				$staff = array(
 					'post_type' => 'staff',
 					'order' => 'ASC',
 					'orderby' => 'title',
 					'posts_per_page' => -1,
-					'meta_query' => array(  
+					'meta_query' => array(
 						array(
 							'key'       => 'is_wall_of_fame',
 							'compare' => '=',
-							'value'     => '0' 
+							'value'     => '0'
 						)
 					)
 				);
-			
+
 				if( $staff ):
 				$staff_list = new WP_Query($staff);
 				setup_postdata( $staff_list);
-			
+
 				while( $staff_list->have_posts() ): $staff_list->the_post();
 					$staff_thumbnail = get_field('thumbnail_image');
-				
-			?>
-				<div class="staff__each">
-					<a href="<?php the_permalink(); ?>">
-						<img 
-							src="<?php echo $staff_thumbnail['url']; ?>" 
-							srcset="
-								<?php echo $staff_thumbnail['sizes']['small']; ?> 220w,
-								<?php echo $staff_thumbnail['sizes']['medium']; ?> 570w,
+					$job_title = get_field('job_title');
 
-							"
-							sizes="
-								(min-width: 768px) 66vw,
-								(min-width: 960px) 25vw,
-								100vw
-							"
-							alt="<?php echo $staff_thumbnail['alt']; ?>"
-						>  
-						<div class="staff__each-overlay">
-							<span class="staff__each-name"><?php the_title(); ?></span>
-							<span class="staff__each-position"><?php the_field("job_title"); ?></span>
-						</div> <!-- .staff__each-name-position -->
-					</a>
-				</div> <!-- .staff-each -->  
-			
+			?>
+				<a href="<?php the_permalink(); ?>" class="staff-card">
+					<div class="staff-card__image-wrapper">
+						<div class="staff-card__image" style="background-image: url('<?php echo esc_url($staff_thumbnail['url']); ?>');"></div>
+						<div class="staff-card__gradient"></div>
+						<div class="staff-card__overlay-content">
+							<div class="staff-card__name"><h5><?php the_title(); ?></h5></div>
+							<?php if($job_title): ?>
+							<div class="staff-card__title"><?php echo esc_html($job_title); ?></div>
+							<?php endif; ?>
+						</div>
+					</div>
+				</a>
+
 			<?php
 				endwhile;
 				wp_reset_postdata();
-				
+
 				endif;
 			?>
-			
+
 			<?php
 				$staff_wall_of_fame = array(
 				'post_type' => 'staff',
@@ -111,41 +102,42 @@ get_header();
 					array(
 						'key'       => 'is_wall_of_fame',
 						'compare' => '=',
-						'value'     => '1' 
+						'value'     => '1'
 					),
 					)
 				);
-			
+
 				if( $staff_wall_of_fame ):
 				$staff_wof = new WP_Query($staff_wall_of_fame);
 				setup_postdata( $staff_wof);
-			
+
 				while( $staff_wof->have_posts() ): $staff_wof->the_post();
-					$staff_thumbnail = get_field('thumbnail_image'); 
-				
-			?> 
-				<div class="staff__each staff__each--wof">
-					<div class="staff__each--wof-banner">
-						<span>SZ Wall</span>
-						<span>of Fame</span>
+					$staff_thumbnail = get_field('thumbnail_image');
+					$job_title = get_field('job_title');
+
+			?>
+				<a href="<?php the_permalink(); ?>" class="staff-card staff-card--wof">
+					<div class="staff-card__image-wrapper">
+						<div class="staff-card__wof-banner">
+							<span>SZ Wall</span>
+							<span>of Fame</span>
+						</div>
+						<div class="staff-card__image" style="background-image: url('<?php echo esc_url($staff_thumbnail['url']); ?>');"></div>
+						<div class="staff-card__gradient"></div>
+						<div class="staff-card__overlay-content">
+							<div class="staff-card__name"><h5><?php the_title(); ?></h5></div>
+							<?php if($job_title): ?>
+							<div class="staff-card__title"><?php echo esc_html($job_title); ?></div>
+							<?php endif; ?>
+						</div>
 					</div>
-					<a href="<?php the_permalink(); ?>">
-						<img 
-							src="<?php echo $staff_thumbnail['url']; ?>" 
-							alt="<?php echo $staff_thumbnail['alt']; ?>"
-						>  
-						<div class="staff__each-overlay staff__each-overlay--wof">
-							<span class="staff__each-name"><?php the_title(); ?></span>
-							<span class="staff__each-position"><?php the_field("job_title"); ?></span>
-						</div> <!-- .staff__each-name-position -->
-					</a>
-				</div> <!-- .staff-each -->  
+				</a>
 			<?php
 				endwhile;
 				wp_reset_postdata();
 				endif;
 			?>
-				</div> 
+				</div>
 			</div>
 		
 		

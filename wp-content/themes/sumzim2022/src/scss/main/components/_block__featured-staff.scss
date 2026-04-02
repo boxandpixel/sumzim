@@ -65,6 +65,10 @@
         margin-top: 12px;
         text-align: center;
     }
+
+    .staff-card:hover .staff-card__image {
+        transform: scale(1.1);
+    }
 }
 
 .staff-card {
@@ -94,10 +98,6 @@
         background-size: cover;
         background-position: center;
         transition: transform 0.5s ease;
-    }
-
-    &:hover &__image {
-        transform: scale(1.1);
     }
 
     &__gradient {
