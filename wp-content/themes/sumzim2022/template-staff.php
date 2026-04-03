@@ -13,6 +13,9 @@
  */
 
 get_header();
+
+	$page_settings = get_field('page_settings');
+	$seo_title = $page_settings['seo_title'];
 ?>
 
 	<main id="primary" class="site-main">
@@ -25,24 +28,14 @@ get_header();
 		?>
 		<div class="hero-landing">
 			<div class="hero__page-title">
-				<h1><?php the_title(); ?></h1>
+				<h1><?= $seo_title ? $seo_title : get_the_title(); ?></h1>
 				<h4><?php echo $hero_subheading; ?></h4>
 			</div>  
 		</div>
-
 		<div class="content__page --wide">
-		<!-- Begin Page Content Options -->
+		
+			<?php the_content(); ?>
 
-			<div class="display-button display-button--desktop">
-				<button class="button button-cta button--schedule button--large book-now-button" onclick="_scheduler.show({ schedulerId: 'sched_ejqbmr1e0g7tagr59sdo4rr2' })" type="button">Book Now!</button>
-			</div>
-
-			<div class="display-button display-button--mobile">
-				<a href="tel:6105935129" class="button button-cta button--schedule button--large book-now-button" id="sa-click-to-call">Call 610-593-5129</a>
-				<div class="home__hero-link-mobile-alt">
-					or <button class="se-button-alt" onclick="_scheduler.show({ schedulerId: 'sched_ejqbmr1e0g7tagr59sdo4rr2' })">Book Now</button>
-				</div>
-			</div>		
 		
 			<div class="staff">
 				<div class="staff__grid">
@@ -140,56 +133,6 @@ get_header();
 				</div>
 			</div>
 		
-		
-
-		<!-- 5-Point Guarantee -->
-		<?php 
-			$display_5_point_guarantee = get_field('display_5_point_guarantee');
-		?>
-			<?php if($display_5_point_guarantee != "None"): ?>
-			<div class="breakout guarantee">
-				<div class="guarantee__content">
-					<?php 
-						switch($display_5_point_guarantee) {
-							case "Heating":
-								echo get_field('guarantee_heating', 'option');
-								break;
-							case "Plumbing":
-								echo get_field('guarantee_plumbing', 'option');
-								break;
-							case "Air Conditioning":
-								echo get_field('guarantee_air_conditioning', 'option');
-								break;
-							case "General":
-								echo get_field('guarantee_general', 'option');
-								break;
-							case "HVAC":
-								echo get_field('guarantee_hvac', 'option');
-								break;										
-						}
-					?>
-					<div class="heading-list">
-						<ul class="heading-list__list">
-							<?php
-								if(have_rows('heading_list', 'option')): while(have_rows('heading_list', 'option')): the_row();
-									$heading_list_item = get_sub_field('heading_list_item', 'option');
-							?>
-							<li class="heading-list__list-item">
-								<?php echo $heading_list_item; ?>
-							</li>
-							<?php
-								endwhile; endif;
-							?>
-						</ul>
-					</div>
-					
-				</div>
-			</div>
-			<?php endif; ?>
-			
-		</div>
-		<a href="#top" class="back-to-top">Back to Top</a>
-
 
 	</main><!-- #main -->
 
