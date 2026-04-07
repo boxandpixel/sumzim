@@ -25,15 +25,22 @@ if ( $current_cat ) {
 
 $blog_query = new WP_Query( $query_args );
 $categories = get_categories( array( 'hide_empty' => true ) );
+
+
+$page_settings = get_field('page_settings');
+$seo_title = $page_settings['seo_title'];
+$tagline = $page_settings['tagline'];
 ?>
 
 <main id="primary" class="site-main blog-landing">
 
 	<header class="blog-hero">
 		<div class="blog-hero__inner">
-			<p class="blog-hero__eyebrow">Summers &amp; Zim's</p>
-			<h1 class="blog-hero__title">Blog &amp; Resources</h1>
-			<p class="blog-hero__tagline">Tips, guides, and updates from the Summers &amp; Zim's team.</p>
+			<p class="blog-hero__eyebrow"><?php echo esc_html( get_bloginfo( 'name' ) ); ?></p>
+			<h1 class="blog-hero__title"><?= $seo_title ?: get_the_title(); ?></h1>
+			<?php if($tagline): ?>
+			<p class="blog-hero__tagline"><?= esc_html($tagline); ?></p>
+			<?php endif; ?>
 		</div>
 	</header>
 
@@ -102,30 +109,11 @@ $categories = get_categories( array( 'hide_empty' => true ) );
 			<?php endif; ?>
 		</section>
 
+		<?php if ( ! empty( $categories ) ) : ?>
 		<aside class="blog-sidebar" aria-label="Blog sidebar">
 
 			<div class="blog-sidebar__widget">
-				<h3 class="blog-sidebar__heading">Recent Posts</h3>
-				<ul class="blog-sidebar__list">
-					<?php
-					$recent_query = new WP_Query( array(
-						'post_type'      => 'post',
-						'post_status'    => 'publish',
-						'posts_per_page' => 5,
-					) );
-					while ( $recent_query->have_posts() ) : $recent_query->the_post();
-					?>
-					<li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>
-					<?php
-					endwhile;
-					wp_reset_postdata();
-					?>
-				</ul>
-			</div>
-
-			<?php if ( ! empty( $categories ) ) : ?>
-			<div class="blog-sidebar__widget">
-				<h3 class="blog-sidebar__heading">Categories</h3>
+				<h3 class="blog-sidebar__heading">Browse by Category</h3>
 				<ul class="blog-sidebar__list">
 					<?php foreach ( $categories as $cat ) : ?>
 					<li>
@@ -137,9 +125,9 @@ $categories = get_categories( array( 'hide_empty' => true ) );
 					<?php endforeach; ?>
 				</ul>
 			</div>
-			<?php endif; ?>
 
 		</aside>
+		<?php endif; ?>
 
 	</div><!-- .blog-layout -->
 

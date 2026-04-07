@@ -38,6 +38,27 @@
                     "placeholder": "",
                     "prepend": "",
                     "append": ""
+                },
+                {
+                    "key": "field_69d5436d6e25c",
+                    "label": "Tagline",
+                    "name": "tagline",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "allow_in_bindings": 0,
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
                 }
             ]
         }
@@ -67,5 +88,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1775223973
+    "modified": 1775584118
 }

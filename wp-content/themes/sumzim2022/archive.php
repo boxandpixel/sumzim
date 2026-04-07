@@ -97,37 +97,14 @@ $categories = get_categories( array( 'hide_empty' => true ) );
 			<?php endif; ?>
 		</section>
 
+		<?php if ( ! empty( $categories ) ) : ?>
 		<aside class="blog-sidebar" aria-label="Blog sidebar">
 
 			<div class="blog-sidebar__widget">
-				<h3 class="blog-sidebar__heading">Recent Posts</h3>
-				<ul class="blog-sidebar__list">
-					<?php
-					$recent_args = array(
-						'post_type'      => 'post',
-						'post_status'    => 'publish',
-						'posts_per_page' => 5,
-					);
-					if ( $current_cat_id ) {
-						$recent_args['cat'] = $current_cat_id;
-					}
-					$recent_query = new WP_Query( $recent_args );
-					while ( $recent_query->have_posts() ) : $recent_query->the_post();
-					?>
-					<li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>
-					<?php
-					endwhile;
-					wp_reset_postdata();
-					?>
-				</ul>
-			</div>
-
-			<?php if ( ! empty( $categories ) ) : ?>
-			<div class="blog-sidebar__widget">
-				<h3 class="blog-sidebar__heading">Categories</h3>
+				<h3 class="blog-sidebar__heading">Browse by Category</h3>
 				<ul class="blog-sidebar__list">
 					<?php foreach ( $categories as $cat ) : ?>
-					<li>
+					<li class="<?php echo ( $current_cat_id === $cat->term_id ) ? 'is-active' : ''; ?>">
 						<a href="<?php echo esc_url( get_category_link( $cat->term_id ) ); ?>">
 							<?php echo esc_html( $cat->name ); ?>
 							<span class="blog-sidebar__count">(<?php echo intval( $cat->count ); ?>)</span>
@@ -136,9 +113,9 @@ $categories = get_categories( array( 'hide_empty' => true ) );
 					<?php endforeach; ?>
 				</ul>
 			</div>
-			<?php endif; ?>
 
 		</aside>
+		<?php endif; ?>
 
 	</div><!-- .blog-layout -->
 

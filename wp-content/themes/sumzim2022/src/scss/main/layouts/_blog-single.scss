@@ -55,6 +55,12 @@
 		}
 	}
 
+	&__eyebrow {
+		@include apply-type(eyebrow);
+		color: rgba(255, 255, 255, 0.6);
+		margin-bottom: 10px;
+	}
+
 	&__category {
 		display: inline-block;
 		background-color: var(--color__secondary);
@@ -128,6 +134,10 @@
 	// No featured image — light blue background, dark text
 	&--no-image {
 		background-color: $color__blue--200;
+
+		.post-hero__eyebrow {
+			color: var(--color__blue-600);
+		}
 
 		.post-hero__title {
 			color: $color__blue--900;

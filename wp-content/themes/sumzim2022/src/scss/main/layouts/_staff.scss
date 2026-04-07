@@ -7,24 +7,24 @@
     background: #dde4eb;
     border-radius: 0 0 4px 4px;
     padding-top: 190px;
-    padding-bottom: 80px;
+    padding-bottom: 48px;
     box-shadow: 0 4px 24px -4px rgba(12, 30, 49, 0.18);
-    margin-bottom: 60px;
+    margin-bottom: 40px;
 
     @include breakpoint(medium) {
-      margin-bottom: 80px;
+      margin-bottom: 56px;
     }
 
     @include breakpoint(large) {
       padding-top: 290px;
-      margin-bottom: 120px;
+      margin-bottom: 80px;
     }
 
     &-inner {
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 24px;
+      gap: 20px;
       @include content-medium;
     }
 
@@ -32,7 +32,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 32px;
+      gap: 24px;
       width: 100%;
 
       @include breakpoint(large) {
@@ -47,7 +47,7 @@
       align-items: center;
       gap: 8px;
       font-size: 0.875rem;
-      margin-bottom: -8px;
+      margin-bottom: -4px;
     }
 
     &-breadcrumb-parent {
@@ -72,15 +72,15 @@
 
     &-image {
       flex-shrink: 0;
-      width: 160px;
+      width: 120px;
       box-shadow: 0 0 12px 2px rgba(12, 30, 49, 0.2);
 
       @include breakpoint(medium) {
-        width: 220px;
+        width: 160px;
       }
 
       @include breakpoint(large) {
-        width: 280px;
+        width: 200px;
       }
 
       img {
@@ -97,27 +97,27 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      gap: 32px;
+      gap: 20px;
 
       &-identity {
         display: flex;
         flex-direction: column;
-        gap: 8px;        
+        gap: 6px;
 
         &-name {
           color: var(--color__primary--dark);
           margin: 0;
           display: flex;
           flex-direction: column;
-          @include apply-type(display-xl);
+          @include apply-type(heading-xl);
         }
 
         &-job-title {
           color: var(--color__secondary);
           margin: 0;
           font-weight: 600 !important;
-          @include apply-type(heading-sm);
-        }        
+          @include apply-type(heading-xs);
+        }
       }
 
       &-meta {
@@ -127,7 +127,7 @@
 
         @include breakpoint(medium) {
           flex-direction: row;
-          gap: 64px;
+          gap: 40px;
         }
       }
 
@@ -138,18 +138,15 @@
 
       &-meta-label {
         font-weight: 500;
-        color: var(--color__primary--dark);
+        color: var(--color__blue-600);
         @include apply-type(eyebrow);
       }
 
       &-meta-value {
         color: var(--color__primary--dark);
-        @include apply-type(heading-xs);
-      }      
+        @include apply-type(heading-xxs);
+      }
     }
-
-
-
 
   }
 
