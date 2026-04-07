@@ -11,7 +11,7 @@
 
 	@include breakpoint(large) {
 		// padding: 260px 0 100px 0;
-		padding: 260px 0 0 0;
+		padding: 300px 0 0 0;
 	}
 
     // When homepage hero is present, remove top padding — 
@@ -55,7 +55,19 @@
 
 		& > .flush-bottom:last-child {
 		margin-bottom: -100px; // negates the page's bottom padding
-		}		
+		}
+
+		& > .cta-button:first-child {
+			margin-top: calc(((60px / 3) * 2) * -1);
+
+			@include breakpoint(medium) {
+				margin-top: calc(((80px / 3) * 2) * -1);
+			}
+
+			@include breakpoint(large) {
+				margin-top: calc(((120px / 3) * 2) * -1);
+			}
+		}
 
 		// @include breakpoint(medium){
 		// 	padding: 0 1rem;

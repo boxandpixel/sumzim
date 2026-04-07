@@ -7,16 +7,14 @@
  * @package _s
  */
 
-	$page_settings = get_field('page_settings');
-	$seo_title = $page_settings['seo_title'];
+$page_settings = get_field('page_settings');
+$seo_title = $page_settings['seo_title'] ?? '';
 
 ?>
 
-
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">
-		<?php //the_title( '<h1 class="entry-title">', '</h1>' ); echo "test" ?>
-		<h1><?= $seo_title ? $seo_title : get_the_title(); ?></h1>
+		<h1><?= $seo_title ?: get_the_title(); ?></h1>
 	</header><!-- .entry-header -->
 
 	<?php sumzim_post_thumbnail(); ?>
