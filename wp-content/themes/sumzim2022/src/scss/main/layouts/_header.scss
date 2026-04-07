@@ -138,7 +138,6 @@
 			display: flex;
 			gap: 10px;
 			flex-direction: column;
-			width: 200px;
 			align-items: center;
 			margin: .5rem auto 0;
 
@@ -149,24 +148,26 @@
 		}
 
 		a {
-			border: solid 1px white;
-			color: white;
-			text-decoration: none;
-			border-radius: 4px;			
-			color: white;
-			font-size: 12px;
 			display: block;
-			width: 200px;
-			padding: .5rem;
+			white-space: nowrap;
+			text-decoration: none;
+			background-color: $color__blue--700;
+			border: none;
+			border-radius: 4px;
+			color: white;
+			font-size: 11px;
+			font-weight: 600;
+			letter-spacing: 0.04em;
+			text-transform: uppercase;
+			padding: 5px 14px;
+			transition: background-color 0.2s ease;
 
 			@include breakpoint(medium) {
-				width: auto;
-				padding: 2px 6px;
+				padding: 4px 12px;
 			}
-			
+
 			&:hover {
-				background: white;
-				color: var(--color__primary);
+				background-color: $color__blue--600;
 			}
 		}
 	}
