@@ -124,6 +124,37 @@
 			opacity: 1;
 		}
 	}
+
+	// No featured image — light blue background, dark text
+	&--no-image {
+		background-color: $color__blue--200;
+
+		.post-hero__title {
+			color: $color__blue--900;
+		}
+
+		.post-hero__meta {
+			color: rgba($color__blue--900, 0.6);
+		}
+
+		.blog-breadcrumb {
+			&__parent {
+				color: rgba($color__blue--900, 0.75);
+
+				&:hover {
+					color: $color__blue--900;
+				}
+			}
+
+			&__sep {
+				color: rgba($color__blue--900, 0.35);
+			}
+
+			&__current {
+				color: rgba($color__blue--900, 0.5);
+			}
+		}
+	}
 }
 
 // ─── Post Wrapper (everything below hero) ────────────────────────────────────
