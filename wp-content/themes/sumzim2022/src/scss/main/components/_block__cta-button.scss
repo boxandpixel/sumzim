@@ -1,5 +1,4 @@
 
-
 .cta-button {
 	margin-bottom: 60px;
 
@@ -15,13 +14,46 @@
 
         @include breakpoint(medium) {
             gap: 48px;
-        }		
+        }
 	}
 
 	&__link,
 	&__book-now {
 		display: flex;
 		justify-content: center;
+	}
+
+
+
+	// Desktop container: just the styled button
+	&__desktop {
+		display: none;
+
+		@include breakpoint(large) {
+			display: flex;
+			justify-content: center;
+		}
+	}
+
+	// Plain text "Book Now" trigger inside the mobile container
+	&__book-now-text {
+		background: none;
+		border: none;
+		padding: 0;
+		font-family: var(--font);
+		font-size: 0.875rem;
+		font-weight: 600;
+		color: var(--color__primary--dark);
+		text-decoration: underline;
+		cursor: pointer;
+		display: inline-flex;
+		align-items: center;
+		gap: 2px;
+
+		.material-symbols-outlined {
+			font-size: 18px;
+			font-variation-settings: 'FILL' 0, 'wght' 200, 'GRAD' 0, 'opsz' 24;
+		}
 	}
 
 	a,button {
@@ -37,15 +69,32 @@
 		line-height: 1;
 		letter-spacing: var(--letter-spacing);
 		width: auto;
-		// border-radius: 999px;
 		border-radius: 4px;
 		border: none;
 		position: relative;
-		cursor: pointer;	
-		
+		cursor: pointer;
+
 		&.cta-button--primary {
-			background: var(--color__primary--dark); // 20220929 color__primarys
+			background: var(--color__primary--dark);
 			color: white;
 		}
 	}
+
+	// Mobile container: phone link + plain "Book Now" text, stacked
+	&__mobile {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 16px;
+
+		@include breakpoint(large) {
+			display: none;
+		}
+		
+		button {
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+		}
+	}	
 }

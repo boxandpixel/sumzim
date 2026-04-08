@@ -94,15 +94,26 @@ if ($image) {
                 </div>
             <?php endif; ?>
 
-            <?php if ($button_type === 'Book Now' && $book_now_title): ?>
-                <div class="homepage-hero__button">
-                    <button 
-                        class="button button-cta button--schedule button--large book-now-button" 
-                        onclick="_scheduler.show({ schedulerId: 'sched_ejqbmr1e0g7tagr59sdo4rr2' })" 
-                        type="button"
-                    >
-                        <?php echo esc_html($book_now_title); ?>
-                    </button>
+            <?php if ($button_type === 'Book Now'): ?>
+                <?php
+                $global_phone     = get_field( 'phone_number', 'options' );
+                $global_phone_tel = preg_replace( '/[^0-9]/', '', $global_phone );
+                ?>
+                <div class="homepage-hero__book-now">
+
+                    <div class="homepage-hero__mobile">
+                        <?php if ( $global_phone ) : ?>
+                        <a href="tel:<?= esc_attr( $global_phone_tel ); ?>" class="button button-cta button--schedule button--large">
+                            <?= esc_html( $global_phone ); ?>
+                        </a>
+                        <?php endif; ?>
+                        <button class="homepage-hero__book-now-text" onclick="_scheduler.show({ schedulerId: 'sched_ejqbmr1e0g7tagr59sdo4rr2' })" type="button">or Book Now <span class="material-symbols-outlined" aria-hidden="true">&#xe5c8;</span></button>
+                    </div>
+
+                    <div class="homepage-hero__desktop">
+                        <button class="button button-cta button--schedule button--large" onclick="_scheduler.show({ schedulerId: 'sched_ejqbmr1e0g7tagr59sdo4rr2' })" type="button"><?= esc_html( $book_now_title ); ?></button>
+                    </div>
+
                 </div>
             <?php endif; ?>
         </div>
