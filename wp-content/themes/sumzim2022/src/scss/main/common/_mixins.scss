@@ -11,6 +11,10 @@
     @media (min-width: $breakpoint__medium) {
       @content;
     }
+  } @else if $point == tabletmax {
+    @media (max-width: calc($breakpoint__large - 1px)) {
+      @content;
+    } 
   } @else if $point == large {
     @media (min-width: $breakpoint__large) {
       @content;

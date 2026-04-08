@@ -89,22 +89,33 @@
 }
 
 .header__status {
+	background: var(--color__primary--dark);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	padding: 12px 0;
+	gap: 8px;
+	align-items: center;
+
+	@include breakpoint(medium) {
+		
+	}
 
 	@include breakpoint(large) {
 		background: var(--color__primary--dark);
 		height: 40px;
-		display: flex;
+		gap: unset;
 		flex-direction: row;
 		justify-content: space-between;
 		align-items: center;
 		padding: 0 20px;
 	}
+
 	&.header__status--hide {
 	  display: none;
 	}
 
 	p {
-	  display: none;
 
 	  @include breakpoint(medium) {
 		display: block;
@@ -124,26 +135,27 @@
 		display: none;
 
 		&.utility-menu--show {
-			display: block;
+			display: flex;
+			justify-content: center;
+			flex-direction: row;
 			z-index: 9999;
 			position: fixed;
 			width: 100vw;
 		}
 
-		@include breakpoint(medium) {
+		@include breakpoint(large) {
 			display: block;
 		}
 
 		#menu-utility-menu {
 			display: flex;
 			gap: 10px;
-			flex-direction: column;
+			flex-direction: row;
 			align-items: center;
-			margin: .5rem auto 0;
+			margin: 24px auto 0;
 
-			@include breakpoint(medium) {
-				flex-direction: row;
-				margin: 0;
+			@include breakpoint(large) {
+				margin: 0 auto;
 			}
 		}
 
@@ -172,6 +184,15 @@
 		}
 	}
 }
+
+/* 
+ * hide status when mobile menu is open
+ */
+ .body__no-overflow {
+	.header__status-message {
+		display: none;
+	}
+ }
 
 .header__mobile-call {
 	background: white;
