@@ -82,8 +82,7 @@ while ( have_posts() ) :
 				<span class="blog-breadcrumb__sep">/</span>
 				<span class="blog-breadcrumb__current"><?php the_title(); ?></span>
 			</nav>
-			<p class="post-hero__eyebrow"><?php echo esc_html( get_bloginfo( 'name' ) ); ?></p>
-			<?php if ( $primary_cat ) : ?>
+<?php if ( $primary_cat ) : ?>
 			<a href="<?php echo esc_url( get_category_link( $primary_cat->term_id ) ); ?>" class="post-hero__category"><?php echo esc_html( $primary_cat->name ); ?></a>
 			<?php endif; ?>
 			<h1 class="post-hero__title"><?php the_title(); ?></h1>

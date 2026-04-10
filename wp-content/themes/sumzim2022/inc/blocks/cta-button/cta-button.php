@@ -28,7 +28,7 @@ $global_phone_tel             = preg_replace( '/[^0-9]/', '', $global_phone );
 				<div class="cta-button__mobile">
 					<?php if ( $global_phone ) : ?>
 					<a href="tel:<?= esc_attr( $global_phone_tel ); ?>" class="button button-cta button--schedule button--large">
-						<?= esc_html( $global_phone ); ?>
+						Call <?= esc_html( $global_phone ); ?>
 					</a>
 					<?php endif; ?>
 					<button class="cta-button__book-now-text" onclick="_scheduler.show({ schedulerId: 'sched_ejqbmr1e0g7tagr59sdo4rr2' })" type="button">or Book Now <span class="material-symbols-outlined" aria-hidden="true">&#xe5c8;</span></button>

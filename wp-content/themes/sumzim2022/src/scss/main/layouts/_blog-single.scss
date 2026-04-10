@@ -102,8 +102,9 @@
 
 	&__read-time {
 		&::before {
-			content: '·';
+			content: '•';
 			margin-right: 20px;
+			color: #{$color__secondary};
 		}
 	}
 

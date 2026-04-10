@@ -7,7 +7,7 @@
 
     @include breakpoint(large) {
         margin-bottom: 120px;
-    }    
+    }
 
     .container {
         display: flex;
@@ -28,11 +28,10 @@
 
             &:has(.image-section__content) {
                 gap: 36px;
-                
+
                 @include breakpoint(medium) {
                     flex-direction: row;
                     gap: 60px;
-                   
                 }
 
                 // When content is present, make image 50% width
@@ -59,35 +58,39 @@
                 }
             }
         }
-        
+
         .image-section__image {
+            width: 100%;
 
             figure {
-                max-width: 800px; // Default: 800px when no content
-                width: 100%; // Ensure figure fills its container
+                max-width: 800px;
+                width: 100%;
+                margin-inline: auto;
+            }
 
-                img {
-                    width: 100%; // Image fills the figure
-                    height: auto;
-                    margin-bottom: .5rem;
-                    // border-radius: 30px;
-                    border-radius: var(--border-radius);
-                }
-                
-                figcaption {
-                    font-size: 13.3px; 
-                    font-style: italic;
-                    
-                    @include breakpoint(medium) {
-                        font-size: 12.8px;
-                    }
+            .image-section__image-bg {
+                background-image: var(--bg-image);
+                background-size: cover;
+                background-position: center;
+                aspect-ratio: 4 / 3;
+                width: 100%;
+                border-radius: var(--border-radius);
+                margin-bottom: .5rem;
+            }
+
+            figcaption {
+                font-size: 13.3px;
+                font-style: italic;
+
+                @include breakpoint(medium) {
+                    font-size: 12.8px;
                 }
             }
 
             &-50 {
                 display: flex;
-                justify-content: center;                
-                
+                justify-content: center;
+
                 figure {
                     max-width: 50%;
                 }
@@ -95,8 +98,8 @@
 
             &-75 {
                 display: flex;
-                justify-content: center;                                
-                
+                justify-content: center;
+
                 figure {
                     max-width: 75%;
                 }
@@ -107,7 +110,7 @@
                     max-width: 800px;
                     width: 100%;
                 }
-            }            
+            }
         }
 
         .image-section__content {

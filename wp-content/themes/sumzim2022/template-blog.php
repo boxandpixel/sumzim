@@ -11,12 +11,13 @@ $paged      = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
 $current_cat = isset( $_GET['cat'] ) ? intval( $_GET['cat'] ) : 0;
 
 $query_args = array(
-	'post_type'      => 'post',
-	'post_status'    => 'publish',
-	'order'          => 'DESC',
-	'orderby'        => 'date',
-	'posts_per_page' => 12,
-	'paged'          => $paged,
+	'post_type'        => 'post',
+	'post_status'      => 'publish',
+	'order'            => 'DESC',
+	'orderby'          => 'date',
+	'posts_per_page'   => 12,
+	'paged'            => $paged,
+	'ignore_sticky_posts' => true,
 );
 
 if ( $current_cat ) {
