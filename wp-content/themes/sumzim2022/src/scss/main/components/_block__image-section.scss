@@ -50,6 +50,14 @@
                     }
                 }
             }
+
+            &--reversed {
+                &:has(.image-section__content) {
+                    @include breakpoint(medium) {
+                        flex-direction: row-reverse;
+                    }
+                }
+            }
         }
         
         .image-section__image {

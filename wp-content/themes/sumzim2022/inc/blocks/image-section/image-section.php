@@ -5,6 +5,7 @@
 
 $image_section = get_field('image_section');
 $link = $image_section['link'] ?? [];
+$layout = $image_section['layout'] ?? 'default';
 
 $image_group = $image_section['image_group'];
 $image = $image_group['image'] ?? [];
@@ -21,9 +22,9 @@ $description = $content_group['description'] ?? '';
 	<div class="container">
 
 		<?php if($link && !empty($link)): ?>
-		<a href="<?= esc_url($link['url']); ?>" class="image-section__container">
+		<a href="<?= esc_url($link['url']); ?>" class="image-section__container<?= $layout === 'reversed' ? ' image-section__container--reversed' : ''; ?>">
 		<?php else: ?>
-		<div class="image-section__container">
+		<div class="image-section__container<?= $layout === 'reversed' ? ' image-section__container--reversed' : ''; ?>">
 		<?php endif; ?>
 
 			<div class="image-section__image image-section__image-<?= esc_html($image_size); ?>">

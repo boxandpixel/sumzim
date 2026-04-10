@@ -1144,7 +1144,18 @@ add_action( 'acf/init', function () {
 			'title'       => __( 'Icon Grid', 'psychotherapy' ),
 			'description' => __( 'A grid with icons and text, and a link', 'psychotherapy' ),
 			'icon'        => 'format-image',
-		], 																															
+		], 	
+		'oembed-section' => [
+			'title'       => __( 'oEmbed Section', 'psychotherapy' ),
+			'description' => __( 'A section with an oembed, text, and a link', 'psychotherapy' ),
+			'icon'        => 'format-image',
+		],
+		'section-header' => [
+			'title'       => __( 'Section Header', 'psychotherapy' ),
+			'description' => __( 'A section with an heading and content', 'psychotherapy' ),
+			'icon'        => 'format-image',
+		],		 	
+
 																	 						 				     
 	];
 
