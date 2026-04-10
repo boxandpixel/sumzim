@@ -114,7 +114,7 @@
 		margin-bottom: 20px;
 
 		&__parent {
-			color: rgba(255, 255, 255, 0.75);
+			color: var(--color__neutral--very-light);
 
 			&:hover {
 				color: white;
@@ -122,12 +122,12 @@
 		}
 
 		&__sep {
-			color: rgba(255, 255, 255, 0.35);
+			color: var(--color__neutral--very-light);
 			opacity: 1;
 		}
 
 		&__current {
-			color: rgba(255, 255, 255, 0.5);
+			color: var(--color__neutral--very-light);
 			opacity: 1;
 		}
 	}
