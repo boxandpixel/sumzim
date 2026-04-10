@@ -3,8 +3,8 @@
  * oEmbed Section
 */
 
-ini_set('display_errors', 1);
-error_reporting(E_ALL);
+// ini_set('display_errors', 1);
+// error_reporting(E_ALL);
 
 $oembed_section = get_field('oembed_section');
 $link = $oembed_section['link'] ?? [];

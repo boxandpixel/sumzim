@@ -3,8 +3,8 @@
  * Section Header
 */
 
-ini_set('display_errors', 1);
-error_reporting(E_ALL);
+// ini_set('display_errors', 1);
+// error_reporting(E_ALL);
 
 $section_header   = get_field('section_header') ?? [];
 $heading          = $section_header['heading'] ?? '';
