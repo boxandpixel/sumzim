@@ -1,0 +1,50 @@
+@use '../common/mixins' as *;
+@use '../common/typography.mixins' as *;
+
+.section-header {
+    margin-bottom: 60px;
+
+    @include breakpoint(medium) {
+        margin-bottom: 80px;
+    }
+
+    @include breakpoint(large) {
+        margin-bottom: 120px;
+    }
+
+    .container {
+        @include content-wide;
+
+        .section-header__header {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+
+            &.section-header__header--left {
+                text-align: left;
+            }
+
+            &.section-header__header--center {
+                text-align: center;
+            }
+
+            .section-header__heading {
+                @include apply-type(heading-lg);
+            }
+
+            .section-header__description {
+                p {
+                    @include apply-type(heading-xxs);
+
+                    & {
+                        font-weight: 400;
+                    }
+
+                    &:last-child {
+                        margin-bottom: 0;
+                    }
+                }
+            }
+        }
+    }
+}
