@@ -201,12 +201,18 @@
                         h5 {
                             color: var(--color__blue-900);
                             text-shadow: none;
+                            display: block;
+                            -webkit-line-clamp: unset;
+                            overflow: visible;
                         }
                     }
 
                     .card-description {
                         color: var(--color__blue-900);
                         text-shadow: none;
+                        display: block;
+                        -webkit-line-clamp: unset;
+                        overflow: visible;
                     }
 
                     .card-button {
