@@ -44,6 +44,33 @@
                         margin-bottom: 0;
                     }
                 }
+
+                h1 {
+                    @include apply-type(heading-xl);
+                }
+
+                h2 {
+                    @include apply-type(heading-lg);
+                }
+
+                h3 {
+                    @include apply-type(heading-md);
+                }
+
+                h4 {
+                    @include apply-type(heading-sm);
+                }
+
+                h5 {
+                    @include apply-type(heading-xs);
+                }
+
+                @include breakpoint(large) {
+                    p,
+                    li {
+                        max-width: 70%;
+                    }
+                }
             }
         }
     }
