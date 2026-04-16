@@ -30,10 +30,18 @@
 
             &.section-header__header--left {
                 text-align: left;
+
+                .section-header__description {
+                    text-align: left;
+                }
             }
 
             &.section-header__header--center {
                 text-align: center;
+
+                .section-header__description {
+                    text-align: center;
+                }
             }
 
             .section-header__heading {
