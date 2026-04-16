@@ -20,6 +20,14 @@
             flex-direction: column;
             gap: 8px;
 
+            &:has(.section-header__description > :is(h1, h2, h3, h4, h5):first-child) {
+                gap: 24px;
+
+                @include breakpoint(large) {
+                    gap: 32px;
+                }
+            }
+
             &.section-header__header--left {
                 text-align: left;
             }
