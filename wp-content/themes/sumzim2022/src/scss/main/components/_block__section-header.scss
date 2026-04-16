@@ -31,6 +31,13 @@
             &.section-header__header--left {
                 text-align: left;
 
+                @include breakpoint(large) {
+                    .section-header__heading,
+                    .section-header__description {
+                        width: 70%;
+                    }
+                }
+
                 .section-header__description {
                     text-align: left;
 
@@ -45,6 +52,14 @@
 
             &.section-header__header--center {
                 text-align: center;
+
+                @include breakpoint(large) {
+                    .section-header__heading,
+                    .section-header__description {
+                        width: 70%;
+                        margin-inline: auto;
+                    }
+                }
 
                 .section-header__description {
                     text-align: center;
