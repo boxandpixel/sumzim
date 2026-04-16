@@ -105,6 +105,14 @@
 			// margin-right: auto;
 			@include content-wide;
 		}
+
+		@include breakpoint(medium) {
+			& > p,
+			& > ul,
+			& > ol {
+				max-width: 70%;
+			}
+		}
 		
 		& > ul,ol {
 			margin-bottom: 1.5rem;
