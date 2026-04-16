@@ -33,6 +33,13 @@
 
                 .section-header__description {
                     text-align: left;
+
+                    @include breakpoint(large) {
+                        p,
+                        li {
+                            max-width: 70%;
+                        }
+                    }
                 }
             }
 
@@ -41,6 +48,14 @@
 
                 .section-header__description {
                     text-align: center;
+
+                    @include breakpoint(large) {
+                        p,
+                        li {
+                            max-width: 70%;
+                            margin-inline: auto;
+                        }
+                    }
                 }
             }
 
@@ -81,12 +96,6 @@
                     @include apply-type(heading-xs);
                 }
 
-                @include breakpoint(large) {
-                    p,
-                    li {
-                        max-width: 70%;
-                    }
-                }
             }
         }
     }
