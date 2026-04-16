@@ -10,6 +10,7 @@
 $page_settings      = get_field('page_settings');
 $seo_title          = $page_settings['seo_title'] ?? '';
 $show_breadcrumb    = $page_settings['show_breadcrumb'] ?? false;
+$show_guarantee     = $page_settings['show_guarantee'] ?? false;
 
 $parent_id = wp_get_post_parent_id( get_the_ID() );
 if ( $parent_id ) {
@@ -76,3 +77,16 @@ if ( $parent_id ) {
 		</footer><!-- .entry-footer -->
 	<?php endif; ?>
 </article><!-- #post-<?php the_ID(); ?> -->
+
+<?php if ( $show_guarantee ) :
+	$guarantee_icon_items = get_field( 'icon_items', 'option' );
+	if ( $guarantee_icon_items ) :
+		set_query_var( 'icon_items_data', $guarantee_icon_items );
+		set_query_var( 'icon_items_embedded', false );
+		set_query_var( 'icon_items_extra_class', 'icon-items--page-guarantee' );
+		get_template_part( 'inc/blocks/icon-items/icon-items' );
+		set_query_var( 'icon_items_data', null );
+		set_query_var( 'icon_items_embedded', null );
+		set_query_var( 'icon_items_extra_class', null );
+	endif;
+endif; ?>

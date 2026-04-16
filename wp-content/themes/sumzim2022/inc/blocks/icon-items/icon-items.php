@@ -10,10 +10,14 @@ $items            = $icon_items['items'] ?? [];
 $link             = $icon_items['link'] ?? [];
 $background_color = $icon_items['background_color'] ?? '';
 
-$is_embedded = !empty(get_query_var('icon_items_data'));
+$embedded_var = get_query_var('icon_items_embedded', null);
+$is_embedded  = $embedded_var !== null ? (bool) $embedded_var : !empty(get_query_var('icon_items_data'));
+
+$extra_class = get_query_var('icon_items_extra_class', '');
 
 $className = 'icon-items';
 if ($is_embedded) $className .= ' icon-items--embedded';
+if ($extra_class) $className .= ' ' . esc_attr($extra_class);
 
 if ($background_color === 'none'):
     $className .= ' icon-items--none';

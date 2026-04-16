@@ -26,6 +26,7 @@
     }
 
     &__heading {
+        color: var(--color__blue-900);
         @include apply-type(heading-lg);
     }
 
@@ -94,6 +95,7 @@
 
     &__item-heading {
         margin-bottom: 0;
+        color: var(--color__blue-900);
         @include apply-type(heading-xs);
     }
 
