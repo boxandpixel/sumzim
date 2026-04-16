@@ -35,6 +35,15 @@
 			margin-bottom: 120px;
 		}
 
+		.entry-header__breadcrumb {
+			@include content-wide;
+			margin-bottom: 32px;
+
+			.blog-breadcrumb {
+				justify-content: flex-start;
+			}
+		}
+
 		h1 {
 			// font-family: var(--font);
 			// color: var(--color__primary--dark);
