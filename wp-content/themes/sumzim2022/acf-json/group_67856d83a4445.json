@@ -92,7 +92,7 @@
                         "class": "",
                         "id": ""
                     },
-                    "default_value": "",
+                    "default_value": "Book Now",
                     "maxlength": "",
                     "allow_in_bindings": 0,
                     "placeholder": "",
@@ -120,5 +120,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1769537576
+    "modified": 1776434570
 }
