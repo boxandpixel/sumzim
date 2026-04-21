@@ -6,6 +6,7 @@
 $icon_items = get_query_var('icon_items_data') ?: get_field('icon_items');
 
 $heading          = $icon_items['heading'] ?? '';
+$description      = $icon_items['description'] ?? '';
 $items            = $icon_items['items'] ?? [];
 $link             = $icon_items['link'] ?? [];
 $background_color = $icon_items['background_color'] ?? '';
@@ -33,18 +34,23 @@ endif;
 <section class="<?php echo esc_attr($className); ?>">
     <div class="container">
 
-        <?php if ($heading): ?>
+        <?php if ($heading || $description): ?>
         <div class="icon-items__header">
+            <?php if ($heading): ?>
             <h2 class="icon-items__heading"><?php echo esc_html($heading); ?></h2>
+            <?php endif; ?>
+            <?php if ($description): ?>
+            <div class="icon-items__header-description"><?php echo wp_kses_post($description); ?></div>
+            <?php endif; ?>
         </div>
         <?php endif; ?>
 
         <div class="icon-items__grid">
 
             <?php foreach ($items as $item):
-                $icon        = $item['icon'] ?? '';
-                $item_heading = $item['heading'] ?? '';
-                $description = $item['description'] ?? '';
+                $icon             = $item['icon'] ?? '';
+                $item_heading     = $item['heading'] ?? '';
+                $item_description = $item['description'] ?? '';
             ?>
             <div class="icon-items__item">
 
@@ -59,8 +65,8 @@ endif;
                     <h5 class="icon-items__item-heading"><?php echo esc_html($item_heading); ?></h5>
                     <?php endif; ?>
 
-                    <?php if ($description): ?>
-                    <p class="icon-items__item-description"><?php echo esc_html($description); ?></p>
+                    <?php if ($item_description): ?>
+                    <p class="icon-items__item-description"><?php echo esc_html($item_description); ?></p>
                     <?php endif; ?>
                 </div>
 
