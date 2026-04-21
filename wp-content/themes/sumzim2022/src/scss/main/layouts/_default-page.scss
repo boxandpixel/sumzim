@@ -105,6 +105,18 @@
 			// margin-left: auto;
 			// margin-right: auto;
 			@include content-wide;
+
+			&.section-end {
+				margin-bottom: 60px;
+
+				@include breakpoint(medium) {
+					margin-bottom: 80px;
+				}
+
+				@include breakpoint(large) {
+					margin-bottom: 120px;
+				}								
+			}			
 		}
 		
 		& > ul,ol {
@@ -119,7 +131,7 @@
 		h2 {
 			font-family: var(--font);
 			color: var(--color__primary--dark);
-			margin-bottom: 8px;
+			margin-bottom: 24px;
 
 			// @include apply-type(heading-md);
 		}	
