@@ -1,11 +1,14 @@
 #rank-math-faq {
     margin-bottom: 60px;
+	margin-top: 24px;
+
 
     @include breakpoint(medium) {
         margin-bottom: 80px;
     }
 
     @include breakpoint(large) {
+		margin-top: 32px;
         margin-bottom: 120px;
     }
 
@@ -21,6 +24,14 @@
 			
 			& > * {
 				text-align: left;
+			}
+
+			.rank-math-answer {
+				p {
+					&:last-child {
+						margin-bottom: 0;
+					}
+				}
 			}
 		}
 	}
