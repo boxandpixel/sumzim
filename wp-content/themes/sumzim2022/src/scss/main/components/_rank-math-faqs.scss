@@ -1,13 +1,24 @@
 #rank-math-faq {
-	margin: 1.5rem auto;
-	width: 1200px;
-	max-width: 1200px;
+    margin-bottom: 60px;
+
+    @include breakpoint(medium) {
+        margin-bottom: 80px;
+    }
+
+    @include breakpoint(large) {
+        margin-bottom: 120px;
+    }
 
 	.rank-math-list {
-		display: flex;
-		flex-direction: column;
+        display: flex;
+        flex-direction: column;
 		align-content: start;
-		gap: 24px;
+        gap: 24px;
+        @include content-wide;
+
+        @include breakpoint(medium) {
+            gap: 48px;
+        }
 
 		.rank-math-list-item {
 			text-align: left;
