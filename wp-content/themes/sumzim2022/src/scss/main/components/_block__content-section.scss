@@ -34,13 +34,13 @@
                 .section-content__description {
                     text-align: left;
 
-                    @include breakpoint(medium) {
-                        p,
-                        li,
-                        h1, h2, h3, h4, h5 {
-                            max-width: 70%;
-                        }
-                    }
+                    // @include breakpoint(medium) {
+                    //     p,
+                    //     li,
+                    //     h1, h2, h3, h4, h5 {
+                    //         max-width: 70%;
+                    //     }
+                    // }
                 }
             }
 
@@ -50,14 +50,14 @@
                 .section-content__description {
                     text-align: center;
 
-                    @include breakpoint(medium) {
-                        p,
-                        li,
-                        h1, h2, h3, h4, h5 {
-                            max-width: 70%;
-                            margin-inline: auto;
-                        }
-                    }
+                    // @include breakpoint(medium) {
+                    //     p,
+                    //     li,
+                    //     h1, h2, h3, h4, h5 {
+                    //         max-width: 70%;
+                    //         margin-inline: auto;
+                    //     }
+                    // }
                 }
             }
 
