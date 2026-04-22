@@ -1042,6 +1042,11 @@ add_action( 'acf/init', function () {
 			'title'       => __( 'Section Header', 'psychotherapy' ),
 			'description' => __( 'A section with an heading and content', 'psychotherapy' ),
 			'icon'        => 'format-image',
+		],
+		'section-content' => [
+			'title'       => __( 'Section Content', 'psychotherapy' ),
+			'description' => __( 'A section with a heading, position, and description', 'psychotherapy' ),
+			'icon'        => 'format-image',
 		],		 	
 
 																	 						 				     
@@ -1064,6 +1069,19 @@ add_action( 'acf/init', function () {
 			],
 		] );
 	}
+} );
+
+/**
+ * Block Editor Assets
+ */
+add_action( 'enqueue_block_editor_assets', function () {
+	wp_enqueue_script(
+		'sumzim-block-transforms',
+		get_template_directory_uri() . '/js/editor/block-transforms.js',
+		[ 'wp-blocks', 'wp-hooks' ],
+		filemtime( get_template_directory() . '/js/editor/block-transforms.js' ),
+		true
+	);
 } );
 
 /**
