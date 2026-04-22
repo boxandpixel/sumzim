@@ -12,7 +12,7 @@ $intro = $page_intro['intro'] ?? '';
 <section class="page-intro">
 	<div class="container">
 		<?php if($page_intro): ?>
-			<h6><?= esc_html($intro); ?></h6>
+			<h5><?= esc_html($intro); ?></h5>
 		<?php endif; ?>
 	</div>
 </section>

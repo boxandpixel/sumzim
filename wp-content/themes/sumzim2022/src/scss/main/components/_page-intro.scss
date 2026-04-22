@@ -24,10 +24,10 @@
             gap: 48px;
         }
 		
-		h6 {
+		h5 {
 			text-align: center;
 			color: var(--color__primary--dark);
-			@include apply-type(heading-xxs);
+			@include apply-type(heading-xs);
 
 			& {
 				font-weight: 400;
