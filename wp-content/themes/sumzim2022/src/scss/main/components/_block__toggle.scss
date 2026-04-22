@@ -7,9 +7,9 @@
 
     @include breakpoint(medium) {
         margin-bottom: 80px;
-    }    
+    }
 
-    @include breakpoint(medium) {
+    @include breakpoint(large) {
         margin-bottom: 120px;
     }
 
@@ -21,12 +21,12 @@
 
         @include breakpoint(medium) {
             gap: 48px;
-        }   
-        
+        }
+
         .toggle-block__header {
             display: flex;
             flex-direction: column;
-            gap: 8px;          
+            gap: 8px;
 
             .toggle-block__header-heading {
                 @include apply-type(heading-lg);
@@ -39,80 +39,112 @@
                     & {
                         font-weight: 400;
                     }
-                    
+
                     &:last-child {
                         margin-bottom: 0;
-                    }                    
+                    }
                 }
             }
         }
 
         .toggle-block__body {
 
-        }
-    }
-    
-    ul {
-        margin: 0;
-        padding: 0;
-        list-style: none;
+            // Direct child selector prevents these styles bleeding into nested content lists
+            > ul {
+                margin: 0;
+                padding: 0;
+                list-style: none;
 
-        li {
-            padding: 1rem 0;
-            border-bottom: solid 1px var(--color__neutral--light);
-            list-style: none;
+                > li {
+                    padding: 1rem 0;
+                    border-bottom: solid 1px var(--color__neutral--light);
+                    list-style: none;
 
-            &:last-child {
-                border-bottom: 0;
-            }
-
-            p {
-                &:last-child {
-                    margin-bottom: 0;
-                }
-            }
-
-            .toggle-heading {
-                padding: 0 2rem 0 0;
-                position: relative;
-                cursor: pointer;
-
-                @include breakpoint(medium) {
-                    padding: 0 2.5rem 0 0;
-                }
-
-                .toggle-heading__icon {
-                    position: absolute;
-                    top: 0;
-                    right: 0;
-                    transform: rotate(180deg);
-                    @include button-chevron--md(var(--color__primary--dark), white);
-
-                    & {
-                        position: absolute;
+                    &:last-child {
+                        border-bottom: 0;
                     }
-                }
-                
-                &.expand {
-                    .toggle-heading__icon {
-                        transform: rotate(0deg);
-                        @include button-chevron--md(var(--color__secondary), var(--color__primary--dark));
 
-                        & {
-                            position: absolute;
+                    p {
+                        &:last-child {
+                            margin-bottom: 0;
                         }
                     }
-                }                
-            }
-            
-            .toggle-content {
-                display: none;
-                padding: 0 50px 0 0;
 
-                &.expand {
-                    display: block;
+                    .toggle-heading {
+                        padding: 0 2rem 0 0;
+                        position: relative;
+                        cursor: pointer;
+
+                        @include breakpoint(medium) {
+                            padding: 0 2.5rem 0 0;
+                        }
+
+                        .toggle-heading__title {
+                            @include apply-type(heading-xs);
+                            margin: 0;
+                        }
+
+                        .toggle-heading__icon {
+                            position: absolute;
+                            top: 0;
+                            right: 0;
+                            transform: rotate(180deg);
+                            @include button-chevron--md(var(--color__primary--dark), white);
+
+                            & {
+                                position: absolute;
+                            }
+                        }
+
+                        &.expand {
+                            .toggle-heading__icon {
+                                transform: rotate(0deg);
+                                @include button-chevron--md(var(--color__secondary), var(--color__primary--dark));
+
+                                & {
+                                    position: absolute;
+                                }
+                            }
+                        }
+                    }
+
+                    .toggle-content {
+                        display: none;
+                        padding: 0 50px 0 0;
+
+                        &.expand {
+                            display: block;
+                        }
+
+                        // Headings within content match the typography map
+                        h2 { @include apply-type(heading-lg); }
+                        h3 { @include apply-type(heading-md); }
+                        h4 { @include apply-type(heading-sm); }
+                        h5 { @include apply-type(heading-xs); }
+                        h6 { @include apply-type(heading-xxs); }
+
+                        // Restore normal list styles for nested content lists
+                        ul, ol {
+                            padding-left: 1.5em;
+                            margin: 0.5em 0;
+                        }
+
+                        ul {
+                            list-style: disc;
+                        }
+
+                        ol {
+                            list-style: decimal;
+                        }
+
+                        li {
+                            padding: 0;
+                            border-bottom: none;
+                            list-style: inherit;
+                        }
+                    }
                 }
-            }            
+            }
         }
     }
 }

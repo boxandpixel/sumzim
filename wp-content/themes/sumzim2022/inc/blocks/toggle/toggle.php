@@ -33,7 +33,7 @@ $description = $toggle['description'];
 				?>
 				<li>
 					<div class="toggle-heading<?php echo $is_first ? ' expand' : ''; ?>">
-						<h3 class="toggle-heading"><?php echo $toggle_heading; ?></h3>
+						<h3 class="toggle-heading__title"><?php echo $toggle_heading; ?></h3>
 						<div class="toggle-heading__icon"></div>
 					</div>
 					<div class="toggle-content<?php echo $is_first ? ' expand' : ''; ?>">
