@@ -1027,6 +1027,11 @@ add_action( 'acf/init', function () {
 			'title'       => __( 'Icon Items', 'psychotherapy' ),
 			'description' => __( 'A section with icons and text', 'psychotherapy' ),
 			'icon'        => 'format-image',
+		],
+		'full-width-cards' => [
+			'title'       => __( 'Full-Width Cards', 'psychotherapy' ),
+			'description' => __( 'A stacked list of full-width content cards', 'psychotherapy' ),
+			'icon'        => 'format-image',
 		], 	
 		'icon-grid' => [
 			'title'       => __( 'Icon Grid', 'psychotherapy' ),
