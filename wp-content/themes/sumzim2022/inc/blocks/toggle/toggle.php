@@ -7,6 +7,7 @@ $toggle = get_field('toggle');
 $toggle_items = $toggle['toggle_items'];
 $heading = $toggle['heading'];
 $description = $toggle['description'];
+$first_item_open = !empty($toggle['first_item_open']);
 ?>
 
 <section class="toggle-block">
@@ -29,7 +30,7 @@ $description = $toggle['description'];
 						$toggle_content = $item['toggle_content'];
 						$content = $toggle_content['content'];
 						$button = $toggle_content['button'];
-						$is_first = ($index === 0); // Check if this is the first item
+						$is_first = ($index === 0 && $first_item_open);
 				?>
 				<li>
 					<div class="toggle-heading<?php echo $is_first ? ' expand' : ''; ?>">
