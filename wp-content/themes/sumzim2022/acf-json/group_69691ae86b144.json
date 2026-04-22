@@ -105,7 +105,7 @@
                     "layout": "table",
                     "pagination": 0,
                     "min": 0,
-                    "max": 3,
+                    "max": 5,
                     "collapsed": "",
                     "button_label": "Add Row",
                     "rows_per_page": 20,
@@ -125,12 +125,12 @@
                                 "id": ""
                             },
                             "choices": [
-                                "⭐⭐⭐⭐⭐ - John Federoff - \"Summers &amp; Zim did an excellent and professional&hellip;...\" (Google)",
-                                "⭐⭐⭐⭐⭐ - Erica McD - \"Office responded to email quickly, got me scheduled&hellip;...\" (Google)",
-                                "⭐⭐⭐⭐⭐ - Lori Piazza - \"Gee was a most competent professional explaining how&hellip;...\" (Google)",
-                                "⭐⭐⭐⭐⭐ - Bill Donohue - \"As expected It was good. Your man was&hellip;...\" [help] (Google)",
-                                "⭐⭐ - Dylan Sczechowicz - \"My oil furnace stopped working for me and&hellip;...\" (Google)",
-                                "⭐⭐⭐⭐ - Brian G - \"This is a test review...\" (Manual)"
+                                "⭐⭐⭐⭐ - Brian G - \"This is a test review...\" (Manual)",
+                                "⭐⭐⭐⭐⭐ - Lisa Mackell - \"Always on time, always professional and friendly and&hellip;...\" (Google)",
+                                "⭐⭐⭐⭐⭐ - Jean Hughes - \"My service today was thorough and very professional.&hellip;...\" (Google)",
+                                "⭐⭐⭐⭐⭐ - Ronald Gatano - \"Summers and Zim\\'s tech Steve Sweeny, did an&hellip;...\" (Google)",
+                                "⭐⭐⭐⭐⭐ - Michael Nuzzi - \"...\" (Google)",
+                                "⭐⭐⭐⭐⭐ - Dawn from Saint Rescue - \"Extremely knowledgeable and Explains everything easily....\" (Google)"
                             ],
                             "default_value": false,
                             "return_format": "value",
@@ -236,5 +236,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1773688108
+    "modified": 1776884195
 }
