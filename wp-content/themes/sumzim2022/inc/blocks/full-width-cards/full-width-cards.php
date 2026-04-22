@@ -61,7 +61,7 @@ endif;
                 <?php endif; ?>
 
                 <?php if ($card_heading): ?>
-                <h3 class="full-width-cards__card-heading"><?php echo esc_html($card_heading); ?></h3>
+                <h4 class="full-width-cards__card-heading"><?php echo esc_html($card_heading); ?></h4>
                 <?php endif; ?>
 
                 <?php if ($card_description): ?>

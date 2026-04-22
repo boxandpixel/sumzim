@@ -129,7 +129,7 @@
     &__card-heading {
         color: var(--color__blue-900);
         margin: 0 0 8px;
-        @include apply-type(heading-md);
+        @include apply-type(heading-sm);
     }
 
     &__card-description {
