@@ -110,7 +110,11 @@
 
                     .toggle-content {
                         display: none;
-                        padding: 0 50px 0 0;
+                        padding: 24px 50px 24px 0;
+
+                        @include breakpoint(medium) {
+                            padding: 32px 50px 32px 0;
+                        }
 
                         &.expand {
                             display: block;
