@@ -16,6 +16,7 @@ $layouts = half_split_layouts();
 /**
  * Render a flexible content column
  */
+if (!function_exists('half_split_render_column')):
 function half_split_render_column(array $rows, array $layouts): void {
     foreach ($rows as $row) {
         $layout = $row['acf_fc_layout'] ?? '';
@@ -32,6 +33,7 @@ function half_split_render_column(array $rows, array $layouts): void {
         set_query_var($config['data_key'], null);
     }
 }
+endif;
 
 ?>
 
