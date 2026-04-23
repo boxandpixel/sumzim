@@ -1090,6 +1090,16 @@ add_action( 'enqueue_block_editor_assets', function () {
 } );
 
 /**
+ * Google Maps API Key
+ */
+define( 'GOOGLE_MAPS_API_KEY', 'AIzaSyDZuNUxiy6wgq740IkIGdKVH_6tEwUM1M4' );
+
+function my_acf_init() {
+    acf_update_setting( 'google_api_key', GOOGLE_MAPS_API_KEY );
+}
+add_action( 'acf/init', 'my_acf_init' );
+
+/**
  * Half Split Layouts
  */
 
@@ -1104,8 +1114,17 @@ function half_split_layouts(): array {
             'template'  => 'inc/blocks/icon-items/icon-items',
             'data_key'  => 'icon_items_data',
             'field_key' => 'icon_items',
-        ],		
-        // Add more layouts here...
+        ],
+        'wysiwyg' => [
+            'template'  => 'inc/blocks/half-split/wysiwyg',
+            'data_key'  => 'wysiwyg_data',
+            'field_key' => 'content',
+        ],
+        'google_map' => [
+            'template'  => 'inc/blocks/half-split/google-map',
+            'data_key'  => 'google_map_data',
+            'field_key' => 'google_map',
+        ],
     ];
 }
 
