@@ -9,6 +9,10 @@ if (empty($map) || (empty($map['lat']) && empty($map['address']))) {
     return;
 }
 
+if (!defined('GOOGLE_MAPS_API_KEY')) {
+    return;
+}
+
 $query     = !empty($map['address']) ? urlencode($map['address']) : $map['lat'] . ',' . $map['lng'];
 $zoom      = !empty($map['zoom']) ? (int) $map['zoom'] : 15;
 $embed_url = 'https://www.google.com/maps/embed/v1/place?key=' . GOOGLE_MAPS_API_KEY . '&q=' . $query . '&zoom=' . $zoom;

@@ -1090,12 +1090,13 @@ add_action( 'enqueue_block_editor_assets', function () {
 } );
 
 /**
- * Google Maps API Key
+ * Google Maps API Key — defined in wp-config.php per environment.
+ * GOOGLE_MAPS_API_KEY must be set there; never hardcode it here.
  */
-define( 'GOOGLE_MAPS_API_KEY', 'AIzaSyDZuNUxiy6wgq740IkIGdKVH_6tEwUM1M4' );
-
 function my_acf_init() {
-    acf_update_setting( 'google_api_key', GOOGLE_MAPS_API_KEY );
+    if ( defined( 'GOOGLE_MAPS_API_KEY' ) ) {
+        acf_update_setting( 'google_api_key', GOOGLE_MAPS_API_KEY );
+    }
 }
 add_action( 'acf/init', 'my_acf_init' );
 
