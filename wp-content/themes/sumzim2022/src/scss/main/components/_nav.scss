@@ -276,7 +276,8 @@ nav.header__nav {
         background-size: 88%;
         background-repeat: no-repeat;
         background-position: center center;
-        max-width: 200px;
+        width: 200px;
+        height: 40px;
         padding: .5rem 0;
         border-radius: 4px !important;
 
@@ -284,6 +285,14 @@ nav.header__nav {
         &:before {
           display: none;
         }
+
+        @include breakpoint(mobilenavmax) {
+            width: 200px;
+            max-width: 200px;
+            height: 40px;
+            max-height: 40px;
+        }
+
       }
 
       &.nav-pay > a {
@@ -298,6 +307,10 @@ nav.header__nav {
         &:hover {
           background: var(--color__success);
           color: white;
+        }
+
+        @include breakpoint(medium) {
+
         }
       }
 
