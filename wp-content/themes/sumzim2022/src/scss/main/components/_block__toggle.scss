@@ -81,6 +81,7 @@
 
                         .toggle-heading__title {
                             margin: 0;
+                            @include apply-type(heading-sm);
                         }
 
                         .toggle-heading__icon {
