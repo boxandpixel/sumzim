@@ -1,6 +1,15 @@
 .gform_wrapper {
 	margin-left: auto;
 	margin-right: auto;
+    margin-bottom: 60px;
+
+    @include breakpoint(medium) {
+        margin-bottom: 80px;
+    }
+
+    @include breakpoint(large) {
+        margin-bottom: 120px;
+    }	
 
 	&:has(form.design-your-membership-form) {
 		width: auto;
