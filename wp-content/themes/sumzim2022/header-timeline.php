@@ -251,6 +251,26 @@
 
 
 
+		<?php
+			$date = time();
+			$contestStart = strtotime('2024-04-24 11:00:00');
+			if ($date > $contestStart):
+		?>
+		<div class="header__status">
+			<p class="header__status-message" id="statusAll"></p>
+			<div class="utility-menu">
+				<?php
+				wp_nav_menu(
+					array('menu' => 'utility-menu')
+				);
+				?>
+			</div>
+		</div>
+		<div class="header__mobile-call">
+			<h2>Call us 24/7 at <a href="tel:6105935129" id="sa-click-to-call">610-593-5129</a></h2>
+		</div>
+		<?php endif; ?>
+
 		<header class="site-header">
 		<button class="header__nav-button" aria-haspopup="true" aria-controls="menu-primary-navigation" aria-expanded="false">
 			<span class="header__nav-button-span">Menu</span>
@@ -351,7 +371,10 @@
 				<nav class="header__nav">
 					<?php
 					wp_nav_menu(
-						array('menu' => 'primary_navigation')
+						array(
+							'theme_location' => 'primary-menu',
+							'menu_id'        => 'primary-menu',
+						)
 					);
 					?>
 				</nav>
