@@ -249,6 +249,33 @@
     }
 }
 
+@mixin button-check--md($fillColor, $strokeColor) {
+    position: relative;
+    background-color: $fillColor;
+    border: none;
+    border-radius: var(--border-radius);
+    width: 36px;
+    height: 36px;
+    transition: background-color 0.3s ease;
+
+    &::before {
+        content: '\e5ca'; // check code point
+        font-family: 'Material Symbols Outlined';
+        font-size: 24px;
+        font-variation-settings:
+          'FILL' 1,
+          'wght' 200,
+          'GRAD' 0,
+          'opsz' 24;
+        color: $strokeColor;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        @include icon-font-loader;
+    }
+}
+
 @mixin button-360--lg($fillColor, $strokeColor) {
     position: relative;
     background-color: $fillColor;

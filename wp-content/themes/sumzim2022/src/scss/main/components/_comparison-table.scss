@@ -96,7 +96,7 @@
 
                 span.comparison-table__check {
                     font-size: 0;
-                    @include button-check--sm(transparent, var(--color__primary--dark));
+                    @include button-check--md(transparent, var(--color__primary--dark));
                 }
                 
                 @include breakpoint(medium) {
