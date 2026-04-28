@@ -30,6 +30,7 @@
 	.entry-header {
 		margin-bottom: 60px;
 		color: var(--color__primary--dark);
+		@include content-wide;
 
 		@include breakpoint(medium) {
 			margin-bottom: 120px;
