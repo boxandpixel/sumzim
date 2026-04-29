@@ -76,11 +76,14 @@
                 width: 100%;
                 border-radius: var(--border-radius);
                 margin-bottom: .5rem;
+            }
 
-                &--contain {
-                    background-size: contain;
-                    background-repeat: no-repeat;
-                }
+            .image-section__image-natural {
+                display: block;
+                width: 100%;
+                height: auto;
+                border-radius: var(--border-radius);
+                margin-bottom: .5rem;
             }
 
             figcaption {

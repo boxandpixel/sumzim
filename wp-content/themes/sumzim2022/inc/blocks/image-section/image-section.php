@@ -31,7 +31,11 @@ $description = $content_group['description'] ?? '';
 			<?php if(!empty($image)): ?>
 			<div class="image-section__image image-section__image-<?= esc_attr($image_size); ?>">
 				<figure>
-					<div class="image-section__image-bg<?= $image_fit === 'contain' ? ' image-section__image-bg--contain' : ''; ?>" style="--bg-image: url('<?= esc_url($image['url']); ?>');" role="img" aria-label="<?= esc_attr($image['alt']); ?>"></div>
+					<?php if ($image_fit === 'contain'): ?>
+					<img class="image-section__image-natural" src="<?= esc_url($image['url']); ?>" alt="<?= esc_attr($image['alt']); ?>">
+					<?php else: ?>
+					<div class="image-section__image-bg" style="--bg-image: url('<?= esc_url($image['url']); ?>');" role="img" aria-label="<?= esc_attr($image['alt']); ?>"></div>
+					<?php endif; ?>
 					<?php if($image_caption): ?>
 					<figcaption><?= esc_html($image_caption); ?></figcaption>
 					<?php endif; ?>
