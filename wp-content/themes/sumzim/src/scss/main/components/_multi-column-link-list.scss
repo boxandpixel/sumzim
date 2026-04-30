@@ -1,0 +1,79 @@
+@keyframes linkListItem {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.multi-column-link-list {
+  & > ul.multi-column-link-list__list {
+    @include breakpoint(medium) {
+      display: grid;
+      grid-template-columns: 50% 50%;
+      grid-column-gap: 2rem;
+    }
+
+    & > li.multi-column-link-list__list-item {
+      & > a.multi-column-link-list__list-item-link {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 1rem 0.5rem;
+        color: var(--color__primary--dark); // 20220929 color__primary
+        border-bottom: solid 1px var(--color__neutral--very-light);
+        text-decoration: none;
+        position: relative;
+        z-index: 2;
+
+        &::before {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 0;
+          height: 100%;
+          background: linear-gradient(
+            130deg,
+            var(--color__primary--dark),
+            var(--color__primary--light)
+          );
+          // 20220929 color__primary
+          background-size: 200% 200%;
+          animation: linkListItem 5s ease infinite;
+          transition: width 0.2s ease-in-out;
+          content: "";
+          z-index: -1;
+        }
+
+        &::after {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          content: "";
+        }
+
+        &:hover {
+          color: white;
+
+          &::before {
+            width: 100%;
+            left: 0;
+          }
+
+          &::after {
+            background: url("data:image/svg+xml;base64,PHN2ZyBpZD0iTGF5ZXJfMSIgZGF0YS1uYW1lPSJMYXllciAxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNMTAsMTdsNS01TDEwLDdaIiBzdHlsZT0iZmlsbDojZmZmIi8+PHBhdGggZD0iTTAsMjRWMEgyNFYyNFoiIHN0eWxlPSJmaWxsOm5vbmUiLz48L3N2Zz4=")
+              95% center no-repeat;
+          }
+        }
+      }
+    }
+  }
+}

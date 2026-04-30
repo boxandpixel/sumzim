@@ -1,0 +1,71 @@
+<?php
+/**
+ * Image Section
+*/
+
+$image_section = get_field('image_section');
+$link = $image_section['link'] ?? [];
+$layout = $image_section['layout'] ?? 'default';
+
+$image_group = $image_section['image_group'] ?? [];
+$image = $image_group['image'] ?? [];
+$image_caption = $image_group['image_caption'] ?? '';
+$image_size = $image_group['image_size'] ?? '100';
+$image_fit = $image_group['image_fit'] ?? 'cover';
+
+$content_group = $image_section['content_group'] ?? [];
+$heading = $content_group['heading'] ?? '';
+$description = $content_group['description'] ?? '';
+?>
+
+
+<section class="image-section">
+	<div class="container">
+
+		<?php if($link && !empty($link)): ?>
+		<a href="<?= esc_url($link['url']); ?>" class="image-section__container<?= $layout === 'reversed' ? ' image-section__container--reversed' : ''; ?>">
+		<?php else: ?>
+		<div class="image-section__container<?= $layout === 'reversed' ? ' image-section__container--reversed' : ''; ?>">
+		<?php endif; ?>
+
+			<?php if(!empty($image)): ?>
+			<div class="image-section__image image-section__image-<?= esc_attr($image_size); ?>">
+				<figure>
+					<?php if ($image_fit === 'contain'): ?>
+					<img class="image-section__image-natural" src="<?= esc_url($image['url']); ?>" alt="<?= esc_attr($image['alt']); ?>">
+					<?php else: ?>
+					<div class="image-section__image-bg" style="--bg-image: url('<?= esc_url($image['url']); ?>');" role="img" aria-label="<?= esc_attr($image['alt']); ?>"></div>
+					<?php endif; ?>
+					<?php if($image_caption): ?>
+					<figcaption><?= esc_html($image_caption); ?></figcaption>
+					<?php endif; ?>
+				</figure>
+			</div>
+			<?php endif; ?>
+
+			<?php if(!empty($heading) || !empty($description)): ?>
+			<div class="image-section__content">
+
+				<div class="image-section__content-header">
+					<h3 class="image-section__content-heading"><?= esc_html($heading); ?></h3>
+					<div class="image-section__content-description">
+						<?= wp_kses_post($description); ?>
+					</div>
+
+					<?php if($link && !empty($link)): ?>
+					<div class="image-section__button">
+						<button href="<?= esc_url($link['url']); ?>" class="button button--primary"><?= esc_html($link['title']); ?></button>
+					</div>
+					<?php endif; ?>
+				</div>
+
+			</div>
+			<?php endif; ?>
+
+		<?php if($link && !empty($link)): ?>
+		</a>
+		<?php else: ?>
+		</div>
+		<?php endif; ?>
+	</div>
+</section>

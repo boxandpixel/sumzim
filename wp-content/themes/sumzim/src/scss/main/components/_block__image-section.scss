@@ -1,0 +1,138 @@
+.image-section {
+    margin-bottom: 60px;
+
+    @include breakpoint(medium) {
+        margin-bottom: 80px;
+    }
+
+    @include breakpoint(large) {
+        margin-bottom: 120px;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        @include content-wide;
+
+        @include breakpoint(medium) {
+            gap: 48px;
+        }
+
+        .image-section__container {
+            text-decoration: none;
+            color: initial;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            &:has(.image-section__content) {
+                gap: 36px;
+
+                @include breakpoint(medium) {
+                    flex-direction: row;
+                    gap: 60px;
+                }
+
+                // When content is present, make image 50% width
+                .image-section__image {
+                    @include breakpoint(medium) {
+                        flex: 0 0 50%;
+                        max-width: 50%;
+                    }
+                }
+
+                // Make content take remaining space
+                .image-section__content {
+                    @include breakpoint(medium) {
+                        flex: 1;
+                    }
+                }
+            }
+
+            &--reversed {
+                &:has(.image-section__content) {
+                    @include breakpoint(medium) {
+                        flex-direction: row-reverse;
+                    }
+                }
+            }
+        }
+
+        .image-section__image {
+            width: 100%;
+
+            figure {
+                max-width: 800px;
+                width: 100%;
+                margin-inline: auto;
+            }
+
+            .image-section__image-bg {
+                background-image: var(--bg-image);
+                background-size: cover;
+                background-position: center;
+                aspect-ratio: 4 / 3;
+                width: 100%;
+                border-radius: var(--border-radius);
+                margin-bottom: .5rem;
+            }
+
+            .image-section__image-natural {
+                display: block;
+                width: 100%;
+                height: auto;
+                border-radius: var(--border-radius);
+                margin-bottom: .5rem;
+            }
+
+            figcaption {
+                font-size: 13.3px;
+                font-style: italic;
+
+                @include breakpoint(medium) {
+                    font-size: 12.8px;
+                }
+            }
+
+            &-50 {
+                display: flex;
+                justify-content: center;
+
+                figure {
+                    max-width: 50%;
+                }
+            }
+
+            &-75 {
+                display: flex;
+                justify-content: center;
+
+                figure {
+                    max-width: 75%;
+                }
+            }
+
+            &-100 {
+                figure {
+                    max-width: 800px;
+                    width: 100%;
+                }
+            }
+        }
+
+        .image-section__content {
+            @include breakpoint(medium) {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+
+            .image-section__content-header {
+                .image-section__content-heading {
+                    @include apply-type(heading-md);
+                }
+            }
+        }
+    }
+}

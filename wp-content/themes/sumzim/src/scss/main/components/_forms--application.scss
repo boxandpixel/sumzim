@@ -1,0 +1,14 @@
+div[role="form"].wpcf7 {
+    span.wpcf7-form-control-wrap {
+
+        // Set application reference name to hide by default
+        &[data-name="reference-name"] {
+            display: none;
+        }
+
+        // Set application reference name to show if clicked yes
+        &[data-name="reference-name"].reference-name--show {
+            display: flex;
+        }
+    }
+}

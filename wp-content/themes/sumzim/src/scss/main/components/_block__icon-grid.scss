@@ -1,0 +1,284 @@
+.icon-grid {
+    margin-bottom: 60px;
+
+    &--none {
+        background: none;
+    }
+
+    &--light-blue {
+        background-color: #dde4eb;
+        padding-top: 60px;
+        padding-bottom: 60px;
+
+        @include breakpoint(medium) {
+            padding-top: 80px;
+            padding-bottom: 80px;
+        }
+    }
+
+    &--light-blue-gradient-to-dark {
+        background: linear-gradient(to bottom, rgba(12, 30, 49, 0) 0%, #dde4eb 100%);
+        padding-bottom: 60px;
+
+        @include breakpoint(medium) {
+            padding-bottom: 80px;
+        }
+    }
+
+    &--light-blue-gradient-to-light {
+        background: linear-gradient(to top, rgba(12, 30, 49, 0) 0%, #dde4eb 100%);
+        padding-top: 60px;
+
+        @include breakpoint(medium) {
+            padding-top: 80px;
+        }
+    }
+
+    @include breakpoint(medium) {
+        margin-bottom: 80px;
+    }
+
+    @include breakpoint(large) {
+        margin-bottom: 120px;
+    }
+
+    // -------------------------
+    // Container
+    // -------------------------
+    .container {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        @include content-wide;
+
+        @include breakpoint(medium) {
+            gap: 40px;
+        }
+
+        @include breakpoint(large) {
+            gap: 48px;
+        }
+    }
+
+    // -------------------------
+    // Header
+    // -------------------------
+    &__header {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    &__heading {
+        @include apply-type(heading-lg);
+        margin-bottom: 0;
+    }
+
+    &__description {
+        @include apply-type(body);
+        color: var(--color__primary--dark);
+        margin: 0;
+
+        p {
+            margin: 0;
+        }
+    }
+
+    // -------------------------
+    // Grid — 2 col mobile/tablet, 4 col desktop
+    // -------------------------
+    &__grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+
+        @include breakpoint(medium) {
+            gap: 20px;
+        }
+
+        @include breakpoint(large) {
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 24px;
+        }
+    }
+
+    // -------------------------
+    // Item card
+    // -------------------------
+    &__item {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        background-color: white;
+        border-radius: 4px;
+        border: 1px solid transparent;
+        padding: 1.25rem;
+        aspect-ratio: 3 / 4;
+        overflow: hidden;
+        text-decoration: none;
+        color: inherit;
+        transition:
+            border-color 0.2s ease,
+            box-shadow 0.2s ease;
+
+        @include breakpoint(medium) {
+            padding: 1.5rem;
+        }
+
+        @include breakpoint(large) {
+            padding: 1.75rem;
+            // At large, drop the fixed aspect-ratio and let height be content-driven.
+            // min-height uses clamp: floor at 300px (narrow large viewport),
+            // ideal scales with viewport width approximating the 3/4 ratio across
+            // the 4-col grid, ceiling at 380px (cards at full 1200px container).
+            // Cards in the same row still stretch to match the tallest (grid default).
+            aspect-ratio: unset;
+            min-height: clamp(300px, 25vw, 380px);
+            overflow: hidden;
+        }
+
+        // Hover — applies to both linked and non-linked cards for visual consistency
+        &:hover {
+            border-color: #f5b330;
+            box-shadow: 0 0 12px 2px rgba(245, 179, 48, 0.2);
+
+            .icon-grid__item-link {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    }
+
+    // -------------------------
+    // Icon
+    // -------------------------
+    &__icon {
+        display: flex;
+        align-items: center;
+        flex-shrink: 0;
+        margin-bottom: 12px;
+
+        @include breakpoint(medium) {
+            margin-bottom: 14px;
+        }
+
+        span {
+            --icon-size: 48px;
+            width: var(--icon-size);
+            height: var(--icon-size);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            @include breakpoint(large) {
+                --icon-size: 58px;
+            }
+        }
+
+        .material-symbols-outlined {
+            font-size: 48px;
+            color: var(--color__primary--dark);
+            font-variation-settings:
+                'FILL' 0,
+                'wght' 200,
+                'GRAD' 0,
+                'opsz' 24;
+            @include icon-font-loader;
+
+            @include breakpoint(large) {
+                font-size: 58px;
+            }
+        }
+
+        &--image {
+            img {
+                width: 48px;
+                height: 48px;
+                object-fit: contain;
+
+                @include breakpoint(large) {
+                    width: 58px;
+                    height: 58px;
+                }
+            }
+        }
+    }
+
+    // -------------------------
+    // Content
+    // -------------------------
+    &__content {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+    }
+
+    &__item-heading {
+        @include apply-type(heading-xs);
+        margin-bottom: 6px;
+    }
+
+    &__item-description {
+        @include apply-type(small);
+        color: var(--color__primary--dark);
+        margin: 0;
+        flex: 1;
+
+        p {
+            margin: 0;
+        }
+    }
+
+    // -------------------------
+    // Item link label
+    // Mobile/tablet: always visible, no arrow
+    // Desktop: hidden, slides in on card hover with arrow_forward icon
+    // -------------------------
+    &__item-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        margin-top: 10px;
+        @include apply-type(small);
+        font-weight: 700;
+        color: var(--color__primary--dark);
+        text-decoration: none;
+
+        // Desktop: start hidden, transition in on card hover
+        @include breakpoint(large) {
+            opacity: 0;
+            transform: translateY(4px);
+            transition:
+                opacity 0.2s ease,
+                transform 0.2s ease;
+        }
+    }
+
+    &__item-link-arrow {
+        // Override Material Symbols defaults to match body text size
+        font-size: 1em !important;
+        font-variation-settings:
+            'FILL' 0,
+            'wght' 400,
+            'GRAD' 0,
+            'opsz' 24 !important;
+        line-height: 1;
+        vertical-align: middle;
+
+        // Hide on mobile/tablet — only show on desktop hover
+        display: none;
+
+        @include breakpoint(large) {
+            display: inline-flex;
+        }
+    }
+
+    // -------------------------
+    // Footer — block-level link, center aligned
+    // -------------------------
+    &__footer {
+        display: flex;
+        justify-content: center;
+        padding-top: 8px;
+    }
+}

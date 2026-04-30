@@ -1,0 +1,214 @@
+@use '../common/mixins' as *;
+@use '../common/typography.mixins' as *;
+
+.staff-slider {
+    margin-bottom: 60px;
+    position: relative;
+
+    @include breakpoint(medium) {
+        margin-bottom: 120px;
+    }   
+
+    &--none {
+        background: none;
+    }
+
+    &--light-blue {
+        background-color: #dde4eb;
+		padding-top: 60px;
+		padding-bottom: 60px;
+
+		@include breakpoint(medium) {
+			padding-top: 80px;
+			padding-bottom: 80px;
+		}	        
+    }
+
+    &--light-blue-gradient-to-dark {
+        background: linear-gradient(to bottom, rgba(12, 30, 49, 0) 0%, #dde4eb 100%);
+		padding-bottom: 60px;
+
+		@include breakpoint(medium) {
+			padding-bottom: 80px;
+		}	        
+    }
+
+    &--light-blue-gradient-to-light {
+        background: linear-gradient(to top, rgba(12, 30, 49, 0) 0%, #dde4eb 100%);        
+		padding-top: 60px;
+
+		@include breakpoint(medium) {
+			padding-top: 80px;
+		}	        
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;        
+        @include content-wide;
+
+        @include breakpoint(medium) {
+            gap: 48px;
+        }
+    }
+
+    &__header {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        text-align: center;
+
+        &-heading {
+            @include apply-type(heading-lg);
+        }
+
+        &-description {
+            max-width: 700px;
+            margin: 0 auto;
+            @include apply-type(body);
+
+            p {
+                @include apply-type(heading-xxs);
+
+                & {
+                    font-weight: 400;
+                }
+                
+                &:last-child {
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+
+    &__wrapper {
+        position: relative;
+    }
+
+    &__nav {
+        display: flex;
+        gap: 16px;
+        justify-content: center;
+        margin-top: 32px;
+    }
+
+    &__prev,
+    &__next {
+        
+        &.swiper-button-disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+    }
+
+    &__prev {
+        font-size: 0;
+        transform: rotate(-90deg);
+        @include button-chevron--md(var(--color__primary--dark), white);
+    }
+
+    &__next {
+        font-size: 0;transform: rotate(90deg);
+        @include button-chevron--md(var(--color__primary--dark), white);
+    }
+
+    &__cta {
+        text-align: center;
+    }
+}
+
+// Staff card styles (reused from featured-staff)
+.staff-slider {
+    .staff-card {
+        display: block;
+        text-decoration: none;
+        color: inherit;
+        aspect-ratio: 3 / 4;
+
+        &__image-wrapper {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            border-radius: 4px;
+            overflow: hidden;
+            transition: transform 0.5s ease;
+        }
+
+        &:hover &__image-wrapper {
+            transform: translateY(-4px);
+        }
+
+        &__image {
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.5s ease;
+        }
+
+        &:hover &__image {
+            transform: scale(1.1);
+        }
+
+        &__gradient {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                180deg,
+                rgba(0, 0, 0, 0) 40%,
+                rgba(0, 0, 0, 0.7) 100%
+            );
+            z-index: 1;
+        }
+
+        &__overlay-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 20px;
+            z-index: 2;
+            color: white;
+        }
+
+        &__name {
+            // margin-bottom: 4px;
+            
+            @include breakpoint(large) {
+                margin-bottom: 0;
+            }
+
+            h5 {
+                color: white;
+                margin-bottom: 4px;
+                @include apply-type(heading-xxs);
+            }
+        }
+
+        &__title {
+            opacity: 0.9;
+            @include apply-type(small);
+
+            @include breakpoint(large) {
+                opacity: 0;
+                max-height: 0;
+                overflow: hidden;
+                transition: opacity 0.5s ease, max-height 0.5s ease;
+            }
+        }
+
+        &:hover &__title {
+            @include breakpoint(large) {
+                opacity: 0.9;
+                max-height: 100px;
+            }    
+        }
+
+        &:hover &__name {
+            @include breakpoint(large) {
+                // margin-bottom: 4px;
+            }
+        }
+    }
+}

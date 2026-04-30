@@ -1,0 +1,56 @@
+.content-breakout {
+  background: var(--color__neutral--very-light);
+  padding: 1.5rem 0;
+  text-align: center;
+  flex-direction: column;
+  align-items: center;
+
+  &.content-breakout--leftAligned {
+    text-align: left;
+  }
+
+  @include breakpoint(medium) {
+    padding: 2.5rem 0;
+  }
+
+  // Breakout styles for background images found in _pages.scss
+
+  a {
+    color: var(--color__primary--dark); // 20220929 color__primary
+  }
+
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-bottom: 1.5rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  p {
+    img {
+      &.aligncenter {
+        margin: 0 auto;
+      }
+    }
+  }
+
+  .content-breakout__content--background-image {
+    position: relative;
+    z-index: 2;
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p {
+      color: white;
+    }
+  }
+}

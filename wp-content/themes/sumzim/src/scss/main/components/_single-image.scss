@@ -1,0 +1,11 @@
+.single-image {
+    & > figure.single-image__figure {
+        & > img.single-image__img {
+            max-width: 100%;
+        }
+
+        & > figcaption.single-image__caption {
+            text-transform: uppercase;
+        }
+    }
+}

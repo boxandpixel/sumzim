@@ -1,0 +1,161 @@
+// =============================================================================
+// SCSS Variables — single source of truth
+// Interpolated into CSS custom properties via :root below
+// =============================================================================
+
+
+// -----------------------------------------------------------------------------
+// Brand Blue Ramp
+// -----------------------------------------------------------------------------
+
+$color__blue--900: #0c1e31;
+$color__blue--800: #1a3348;
+$color__blue--700: #2a4d68;
+$color__blue--600: #4a7191;
+$color__blue--500: #7aa0b8;
+$color__blue--400: #a8c3d4;
+$color__blue--300: #c5d8e4;
+$color__blue--200: #dde4eb;
+$color__blue--100: #eaf0f4;
+$color__blue--50:  #f4f7f9;
+
+
+// -----------------------------------------------------------------------------
+// Secondary (Warm Yellow)
+// -----------------------------------------------------------------------------
+
+$color__secondary:            hsla(40, 91%, 57%, 1);  // #f5b330
+$color__secondary--dark:      hsla(40, 91%, 27%, 1);
+$color__secondary--very-light: hsla(40, 91%, 90%, 1);
+
+
+// -----------------------------------------------------------------------------
+// Neutral
+// -----------------------------------------------------------------------------
+
+$color__neutral--very-light: hsla(0, 0%, 90%, 1);
+$color__neutral--light:      hsla(0, 0%, 75%, 1);
+$color__neutral:             hsla(0, 0%, 50%, 1);
+$color__neutral--dark:       hsla(0, 0%, 25%, 1);
+$color__neutral--very-dark:  hsla(0, 0%, 10%, 1);
+
+
+// -----------------------------------------------------------------------------
+// Semantic
+// -----------------------------------------------------------------------------
+
+$color__attention:       hsla(0, 100%, 40%, 1);   // #c00
+$color__attention--light: hsla(0, 50%, 80%, 1);
+$color__success:         hsla(150, 100%, 30%, 1); // #00994d
+$color__success--light:  hsla(150, 50%, 80%, 1);
+
+
+// -----------------------------------------------------------------------------
+// Typography
+// -----------------------------------------------------------------------------
+
+$color__headings:   hsla(0, 0%, 13%, 1); // #222
+$color__text:       hsla(0, 0%, 33%, 1); // #555
+$color__text--light: hsla(0, 0%, 80%, 1);
+$color__text--dark: hsla(0, 0%, 20%, 1); // #333
+
+$font__family: "Raleway", "Verdana", "sans-serif";
+$font__letter-spacing: 0.05ch;
+
+
+// -----------------------------------------------------------------------------
+// Layout
+// -----------------------------------------------------------------------------
+
+$gutter:              1rem;
+$component__padding:  0.5rem 1rem;
+$section__padding:    1rem;
+$border-radius:       4px;
+$spacer__css:         1rem;   // CSS custom property version
+$spacer:              16px;   // SCSS utility value
+
+
+// -----------------------------------------------------------------------------
+// Breakpoints
+// -----------------------------------------------------------------------------
+
+$breakpoint__small:   640px;
+$breakpoint__medium:  768px;
+$breakpoint__large:   1024px;
+$breakpoint__xlarge:  1280px;
+$breakpoint__xxlarge: 1620px;
+
+
+// =============================================================================
+// CSS Custom Properties
+// Consumed throughout the codebase via var(--*)
+// =============================================================================
+
+:root {
+
+    /** Brand Blue Ramp */
+    --color__blue-900: #{$color__blue--900}; // Primary brand
+    --color__blue-800: #{$color__blue--800}; // Hover / active
+    --color__blue-700: #{$color__blue--700}; // Borders, icon fill
+    --color__blue-600: #{$color__blue--600}; // Secondary text
+    --color__blue-500: #{$color__blue--500}; // Muted UI, captions
+    --color__blue-400: #{$color__blue--400}; // Tags, pills, accents
+    --color__blue-300: #{$color__blue--300}; // Card tint, hover surface
+    --color__blue-200: #{$color__blue--200}; // Light accent areas
+    --color__blue-100: #{$color__blue--100}; // Input background
+    --color__blue-50:  #{$color__blue--50};  // Page / section bg
+
+    /** Legacy primary aliases — map to ramp */
+    --color__primary--dark:       var(--color__blue-900);
+    --color__primary:             var(--color__blue-800);
+    --color__primary--light:      var(--color__blue-600);
+    --color__primary--very-light: var(--color__blue-200);
+    --color__primary--dark-trans: hsla(211, 61%, 12%, 0.9);
+    --color__primary--trans:      hsla(211, 61%, 22%, 0.9);
+
+    /** Secondary */
+    --color__secondary:             #{$color__secondary};
+    --color__secondary--dark:       #{$color__secondary--dark};
+    --color__secondary--very-light: #{$color__secondary--very-light};
+
+    /** Neutral */
+    --color__neutral--very-light: #{$color__neutral--very-light};
+    --color__neutral--light:      #{$color__neutral--light};
+    --color__neutral:             #{$color__neutral};
+    --color__neutral--dark:       #{$color__neutral--dark};
+    --color__neutral--very-dark:  #{$color__neutral--very-dark};
+
+    /** Semantic */
+    --color__attention:        #{$color__attention};
+    --color__attention--light: #{$color__attention--light};
+    --color__success:          #{$color__success};
+    --color__success--light:   #{$color__success--light};
+
+    /** Typography */
+    --color__headings:  #{$color__headings};
+    --color__text:      #{$color__text};
+    --color__text--light: #{$color__text--light};
+    --color__text--dark: #{$color__text--dark};
+    --text-shadow__variable-background: 2px 2px 2px black;
+    --font:             #{$font__family};
+    --letter-spacing:   #{$font__letter-spacing};
+
+    /** Layout */
+    --gutter:             #{$gutter};
+    --gutter__edges:      calc(var(--gutter) * 2);
+    --component__padding: #{$component__padding};
+    --section__padding:   #{$section__padding};
+    --border-radius:      #{$border-radius};
+    --spacer:             #{$spacer__css};
+
+    /** Misc */
+    --text-indent-a11y:       -1000rem;
+    --page-title-background:  hsla(0, 0%, 100%, 0.9);
+}
+
+
+// -----------------------------------------------------------------------------
+// SCSS-only utility (not a custom property — used directly in SCSS)
+// -----------------------------------------------------------------------------
+
+$spacer: #{$spacer};

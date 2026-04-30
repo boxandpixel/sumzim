@@ -1,0 +1,42 @@
+.list-items-icons-block {
+    margin: 80px 0;
+    ul {
+        display: inline-flex;
+        flex-direction: column;
+        
+        li {
+
+            font-size: 18px;
+            position: relative;
+            padding: .5rem 2rem .5rem;
+            border-bottom: solid 1px var(--color__neutral--light);
+            color: var(--color__primary--dark);
+            font-weight: 500;
+
+            &:last-child {
+                border-bottom: 0;
+            }
+
+            &:before {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                left: 0;
+                font-family: "Material Symbols Outlined";
+                
+                  font-variation-settings:
+                  'FILL' 1,
+                  'wght' 300,
+                  'GRAD' 0,
+                  'opsz' 24;
+                
+        
+                content: '\e86c';
+                font-size: 1.5rem;
+                color: var(--color__primar--dark);
+            }
+
+
+        }
+    }
+}

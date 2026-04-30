@@ -1,0 +1,179 @@
+body {
+  //   height: 500vh;
+  margin: 0;
+}
+
+header.site-header {
+  margin-top: -1px;
+}
+
+/** HERO */
+.tty-hero {
+  width: 66vw;
+  //   height: 500px;
+  margin: 0 auto;
+  .tty-hero__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .tty-hero__content-title {
+      color: var(--color__primary--dark);
+      font-size: 3rem;
+      line-height: 1.2;
+      font-weight: 900;
+      margin: 0 0 0.5rem 0;
+      text-align: center;
+
+      @include breakpoint(large) {
+        font-size: 4rem;
+      }
+    }
+
+    .tty-hero__content-intro {
+      color: var(--color__primary--dark);
+      text-align: center;
+      font-size: 1.5rem;
+      line-height: 1.3;
+      font-weight: 600;
+      margin: 0;
+
+      @include breakpoint(large) {
+        font-size: 2rem;
+      }
+    }
+  }
+}
+
+.tty {
+  padding-top: 226px;
+}
+
+/** TIMELINE */
+
+.tty-timeline {
+  margin: 100px 0;
+
+  .line-container {
+    position: fixed;
+    top: 0;
+    left: 20px;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 2;
+
+    @include breakpoint(large) {
+      text-align: center;
+      left: 0;
+    }
+
+    svg {
+      display: inline-block;
+      height: 100%;
+    }
+  }
+
+  .tty-years {
+    display: flex;
+    flex-direction: column;
+    gap: 6rem;
+    padding-left: 40px;
+    width: calc(100% - 40px);
+
+    @include breakpoint(large) {
+      padding-left: 0;
+      width: auto;
+    }
+
+    .timelineFade {
+      transition: opacity 0.7s ease-in;
+
+      &.fadeOut {
+        opacity: 0;
+      }
+
+      &.fadeIn {
+        opacity: 1;
+      }
+    }
+
+    .tty-year {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      width: 100%;
+      margin: 0 auto;
+      gap: 1rem;
+      position: relative;
+      align-items: center;
+
+      @include breakpoint(large) {
+        gap: 3rem;
+        grid-template-columns: repeat(2, 1fr);
+        width: 90vw;
+      }
+
+      .tty-year-dot {
+        width: 14px;
+        height: 14px;
+        border-radius: 7px;
+        background: var(--color__secondary);
+        border: solid 2px white;
+        position: absolute;
+        top: 50%;
+        left: -20px;
+        transform: translateX(-50%);
+        z-index: 3;
+
+        @include breakpoint(large) {
+          display: block;
+          left: 50%;
+        }
+      }
+
+      div {
+        align-self: center;
+
+        h3 {
+          font-size: 2.25rem;
+          font-weight: 900;
+          line-height: 1;
+          color: var(--color__primary--dark);
+
+          @include breakpoint(large) {
+            font-size: 3.5rem;
+          }
+        }
+
+        p {
+          font-size: 1rem;
+          font-weight: 400;
+          line-height: 1.4;
+          color: var(--color__text);
+
+          @include breakpoint(large) {
+            font-size: 1.625rem;
+          }
+        }
+      }
+
+      img {
+        border: solid 3px white;
+      }
+
+      &:nth-child(even) {
+        img {
+          @include breakpoint(large) {
+            order: 2;
+          }
+        }
+
+        div {
+          @include breakpoint(large) {
+            order: 1;
+          }
+        }
+      }
+    }
+  }
+}

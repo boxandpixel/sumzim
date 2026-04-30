@@ -1,0 +1,23 @@
+.guarantee {
+    background: hsla(211, 50%, 90%, 1);
+    padding: 1rem;
+
+    @include breakpoint(medium) {
+        padding: 1.5rem 1rem;
+    }
+
+    img.badge-guarantee {
+        margin: 0 auto;
+    }
+
+    h2 {
+        text-align: center;
+        margin-bottom: 8px;        
+        @include apply-type(heading-lg);
+
+    }
+
+    h4 {
+        @include apply-type(heading-sm);
+    }
+}

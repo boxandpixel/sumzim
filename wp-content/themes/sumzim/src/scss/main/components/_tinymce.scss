@@ -1,0 +1,56 @@
+button {
+  cursor: pointer;
+}
+
+.primary-button > p > a {
+  padding: 16px 40px;
+  display: inline-flex;
+  flex-direction: column;
+  text-transform: uppercase;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 14px;
+  line-height: 1;
+  letter-spacing: var(--letter-spacing);
+  width: auto;
+  border-radius: 999px;
+  border: none;
+  position: relative;
+  cursor: pointer;
+
+  // Primary colors
+  background: var(--color__primary--dark); // 20220929 color__primary
+  color: white;
+
+
+
+  &:hover {
+    color: var(--color__secondary);
+  }
+}
+
+.secondary-button > p > a {
+  padding: 16px 40px;
+  display: inline-flex;
+  flex-direction: column;
+  text-transform: uppercase;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 14px;
+  line-height: 1;
+  letter-spacing: var(--letter-spacing);
+  width: auto;
+  border-radius: 999px;
+  border: none;
+  position: relative;
+  cursor: pointer;
+
+  // Secondary colors
+  background: var(--color__secondary);
+  color: black;
+}
+
+.small-print {
+  font-size: 0.75rem;
+  line-height: 1.2;
+}

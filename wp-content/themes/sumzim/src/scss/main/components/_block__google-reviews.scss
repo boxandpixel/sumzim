@@ -1,0 +1,272 @@
+@use '../common/mixins' as *;
+// @use '../abstracts/colors.functions' as *;
+@use '../common/typography.mixins' as *;
+
+.google-reviews {
+    background: linear-gradient(180deg, rgba(12, 30, 49, 0) 0%, #dde4eb 100%);
+    margin-bottom: 60px;
+
+    @include breakpoint(medium) {
+        margin-bottom: 80px;
+    }
+
+    @include breakpoint(large) {
+        margin-bottom: 120px;
+    }
+
+    &--none {
+        background: none;
+    }
+
+    &--light-blue {
+        background-color: #dde4eb;	   
+        padding-top: 60px;
+        padding-bottom: 60px;
+
+        @include breakpoint(medium) {
+            padding-top: 80px;
+            padding-bottom: 80px;
+        }             
+    }
+
+    &--light-blue-gradient-to-dark {
+        background: linear-gradient(to bottom, rgba(12, 30, 49, 0) 0%, #dde4eb 100%);
+        // padding-top: 60px;
+        padding-bottom: 60px;
+
+        @include breakpoint(medium) {
+            // padding-top: 80px;
+            padding-bottom: 80px;
+        }  
+    }
+
+    &--light-blue-gradient-to-light {
+        background: linear-gradient(to top, rgba(12, 30, 49, 0) 0%, #dde4eb 100%);        
+        padding-top: 60px;
+        padding-bottom: 60px;
+
+        @include breakpoint(medium) {
+            padding-top: 80px;
+            padding-bottom: 80px;
+        }          
+    }    
+    
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        @include content-wide;
+
+        @include breakpoint(medium) {
+            gap: 48px;
+        }  
+        
+        .google-reviews__header {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+
+            .google-reviews__header-heading {
+                @include apply-type(heading-lg);
+            }
+
+            .google-reviews__header-description {
+
+                p {
+                    @include apply-type(heading-xxs);
+
+                    & {
+                        font-weight: 400;
+                    }
+                    
+                    &:last-child {
+                        margin-bottom: 0;
+                    }
+                }
+            }
+        }
+    }    
+
+    .google-reviews__carousel {
+        position: relative;
+        // max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .google-reviews__carousel-wrapper {
+        position: relative;
+        min-height: 300px;
+    }
+
+    .google-reviews__card {
+        background: white;
+        padding: 2.5rem;
+        // border-radius: 12px;
+        border-radius: var(--border-radius);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.4s ease, visibility 0.4s ease;
+
+        &.active {
+            opacity: 1;
+            visibility: visible;
+            position: relative;
+        }
+    }
+
+    .google-reviews__stars {
+        margin-bottom: 1.5rem;
+        font-size: 1.75rem;
+        line-height: 1;
+        text-align: center;
+
+        .star {
+            color: #FFA500;
+
+            &.empty {
+                color: #ddd;
+            }
+        }
+    }
+
+    .google-reviews__text {
+        flex: 1;
+        font-style: italic;
+        margin-bottom: 2rem;
+        color: #333;
+        line-height: 1.6;
+        font-size: 1.05rem;
+        text-align: center;
+
+        p {
+            margin: 0 0 1rem;
+            
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    .google-reviews__footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        border-top: 1px solid #eee;
+        padding-top: 1.5rem;
+    }
+
+    .google-reviews__author-info {
+        flex: 1;
+    }
+
+    .google-reviews__author {
+        font-weight: 600;
+        color: #000;
+        margin-bottom: 0.25rem;
+        font-size: 1rem;
+    }
+
+    .google-reviews__date {
+        color: #666;
+        font-size: 0.9rem;
+    }
+
+    .google-reviews__logo {
+        flex-shrink: 0;
+        opacity: 0.9;
+        
+        svg {
+            display: block;
+        }
+    }
+
+    .google-reviews__navigation {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 2rem;
+        margin-top: 2rem;
+    }
+
+    .google-reviews__nav-btn {
+        font-size: 0;
+        @include button-arrow--lg(var(--color__primary--dark), white);
+
+        &--prev {
+            transform: rotate(180deg);
+            @include button-arrow--lg(var(--color__primary--dark), white);
+        }
+
+        &--next {
+            @include button-arrow--lg(var(--color__primary--dark), white);
+        }
+
+        &:hover {
+            @include button-arrow--lg(var(--color__secondary), var(--color__primary--dark));
+        }
+
+    }
+
+    .google-reviews__pagination {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-weight: 700 !important;
+        color: var(--color__primary--dark);
+        @include apply-type(small);
+    }
+
+    .google-reviews__separator {
+        color: var(--color__neutral);
+    }
+
+    .google-reviews__total {
+        color: var(--color__primary--dark);
+    }
+// everything else above...
+
+&--embedded {
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-bottom: 0;
+    background: none;
+
+    .container {
+        width: 100%;
+        max-width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+        padding-left: 0;
+        padding-right: 0;
+
+        @include breakpoint(medium) {
+            width: 100%;
+            max-width: 100%;
+            margin-left: 0;
+            margin-right: 0;
+            padding-left: 0;
+            padding-right: 0;
+        }
+
+        .google-reviews__carousel {
+            position: relative;
+            width: 100%;
+            max-width: 100%;
+            margin: 0;
+        }       
+        
+        .contain {
+            width: 100%;
+        }
+    }
+}
+}  // closing .google-reviews
