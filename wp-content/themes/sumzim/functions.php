@@ -280,6 +280,40 @@ function posts_link_attributes() {
   return 'class="button button--primary"';
 }
 
+/**
+ * Google review count REST endpoint with transient cache
+ */
+add_action( 'rest_api_init', function() {
+	register_rest_route( 'sumzim/v1', '/google-reviews', array(
+		'methods'             => 'GET',
+		'callback'            => 'sumzim_google_review_count',
+		'permission_callback' => '__return_true',
+	) );
+} );
+
+function sumzim_google_review_count() {
+	$cached = get_transient( 'sumzim_google_review_count' );
+	if ( $cached !== false ) {
+		return rest_ensure_response( $cached );
+	}
+
+	$api_key  = 'AIzaSyDSRvqTsYQXGTJ3gCbaaSXvAIqnnT3MMiM';
+	$place_id = 'ChIJd5IeY6tFxokR8QWJk68CUpI';
+	$response = wp_remote_get(
+		"https://maps.googleapis.com/maps/api/place/details/json?place_id={$place_id}&fields=user_ratings_total&key={$api_key}",
+		array( 'timeout' => 10 )
+	);
+
+	if ( is_wp_error( $response ) ) {
+		return new WP_REST_Response( array( 'error' => 'Failed to fetch' ), 500 );
+	}
+
+	$data = json_decode( wp_remote_retrieve_body( $response ), true );
+	set_transient( 'sumzim_google_review_count', $data, 6 * HOUR_IN_SECONDS );
+
+	return rest_ensure_response( $data );
+}
+
 /** 
  * Add options page
  */
@@ -292,66 +326,6 @@ function posts_link_attributes() {
 		'redirect'		=> false
 	));	
 
-	acf_add_options_page(array(
-		'page_title' 	=> 'Content Settings',
-		'menu_slug' 	=> 'content-settings',
-		'capability'	=> 'edit_posts',
-		'redirect'		=> false
-	));
-
-	acf_add_options_sub_page(array(
-		'page_title' 	=> 'Footer Content',
-		'menu_title'	=> 'Footer Content',
-		'menu_slug' 	=> 'footer-content',
-		'capability'	=> 'edit_posts',
-		'parent_slug'	=> 'content-settings',
-		'redirect'		=> false
-	));
-
-	acf_add_options_sub_page(array(
-		'page_title' 	=> 'Header Content',
-		'menu_title'	=> 'Header Content',
-		'menu_slug' 	=> 'header-update',
-		'capability'	=> 'edit_posts',
-		'parent_slug'	=> 'content-settings',
-		'redirect'		=> false
-	));	
-
-	acf_add_options_sub_page(array(
-		'page_title' 	=> '5-Point Guarantee',
-		'menu_title'	=> '5-Point Guarantee',
-		'menu_slug' 	=> '5-point-guarantee',
-		'capability'	=> 'edit_posts',
-		'parent_slug'	=> 'content-settings',
-		'redirect'		=> false
-	));	
-
-	acf_add_options_sub_page(array(
-		'page_title' 	=> 'Alert Content',
-		'menu_title'	=> 'Alert Content',
-		'menu_slug' 	=> 'alert-content',
-		'capability'	=> 'edit_posts',
-		'parent_slug'	=> 'content-settings',
-		'redirect'		=> false
-	));	
-
-	acf_add_options_sub_page(array(
-		'page_title' 	=> 'Products Content',
-		'menu_title'	=> 'Products Content',
-		'menu_slug' 	=> 'products-content',
-		'capability'	=> 'edit_posts',
-		'parent_slug'	=> 'content-settings',
-		'redirect'		=> false
-	));	
-
-	acf_add_options_sub_page(array(
-		'page_title' 	=> '404 Content',
-		'menu_title'	=> '404 Content',
-		'menu_slug' 	=> '404-content',
-		'capability'	=> 'edit_posts',
-		'parent_slug'	=> 'content-settings',
-		'redirect'		=> false
-	));	
 
 }
 

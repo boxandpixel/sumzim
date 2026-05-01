@@ -6,6 +6,10 @@
  * Hand-picked staff appear first, followed by remaining staff alphabetically
  */
 
+$swiper_version = filemtime( get_template_directory() . '/js/vendor/swiper-bundle.min.js' );
+wp_enqueue_style( 'swiper', get_template_directory_uri() . '/js/vendor/swiper-bundle.min.css', array(), $swiper_version );
+wp_enqueue_script( 'swiper', get_template_directory_uri() . '/js/vendor/swiper-bundle.min.js', array(), $swiper_version, true );
+
 // Get the staff slider field group
 $staff_slider = get_field('staff_slider');
 

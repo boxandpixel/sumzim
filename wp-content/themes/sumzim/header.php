@@ -30,85 +30,6 @@
 
 	<?php wp_head(); ?>
 
-	<!-- Load Swiper -->
-	<link
-	rel="stylesheet"
-	href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
-	/>
-	<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>	 
-
-	<!-- Load AOS -->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" integrity="sha512-A7AYk1fGKX6S2SsHywmPkrnzTZHrgiVT7GcQkLGDe2ev0aWb8zejytzS8wjo7PGEXKqJOrjQ4oORtnimIRZBtw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" integrity="sha512-1cK78a1o+ht2JcaW6g8OXYwqpev9+6GqOkz9xmBN9iUUhIndKtxwILGWYOSibOKjLsEdjyjZvYDq/cZwNeak0w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-	
-	<!-- Initialize AOS and Swiper -->
-	<script>
-		document.addEventListener("DOMContentLoaded", () => {
-			AOS.init();
-
-			const swiper = new Swiper(".home__staff-slides", {
-				slidesPerView: 2,
-				slidesPerGroup: 2,
-				spaceBetween: 10,
-				lazy: true,
-				loop: true,
-				autoHeight: true,
-				breakpoints: {
-					480: {
-					slidesPerView: 3,
-					slidesPerGroup: 3,
-					spaceBetween: 10,
-					},
-					768: {
-					slidesPerView: 4,
-					slidesPerGroup: 4,
-					spaceBetween: 10,
-					},
-					960: {
-					slidesPerView: 5,
-					slidesPerGroup: 5,
-					spaceBetween: 10,
-					},
-					1280: {
-					slidesPerView: 6,
-					slidesPerGroup: 6,
-					spaceBetween: 20,
-					},
-					1600: {
-					slidesPerView: 8,
-					slidesPerGroup: 8,
-					spaceBetween: 20,
-					},
-				},
-				pagination: {
-					el: ".swiper-pagination",
-					clickable: true,
-				},
-				navigation: {
-					nextEl: ".swiper-button-next",
-					prevEl: ".swiper-button-prev",
-				},
-				});
-
-				const content_features = new Swiper(".home__content-features-slides", {
-				slidesPerView: 1,
-				slidesPerGroup: 1,
-				lazy: true,
-				loop: true,
-				autoHeight: true,
-				observer: true,
-				pagination: {
-					el: ".swiper-pagination",
-					clickable: true,
-				},
-				navigation: {
-					nextEl: ".swiper-button-next",
-					prevEl: ".swiper-button-prev",
-				},
-				});			
-		});
-	</script>
-		
 
 	<!-- Google Tag Manager -->
 	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -124,6 +45,7 @@
 
 <!-- Google Fonts -->
 <!-- 20231117 -->
+<link rel="preconnect" href="https://static.servicetitan.com" />
 <link rel="preconnect"
       href="https://fonts.gstatic.com"
       crossorigin />
@@ -466,8 +388,15 @@
 			
 			<div class="header__content-branding">
 			<a class="header__brand-link" href="<?php echo home_url('/'); ?>" title="Summers &amp; Zim's">
-				<img class="header__brand-logo-min" src="<?php echo $logo_min['url']; ?>" alt="<?php echo $logo_min['alt']; ?>">
-				<img class="header__brand-logo" src="<?php echo $logo['url']; ?>" alt="<?php echo $logo['alt']; ?>">
+				<img class="header__brand-logo-min" src="<?php echo esc_url( $logo_min['url'] ); ?>" alt="<?php echo esc_attr( $logo_min['alt'] ); ?>" width="<?php echo esc_attr( $logo_min['width'] ); ?>" height="<?php echo esc_attr( $logo_min['height'] ); ?>">
+				<img class="header__brand-logo"
+				     src="<?php echo esc_url( $logo['url'] ); ?>"
+				     alt="<?php echo esc_attr( $logo['alt'] ); ?>"
+				     width="<?php echo esc_attr( $logo['width'] ); ?>"
+				     height="<?php echo esc_attr( $logo['height'] ); ?>"
+				     srcset="<?php echo esc_attr( wp_get_attachment_image_srcset( $logo['ID'], 'full' ) ); ?>"
+				     sizes="(max-width: 768px) 140px, 182px"
+				>
 			</a>  
 			<!-- badge update 2022/09/26 -->
 			<div class="header__badge" style="background: url('<?php echo $badge['url']?>') left top no-repeat; background-size: cover;">
@@ -503,7 +432,7 @@
 							<script>
 								async function fetchGoogleReviews() {
 									try {
-										const response = await fetch("<?php echo get_template_directory_uri(); ?>/proxy.php"); // Call the PHP script
+										const response = await fetch("<?php echo esc_url( rest_url( 'sumzim/v1/google-reviews' ) ); ?>");
 										const data = await response.json();
 
 										if (data.result && data.result.user_ratings_total) {

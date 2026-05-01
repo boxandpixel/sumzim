@@ -18,7 +18,13 @@ $has_image = !empty($image);
 		<div class="disruptor__content">
 			<?php if ($has_image): ?>
 			<div class="disruptor__image">
-				<img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" width="<?php echo esc_attr($image['width']); ?>" height="<?php echo esc_attr($image['height']); ?>" loading="lazy" />
+				<img src="<?php echo esc_url($image['url']); ?>"
+				     alt="<?php echo esc_attr($image['alt']); ?>"
+				     width="<?php echo esc_attr($image['width']); ?>"
+				     height="<?php echo esc_attr($image['height']); ?>"
+				     srcset="<?php echo esc_attr( wp_get_attachment_image_srcset( $image['ID'], 'full' ) ); ?>"
+				     sizes="(max-width: 768px) 120px, 160px"
+				     loading="lazy" />
 			</div>
 			<?php endif; ?>
 			<div class="disruptor__content-text">

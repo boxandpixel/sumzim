@@ -65,6 +65,9 @@ elseif ( $background_color === 'light-blue-gradient-to-light' ) $class .= ' icon
                         alt="<?php echo esc_attr( $image_icon['alt'] ); ?>"
                         width="<?php echo esc_attr( $image_icon['width'] ); ?>"
                         height="<?php echo esc_attr( $image_icon['height'] ); ?>"
+                        srcset="<?php echo esc_attr( wp_get_attachment_image_srcset( $image_icon['ID'], 'full' ) ); ?>"
+                        sizes="96px"
+                        loading="lazy"
                     >
                 </div>
                 <?php endif; ?>

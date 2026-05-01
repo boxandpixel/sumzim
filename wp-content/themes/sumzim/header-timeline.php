@@ -336,7 +336,7 @@
 							<script>
 								async function fetchGoogleReviews() {
 									try {
-										const response = await fetch("<?php echo get_template_directory_uri(); ?>/proxy.php"); // Call the PHP script
+										const response = await fetch("<?php echo esc_url( rest_url( 'sumzim/v1/google-reviews' ) ); ?>");
 										const data = await response.json();
 
 										if (data.result && data.result.user_ratings_total) {
