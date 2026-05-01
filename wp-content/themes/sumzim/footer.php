@@ -218,15 +218,21 @@
 <?php wp_footer(); ?>
 
 <script>
-
-(function(q,w,e,r,t,y,u){q[t]=q[t]||function(){(q[t].q = q[t].q || []).push(arguments)};
-
-  q[t].l=1*new Date();y=w.createElement(e);u=w.getElementsByTagName(e)[0];y.async=true;
-
-  y.src=r;u.parentNode.insertBefore(y,u);q[t]('init', '05e09310-291c-4804-8f21-0a371f946097');
-
-})(window, document, 'script', 'https://static.servicetitan.com/text2chat/shim.js', 'T2CWidgetManager');
-
+(function() {
+  var loaded = false;
+  function loadT2C() {
+    if (loaded) return;
+    loaded = true;
+    (function(q,w,e,r,t,y,u){q[t]=q[t]||function(){(q[t].q=q[t].q||[]).push(arguments)};
+    q[t].l=1*new Date();y=w.createElement(e);u=w.getElementsByTagName(e)[0];y.async=true;
+    y.src=r;u.parentNode.insertBefore(y,u);q[t]('init','05e09310-291c-4804-8f21-0a371f946097');
+    })(window,document,'script','https://static.servicetitan.com/text2chat/shim.js','T2CWidgetManager');
+  }
+  ['mousemove','keydown','touchstart','scroll'].forEach(function(ev) {
+    document.addEventListener(ev, loadT2C, {once: true, passive: true});
+  });
+  setTimeout(loadT2C, 5000);
+})();
 </script>
 
 
