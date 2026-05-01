@@ -83,7 +83,7 @@
 <footer class="site-footer">
   <div class="footer__header">
     <div class="footer__header-brand">
-      <img src="<?= esc_attr($logo['url']) ?>" alt="<?= esc_attr($logo['alt']) ?>" class="footer__header-brand-logo">
+      <img src="<?= esc_attr($logo['url']) ?>" alt="<?= esc_attr($logo['alt']) ?>" width="<?= esc_attr($logo['width']) ?>" height="<?= esc_attr($logo['height']) ?>" class="footer__header-brand-logo">
       <p class="footer__header-brand-tagline"><?= esc_html($tagline); ?></p>
     </div>
     <div class="footer__header-contact">
@@ -183,13 +183,13 @@
  
     <div class="footer__footer-brand-associations">
       <div class="footer__footer-associations-badge">
-          <img src="<?= esc_attr($safety_seal['url']); ?>" alt="<?= esc_attr($safety_seal['alt']); ?>" class="footer__brand-badge">
+          <img src="<?= esc_attr($safety_seal['url']); ?>" alt="<?= esc_attr($safety_seal['alt']); ?>" width="<?= esc_attr($safety_seal['width']); ?>" height="<?= esc_attr($safety_seal['height']); ?>" class="footer__brand-badge">
       </div>
       <ul class="footer__associations">
         <?php foreach($associations as $association): ?>
           
           <li>
-            <img src="<?= esc_attr($association['association']['url']); ?>" alt="<?= esc_attr($association['association']['alt']); ?>">
+            <img src="<?= esc_attr($association['association']['url']); ?>" alt="<?= esc_attr($association['association']['alt']); ?>" width="<?= esc_attr($association['association']['width']); ?>" height="<?= esc_attr($association['association']['height']); ?>" loading="lazy">
           </li>
         <?php endforeach; ?>
       </ul>
@@ -231,7 +231,6 @@
   ['mousemove','keydown','touchstart','scroll'].forEach(function(ev) {
     document.addEventListener(ev, loadT2C, {once: true, passive: true});
   });
-  setTimeout(loadT2C, 5000);
 })();
 </script>
 
@@ -260,7 +259,6 @@
   ['mousemove','keydown','touchstart','scroll'].forEach(function(ev) {
     document.addEventListener(ev, loadScheduler, {once: true, passive: true});
   });
-  setTimeout(loadScheduler, 5000);
 })();
 </script>
 

@@ -47,8 +47,11 @@ if (empty($brands)) {
             <?php if($brand_image && !empty($brand_image['url'])): ?>
                 <div class="brand-card">
                     <div class="brand-card__image-wrapper">
-                        <img src="<?= esc_url($brand_image['url']); ?>" 
+                        <img src="<?= esc_url($brand_image['url']); ?>"
                              alt="<?= esc_attr($brand_image['alt'] ?: 'Brand logo'); ?>"
+                             width="<?= esc_attr($brand_image['width']); ?>"
+                             height="<?= esc_attr($brand_image['height']); ?>"
+                             loading="lazy"
                              class="brand-card__image">
                     </div>
                 </div>

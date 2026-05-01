@@ -61,17 +61,27 @@ if ($image) {
         <?php endif; ?>
 
         <?php if ($video): ?>
-            <video 
+            <video
                 class="homepage-hero__video"
-                autoplay 
-                muted 
-                loop 
+                muted
+                loop
                 playsinline
                 preload="none"
                 poster="<?php echo $image ? esc_url($image_url) : ''; ?>"
             >
                 <source src="<?php echo esc_url($video['url']); ?>" type="video/mp4">
             </video>
+            <script>
+            (function(){
+              var v=document.querySelector('.homepage-hero__video');
+              if(!v)return;
+              if(window.PerformanceObserver){
+                new PerformanceObserver(function(list,obs){obs.disconnect();v.play().catch(function(){});}).observe({type:'largest-contentful-paint',buffered:true});
+              } else {
+                window.addEventListener('load',function(){v.play().catch(function(){});});
+              }
+            })();
+            </script>
         <?php endif; ?>
 
         <div class="homepage-hero__gradient"></div>
