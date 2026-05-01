@@ -7,8 +7,17 @@
  */
 
 $swiper_version = filemtime( get_template_directory() . '/js/vendor/swiper-bundle.min.js' );
-wp_enqueue_style( 'swiper', get_template_directory_uri() . '/js/vendor/swiper-bundle.min.css', array(), $swiper_version );
 wp_enqueue_script( 'swiper', get_template_directory_uri() . '/js/vendor/swiper-bundle.min.js', array(), $swiper_version, true );
+
+// Inline Swiper CSS to avoid a render-blocking network request
+static $swiper_css_printed = false;
+if ( ! $swiper_css_printed ) {
+	$swiper_css_printed = true;
+	$css_path = get_template_directory() . '/js/vendor/swiper-bundle.min.css';
+	if ( file_exists( $css_path ) ) {
+		echo '<style id="swiper-css">' . file_get_contents( $css_path ) . '</style>'; // phpcs:ignore
+	}
+}
 
 // Get the staff slider field group
 $staff_slider = get_field('staff_slider');

@@ -281,7 +281,31 @@ function posts_link_attributes() {
 }
 
 /**
- * Google review count REST endpoint with transient cache
+ * Fetch Google review data with a 6-hour transient cache.
+ * Returns the full API response array, or null on failure.
+ */
+function sumzim_fetch_review_data() {
+	$cached = get_transient( 'sumzim_google_review_count' );
+	if ( $cached !== false ) {
+		return $cached;
+	}
+
+	$response = wp_remote_get(
+		'https://maps.googleapis.com/maps/api/place/details/json?place_id=ChIJd5IeY6tFxokR8QWJk68CUpI&fields=user_ratings_total&key=AIzaSyDSRvqTsYQXGTJ3gCbaaSXvAIqnnT3MMiM',
+		array( 'timeout' => 5 )
+	);
+
+	if ( is_wp_error( $response ) ) {
+		return null;
+	}
+
+	$data = json_decode( wp_remote_retrieve_body( $response ), true );
+	set_transient( 'sumzim_google_review_count', $data, 6 * HOUR_IN_SECONDS );
+	return $data;
+}
+
+/**
+ * REST endpoint — kept for external use; serves from transient cache.
  */
 add_action( 'rest_api_init', function() {
 	register_rest_route( 'sumzim/v1', '/google-reviews', array(
@@ -292,25 +316,10 @@ add_action( 'rest_api_init', function() {
 } );
 
 function sumzim_google_review_count() {
-	$cached = get_transient( 'sumzim_google_review_count' );
-	if ( $cached !== false ) {
-		return rest_ensure_response( $cached );
-	}
-
-	$api_key  = 'AIzaSyDSRvqTsYQXGTJ3gCbaaSXvAIqnnT3MMiM';
-	$place_id = 'ChIJd5IeY6tFxokR8QWJk68CUpI';
-	$response = wp_remote_get(
-		"https://maps.googleapis.com/maps/api/place/details/json?place_id={$place_id}&fields=user_ratings_total&key={$api_key}",
-		array( 'timeout' => 10 )
-	);
-
-	if ( is_wp_error( $response ) ) {
+	$data = sumzim_fetch_review_data();
+	if ( ! $data ) {
 		return new WP_REST_Response( array( 'error' => 'Failed to fetch' ), 500 );
 	}
-
-	$data = json_decode( wp_remote_retrieve_body( $response ), true );
-	set_transient( 'sumzim_google_review_count', $data, 6 * HOUR_IN_SECONDS );
-
 	return rest_ensure_response( $data );
 }
 

@@ -428,26 +428,11 @@
 							<span class="material-symbols-outlined">star</span>
 						</div>
 						<div class="header-google-reviews--reviewTotal">
-							<p id="reviewsCount">Fetching reviews...</p>
-							<script>
-								async function fetchGoogleReviews() {
-									try {
-										const response = await fetch("<?php echo esc_url( rest_url( 'sumzim/v1/google-reviews' ) ); ?>");
-										const data = await response.json();
-
-										if (data.result && data.result.user_ratings_total) {
-											document.getElementById("reviewsCount").innerText = `${data.result.user_ratings_total} Google reviews`;
-										} else {
-											document.getElementById("reviewsCount").innerText = "Could not retrieve the total number of reviews.";
-										}
-									} catch (error) {
-										console.error("Error fetching reviews:", error);
-										document.getElementById("reviewsCount").innerText = "Error fetching data.";
-									}
-								}
-
-								fetchGoogleReviews();
-							</script>					 
+							<?php
+							$review_data  = sumzim_fetch_review_data();
+							$review_total = $review_data['result']['user_ratings_total'] ?? 0;
+							?>
+							<p id="reviewsCount"><?= $review_total ? esc_html( number_format( $review_total ) . ' Google reviews' ) : ''; ?></p>
 						</div>
 					</a>				
 					<?php
