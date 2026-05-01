@@ -54,7 +54,7 @@ if (empty($heading) && empty($cards)) {
                         <div class="flip-card__face flip-card__face--front"
                             style="--bg-image: url('<?= esc_url($img_url); ?>');">
                             <button class="flip-card__toggle" data-flip-card aria-label="Flip card">
-                                <span class="material-icons">360</span>
+                                <span class="material-symbols-outlined">360</span>
                             </button>
                             <?php if ($heading): ?>
                                 <h3 class="flip-card__title"><?= esc_html($heading); ?></h3>
@@ -65,7 +65,7 @@ if (empty($heading) && empty($cards)) {
                         <div class="flip-card__face flip-card__face--back"
                             style="--bg-image: url('<?= esc_url($img_url); ?>');">
                             <button class="flip-card__toggle" data-flip-card aria-label="Flip card back">
-                                <span class="material-icons">360</span>
+                                <span class="material-symbols-outlined">360</span>
                             </button>
                             
                             <div class="flip-card__overlay-content">

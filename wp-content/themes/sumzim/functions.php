@@ -143,15 +143,14 @@ add_action( 'widgets_init', 'sumzim_widgets_init' );
  * Enqueue scripts and styles.
  */
 function sumzim_scripts() {
-	$rand = rand( 0, 999999999999 );
-	wp_enqueue_style( 'sumzim-style', get_stylesheet_uri(), array(), $rand );
+	$js_version  = filemtime( get_template_directory() . '/scripts.min.js' );
+	$css_version = filemtime( get_stylesheet_directory() . '/style.css' );
+	wp_enqueue_style( 'sumzim-style', get_stylesheet_uri(), array(), $css_version );
 
-	
-wp_enqueue_script( 'site-scripts', get_template_directory_uri() . '/scripts.min.js', array(), $rand, true);
-	
+
+wp_enqueue_script( 'site-scripts', get_template_directory_uri() . '/scripts.min.js', array(), $js_version, true);
+
 	wp_style_add_data( ' sumzim-style', 'rtl', 'replace' );
-
-	wp_enqueue_script( ' sumzim-navigation', get_template_directory_uri() . '/js/navigation.js', array(), sumzim_VERSION, true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );

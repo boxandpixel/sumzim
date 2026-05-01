@@ -142,13 +142,13 @@
 <!-- Material Symbols Outlined (subsetted) -->
 <link rel="preload"
       as="style"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=360,add,arrow_back,arrow_forward,attach_money,award_star,calendar_month,check,check_circle,close,collapse_content,design_services,east,electric_bolt,exclamation,expand_content,expand_less,expand_more,format_quote,frame_exclamation,handshake,heat,hvac,keyboard_arrow_up,lightbulb_2,menu,mode_fan,pace,remove,safety_check,school,sentiment_dissatisfied,sentiment_satisfied,shield_with_house,star,task_alt,valve,water_drop&display=swap" />
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=360,add,arrow_back,arrow_forward,attach_money,award_star,calendar_month,check,check_circle,chevron_left,chevron_right,close,collapse_content,design_services,east,electric_bolt,exclamation,expand_content,expand_less,expand_more,format_quote,frame_exclamation,handshake,heat,hvac,keyboard_arrow_up,lightbulb_2,menu,mode_fan,pace,remove,safety_check,school,sentiment_dissatisfied,sentiment_satisfied,shield_with_house,star,task_alt,valve,water_drop&display=swap" />
 <link rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=360,add,arrow_back,arrow_forward,attach_money,award_star,calendar_month,check,check_circle,close,collapse_content,design_services,east,electric_bolt,exclamation,expand_content,expand_less,expand_more,format_quote,frame_exclamation,handshake,heat,hvac,keyboard_arrow_up,lightbulb_2,menu,mode_fan,pace,remove,safety_check,school,sentiment_dissatisfied,sentiment_satisfied,shield_with_house,star,task_alt,valve,water_drop&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=360,add,arrow_back,arrow_forward,attach_money,award_star,calendar_month,check,check_circle,chevron_left,chevron_right,close,collapse_content,design_services,east,electric_bolt,exclamation,expand_content,expand_less,expand_more,format_quote,frame_exclamation,handshake,heat,hvac,keyboard_arrow_up,lightbulb_2,menu,mode_fan,pace,remove,safety_check,school,sentiment_dissatisfied,sentiment_satisfied,shield_with_house,star,task_alt,valve,water_drop&display=swap"
       media="print" onload="this.media='all'" />
 <noscript>
   <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=360,add,arrow_back,arrow_forward,attach_money,award_star,calendar_month,check,check_circle,close,collapse_content,design_services,east,electric_bolt,exclamation,expand_content,expand_less,expand_more,format_quote,frame_exclamation,handshake,heat,hvac,keyboard_arrow_up,lightbulb_2,menu,mode_fan,pace,remove,safety_check,school,sentiment_dissatisfied,sentiment_satisfied,shield_with_house,star,task_alt,valve,water_drop&display=swap" />
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=360,add,arrow_back,arrow_forward,attach_money,award_star,calendar_month,check,check_circle,chevron_left,chevron_right,close,collapse_content,design_services,east,electric_bolt,exclamation,expand_content,expand_less,expand_more,format_quote,frame_exclamation,handshake,heat,hvac,keyboard_arrow_up,lightbulb_2,menu,mode_fan,pace,remove,safety_check,school,sentiment_dissatisfied,sentiment_satisfied,shield_with_house,star,task_alt,valve,water_drop&display=swap" />
 </noscript>
 
 	<!-- preload video poster -->
@@ -160,8 +160,6 @@
   <meta name="msapplication-TileColor" content="#16375a">
   <meta name="theme-color" content="#ffffff">	
 
-
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 	<?php if(is_page(array('reviews'))): ?>
 
@@ -195,22 +193,6 @@
 				min_rating: 5,
 				max_rows: 1,
 				shorten_names: false,
-			});
-		});
-	</script>	
-	<?php endif; ?>  	
-
-	<?php if(!is_page('free-estimate')): ?>
-	<!-- Reviews Block -->
-	<script>
-		jQuery(document).ready(function() {
-			$("#reviews-container").googlePlaces({
-				placeId: 'ChIJd5IeY6tFxokR8QWJk68CUpI',
-				render: ['reviews'],
-				min_rating: 5,
-				max_rows: 3,
-				shorten_names: false,
-				staticMap: false,
 			});
 		});
 	</script>	

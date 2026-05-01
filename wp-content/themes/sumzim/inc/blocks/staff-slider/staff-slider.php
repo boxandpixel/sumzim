@@ -129,10 +129,10 @@ $slider_id = 'staff-slider-' . uniqid();
             <!-- Navigation buttons -->
             <div class="staff-slider__nav">
                 <button class="staff-slider__prev <?= esc_attr($slider_id); ?>-prev" aria-label="Previous slide">
-                    <span class="material-icons">chevron_left</span>
+                    <span class="material-symbols-outlined">chevron_left</span>
                 </button>
                 <button class="staff-slider__next <?= esc_attr($slider_id); ?>-next" aria-label="Next slide">
-                    <span class="material-icons">chevron_right</span>
+                    <span class="material-symbols-outlined">chevron_right</span>
                 </button>
             </div>
         </div>

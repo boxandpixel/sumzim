@@ -236,13 +236,33 @@
 </script>
 
 
-<script
-  data-api-key="d9qkujhrus8g37jijaslp2o3"
-  data-schedulerid="sched_ejqbmr1e0g7tagr59sdo4rr2"
-  defer
-  id="se-widget-embed"
-  src="https://embed.scheduler.servicetitan.com/scheduler-v1.js"
-></script>
+<script>
+(function() {
+  var loaded = false;
+  var queue = [];
+  window._scheduler = { show: function(opts) { queue.push(opts); loadScheduler(); } };
+  function loadScheduler() {
+    if (loaded) return;
+    loaded = true;
+    var s = document.createElement('script');
+    s.setAttribute('data-api-key', 'd9qkujhrus8g37jijaslp2o3');
+    s.setAttribute('data-schedulerid', 'sched_ejqbmr1e0g7tagr59sdo4rr2');
+    s.id = 'se-widget-embed';
+    s.src = 'https://embed.scheduler.servicetitan.com/scheduler-v1.js';
+    s.onload = function() {
+      setTimeout(function() {
+        queue.forEach(function(o) { window._scheduler && window._scheduler.show(o); });
+        queue = [];
+      }, 50);
+    };
+    document.head.appendChild(s);
+  }
+  ['mousemove','keydown','touchstart','scroll'].forEach(function(ev) {
+    document.addEventListener(ev, loadScheduler, {once: true, passive: true});
+  });
+  setTimeout(loadScheduler, 5000);
+})();
+</script>
 
 <?php 
 /**
