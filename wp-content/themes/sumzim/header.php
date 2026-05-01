@@ -127,17 +127,28 @@
 <link rel="preconnect"
       href="https://fonts.gstatic.com"
       crossorigin />
+<!-- Raleway -->
 <link rel="preload"
       as="style"
-      href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800;900&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" />
-
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800;900&display=swap" />
 <link rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800;900&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800;900&display=swap"
       media="print" onload="this.media='all'" />
-
 <noscript>
   <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800;900&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" />
+        href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800;900&display=swap" />
+</noscript>
+
+<!-- Material Symbols Outlined (subsetted) -->
+<link rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=360,add,arrow_back,arrow_forward,attach_money,award_star,calendar_month,check,check_circle,close,collapse_content,design_services,east,electric_bolt,exclamation,expand_content,expand_less,expand_more,format_quote,frame_exclamation,handshake,heat,hvac,keyboard_arrow_up,lightbulb_2,menu,mode_fan,pace,remove,safety_check,school,sentiment_dissatisfied,sentiment_satisfied,shield_with_house,star,task_alt,valve,water_drop&display=swap" />
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=360,add,arrow_back,arrow_forward,attach_money,award_star,calendar_month,check,check_circle,close,collapse_content,design_services,east,electric_bolt,exclamation,expand_content,expand_less,expand_more,format_quote,frame_exclamation,handshake,heat,hvac,keyboard_arrow_up,lightbulb_2,menu,mode_fan,pace,remove,safety_check,school,sentiment_dissatisfied,sentiment_satisfied,shield_with_house,star,task_alt,valve,water_drop&display=swap"
+      media="print" onload="this.media='all'" />
+<noscript>
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=360,add,arrow_back,arrow_forward,attach_money,award_star,calendar_month,check,check_circle,close,collapse_content,design_services,east,electric_bolt,exclamation,expand_content,expand_less,expand_more,format_quote,frame_exclamation,handshake,heat,hvac,keyboard_arrow_up,lightbulb_2,menu,mode_fan,pace,remove,safety_check,school,sentiment_dissatisfied,sentiment_satisfied,shield_with_house,star,task_alt,valve,water_drop&display=swap" />
 </noscript>
 
 	<!-- preload video poster -->
@@ -541,7 +552,7 @@
 						<?php endif; ?>
 						<?php if ($ig_url): ?>
 						<a href="<?php echo esc_url($ig_url); ?>" target="_blank" rel="noopener" aria-label="Instagram">
-							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 143.11 143.11"><defs><radialGradient id="ig-bg" cx="30%" cy="107%" r="150%"><stop offset="0%" stop-color="#ffd600"/><stop offset="20%" stop-color="#ff7a00"/><stop offset="40%" stop-color="#ff0069"/><stop offset="70%" stop-color="#d300c5"/><stop offset="100%" stop-color="#7638fa"/></radialGradient></defs><rect width="143.11" height="143.11" rx="10.64" ry="10.64" fill="url(#ig-bg)"/><g fill="#fff"><path d="M71.56 41.5c-8.3 0-9.34.04-12.6.18-3.25.15-5.47.67-7.41 1.43a15 15 0 0 0-5.41 3.52 15 15 0 0 0-3.52 5.41c-.76 1.94-1.28 4.16-1.43 7.41-.15 3.26-.18 4.3-.18 12.6s.04 9.34.18 12.6c.15 3.25.67 5.47 1.43 7.41a15 15 0 0 0 3.52 5.41 15 15 0 0 0 5.41 3.52c1.94.76 4.16 1.28 7.41 1.43 3.26.15 4.3.18 12.6.18s9.34-.04 12.6-.18c3.25-.15 5.47-.67 7.41-1.43a15 15 0 0 0 5.41-3.52 15 15 0 0 0 3.52-5.41c.76-1.94 1.28-4.16 1.43-7.41.15-3.26.18-4.3.18-12.6s-.04-9.34-.18-12.6c-.15-3.25-.67-5.47-1.43-7.41a15 15 0 0 0-3.52-5.41 15 15 0 0 0-5.41-3.52c-1.94-.76-4.16-1.28-7.41-1.43-3.26-.15-4.3-.18-12.6-.18zm0 5.5c8.15 0 9.12.03 12.34.18 2.98.14 4.59.63 5.67 1.05 1.42.55 2.44 1.22 3.51 2.29a9.48 9.48 0 0 1 2.29 3.51c.42 1.08.91 2.69 1.05 5.67.14 3.22.18 4.19.18 12.34s-.04 9.12-.18 12.34c-.14 2.98-.63 4.59-1.05 5.67a9.5 9.5 0 0 1-2.29 3.51 9.5 9.5 0 0 1-3.51 2.29c-1.08.42-2.69.91-5.67 1.05-3.22.14-4.19.18-12.34.18s-9.12-.04-12.34-.18c-2.98-.14-4.59-.63-5.67-1.05a9.5 9.5 0 0 1-3.51-2.29 9.5 9.5 0 0 1-2.29-3.51c-.42-1.08-.91-2.69-1.05-5.67-.14-3.22-.18-4.19-.18-12.34s.03-9.12.18-12.34c.14-2.98.63-4.59 1.05-5.67a9.48 9.48 0 0 1 2.29-3.51 9.48 9.48 0 0 1 3.51-2.29c1.08-.42 2.69-.91 5.67-1.05 3.22-.14 4.19-.18 12.34-.18z"/><path d="M71.56 58.1a13.95 13.95 0 1 0 0 27.9 13.95 13.95 0 0 0 0-27.9zm0 23a9.05 9.05 0 1 1 0-18.1 9.05 9.05 0 0 1 0 18.1z"/><circle cx="85.96" cy="57.69" r="3.26"/></g></svg>
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 143.11 143.11"><defs><radialGradient id="ig-bg" cx="42.93" cy="153.13" r="200" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#ffd600"/><stop offset="20%" stop-color="#ff7a00"/><stop offset="40%" stop-color="#ff0069"/><stop offset="70%" stop-color="#d300c5"/><stop offset="100%" stop-color="#7638fa"/></radialGradient></defs><rect width="143.11" height="143.11" rx="10.64" ry="10.64" fill="#fff"/><g fill="url(#ig-bg)"><path d="M71.56 41.5c-8.3 0-9.34.04-12.6.18-3.25.15-5.47.67-7.41 1.43a15 15 0 0 0-5.41 3.52 15 15 0 0 0-3.52 5.41c-.76 1.94-1.28 4.16-1.43 7.41-.15 3.26-.18 4.3-.18 12.6s.04 9.34.18 12.6c.15 3.25.67 5.47 1.43 7.41a15 15 0 0 0 3.52 5.41 15 15 0 0 0 5.41 3.52c1.94.76 4.16 1.28 7.41 1.43 3.26.15 4.3.18 12.6.18s9.34-.04 12.6-.18c3.25-.15 5.47-.67 7.41-1.43a15 15 0 0 0 5.41-3.52 15 15 0 0 0 3.52-5.41c.76-1.94 1.28-4.16 1.43-7.41.15-3.26.18-4.3.18-12.6s-.04-9.34-.18-12.6c-.15-3.25-.67-5.47-1.43-7.41a15 15 0 0 0-3.52-5.41 15 15 0 0 0-5.41-3.52c-1.94-.76-4.16-1.28-7.41-1.43-3.26-.15-4.3-.18-12.6-.18zm0 5.5c8.15 0 9.12.03 12.34.18 2.98.14 4.59.63 5.67 1.05 1.42.55 2.44 1.22 3.51 2.29a9.48 9.48 0 0 1 2.29 3.51c.42 1.08.91 2.69 1.05 5.67.14 3.22.18 4.19.18 12.34s-.04 9.12-.18 12.34c-.14 2.98-.63 4.59-1.05 5.67a9.5 9.5 0 0 1-2.29 3.51 9.5 9.5 0 0 1-3.51 2.29c-1.08.42-2.69.91-5.67 1.05-3.22.14-4.19.18-12.34.18s-9.12-.04-12.34-.18c-2.98-.14-4.59-.63-5.67-1.05a9.5 9.5 0 0 1-3.51-2.29 9.5 9.5 0 0 1-2.29-3.51c-.42-1.08-.91-2.69-1.05-5.67-.14-3.22-.18-4.19-.18-12.34s.03-9.12.18-12.34c.14-2.98.63-4.59 1.05-5.67a9.48 9.48 0 0 1 2.29-3.51 9.48 9.48 0 0 1 3.51-2.29c1.08-.42 2.69-.91 5.67-1.05 3.22-.14 4.19-.18 12.34-.18z"/><path d="M71.56 58.1a13.95 13.95 0 1 0 0 27.9 13.95 13.95 0 0 0 0-27.9zm0 23a9.05 9.05 0 1 1 0-18.1 9.05 9.05 0 0 1 0 18.1z"/><circle cx="85.96" cy="57.69" r="3.26"/></g></svg>
 						</a>
 						<?php endif; ?>
 					</div>
