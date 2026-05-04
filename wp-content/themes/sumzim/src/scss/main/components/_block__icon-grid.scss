@@ -34,6 +34,42 @@
         }
     }
 
+    &--golden-diagonal {
+        overflow-x: clip;
+        padding-top: 60px;
+        padding-bottom: 60px;
+
+        @include breakpoint(medium) {
+            padding-top: 80px;
+            padding-bottom: 80px;
+        }
+
+        .icon-grid__header {
+            position: relative;
+            z-index: 1;
+        }
+
+        .icon-grid__grid {
+            position: relative;
+            isolation: isolate;
+            padding-block: 48px;
+
+            // Full-viewport diagonal band, behind cards only.
+            // Adjust skewY angle here to tweak the diagonal.
+            &::before {
+                content: '';
+                position: absolute;
+                top: -60px;
+                bottom: -60px;
+                left: 50%;
+                width: 100vw;
+                transform: translateX(-50%) skewY(-6deg);
+                background: var(--color__secondary);
+                z-index: -1;
+            }
+        }
+    }
+
     @include breakpoint(medium) {
         margin-bottom: 80px;
     }

@@ -274,7 +274,8 @@
                         "none": "None",
                         "light-blue": "Light Blue",
                         "light-blue-gradient-to-light": "Light Blue Gradient → Light",
-                        "light-blue-gradient-to-dark": "Light Blue Gradient → Dark"
+                        "light-blue-gradient-to-dark": "Light Blue Gradient → Dark",
+                        "golden-diagonal": "Golden Diagonal"
                     },
                     "default_value": false,
                     "return_format": "value",
@@ -306,5 +307,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1775051072
+    "modified": 1778000001
 }
