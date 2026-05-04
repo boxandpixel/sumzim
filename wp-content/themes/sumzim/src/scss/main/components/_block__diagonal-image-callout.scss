@@ -108,34 +108,25 @@
         h2 {
             font-family: var(--font);
             font-weight: 800;
-            font-size: 22px;
             color: var(--color__primary--dark);
 
-            @include breakpoint(medium) {
-                font-size: 40px;
-            }
+            @include apply-type(heading-lg);
         }
         
         h3 {
             font-family: var(--font);
             font-weight: 800;
-            font-size: 20px;
             color: var(--color__primary--dark);
+            @include apply-type(heading-md);
 
-            @include breakpoint(medium) {
-                font-size: 33px;
-            }
         }
 
         h4 {
             font-family: var(--font);
             font-weight: 600;
-            font-size: 19px;
             color: var(--color__primary--dark);
 
-            @include breakpoint(medium) {
-                font-size: 27px;
-            }
+            @include apply-type(heading-sm);
         }
         
         h5 {
@@ -144,9 +135,7 @@
             font-size: 18px;
             color: var(--color__primary--dark);
 
-            @include breakpoint(medium) {
-                font-size: 23px;
-            }
+            @include apply-type(heading-xs);
         }
     }
 }
