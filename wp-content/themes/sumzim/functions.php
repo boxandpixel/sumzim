@@ -1102,6 +1102,16 @@ function half_split_layouts(): array {
             'data_key'  => 'google_map_data',
             'field_key' => 'google_map',
         ],
+        'image' => [
+            'template'  => 'inc/blocks/half-split/image',
+            'data_key'  => 'half_split_image_data',
+            'field_key' => 'image_group',
+        ],
+        'oembed' => [
+            'template'  => 'inc/blocks/half-split/oembed',
+            'data_key'  => 'half_split_oembed_data',
+            'field_key' => 'oembed_group',
+        ],
     ];
 }
 

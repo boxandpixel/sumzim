@@ -76,4 +76,63 @@
             display: block;
         }
     }
+
+    &__image {
+        width: 100%;
+
+        &--50 { max-width: 50%; margin-inline: auto; }
+        &--75 { max-width: 75%; margin-inline: auto; }
+
+        figure {
+            margin: 0;
+        }
+
+        figcaption {
+            font-size: 0.875rem;
+            color: var(--color-muted, #666);
+            margin-top: 0.5rem;
+            text-align: center;
+        }
+    }
+
+    &__image-bg {
+        width: 100%;
+        aspect-ratio: 4 / 3;
+        background-image: var(--bg-image);
+        background-size: cover;
+        background-position: center;
+        border-radius: var(--border-radius);
+    }
+
+    &__image-natural {
+        width: 100%;
+        height: auto;
+        display: block;
+        border-radius: var(--border-radius);
+    }
+
+    &__oembed {
+        width: 100%;
+
+        figure {
+            margin: 0;
+
+            iframe,
+            embed,
+            object,
+            video {
+                width: 100%;
+                height: auto;
+                aspect-ratio: 16 / 9;
+                border-radius: var(--border-radius);
+                display: block;
+            }
+
+            figcaption {
+                font-size: 13.3px;
+                font-style: italic;
+                margin-top: 0.5rem;
+            }
+        }
+    }
 }
