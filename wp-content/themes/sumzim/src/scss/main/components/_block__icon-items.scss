@@ -1,8 +1,10 @@
 .icon-items {
     margin-bottom: 60px;
+    padding-top: 60px;
 
     @include breakpoint(medium) {
         margin-bottom: 80px;
+        padding-top: 80px;
     }
 
     @include breakpoint(large) {
