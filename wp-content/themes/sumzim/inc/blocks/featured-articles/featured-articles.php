@@ -17,6 +17,7 @@ if (empty($featured_articles)) {
 $heading = $featured_articles['heading'] ?? '';
 $description = $featured_articles['description'] ?? '';
 $articles = $featured_articles['articles'] ?? array();
+$background_color = $featured_articles['background_color'] ?? '';
 
 // Bail if no articles
 if (empty($articles)) {
@@ -27,6 +28,15 @@ if (empty($articles)) {
 
 <?php
 $className = 'featured-articles';
+if ($background_color == 'none') {
+    $className .= ' featured-articles--none';
+} elseif ($background_color == 'light-blue') {
+    $className .= ' featured-articles--light-blue';
+} elseif ($background_color == 'light-blue-gradient-to-dark') {
+    $className .= ' featured-articles--light-blue-gradient-to-dark';
+} elseif ($background_color == 'light-blue-gradient-to-light') {
+    $className .= ' featured-articles--light-blue-gradient-to-light';
+}
 if (!empty($block['className'])) {
     $className .= ' ' . $block['className'];
 }

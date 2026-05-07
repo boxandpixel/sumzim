@@ -111,6 +111,35 @@
                             "parent_repeater": "field_6966b05f74711"
                         }
                     ]
+                },
+                {
+                    "key": "field_6966afbc_bgclr",
+                    "label": "Background Color",
+                    "name": "background_color",
+                    "aria-label": "",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "none": "None",
+                        "light-blue": "Light Blue",
+                        "light-blue-gradient-to-light": "Light Blue Gradient → Light",
+                        "light-blue-gradient-to-dark": "Light Blue Gradient → Dark"
+                    },
+                    "default_value": false,
+                    "return_format": "value",
+                    "multiple": 0,
+                    "allow_null": 0,
+                    "allow_in_bindings": 0,
+                    "ui": 0,
+                    "ajax": 0,
+                    "placeholder": ""
                 }
             ]
         }
@@ -133,5 +162,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1777387978
+    "modified": 1778112000
 }
