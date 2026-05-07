@@ -14,10 +14,11 @@ if (empty($featured_staff)) {
 }
 
 // Get settings with defaults
-$heading = $featured_staff['heading'] ?? '';
-$description = $featured_staff['description'] ?? '';
-$staff_members = $featured_staff['staff_members'] ?? [];
-$view_all_link = $featured_staff['link'] ?? null;
+$heading          = $featured_staff['heading'] ?? '';
+$heading_position = $featured_staff['heading_position'] ?? 'left';
+$description      = $featured_staff['description'] ?? '';
+$staff_members    = $featured_staff['staff_members'] ?? [];
+$view_all_link    = $featured_staff['link'] ?? null;
 
 // Bail if no staff members
 if (empty($staff_members)) {
@@ -29,7 +30,7 @@ if (empty($staff_members)) {
 <section class="featured-staff">
     <div class="container">
         <?php if($heading || $description): ?>
-        <div class="featured-staff__header">
+        <div class="featured-staff__header featured-staff__header--<?= esc_attr($heading_position); ?>">
             <h2 class="featured-staff__header-heading"><?= esc_html($heading); ?></h2>
             <?php if($description): ?>
             <div class="featured-staff__header-description">

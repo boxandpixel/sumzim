@@ -24,13 +24,20 @@
     }
 
     &__header {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+
+        &--left {
+            text-align: left;
+        }
+
+        &--center {
+            text-align: center;
+        }
 
         &-heading {
             @include apply-type(heading-lg);
-
         }
 
         &-description {
@@ -40,12 +47,11 @@
                 & {
                     font-weight: 400;
                 }
-                
+
                 &:last-child {
                     margin-bottom: 0;
-                }                
+                }
             }
-        
         }
     }
 
