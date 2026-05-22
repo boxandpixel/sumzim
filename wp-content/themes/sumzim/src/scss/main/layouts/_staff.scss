@@ -363,7 +363,20 @@
   }
 
   .staff-card {
+    &__image-wrapper {
+      margin: 0;
+    }
+
+    &__name {
+      color: white;
+      margin-bottom: 4px;
+      @include apply-type(heading-xxs);
+    }
+
     &__title {
+      color: white;
+      opacity: 0.9;
+
       @include breakpoint(large) {
         opacity: 0.9;
         max-height: none;

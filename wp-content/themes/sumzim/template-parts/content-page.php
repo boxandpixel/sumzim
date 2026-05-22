@@ -36,7 +36,9 @@ if ( $parent_id ) {
 		</div>
 		<?php endif; ?>
 
-		<h1><?= $seo_title ?: get_the_title(); ?></h1>
+		<?php $h1 = $seo_title ?: get_the_title(); if ( $h1 ) : ?>
+		<h1><?= esc_html( $h1 ); ?></h1>
+		<?php endif; ?>
 	</header><!-- .entry-header -->
 
 	<?php sumzim_post_thumbnail(); ?>

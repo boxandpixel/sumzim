@@ -28,7 +28,7 @@ $has_image = !empty($image);
 			</div>
 			<?php endif; ?>
 			<div class="disruptor__content-text">
-				<h3 class="disruptor__content-heading"><?= esc_html($heading); ?></h3>
+				<h2 class="disruptor__content-heading"><?= esc_html($heading); ?></h2>
 				<div class="disruptor__content-description">
 					<?= wp_kses_post($description); ?>
 				</div>

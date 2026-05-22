@@ -71,7 +71,7 @@ if (empty($cards_set)) {
                         <div class="card-overlay-content">
                             <?php if($card_heading): ?>
                                 <div class="card-heading">
-                                    <h5><?php echo wp_kses_post($card_heading); ?></h5>
+                                    <h3 class="card-heading__title"><?php echo wp_kses_post($card_heading); ?></h3>
                                 </div>
                             <?php endif; ?>
 

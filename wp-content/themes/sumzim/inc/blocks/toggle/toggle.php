@@ -34,7 +34,7 @@ $first_item_open = !empty($toggle['first_item_open']);
 				?>
 				<li>
 					<div class="toggle-heading<?php echo $is_first ? ' expand' : ''; ?>">
-						<h4 class="toggle-heading__title"><?php echo $toggle_heading; ?></h4>
+						<h3 class="toggle-heading__title"><?php echo $toggle_heading; ?></h3>
 						<div class="toggle-heading__icon"></div>
 					</div>
 					<div class="toggle-content<?php echo $is_first ? ' expand' : ''; ?>">

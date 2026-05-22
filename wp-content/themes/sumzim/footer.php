@@ -66,7 +66,7 @@
 
 <div class="footer-cta">
   <div class="footer-cta__card">
-    <h4><?= esc_html($heading); ?></h4>
+    <h3 class="footer-cta__card-heading"><?= esc_html($heading); ?></h3>
     <?= wp_kses_post($description); ?>
 
     <?php 
@@ -203,14 +203,6 @@
 
 </footer>
 
-
-<?php if(is_page("contact-us")): ?>        
-  <script>
-  document.addEventListener( 'wpcf7mailsent', function( event ) {
-      ga('send', 'event', 'Contact Form', 'Send Message', 'Contact Us');
-  }, false );
-  </script>
-<?php endif; ?>
 
 
 

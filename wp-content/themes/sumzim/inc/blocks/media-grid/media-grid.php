@@ -38,7 +38,7 @@
 					$video_subtitle = $media_item['video_subtitle'];
 					$image = $media_item['image'];
 			?>
-			<section class="media-grid-card">
+			<figure class="media-grid-card">
 				<div class="media-grid-item">
 					<?php if($media_type == "Video"): ?>
 					<div class="video">
@@ -48,11 +48,11 @@
 					<img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>">
 					<?php endif; ?>
 				</div>
-				<div class="media-grid-description">
-					<?php echo $video_title ? '<h4 class="media-grid-description__title">' . esc_html($video_title) . '</h4>' : ''; ?>
+				<figcaption class="media-grid-description">
+					<?php echo $video_title ? '<p class="media-grid-description__title">' . esc_html($video_title) . '</p>' : ''; ?>
 					<?php //echo $video_subtitle ? '<p>' . esc_html($video_subtitle) . '</p>' : ''; ?>
-				</div>
-			</section>
+				</figcaption>
+			</figure>
 			<?php endforeach; ?>
 		</div>
 

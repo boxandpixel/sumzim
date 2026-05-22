@@ -60,15 +60,13 @@ if (empty($staff_members)) {
             
             <a href="<?= esc_url($staff_url); ?>" class="staff-card">
                 <?php if($thumbnail_image && !empty($thumbnail_image['url'])): ?>
-                    <div class="staff-card__image-wrapper">
+                    <figure class="staff-card__image-wrapper">
                         <div class="staff-card__image" style="background-image: url('<?= esc_url($thumbnail_image['url']); ?>');"></div>
                         <div class="staff-card__gradient"></div>
-                        
+
                         <div class="staff-card__overlay-content">
                             <?php if($name): ?>
-                                <div class="staff-card__name">
-                                    <h5><?= esc_html($name); ?></h5>
-                                </div>
+                                <figcaption class="staff-card__name"><?= esc_html($name); ?></figcaption>
                             <?php endif; ?>
 
                             <?php if($job_title): ?>
@@ -77,7 +75,7 @@ if (empty($staff_members)) {
                                 </div>
                             <?php endif; ?>
                         </div>
-                    </div>
+                    </figure>
                 <?php endif; ?>
             </a>
 

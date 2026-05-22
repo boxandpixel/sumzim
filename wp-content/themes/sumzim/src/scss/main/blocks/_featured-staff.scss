@@ -96,6 +96,7 @@
         height: 100%;
         border-radius: 4px;
         overflow: hidden;
+        margin: 0;
     }
 
     &__image {
@@ -134,17 +135,12 @@
     }
 
     &__name {
-        // margin-bottom: 4px;
-        
+        color: white;
+        margin: 0;
+        @include apply-type(heading-xs);
+
         @include breakpoint(large) {
             margin-bottom: 0;
-        }
-
-        h5 {
-            color: white !important;
-            margin: 0;
-            @include apply-type(heading-xs);
-            
         }
     }
 

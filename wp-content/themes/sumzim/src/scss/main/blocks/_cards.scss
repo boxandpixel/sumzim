@@ -147,7 +147,7 @@
                 }
 
                 .card-heading {
-                    h5 {
+                    .card-heading__title {
                         color: white;
                         margin: 0;
                         font-size: 1.5rem;
@@ -198,7 +198,7 @@
                     gap: 12px;
 
                     .card-heading {
-                        h5 {
+                        .card-heading__title {
                             color: var(--color__blue-900);
                             text-shadow: none;
                             display: block;

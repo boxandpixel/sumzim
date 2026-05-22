@@ -70,16 +70,16 @@ get_header();
 
 				?>
 					<a href="<?php the_permalink(); ?>" class="staff-card" data-name="<?php echo esc_attr(get_the_title()); ?>">
-						<div class="staff-card__image-wrapper">
+						<figure class="staff-card__image-wrapper">
 							<div class="staff-card__image" style="background-image: url('<?php echo esc_url($staff_thumbnail['url']); ?>');"></div>
 							<div class="staff-card__gradient"></div>
 							<div class="staff-card__overlay-content">
-								<div class="staff-card__name"><h5><?php the_title(); ?></h5></div>
+								<figcaption class="staff-card__name"><?php the_title(); ?></figcaption>
 								<?php if($job_title): ?>
 								<div class="staff-card__title"><?php echo esc_html($job_title); ?></div>
 								<?php endif; ?>
 							</div>
-						</div>
+						</figure>
 					</a>
 
 				<?php
@@ -114,7 +114,7 @@ get_header();
 
 				?>
 					<a href="<?php the_permalink(); ?>" class="staff-card staff-card--wof" data-name="<?php echo esc_attr(get_the_title()); ?>">
-						<div class="staff-card__image-wrapper">
+						<figure class="staff-card__image-wrapper">
 							<div class="staff-card__wof-banner">
 								<span>SZ Wall</span>
 								<span>of Fame</span>
@@ -122,12 +122,12 @@ get_header();
 							<div class="staff-card__image" style="background-image: url('<?php echo esc_url($staff_thumbnail['url']); ?>');"></div>
 							<div class="staff-card__gradient"></div>
 							<div class="staff-card__overlay-content">
-								<div class="staff-card__name"><h5><?php the_title(); ?></h5></div>
+								<figcaption class="staff-card__name"><?php the_title(); ?></figcaption>
 								<?php if($job_title): ?>
 								<div class="staff-card__title"><?php echo esc_html($job_title); ?></div>
 								<?php endif; ?>
 							</div>
-						</div>
+						</figure>
 					</a>
 				<?php
 					endwhile;

@@ -67,11 +67,11 @@ if (empty($heading) && empty($cards)) {
                             <button class="flip-card__toggle" data-flip-card aria-label="Flip card back">
                                 <span class="material-symbols-outlined">360</span>
                             </button>
-                            
+
                             <div class="flip-card__overlay-content">
                                 <div class="flip-card__text-group">
                                     <?php if ($heading): ?>
-                                        <h3 class="flip-card__title"><?= esc_html($heading); ?></h3>
+                                        <p class="flip-card__title"><?= esc_html($heading); ?></p>
                                     <?php endif; ?>
 
                                     <?php if ($description): ?>

@@ -120,7 +120,7 @@ $slider_id = 'staff-slider-' . uniqid();
                                     <div class="staff-card__overlay-content">
                                         <?php if($name): ?>
                                             <div class="staff-card__name">
-                                                <h5><?= esc_html($name); ?></h5>
+                                                <span><?= esc_html($name); ?></span>
                                             </div>
                                         <?php endif; ?>
 

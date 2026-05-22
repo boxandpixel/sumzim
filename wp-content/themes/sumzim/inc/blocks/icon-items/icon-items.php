@@ -62,7 +62,7 @@ endif;
 
                 <div class="icon-items__content">
                     <?php if ($item_heading): ?>
-                    <h5 class="icon-items__item-heading"><?php echo esc_html($item_heading); ?></h5>
+                    <h3 class="icon-items__item-heading"><?php echo esc_html($item_heading); ?></h3>
                     <?php endif; ?>
 
                     <?php if ($item_description): ?>

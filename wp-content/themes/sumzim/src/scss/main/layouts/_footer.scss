@@ -25,14 +25,10 @@
       max-width: 770px;
     }
 
-    h4 {
-      font-size: 24px;
+    .footer-cta__card-heading {
       font-weight: 700;
       color: var(--color__primary--dark);
-      
-      @include breakpoint(medium) {
-        font-size: 34px;
-      }
+      @include apply-type(heading-sm);
     }
 
     p {

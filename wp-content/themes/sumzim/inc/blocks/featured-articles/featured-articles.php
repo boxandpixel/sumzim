@@ -87,9 +87,9 @@ if (!empty($block['className'])) {
                 <?php if ($article_image): ?>
                 style="--bg-image: url('<?php echo esc_url($article_image); ?>');"
                 <?php endif; ?>>
-                    <h5 class="featured-articles__title">
+                    <h3 class="featured-articles__title">
                         <?php echo esc_html($article_title); ?>
-                    </h5>
+                    </h3>
                 </a>
                 
             <?php endforeach; ?>

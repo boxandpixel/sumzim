@@ -324,30 +324,6 @@
 
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'sumzim' ); ?></a>
-	<?php
-		$show_alert = get_field('show_alert', 'options');
-		$alert_message = get_field('alert_message', 'options');
-		$alert_link = get_field('alert_link', 'options');
-
-		if($show_alert): ?> 
-		
-		<div class="alert">
-		<?php if($alert_message): ?>
-		<?php echo $alert_message; ?>
-		<?php endif; ?>
-		<?php if($alert_link): ?>
-			<a href="<?php echo $alert_link['url']; ?>" class="button button--attention"><?php echo $alert_link['title']; ?></a>
-		<?php endif; ?>
-		
-			<button class="alert__button-close">
-				<span>Close</span>
-				<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
-				<path d="M0 0h24v24H0z" fill="none"/>
-				<path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
-				</svg>
-			</button>
-		</div>
-		<?php endif; ?>
 
 		<?php 
 			$date = time();

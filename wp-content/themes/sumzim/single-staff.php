@@ -164,34 +164,6 @@ get_header();
 		endwhile; // End of the loop.
 		?>
 
-  <!-- 5-Point Guarantee -->
-  <?php 
-      $display_5_point_guarantee = get_field('display_5_point_guarantee', 32);
-      $guarantee_editor = get_field('visual_editor', 'option');
-  ?>
-      <?php if($display_5_point_guarantee): ?>
-      <div class="breakout guarantee">
-          <div class="guarantee__content">
-              <?php echo $guarantee_editor; ?>
-              
-              <div class="heading-list">
-                  <ul class="heading-list__list">
-                      <?php
-                          if(have_rows('heading_list', 'option')): while(have_rows('heading_list', 'option')): the_row();
-                              $heading_list_item = get_sub_field('heading_list_item', 'option');
-                      ?>
-                      <li class="heading-list__list-item">
-                          <?php echo $heading_list_item; ?>
-                      </li>
-                      <?php
-                          endwhile; endif;
-                      ?>
-                  </ul>
-              </div>
-              
-          </div>
-      </div>
-      <?php endif; ?>
 
 	</main><!-- #main -->
 

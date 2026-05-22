@@ -110,7 +110,7 @@
             font-weight: 800;
             color: var(--color__primary--dark);
 
-            @include apply-type(heading-lg);
+            @include apply-type(heading-md);
         }
         
         h3 {
