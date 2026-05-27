@@ -371,7 +371,7 @@
 				     width="<?php echo esc_attr( $logo['width'] ); ?>"
 				     height="<?php echo esc_attr( $logo['height'] ); ?>"
 				     srcset="<?php echo esc_attr( wp_get_attachment_image_srcset( $logo['ID'], 'full' ) ); ?>"
-				     sizes="(max-width: 768px) 140px, 182px"
+				     sizes="(min-width: 1280px) 302px, (min-width: 1024px) 277px, 182px"
 				>
 			</a>  
 			<!-- badge update 2022/09/26 -->
