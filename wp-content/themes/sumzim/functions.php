@@ -281,6 +281,35 @@ function posts_link_attributes() {
 }
 
 /**
+ * Fetch a YouTube video title via oEmbed with a 24-hour transient cache.
+ * No API key required. Returns the title string, or empty string on failure.
+ */
+function sumzim_get_youtube_title( $video_id ) {
+	if ( empty( $video_id ) ) {
+		return '';
+	}
+
+	$cache_key = 'sumzim_yt_title_' . sanitize_key( $video_id );
+	$cached    = get_transient( $cache_key );
+	if ( $cached !== false ) {
+		return $cached;
+	}
+
+	$url      = 'https://www.youtube.com/oembed?url=' . rawurlencode( 'https://www.youtube.com/watch?v=' . $video_id ) . '&format=json';
+	$response = wp_remote_get( $url, array( 'timeout' => 5 ) );
+
+	if ( is_wp_error( $response ) ) {
+		return '';
+	}
+
+	$data  = json_decode( wp_remote_retrieve_body( $response ), true );
+	$title = $data['title'] ?? '';
+
+	set_transient( $cache_key, $title, 24 * HOUR_IN_SECONDS );
+	return $title;
+}
+
+/**
  * Fetch Google review data with a 6-hour transient cache.
  * Returns the full API response array, or null on failure.
  */

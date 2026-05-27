@@ -34,7 +34,7 @@
 					$media_type = $media_item['media_type'];
 					$video_id = $media_item['video_id'];
 					$video_play_label = $media_item['video_play_label'];
-					$video_title = $media_item['video_title'];
+					$video_title = $media_item['video_title'] ?: sumzim_get_youtube_title( $video_id );
 					$video_subtitle = $media_item['video_subtitle'];
 					$image = $media_item['image'];
 			?>
