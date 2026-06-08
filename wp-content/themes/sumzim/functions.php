@@ -842,6 +842,15 @@ add_filter('gform_get_form_filter', function($form_string, $form){
 
 
 /**
+ * Menu: Inject BCC logo background-image via wp_head style block.
+ * Uses PHP URL to avoid gulp-clean-css path rebasing issues.
+ */
+add_action( 'wp_head', function() {
+    $url = esc_url( get_template_directory_uri() . '/assets/nav-blue-collar-club.svg' );
+    echo '<style>li.menu-item__blue-collar-club > a, li.menu-item-has-children.menu-item__blue-collar-club > a { background-image: url(' . $url . ') !important; }</style>' . "\n";
+} );
+
+/**
  * Menu: Replace button with image for blue collar club
  */
 
