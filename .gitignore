@@ -120,3 +120,6 @@ wp-content/wp-rocket-config/
 # DDEV specific
 .ddev/
 wp-config-ddev.php
+
+# Claude specific
+refs/

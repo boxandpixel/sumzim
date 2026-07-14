@@ -10,7 +10,7 @@
     }
 
     @include breakpoint(large) {
-        height: 360px;
+        min-height: 360px;
         background-position: center right;
         background-size: 70%;
         background-repeat: no-repeat;
@@ -51,14 +51,29 @@
     }
 
     @include breakpoint(large) {
-        padding-top: 10px;
-        padding-bottom: 10px;
-        height: 100%;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        // The block is min-height now, so height: 100% would resolve against an
+        // auto height and collapse the panel to its content. Grow to fill instead.
+        flex-grow: 1;
         width: 40%;
         transform: none;
     }
 }
     
+    // Content is centered on mobile regardless; the alignment choice takes over
+    // from medium up, where the default is left.
+    .diagonal-content-container--center {
+        @include breakpoint(medium) {
+            justify-content: center;
+
+            .diagonal-content {
+                align-items: center;
+                text-align: center;
+            }
+        }
+    }
+
     .diagonal-content-container::after {
         content: "";
         display: none;
@@ -99,6 +114,21 @@
 
         p {
             color: var(--color__primary--dark);
+        }
+
+        .diagonal-content__image {
+            margin: 12px 0;
+
+            img {
+                display: block;
+                width: auto;
+                max-width: 100%;
+                height: auto;
+
+                @include breakpoint(large) {
+                    max-height: 240px;
+                }
+            }
         }
 
         h2, h3, h4, h5, h6 {

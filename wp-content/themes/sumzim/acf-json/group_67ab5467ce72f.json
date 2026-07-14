@@ -19,6 +19,33 @@
             "layout": "block",
             "sub_fields": [
                 {
+                    "key": "field_67ab5490ab004",
+                    "label": "Content Alignment",
+                    "name": "diagonal_content_alignment",
+                    "aria-label": "",
+                    "type": "select",
+                    "instructions": "Alignment of the content from the medium breakpoint up. Content is always centered on mobile.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "left": "Left",
+                        "center": "Center"
+                    },
+                    "default_value": "left",
+                    "return_format": "value",
+                    "multiple": 0,
+                    "allow_null": 0,
+                    "allow_in_bindings": 0,
+                    "ui": 0,
+                    "ajax": 0,
+                    "placeholder": ""
+                },
+                {
                     "key": "field_67ab5490ab001",
                     "label": "Heading",
                     "name": "diagonal_content_heading",
@@ -38,6 +65,32 @@
                     "placeholder": "",
                     "prepend": "",
                     "append": ""
+                },
+                {
+                    "key": "field_67ab5490ab003",
+                    "label": "Content Image",
+                    "name": "diagonal_content_image",
+                    "aria-label": "",
+                    "type": "image",
+                    "instructions": "Optional image displayed between the heading and the description.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": "",
+                    "allow_in_bindings": 0,
+                    "preview_size": "medium"
                 },
                 {
                     "key": "field_67ab5490ab002",
@@ -124,5 +177,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1748131200
+    "modified": 1784045099
 }

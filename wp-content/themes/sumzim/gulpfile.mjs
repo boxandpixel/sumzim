@@ -14,6 +14,16 @@ import header from 'gulp-header';
 import plumber from 'gulp-plumber';
 import sourcemaps from 'gulp-sourcemaps';
 
+import { utimesSync } from 'node:fs';
+
+// gulp copies the source file's mtime onto its output, so a rebuilt file keeps
+// an old mtime. functions.php uses filemtime() as the ?ver= cache buster, so
+// without this the browser and WP Rocket keep serving the previous asset.
+function touch(file) {
+    const now = new Date();
+    utimesSync(file, now, now);
+}
+
 const themeHeader = `/*!
 Theme Name: Summers & Zim's
 Theme URI: https://sumzim.com/wp-content/themes/sumzim
@@ -37,7 +47,8 @@ function stylesMain() {
         .pipe(minify())
         .pipe(header(themeHeader))
         .pipe(rename('style.css'))
-        .pipe(dest('./'));
+        .pipe(dest('./'))
+        .on('end', () => touch('./style.css'));
 }
 
 // js
@@ -48,7 +59,8 @@ function scriptsMain() {
         .pipe(concat('scripts.min.js'))
         .pipe(terser())
         .pipe(sourcemaps.write('.'))
-        .pipe(dest('./'));
+        .pipe(dest('./'))
+        .on('end', () => touch('./scripts.min.js'));
 }
 
 // watch
