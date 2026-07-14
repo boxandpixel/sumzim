@@ -125,6 +125,10 @@
                 max-width: 100%;
                 height: auto;
 
+                @include breakpoint(medium) {
+                    max-height: 240px;
+                }
+
                 @include breakpoint(large) {
                     max-height: 240px;
                 }
