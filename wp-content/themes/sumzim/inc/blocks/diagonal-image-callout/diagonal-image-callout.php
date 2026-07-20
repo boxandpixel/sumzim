@@ -7,8 +7,10 @@ $diagonal_image_callout    = get_field('diagonal_image_callout');
 $diagonal_content_heading  = $diagonal_image_callout['diagonal_content_heading'] ?? '';
 $diagonal_content_desc     = $diagonal_image_callout['diagonal_content_description'] ?? '';
 $diagonal_content_image    = $diagonal_image_callout['diagonal_content_image'] ?? '';
+$diagonal_content_img_link = ! empty( $diagonal_image_callout['diagonal_content_image_link'] );
 $diagonal_image            = $diagonal_image_callout['diagonal_image'];
 $diagonal_cta              = $diagonal_image_callout['diagonal_cta'];
+$diagonal_img_link_url     = ( $diagonal_content_img_link && ! empty( $diagonal_cta['url'] ) ) ? $diagonal_cta['url'] : '';
 $diagonal_content_align    = ! empty( $diagonal_image_callout['diagonal_content_alignment'] ) ? strtolower( $diagonal_image_callout['diagonal_content_alignment'] ) : 'left';
 ?>
 
@@ -21,6 +23,9 @@ $diagonal_content_align    = ! empty( $diagonal_image_callout['diagonal_content_
 
 			<?php if ( $diagonal_content_image ) : ?>
 				<div class="diagonal-content__image">
+					<?php if ( $diagonal_img_link_url ) : ?>
+						<a href="<?php echo esc_url( $diagonal_img_link_url ); ?>"<?php echo ! empty( $diagonal_cta['target'] ) ? ' target="' . esc_attr( $diagonal_cta['target'] ) . '"' : ''; ?>>
+					<?php endif; ?>
 					<img
 						src="<?php echo esc_url( $diagonal_content_image['url'] ); ?>"
 						alt="<?php echo esc_attr( $diagonal_content_image['alt'] ); ?>"
@@ -30,6 +35,9 @@ $diagonal_content_align    = ! empty( $diagonal_image_callout['diagonal_content_
 						sizes="(min-width: 1024px) 480px, 100vw"
 						loading="lazy"
 					>
+					<?php if ( $diagonal_img_link_url ) : ?>
+						</a>
+					<?php endif; ?>
 				</div>
 			<?php endif; ?>
 

@@ -93,6 +93,34 @@
                     "preview_size": "medium"
                 },
                 {
+                    "key": "field_67ab5490ab005",
+                    "label": "Link Content Image",
+                    "name": "diagonal_content_image_link",
+                    "aria-label": "",
+                    "type": "true_false",
+                    "instructions": "Link the content image to the same destination as the CTA button.",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_67ab5490ab003",
+                                "operator": "!=empty"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 0,
+                    "allow_in_bindings": 0,
+                    "ui": 1,
+                    "ui_on_text": "",
+                    "ui_off_text": ""
+                },
+                {
                     "key": "field_67ab5490ab002",
                     "label": "Description",
                     "name": "diagonal_content_description",
@@ -177,5 +205,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1784045099
+    "modified": 1784563499
 }
