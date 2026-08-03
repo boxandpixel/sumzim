@@ -19,6 +19,35 @@
             "layout": "block",
             "sub_fields": [
                 {
+                    "key": "field_69fb00disrupt1",
+                    "label": "Layout",
+                    "name": "layout",
+                    "aria-label": "",
+                    "type": "select",
+                    "instructions": "Centered Text hides the image and button and centers all content.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "default": "Default",
+                        "centered-text": "Centered Text (no image or button)"
+                    },
+                    "default_value": "default",
+                    "return_format": "value",
+                    "multiple": 0,
+                    "allow_null": 0,
+                    "allow_in_bindings": 0,
+                    "ui": 0,
+                    "ajax": 0,
+                    "placeholder": "",
+                    "create_options": 0,
+                    "save_options": 0
+                },
+                {
                     "key": "field_698e39005a037",
                     "label": "Image",
                     "name": "image",
@@ -26,7 +55,15 @@
                     "type": "image",
                     "instructions": "",
                     "required": 0,
-                    "conditional_logic": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_69fb00disrupt1",
+                                "operator": "!=",
+                                "value": "centered-text"
+                            }
+                        ]
+                    ],
                     "wrapper": {
                         "width": "",
                         "class": "",
@@ -94,7 +131,15 @@
                     "type": "link",
                     "instructions": "",
                     "required": 0,
-                    "conditional_logic": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_69fb00disrupt1",
+                                "operator": "!=",
+                                "value": "centered-text"
+                            }
+                        ]
+                    ],
                     "wrapper": {
                         "width": "",
                         "class": "",
@@ -129,7 +174,9 @@
                     "allow_in_bindings": 0,
                     "ui": 0,
                     "ajax": 0,
-                    "placeholder": ""
+                    "placeholder": "",
+                    "create_options": 0,
+                    "save_options": 0
                 }
             ]
         }
@@ -139,7 +186,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "acf/disruptor"
+                "value": "acf\/disruptor"
             }
         ]
     ],
@@ -152,5 +199,8 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1777387978
+    "display_title": "",
+    "allow_ai_access": false,
+    "ai_description": "",
+    "modified": 1785779475
 }

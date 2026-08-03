@@ -4,16 +4,36 @@
 */
 
 $disruptor = get_field('disruptor');
+$layout = !empty($disruptor['layout']) ? $disruptor['layout'] : 'default';
 $heading = $disruptor['heading'] ?? '';
 $image = $disruptor['image'] ?? null;
 $description = $disruptor['description'] ?? '';
 $button = $disruptor['button'] ?? [];
 $background_color = $disruptor['background_color'] ?? '';
 
+// The centered-text layout is text only: no image, no button, everything centered.
+$is_centered_text = ($layout === 'centered-text');
+
+if ($is_centered_text) {
+	$image = null;
+	$button = [];
+}
+
 $has_image = !empty($image);
+
+$classes = ['disruptor'];
+if ($has_image) {
+	$classes[] = 'disruptor--has-image';
+}
+if ($background_color) {
+	$classes[] = 'disruptor--' . $background_color;
+}
+if ($is_centered_text) {
+	$classes[] = 'disruptor--centered-text';
+}
 ?>
 
-<section class="disruptor<?php echo $has_image ? ' disruptor--has-image' : ''; echo ' disruptor--' . $background_color?>">
+<section class="<?php echo esc_attr(implode(' ', $classes)); ?>">
 	<div class="container">
 		<div class="disruptor__content">
 			<?php if ($has_image): ?>
@@ -28,7 +48,9 @@ $has_image = !empty($image);
 			</div>
 			<?php endif; ?>
 			<div class="disruptor__content-text">
+				<?php if ($heading): ?>
 				<h2 class="disruptor__content-heading"><?= esc_html($heading); ?></h2>
+				<?php endif; ?>
 				<div class="disruptor__content-description">
 					<?= wp_kses_post($description); ?>
 				</div>

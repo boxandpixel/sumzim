@@ -117,6 +117,34 @@
         }
     }
 
+    // Text-only variation: no image, no button, everything centered.
+    // The template drops the image and button markup, so this only has to
+    // collapse the two-column container and re-center the text.
+    &--centered-text {
+        .container {
+            grid-template-columns: repeat(1, minmax(0, 1fr));
+
+            @include breakpoint(medium) {
+                grid-template-columns: repeat(1, minmax(0, 1fr));
+            }
+
+            .disruptor__content {
+                &-text {
+                    max-width: 720px;
+                    margin-inline: auto;
+                }
+
+                &-heading {
+                    text-align: center;
+                }
+
+                &-description {
+                    text-align: center;
+                }
+            }
+        }
+    }
+
     &--none {
         background-color: none;
 
