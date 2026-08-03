@@ -167,6 +167,12 @@
                     text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
                     line-height: 1.4;
 
+                    // cards.js equalizes .card-overlay-content height across each
+                    // row so headings align. Let the description absorb that slack
+                    // so the heading stays pinned to the top of the overlay and any
+                    // button stays flush to the bottom.
+                    flex: 1 1 auto;
+
                     // Clamp to 8 lines. The card is ~512px tall (3/4 of a
                     // ~384px column) and the gradient only darkens the bottom
                     // ~60%, so 8 lines is the most description that still sits
