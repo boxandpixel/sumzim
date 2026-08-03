@@ -167,9 +167,12 @@
                     text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
                     line-height: 1.4;
 
-                    // Clamp to 5 lines
+                    // Clamp to 8 lines. The card is ~512px tall (3/4 of a
+                    // ~384px column) and the gradient only darkens the bottom
+                    // ~60%, so 8 lines is the most description that still sits
+                    // on a readable background.
                     display: -webkit-box;
-                    -webkit-line-clamp: 5;
+                    -webkit-line-clamp: 8;
                     -webkit-box-orient: vertical;
                     overflow: hidden;
 
