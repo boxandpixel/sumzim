@@ -158,20 +158,6 @@ wp_enqueue_script( 'site-scripts', get_template_directory_uri() . '/scripts.min.
 }
 add_action( 'wp_enqueue_scripts', 'sumzim_scripts' );
 
-
-  
-/** 
- * Remove versions from CSS & JS
- */
-
-function remove_css_js_version( $src ) {
-    if( strpos( $src, '?ver=' ) )
-        $src = remove_query_arg( 'ver', $src );
-    return $src;
-}
-add_filter( 'style_loader_src', 'remove_css_js_version', 9999 );
-add_filter( 'script_loader_src', 'remove_css_js_version', 9999 );
-
 /**
  * Implement the Custom Header feature.
  */
