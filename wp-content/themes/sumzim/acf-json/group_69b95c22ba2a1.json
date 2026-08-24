@@ -228,6 +228,13 @@
                 "operator": "==",
                 "value": "acf\/icon-items"
             }
+        ],
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "theme-settings"
+            }
         ]
     ],
     "menu_order": 0,
@@ -239,5 +246,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1778112000
+    "modified": 1787579484
 }
