@@ -7,9 +7,13 @@ $section_content  = get_field('section_content') ?? [];
 $heading          = $section_content['heading'] ?? '';
 $heading_position = $section_content['heading_position'] ?? 'left';
 $description      = $section_content['description'] ?? '';
+$background_color = $section_content['background_color'] ?? '';
+
+$class = 'section-content';
+if ( $background_color && $background_color !== 'none' ) $class .= ' section-content--' . $background_color;
 ?>
 
-<section class="section-content">
+<section class="<?= esc_attr($class); ?>">
 	<div class="container">
 
 		<?php if (!empty($heading) || !empty($description)): ?>

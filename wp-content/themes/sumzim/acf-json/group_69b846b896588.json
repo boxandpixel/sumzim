@@ -701,6 +701,130 @@
                     "min": "",
                     "max": "",
                     "button_label": "Add Row"
+                },
+                {
+                    "key": "field_69b846c014f4c",
+                    "label": "Panel Style",
+                    "name": "panel_style",
+                    "aria-label": "",
+                    "type": "select",
+                    "instructions": "Bordered adds a light card with a thin accent bar. Branded adds a full brand frame, coloured heading and phone, and a filled footer bar — set the accent per column below.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "none": "None",
+                        "bordered": "Bordered Panels",
+                        "branded": "Branded Panels"
+                    },
+                    "default_value": "none",
+                    "return_format": "value",
+                    "multiple": 0,
+                    "allow_null": 0,
+                    "allow_in_bindings": 0,
+                    "ui": 0,
+                    "ajax": 0,
+                    "placeholder": ""
+                },
+                {
+                    "key": "field_69b846c014f4d",
+                    "label": "Left Panel Accent",
+                    "name": "left_panel_accent",
+                    "aria-label": "",
+                    "type": "select",
+                    "instructions": "Brand colour for this column when Panel Style is Branded.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "none": "None",
+                        "red": "Red",
+                        "gold": "Gold",
+                        "blue": "Blue",
+                        "green": "Green",
+                        "navy": "Navy"
+                    },
+                    "default_value": "none",
+                    "return_format": "value",
+                    "multiple": 0,
+                    "allow_null": 0,
+                    "allow_in_bindings": 0,
+                    "ui": 0,
+                    "ajax": 0,
+                    "placeholder": ""
+                },
+                {
+                    "key": "field_69b846c014f4e",
+                    "label": "Right Panel Accent",
+                    "name": "right_panel_accent",
+                    "aria-label": "",
+                    "type": "select",
+                    "instructions": "Brand colour for this column when Panel Style is Branded.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "none": "None",
+                        "red": "Red",
+                        "gold": "Gold",
+                        "blue": "Blue",
+                        "green": "Green",
+                        "navy": "Navy"
+                    },
+                    "default_value": "none",
+                    "return_format": "value",
+                    "multiple": 0,
+                    "allow_null": 0,
+                    "allow_in_bindings": 0,
+                    "ui": 0,
+                    "ajax": 0,
+                    "placeholder": ""
+                },
+                {
+                    "key": "field_69b846c014f4f",
+                    "label": "Left Panel Footer Link",
+                    "name": "left_panel_footer_link",
+                    "aria-label": "",
+                    "type": "link",
+                    "instructions": "Optional link shown as a filled bar across the bottom of this column.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "allow_in_bindings": 0
+                },
+                {
+                    "key": "field_69b846c014f50",
+                    "label": "Right Panel Footer Link",
+                    "name": "right_panel_footer_link",
+                    "aria-label": "",
+                    "type": "link",
+                    "instructions": "Optional link shown as a filled bar across the bottom of this column.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "allow_in_bindings": 0
                 }
             ]
         }
@@ -723,5 +847,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1778000000
+    "modified": 1787678000
 }

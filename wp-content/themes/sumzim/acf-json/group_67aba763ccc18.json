@@ -64,7 +64,9 @@
                     "allow_in_bindings": 0,
                     "ui": 0,
                     "ajax": 0,
-                    "placeholder": ""
+                    "placeholder": "",
+                    "create_options": 0,
+                    "save_options": 0
                 },
                 {
                     "key": "field_6977b4cc3900a",
@@ -86,6 +88,36 @@
                     "toolbar": "full",
                     "media_upload": 1,
                     "delay": 0
+                },
+                {
+                    "key": "field_69cards_cols01",
+                    "label": "Columns",
+                    "name": "cards_columns",
+                    "aria-label": "",
+                    "type": "select",
+                    "instructions": "Number of columns at desktop. Cards always stack to one column on mobile.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "2": "2",
+                        "3": "3",
+                        "4": "4"
+                    },
+                    "default_value": 3,
+                    "return_format": "value",
+                    "multiple": 0,
+                    "allow_null": 0,
+                    "allow_in_bindings": 0,
+                    "ui": 0,
+                    "ajax": 0,
+                    "placeholder": "",
+                    "create_options": 0,
+                    "save_options": 0
                 },
                 {
                     "key": "field_67aba8c1496a7",
@@ -246,7 +278,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "acf/cards"
+                "value": "acf\/cards"
             }
         ]
     ],
@@ -259,5 +291,8 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1777387978
+    "display_title": "",
+    "allow_ai_access": false,
+    "ai_description": "",
+    "modified": 1787675704
 }

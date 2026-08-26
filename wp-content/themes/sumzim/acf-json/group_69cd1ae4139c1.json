@@ -285,6 +285,33 @@
                     "ui": 0,
                     "ajax": 0,
                     "placeholder": ""
+                },
+                {
+                    "key": "field_69cd2140e6c0e",
+                    "label": "Accent Style",
+                    "name": "accent_color",
+                    "aria-label": "",
+                    "type": "select",
+                    "instructions": "Default reveals the gold accent on card hover. Branded shows it from the outset as a gold bar across the top of each card. Independent of the section background.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "default": "Default (Gold on Hover)",
+                        "branded": "Branded (Gold Bar)"
+                    },
+                    "default_value": "default",
+                    "return_format": "value",
+                    "multiple": 0,
+                    "allow_null": 0,
+                    "allow_in_bindings": 0,
+                    "ui": 0,
+                    "ajax": 0,
+                    "placeholder": ""
                 }
             ]
         }
@@ -307,5 +334,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1778000001
+    "modified": 1787675999
 }

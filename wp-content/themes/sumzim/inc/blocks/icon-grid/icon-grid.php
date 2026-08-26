@@ -10,6 +10,7 @@ $description      = $icon_grid['description']      ?? '';
 $link             = $icon_grid['link']             ?? [];
 $items            = $icon_grid['items']            ?? [];
 $background_color = $icon_grid['background_color'] ?? '';
+$accent_color     = $icon_grid['accent_color']     ?? '';
 
 $class = 'icon-grid';
 if ( $background_color === 'none' )                             $class .= ' icon-grid--none';
@@ -17,6 +18,10 @@ elseif ( $background_color === 'light-blue' )                   $class .= ' icon
 elseif ( $background_color === 'light-blue-gradient-to-dark' )  $class .= ' icon-grid--light-blue-gradient-to-dark';
 elseif ( $background_color === 'light-blue-gradient-to-light' ) $class .= ' icon-grid--light-blue-gradient-to-light';
 elseif ( $background_color === 'golden-diagonal' )              $class .= ' icon-grid--golden-diagonal';
+
+// Accent style shows the brand gold from the outset rather than only on hover;
+// independent of the background.
+if ( $accent_color === 'branded' ) $class .= ' icon-grid--accent-branded';
 ?>
 
 <section class="<?php echo esc_attr( $class ); ?>">

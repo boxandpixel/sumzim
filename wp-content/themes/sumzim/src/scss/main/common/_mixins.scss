@@ -321,3 +321,43 @@
     transparent 100%
   );
 }
+
+// Section background modifiers shared by the blocks that expose a
+// `background_color` field (page-intro, image-section, section-content).
+// Include at the block root; emits `&--light-blue`, `&--green-tint` and
+// `&--dark-navy`. Matches the padding rhythm already used by .icon-grid.
+@mixin section-backgrounds {
+    &--light-blue,
+    &--green-tint,
+    &--dark-navy {
+        padding-top: 60px;
+        padding-bottom: 60px;
+
+        @include breakpoint(medium) {
+            padding-top: 80px;
+            padding-bottom: 80px;
+        }
+    }
+
+    &--light-blue {
+        background-color: #dde4eb;
+    }
+
+    // Tri-County green, dropped to a wash so body copy keeps its contrast.
+    &--green-tint {
+        background-color: var(--color__green--very-light);
+    }
+
+    &--dark-navy {
+        background-color: var(--color__blue-900);
+        color: white;
+
+        h2, h3, h5 {
+            color: white;
+        }
+
+        a:not(.button) {
+            color: var(--color__secondary);
+        }
+    }
+}

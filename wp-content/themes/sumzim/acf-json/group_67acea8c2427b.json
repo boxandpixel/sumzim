@@ -163,9 +163,10 @@
                         "id": ""
                     },
                     "choices": {
-                        "gradient": "Gradient",
+                        "none": "None",
                         "light-blue": "Light Blue",
-                        "none": "None"
+                        "dark-navy": "Dark Navy",
+                        "gradient": "Gradient"
                     },
                     "default_value": false,
                     "return_format": "value",
@@ -202,5 +203,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1785779475
+    "modified": 1787675631
 }

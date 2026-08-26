@@ -1,5 +1,44 @@
 .icon-grid {
+    // Local theming hooks. These defaults reproduce the pre-hook styling exactly,
+    // so untouched grids are unaffected; an --accent-* modifier below rebinds them
+    // to recolor the grid without duplicating any of the rules that consume them.
+    --icon-grid-icon-color: var(--color__primary--dark);
+    --icon-grid-accent: #f5b330;
+    --icon-grid-accent-glow: rgba(245, 179, 48, 0.2);
+    --icon-grid-item-border-top: transparent;
+    --icon-grid-item-border-top-width: 1px;
+
     margin-bottom: 60px;
+
+    // Branded accent. The default grid holds its gold back until hover; this
+    // variant spends it up front as a 3px top bar and leaves the icons in
+    // brand navy, so a card reads as Summers & Zim's before anyone touches it.
+    //
+    // That leaves hover with nothing to announce itself with — the gold is
+    // already on screen. So the frame completes instead: the three transparent
+    // sides pick the same gold up at 1px, the glow deepens, and the card lifts.
+    // Hue stays put; geometry and elevation carry the state change.
+    &--accent-branded {
+        --icon-grid-accent: var(--color__secondary);
+        --icon-grid-accent-glow: rgba(245, 179, 48, 0.35);
+        --icon-grid-item-border-top: var(--color__secondary);
+        --icon-grid-item-border-top-width: 3px;
+
+        .icon-grid__item:hover {
+            transform: translateY(-2px);
+            box-shadow:
+                0 4px 10px -2px rgba(12, 30, 49, 0.12),
+                0 0 12px 2px var(--icon-grid-accent-glow);
+        }
+
+        // _reset.scss only collapses transition-duration, so the lift has to be
+        // switched off explicitly — same approach _cards.scss takes.
+        @media (prefers-reduced-motion: reduce) {
+            .icon-grid__item:hover {
+                transform: none;
+            }
+        }
+    }
 
     &--none {
         background: none;
@@ -148,12 +187,15 @@
         background-color: white;
         border-radius: 4px;
         border: 1px solid transparent;
+        border-top: var(--icon-grid-item-border-top-width) solid var(--icon-grid-item-border-top);
         padding: 1.25rem;
         text-decoration: none;
         color: inherit;
+        // transform is inert unless an --accent-* modifier introduces a lift.
         transition:
             border-color 0.2s ease,
-            box-shadow 0.2s ease;
+            box-shadow 0.2s ease,
+            transform 0.2s ease;
 
         @include breakpoint(medium) {
             padding: 1.5rem;
@@ -175,8 +217,9 @@
 
         // Hover — applies to both linked and non-linked cards for visual consistency
         &:hover {
-            border-color: #f5b330;
-            box-shadow: 0 0 12px 2px rgba(245, 179, 48, 0.2);
+            border-color: var(--icon-grid-accent);
+            border-top-color: var(--icon-grid-accent);
+            box-shadow: 0 0 12px 2px var(--icon-grid-accent-glow);
 
             .icon-grid__item-link {
                 opacity: 1;
@@ -213,7 +256,7 @@
 
         .material-symbols-outlined {
             font-size: 48px;
-            color: var(--color__primary--dark);
+            color: var(--icon-grid-icon-color);
             font-variation-settings:
                 'FILL' 0,
                 'wght' 200,

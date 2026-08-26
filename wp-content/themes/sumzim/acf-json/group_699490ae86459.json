@@ -38,6 +38,35 @@
                     "rows": "",
                     "placeholder": "",
                     "new_lines": ""
+                },
+                {
+                    "key": "field_699490b0c1a01",
+                    "label": "Background Color",
+                    "name": "background_color",
+                    "aria-label": "",
+                    "type": "select",
+                    "instructions": "Section background.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "none": "None",
+                        "light-blue": "Light Blue",
+                        "green-tint": "Green Tint (Tri-County)",
+                        "dark-navy": "Dark Navy"
+                    },
+                    "default_value": "none",
+                    "return_format": "value",
+                    "multiple": 0,
+                    "allow_null": 0,
+                    "allow_in_bindings": 0,
+                    "ui": 0,
+                    "ajax": 0,
+                    "placeholder": ""
                 }
             ]
         }
@@ -60,5 +89,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1771344479
+    "modified": 1787676500
 }

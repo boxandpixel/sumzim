@@ -2,6 +2,8 @@
 @use '../common/typography.mixins' as *;
 
 .section-content {
+    @include section-backgrounds;
+
     margin-bottom: 60px;
 
     @include breakpoint(medium) {

@@ -1,4 +1,12 @@
 .image-section {
+    @include section-backgrounds;
+
+    // On navy, the dark mailer green goes muddy — step up to PMS 375,
+    // which _variables.scss permits for non-body text.
+    &--dark-navy .image-section__content-heading-accent {
+        color: var(--color__green--light);
+    }
+
     margin-bottom: 60px;
 
     @include breakpoint(medium) {
@@ -129,8 +137,43 @@
             }
 
             .image-section__content-header {
+                // The mailer's handshake sits between the two brands; here it
+                // leads the transition headline in S&Z gold.
+                .image-section__content-icon {
+                    display: block;
+                    font-size: 56px;
+                    line-height: 1;
+                    margin-bottom: 12px;
+                    color: var(--color__secondary);
+                    font-variation-settings: 'FILL' 0, 'wght' 200, 'GRAD' 0, 'opsz' 48;
+                }
+
                 .image-section__content-heading {
                     @include apply-type(heading-md);
+
+                    // Two-tone headline from the Tri-County mailer: the lead
+                    // phrase in brand navy, the accent phrase in mailer green
+                    // on its own line, over a gold rule.
+                    .image-section__content-heading-lead,
+                    .image-section__content-heading-accent {
+                        display: block;
+                    }
+
+                    .image-section__content-heading-accent {
+                        color: var(--color__green--dark);
+                        padding-bottom: 16px;
+                        position: relative;
+
+                        &::after {
+                            content: '';
+                            position: absolute;
+                            bottom: 0;
+                            left: 0;
+                            width: 100px;
+                            height: 4px;
+                            background-color: var(--color__secondary);
+                        }
+                    }
                 }
             }
         }

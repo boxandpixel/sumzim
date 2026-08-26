@@ -21,6 +21,10 @@ if ($is_centered_text) {
 
 $has_image = !empty($image);
 
+// Backgrounds dark enough to need light text and a white button.
+$dark_backgrounds = ['gradient', 'dark-navy'];
+$is_dark = in_array($background_color, $dark_backgrounds, true);
+
 $classes = ['disruptor'];
 if ($has_image) {
 	$classes[] = 'disruptor--has-image';
@@ -59,7 +63,7 @@ if ($is_centered_text) {
 
 		<?php if($button): ?>
 		<div class="disruptor__button">
-			<a href="<?php echo $button['url']; ?>" class="button <?php if($background_color == 'gradient'): echo 'button--white'; else: echo 'button--primary'; endif; ?>"><?php echo $button['title']; ?></a>
+			<a href="<?php echo $button['url']; ?>" class="button <?php echo $is_dark ? 'button--white' : 'button--primary'; ?>"><?php echo $button['title']; ?></a>
 		</div>
 		<?php endif; ?>
 	</div>

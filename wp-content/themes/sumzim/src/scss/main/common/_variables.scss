@@ -30,6 +30,47 @@ $color__secondary--very-light: hsla(40, 91%, 90%, 1);
 
 
 // -----------------------------------------------------------------------------
+// Brand Green
+//
+// Sampled from the official S&Z badge — the "HOME OF THE GOOD NATURED GUYS"
+// tagline is #2e934e. It doubles as the bridge color to Tri-County Water
+// Services, whose brand green (PMS 375) is $color__green--light. The dark shade
+// is the headline green from the Tri-County transition mailer.
+//
+// Contrast note: only $color__green (large text) and $color__green--dark (all
+// text) pass WCAG AA on white. $color__green--light is for rules, borders and
+// fills ONLY — never body text.
+// -----------------------------------------------------------------------------
+
+$color__green:        #2e934e;  // S&Z tagline green
+$color__green--light: #94ca40;  // Tri-County PMS 375
+$color__green--dark:  #316627;  // Mailer headline green
+$color__green--very-light: hsla(82, 53%, 94%, 1);  // Section wash only
+
+
+// -----------------------------------------------------------------------------
+// Tri-County (sub-brand accent — logo lockup only)
+// -----------------------------------------------------------------------------
+
+$color__tri-county--blue: #0176c2;  // PMS 3005
+
+
+// -----------------------------------------------------------------------------
+// Thomas H. Erb & Sons (referral partner — panel lockup only)
+//
+// Sampled from the transition mailer's footer bar. Erb take the septic work
+// that Tri-County customers used to call about, so their brand appears beside
+// ours on the handover panel — it is NOT part of the S&Z palette and should not
+// be reached for anywhere else.
+//
+// Contrast note: white clears AA on it at 4.80:1, so the filled bar reverses to
+// white. On white it also passes at 4.80:1 for headings and the phone number.
+// -----------------------------------------------------------------------------
+
+$color__erb--red: #e4100e;
+
+
+// -----------------------------------------------------------------------------
 // Neutral
 // -----------------------------------------------------------------------------
 
@@ -118,6 +159,18 @@ $breakpoint__xxlarge: 1620px;
     --color__secondary--dark:       #{$color__secondary--dark};
     --color__secondary--very-light: #{$color__secondary--very-light};
 
+    /** Brand Green */
+    --color__green:        #{$color__green};        // Headings, rules, icon accents
+    --color__green--light: #{$color__green--light}; // Rules and fills only — fails AA on white
+    --color__green--dark:  #{$color__green--dark};  // Body-safe green text
+    --color__green--very-light: #{$color__green--very-light}; // Section backgrounds
+
+    /** Tri-County sub-brand */
+    --color__tri-county--blue: #{$color__tri-county--blue};
+
+    /** Erb (referral partner) */
+    --color__erb--red: #{$color__erb--red};
+
     /** Neutral */
     --color__neutral--very-light: #{$color__neutral--very-light};
     --color__neutral--light:      #{$color__neutral--light};
@@ -158,4 +211,3 @@ $breakpoint__xxlarge: 1620px;
 // SCSS-only utility (not a custom property — used directly in SCSS)
 // -----------------------------------------------------------------------------
 
-$spacer: #{$spacer};

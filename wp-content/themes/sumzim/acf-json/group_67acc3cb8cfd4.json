@@ -155,12 +155,54 @@
                     "layout": "block",
                     "sub_fields": [
                         {
+                            "key": "field_67acc3d0c1b03",
+                            "label": "Heading Icon",
+                            "name": "heading_icon",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "Optional Material Symbol name shown above the heading, e.g. handshake. Must be in the icon subset in header.php.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "allow_in_bindings": 0,
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": ""
+                        },
+                        {
                             "key": "field_697908a1e8102",
                             "label": "Heading",
                             "name": "heading",
                             "aria-label": "",
                             "type": "text",
                             "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "allow_in_bindings": 0,
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": ""
+                        },
+                        {
+                            "key": "field_67acc3d0c1b02",
+                            "label": "Heading Accent",
+                            "name": "heading_accent",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "Optional second phrase, rendered in brand green beneath the heading — the two-tone treatment from the Tri-County mailer.",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -241,6 +283,35 @@
                     "ui": 0,
                     "ajax": 0,
                     "placeholder": ""
+                },
+                {
+                    "key": "field_67acc3d0c1b01",
+                    "label": "Background Color",
+                    "name": "background_color",
+                    "aria-label": "",
+                    "type": "select",
+                    "instructions": "Section background.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "none": "None",
+                        "light-blue": "Light Blue",
+                        "green-tint": "Green Tint (Tri-County)",
+                        "dark-navy": "Dark Navy"
+                    },
+                    "default_value": "none",
+                    "return_format": "value",
+                    "multiple": 0,
+                    "allow_null": 0,
+                    "allow_in_bindings": 0,
+                    "ui": 0,
+                    "ajax": 0,
+                    "placeholder": ""
                 }
             ]
         }
@@ -250,7 +321,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "acf/image-section"
+                "value": "acf\/image-section"
             }
         ]
     ],
@@ -263,5 +334,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1777387978
+    "modified": 1787677000
 }

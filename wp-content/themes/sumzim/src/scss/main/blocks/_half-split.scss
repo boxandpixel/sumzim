@@ -29,6 +29,214 @@
         }
     }
 
+    // Bordered panels: the mailer's two footer cards. The left takes Tri-County
+    // blue, the right S&Z gold, so the two brands stay visually distinct.
+    &--bordered {
+        .half-split__inner {
+            @include breakpoint(large) {
+                align-items: stretch;
+            }
+        }
+
+        .half-split__col {
+            background-color: white;
+            border: 1px solid var(--color__neutral--light);
+            border-top: 4px solid var(--color__neutral--light);
+            border-radius: 4px;
+            padding: 2rem;
+            text-align: center;
+
+            p:last-child {
+                margin-bottom: 0;
+            }
+        }
+
+        .half-split__col--left {
+            border-top-color: var(--color__tri-county--blue);
+        }
+
+        .half-split__col--right {
+            border-top-color: var(--color__secondary);
+        }
+    }
+
+    // Branded panels: the transition mailer's two footer cards, at full strength —
+    // a brand frame, a brand-coloured heading and phone, and a filled bar carrying
+    // the domain. Each column picks its own accent, so one card can be Erb red
+    // while the other is S&Z gold.
+    //
+    // Colour flows through two hooks rather than repeated rules, the same way
+    // .icon-grid themes itself: --panel-accent paints the frame and type, and
+    // --panel-accent-on is the text laid ON the filled bar. They are separate
+    // because gold cannot carry white text (1.85:1) — it reverses to navy.
+    &--branded {
+        .half-split__inner {
+            @include breakpoint(large) {
+                align-items: stretch;
+            }
+        }
+
+        .half-split__col {
+            --panel-accent: var(--color__neutral--light);   // frame, rule, bar fill
+            --panel-heading: var(--color__blue-900);        // headings and phone
+            --panel-accent-on: white;                       // text ON the bar fill
+
+            display: flex;
+            flex-direction: column;
+            background-color: white;
+            border: 3px solid var(--panel-accent);
+            border-radius: 6px;
+            padding: 2rem;
+            overflow: hidden; // clips the filled bar to the corner radius
+            text-align: center;
+
+            // Rows render as bare siblings with no wrapper, so the column
+            // supplies their spacing.
+            gap: 1.25rem;
+
+            // Desktop reproduces the mailer's lockup: badge beside the copy,
+            // bar spanning the full width beneath both. Mobile stays stacked
+            // and centred, where a side-by-side badge would crush the text.
+            @include breakpoint(large) {
+                display: grid;
+                grid-template-columns: var(--panel-logo, 130px) 1fr;
+                grid-template-rows: 1fr auto;
+                column-gap: 1.5rem;
+                text-align: left;
+
+                .half-split__image {
+                    grid-column: 1;
+                    grid-row: 1;
+                    align-self: center;
+                }
+
+                .half-split__wysiwyg {
+                    grid-column: 2;
+                    grid-row: 1;
+                    align-self: center;
+                }
+
+                // Headings centre-align their rule by default; left-align it here.
+                .half-split__wysiwyg h3::after {
+                    left: 0;
+                    transform: none;
+                }
+
+                .half-split__panel-footer {
+                    grid-column: 1 / -1;
+                    grid-row: 2;
+                }
+            }
+        }
+
+        // A column with no logo (Erb, until artwork arrives) collapses to a
+        // single track rather than leaving an empty gutter.
+        .half-split__col:not(:has(.half-split__image)) {
+            @include breakpoint(large) {
+                grid-template-columns: 1fr;
+
+                .half-split__wysiwyg { grid-column: 1; }
+            }
+        }
+
+        .half-split__col--accent-red {
+            --panel-accent: var(--color__erb--red);
+            --panel-heading: var(--color__erb--red);    // 4.80:1 on white
+            --panel-accent-on: white;                   // 4.80:1 on red
+        }
+
+        // Gold is a fill colour only: it fails AA both as type on white and
+        // under white text (1.85:1 either way). Type and bar text go navy,
+        // which is exactly what the printed mailer does.
+        .half-split__col--accent-gold {
+            --panel-accent: var(--color__secondary);
+            --panel-heading: var(--color__blue-900);
+            --panel-accent-on: var(--color__blue-900);  // 9.13:1 on gold
+        }
+
+        .half-split__col--accent-blue {
+            --panel-accent: var(--color__tri-county--blue);
+            --panel-heading: var(--color__blue-900);
+            --panel-accent-on: white;                   // 4.80:1 on blue
+        }
+
+        // --green--light is fills-only per _variables.scss; type takes the dark.
+        .half-split__col--accent-green {
+            --panel-accent: var(--color__green--light);
+            --panel-heading: var(--color__green--dark);
+            --panel-accent-on: var(--color__blue-900);
+        }
+
+        .half-split__col--accent-navy {
+            --panel-accent: var(--color__blue-900);
+            --panel-heading: var(--color__blue-900);
+            --panel-accent-on: white;
+        }
+
+        // Logo lockup at the top of the card.
+        .half-split__image {
+            margin-inline: auto;
+            max-width: 150px;
+
+            figure { margin: 0; }
+        }
+
+        .half-split__wysiwyg {
+            h3 {
+                @include apply-type(heading-xs);
+                text-transform: uppercase;
+                letter-spacing: 0.02em;
+                color: var(--panel-heading);
+                position: relative;
+                padding-bottom: 12px;
+                margin-bottom: 12px;
+
+                &::after {
+                    content: '';
+                    position: absolute;
+                    bottom: 0;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    width: 56px;
+                    height: 2px;
+                    background-color: var(--panel-accent);
+                }
+            }
+
+            // The phone number is the card's call to action.
+            a[href^='tel:'] {
+                display: inline-block;
+                font-size: 1.75rem;
+                line-height: 1.2;
+                font-weight: 800;
+                color: var(--panel-heading);
+                text-decoration: none;
+
+                &:hover,
+                &:focus-visible {
+                    text-decoration: underline;
+                }
+            }
+        }
+
+        // Filled bar, bled out to the card edge past the 2rem padding.
+        .half-split__panel-footer {
+            display: block;
+            margin: 2rem -2rem -2rem;
+            margin-top: auto; // pins the bar down in the mobile flex column
+            padding: 0.875rem 1.5rem;
+            background-color: var(--panel-accent);
+            color: var(--panel-accent-on);
+            font-weight: 700;
+            text-decoration: none;
+
+            &:hover,
+            &:focus-visible {
+                text-decoration: underline;
+            }
+        }
+    }
+
     &__col {
         width: 100%;
 

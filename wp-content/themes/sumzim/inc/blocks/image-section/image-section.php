@@ -6,6 +6,10 @@
 $image_section = get_field('image_section');
 $link = $image_section['link'] ?? [];
 $layout = $image_section['layout'] ?? 'default';
+$background_color = $image_section['background_color'] ?? '';
+
+$class = 'image-section';
+if ( $background_color && $background_color !== 'none' ) $class .= ' image-section--' . $background_color;
 
 $image_group = $image_section['image_group'] ?? [];
 $image = $image_group['image'] ?? [];
@@ -15,11 +19,13 @@ $image_fit = $image_group['image_fit'] ?? 'cover';
 
 $content_group = $image_section['content_group'] ?? [];
 $heading = $content_group['heading'] ?? '';
+$heading_icon = $content_group['heading_icon'] ?? '';
+$heading_accent = $content_group['heading_accent'] ?? '';
 $description = $content_group['description'] ?? '';
 ?>
 
 
-<section class="image-section">
+<section class="<?= esc_attr($class); ?>">
 	<div class="container">
 
 		<?php if($link && !empty($link)): ?>
@@ -47,7 +53,15 @@ $description = $content_group['description'] ?? '';
 			<div class="image-section__content">
 
 				<div class="image-section__content-header">
-					<h3 class="image-section__content-heading"><?= esc_html($heading); ?></h3>
+					<?php if($heading_icon): ?>
+					<span class="material-symbols-outlined image-section__content-icon" aria-hidden="true"><?= esc_html($heading_icon); ?></span>
+					<?php endif; ?>
+					<h3 class="image-section__content-heading">
+						<span class="image-section__content-heading-lead"><?= esc_html($heading); ?></span>
+						<?php if($heading_accent): ?>
+						<span class="image-section__content-heading-accent"><?= esc_html($heading_accent); ?></span>
+						<?php endif; ?>
+					</h3>
 					<div class="image-section__content-description">
 						<?= wp_kses_post($description); ?>
 					</div>
