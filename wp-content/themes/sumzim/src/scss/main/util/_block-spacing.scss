@@ -1,0 +1,13 @@
+// Block Spacing
+//
+// Pairs with the "Remove Bottom Margin" toggle in the ACF Block Spacing field
+// group, which stamps this class onto the block wrapper at render time.
+//
+// Imported after every block partial on purpose. Each block sets its bottom
+// margin on its own root class — one class of specificity, re-declared inside
+// breakpoints — so an equally specific rule declared later in the cascade wins
+// at every viewport. No !important needed, and none wanted: a block that opts
+// in should still be overridable by anything more specific downstream.
+.has-no-bottom-margin {
+    margin-bottom: 0;
+}

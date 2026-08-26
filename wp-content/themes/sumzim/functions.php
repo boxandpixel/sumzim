@@ -619,6 +619,118 @@ add_action( 'acf/init', function () {
 } );
 
 /**
+ * Block Spacing — a shared "Remove Bottom Margin" toggle on every custom block.
+ *
+ * Registered as one local field group aimed at every block ACF knows about
+ * rather than as a copy of the field in each block's own group. That way a new
+ * block picks the toggle up the moment it is registered, and the handful of
+ * legacy blocks whose field groups still live only in the database (iframe,
+ * membership-table, question-answer and friends) don't have to be touched.
+ *
+ * The field defaults to off, so nothing that already exists loses its margin.
+ */
+add_action( 'acf/init', function () {
+	if ( ! function_exists( 'acf_add_local_field_group' ) || ! function_exists( 'acf_get_block_types' ) ) {
+		return;
+	}
+
+	$block_types = acf_get_block_types();
+	if ( empty( $block_types ) ) {
+		return;
+	}
+
+	// ACF ORs location rules group-by-group, so each block needs its own group.
+	$location = [];
+	foreach ( array_keys( $block_types ) as $block_name ) {
+		$location[] = [
+			[
+				'param'    => 'block',
+				'operator' => '==',
+				'value'    => $block_name,
+			],
+		];
+	}
+
+	acf_add_local_field_group( [
+		'key'             => 'group_sumzim_block_spacing',
+		'title'           => __( 'Block Spacing', 'sumzim' ),
+		'fields'          => [
+			[
+				'key'           => 'field_sumzim_remove_bottom_margin',
+				'label'         => __( 'Remove Bottom Margin', 'sumzim' ),
+				'name'          => 'remove_bottom_margin',
+				'type'          => 'true_false',
+				'instructions'  => __( 'Collapse the space below this block so it sits flush against the block underneath.', 'sumzim' ),
+				'default_value' => 0,
+				'ui'            => 1,
+			],
+		],
+		'location'        => $location,
+		'menu_order'      => 100,
+		'position'        => 'normal',
+		'style'           => 'default',
+		'label_placement' => 'top',
+		'active'          => true,
+	] );
+}, 20 );
+
+/**
+ * Stamp the Block Spacing toggle onto the rendered block.
+ *
+ * ACF blocks each render from their own template, so instead of teaching all
+ * thirty templates about the field, the flag is applied to the wrapper here.
+ * The class is only ever added when the toggle is on — a block that has never
+ * been touched renders byte-for-byte as it did before.
+ */
+add_filter( 'render_block', function ( $block_content, $block ) {
+	if ( empty( $block['blockName'] ) || strpos( $block['blockName'], 'acf/' ) !== 0 ) {
+		return $block_content;
+	}
+
+	if ( empty( $block['attrs']['data']['remove_bottom_margin'] ) ) {
+		return $block_content;
+	}
+
+	return sumzim_add_class_to_first_tag( $block_content, 'has-no-bottom-margin' );
+}, 10, 2 );
+
+/**
+ * Add a class to the first HTML element in a string, preserving any classes
+ * already on it. Returns the markup untouched if it holds no element.
+ *
+ * The attribute pattern steps over quoted values so an attribute containing a
+ * ">" can't cut the opening tag short.
+ *
+ * @param string $html  Markup to modify.
+ * @param string $class Class name to add.
+ * @return string
+ */
+function sumzim_add_class_to_first_tag( $html, $class ) {
+	$result = preg_replace_callback(
+		'/<([a-zA-Z][a-zA-Z0-9-]*)((?:"[^"]*"|\'[^\']*\'|[^>"\'])*?)(\/?)>/',
+		function ( $matches ) use ( $class ) {
+			$attributes = $matches[2];
+
+			if ( preg_match( '/\sclass\s*=\s*("|\')(.*?)\1/s', $attributes, $existing ) ) {
+				$attributes = str_replace(
+					$existing[0],
+					' class=' . $existing[1] . trim( $existing[2] . ' ' . $class ) . $existing[1],
+					$attributes
+				);
+			} else {
+				$attributes .= ' class="' . $class . '"';
+			}
+
+			return '<' . $matches[1] . $attributes . $matches[3] . '>';
+		},
+		$html,
+		1
+	);
+
+	return null === $result ? $html : $result;
+}
+
+/**
  * Block Editor Assets
  */
 add_action( 'enqueue_block_editor_assets', function () {

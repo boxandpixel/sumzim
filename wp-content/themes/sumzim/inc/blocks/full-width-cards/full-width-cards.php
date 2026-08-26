@@ -20,6 +20,8 @@ if ($background_color === 'none'):
     $className .= ' full-width-cards--none';
 elseif ($background_color === 'light-blue'):
     $className .= ' full-width-cards--light-blue';
+elseif ($background_color === 'green-tint'):
+    $className .= ' full-width-cards--green-tint';
 elseif ($background_color === 'light-blue-gradient-to-dark'):
     $className .= ' full-width-cards--light-blue-gradient-to-dark';
 elseif ($background_color === 'light-blue-gradient-to-light'):
