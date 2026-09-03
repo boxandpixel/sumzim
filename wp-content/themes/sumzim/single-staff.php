@@ -97,16 +97,16 @@ get_header();
 								<span>of Fame</span>
 							</div>
 						<?php endif; ?>
-						<img 
+						<img
 							src="<?php echo $large_image['url']; ?>"
 							srcset="
-								<?php echo $large_image['sizes']['medium']; ?> 570w,
-								<?php echo $large_image['sizes']['large']; ?> 740w,
+								<?php echo $large_image['sizes']['medium']; ?> <?php echo $large_image['sizes']['medium-width']; ?>w,
+								<?php echo $large_image['sizes']['large']; ?> <?php echo $large_image['sizes']['large-width']; ?>w,
 							"
 							sizes="
-								(min-width: 768px) 50vw,
-								(min-width: 960px) 66vw,
 								(min-width: 1280px) 30vw,
+								(min-width: 960px) 66vw,
+								(min-width: 768px) 50vw,
 								90vw
 							"
 							alt="<?php echo $large_image['alt']; ?>"
