@@ -43,14 +43,16 @@ $logo_url       = get_template_directory_uri() . '/assets/tri-county-water-servi
 			     decoding="async">
 		</span>
 
-		<p class="banner__tricowater-message">
-			Tri-County Water Services has selected Summers &amp; Zim&rsquo;s as your new primary
-			contact for plumbing and water treatment.
-		</p>
+		<div class="banner__tricowater-content">
+			<p class="banner__tricowater-message">
+				Tri-County Water Services has selected Summers &amp; Zim&rsquo;s as your new primary
+				contact for plumbing and water treatment.
+			</p>
 
-		<a class="button button--primary banner__tricowater-button" href="<?php echo esc_url($transition_url); ?>">
-			Learn More
-		</a>
+			<a class="button button--primary banner__tricowater-button" href="<?php echo esc_url($transition_url); ?>">
+				Learn More
+			</a>
+		</div>
 	</div>
 </aside>
 

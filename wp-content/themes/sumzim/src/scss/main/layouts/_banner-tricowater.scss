@@ -5,14 +5,16 @@
  * its static position below the banner automatically — same arrangement the
  * Tommy's Electric banner used.
  *
- * Height is free to follow its content — no cap — so the message always shows
- * in full. Two layouts:
+ * Two layouts:
  *   below medium  single column: logo, then message, then button.
- *   medium and up logo in its own column, spanning both rows of the right-hand
- *                 column, which holds the message with the button beneath it.
+ *   medium and up logo on the left at the full inner height, with the message
+ *                 and button stacked beside it and centred against it.
  */
 
 .banner__tricowater {
+  // Inner height at medium and up; the banner comes to this plus its padding.
+  --banner-inner-height: 105px;
+
   // Same green wash the transition page's green-tint sections use.
   background: var(--color__green--very-light);
   border-bottom: 3px solid var(--color__tri-county--blue);
@@ -25,33 +27,31 @@
   .banner__tricowater-inner {
     max-width: 1180px;
     margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr;
-    justify-items: start;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
     gap: 8px;
 
     @include breakpoint(medium) {
-      grid-template-columns: 190px 1fr;
-      grid-template-rows: auto auto;
-      justify-items: stretch;
-      column-gap: 20px;
-      row-gap: 8px;
+      flex-direction: row;
+      align-items: stretch;
+      min-height: var(--banner-inner-height);
+      gap: 20px;
     }
   }
 
-  // The logo sits in its own cell so that from medium up it can be stretched to
-  // whatever height the message and button come to, without its own intrinsic
-  // height feeding back into the row sizing.
+  // From medium up this stretches to the full inner height, so the logo fills the
+  // banner minus its padding. The width is derived from the height rather than
+  // left to aspect-ratio: a flex item resolves its width before the stretched
+  // height is known, so aspect-ratio alone collapses the cell to zero.
   .banner__tricowater-logo-cell {
-    grid-column: 1;
-    grid-row: 1;
     display: block;
 
     @include breakpoint(medium) {
-      grid-row: 1 / 3;
+      flex: none;
       align-self: stretch;
+      width: calc(var(--banner-inner-height) * 525 / 181);
       position: relative;
-      width: 190px;
     }
   }
 
@@ -70,9 +70,19 @@
     }
   }
 
+  .banner__tricowater-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+
+    @include breakpoint(medium) {
+      flex: 1;
+      justify-content: center;
+    }
+  }
+
   .banner__tricowater-message {
-    grid-column: 1;
-    grid-row: 2;
     margin-bottom: 0;
     color: var(--color__primary--dark);
     font-size: 11px;
@@ -80,14 +90,10 @@
     line-height: 1.2;
 
     @include breakpoint(medium) {
-      grid-column: 2;
-      grid-row: 1;
       font-size: 13px;
       line-height: 1.3;
     }
 
-    // Only bump the size where the column is wide enough to hold the sentence
-    // on one line; below this it would just wrap to two and add height.
     @include breakpoint(xlarge) {
       font-size: 14px;
     }
@@ -96,17 +102,12 @@
   // Scoped size overrides only — color, radius, weight and transform all still
   // come from the site's .button--primary so it reads as the same button.
   .banner__tricowater-button {
-    grid-column: 1;
-    grid-row: 3;
     justify-content: center;
     padding: 7px 14px;
     font-size: 10px;
     white-space: nowrap;
 
     @include breakpoint(medium) {
-      grid-column: 2;
-      grid-row: 2;
-      justify-self: start;
       padding: 8px 20px;
       font-size: 12px;
     }
