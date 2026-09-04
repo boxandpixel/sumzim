@@ -14,7 +14,7 @@
 .banner__tricowater {
   // Inner height at medium and up; the banner comes to this plus its padding.
   // The logo fills this height, so raising it scales the logo with it.
-  --banner-inner-height: 120px;
+  --banner-inner-height: 100px;
 
   // Same green wash the transition page's green-tint sections use.
   background: var(--color__green--very-light);
@@ -22,7 +22,7 @@
   padding: var(--gutter);
 
   @include breakpoint(medium) {
-    padding: 20px var(--gutter__edges);
+    padding: 40px var(--gutter__edges);
   }
 
   .banner__tricowater-inner {
@@ -44,7 +44,7 @@
   .banner__tricowater-logo {
     display: block;
     width: auto;
-    height: 22px;
+    height: 60px;
 
     @include breakpoint(medium) {
       flex: none;
@@ -58,7 +58,7 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 8px;
+    gap: 16px;
 
     @include breakpoint(medium) {
       flex: 1;
@@ -69,7 +69,7 @@
   .banner__tricowater-message {
     // Sizes come from the type scale (14px mobile / 16px desktop); the heavier
     // weight is kept so it reads as a notice rather than body copy.
-    @include apply-type(small);
+    @include apply-type(heading-xxs);
     margin-bottom: 0;
     color: var(--color__primary--dark);
     font-weight: 600;
@@ -79,13 +79,13 @@
   // come from the site's .button--primary so it reads as the same button.
   .banner__tricowater-button {
     justify-content: center;
-    padding: 7px 14px;
-    font-size: 10px;
+    padding: 16px 40px;
+    font-size: 14px;
     white-space: nowrap;
 
     @include breakpoint(medium) {
-      padding: 8px 20px;
-      font-size: 12px;
+      // padding: 8px 20px;
+      // font-size: 12px;
     }
   }
 }
