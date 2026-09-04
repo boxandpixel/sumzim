@@ -13,7 +13,8 @@
 
 .banner__tricowater {
   // Inner height at medium and up; the banner comes to this plus its padding.
-  --banner-inner-height: 105px;
+  // The logo fills this height, so raising it scales the logo with it.
+  --banner-inner-height: 120px;
 
   // Same green wash the transition page's green-tint sections use.
   background: var(--color__green--very-light);
@@ -42,14 +43,14 @@
 
   .banner__tricowater-logo {
     display: block;
-    max-width: 120px;
     width: auto;
     height: 22px;
 
     @include breakpoint(medium) {
       flex: none;
-      width: 120px;
       height: auto;
+      // Capped by height; the width follows from the logo's aspect ratio.
+      max-height: var(--banner-inner-height);
     }
   }
 
