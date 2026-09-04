@@ -34,12 +34,14 @@ $logo_url       = get_template_directory_uri() . '/assets/tri-county-water-servi
 
 <aside class="banner__tricowater" role="region" aria-label="Tri-County Water Services transition notice">
 	<div class="banner__tricowater-inner">
-		<img class="banner__tricowater-logo"
-		     src="<?php echo esc_url($logo_url); ?>"
-		     alt="Tri-County Water Services"
-		     width="525"
-		     height="181"
-		     decoding="async">
+		<span class="banner__tricowater-logo-cell">
+			<img class="banner__tricowater-logo"
+			     src="<?php echo esc_url($logo_url); ?>"
+			     alt="Tri-County Water Services"
+			     width="525"
+			     height="181"
+			     decoding="async">
+		</span>
 
 		<p class="banner__tricowater-message">
 			Tri-County Water Services has selected Summers &amp; Zim&rsquo;s as your new primary
