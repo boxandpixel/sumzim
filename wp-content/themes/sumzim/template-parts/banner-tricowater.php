@@ -34,14 +34,12 @@ $logo_url       = get_template_directory_uri() . '/assets/tri-county-water-servi
 
 <aside class="banner__tricowater" role="region" aria-label="Tri-County Water Services transition notice">
 	<div class="banner__tricowater-inner">
-		<span class="banner__tricowater-logo-cell">
-			<img class="banner__tricowater-logo"
-			     src="<?php echo esc_url($logo_url); ?>"
-			     alt="Tri-County Water Services"
-			     width="525"
-			     height="181"
-			     decoding="async">
-		</span>
+		<img class="banner__tricowater-logo"
+		     src="<?php echo esc_url($logo_url); ?>"
+		     alt="Tri-County Water Services"
+		     width="525"
+		     height="181"
+		     decoding="async">
 
 		<div class="banner__tricowater-content">
 			<p class="banner__tricowater-message">
