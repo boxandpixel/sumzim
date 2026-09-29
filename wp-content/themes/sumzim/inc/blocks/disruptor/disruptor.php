@@ -21,6 +21,12 @@ if ($is_centered_text) {
 
 $has_image = !empty($image);
 
+// A WYSIWYG left blank can still save empty tags or &nbsp;, so check for real
+// text (or an inline image) rather than a non-empty string.
+$has_description = trim(str_replace('&nbsp;', ' ', wp_strip_all_tags($description))) !== ''
+	|| strpos($description, '<img') !== false;
+$has_text = $heading || $has_description;
+
 // Backgrounds dark enough to need light text and a white button.
 $dark_backgrounds = ['gradient', 'dark-navy'];
 $is_dark = in_array($background_color, $dark_backgrounds, true);
@@ -39,6 +45,7 @@ if ($is_centered_text) {
 
 <section class="<?php echo esc_attr(implode(' ', $classes)); ?>">
 	<div class="container">
+		<?php if ($has_image || $has_text): ?>
 		<div class="disruptor__content">
 			<?php if ($has_image): ?>
 			<div class="disruptor__image">
@@ -51,15 +58,20 @@ if ($is_centered_text) {
 				     loading="lazy" />
 			</div>
 			<?php endif; ?>
+			<?php if ($has_text): ?>
 			<div class="disruptor__content-text">
 				<?php if ($heading): ?>
 				<h2 class="disruptor__content-heading"><?= esc_html($heading); ?></h2>
 				<?php endif; ?>
+				<?php if ($has_description): ?>
 				<div class="disruptor__content-description">
 					<?= wp_kses_post($description); ?>
 				</div>
+				<?php endif; ?>
 			</div>
+			<?php endif; ?>
 		</div>
+		<?php endif; ?>
 
 		<?php if($button): ?>
 		<div class="disruptor__button">
