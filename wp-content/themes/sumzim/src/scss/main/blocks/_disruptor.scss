@@ -147,9 +147,10 @@
         }
     }
 
-    // Text-only variation: no image, no button, everything centered.
-    // The template drops the image and button markup, so this only has to
-    // collapse the two-column container and re-center the text.
+    // Centered variation: no image, everything centered. The template drops
+    // the image markup, so this only has to collapse the two-column container
+    // and re-center the text. The optional button lands in the next grid row,
+    // below the text.
     &--centered-text {
         .container {
             grid-template-columns: repeat(1, minmax(0, 1fr));
@@ -171,6 +172,10 @@
                 &-description {
                     text-align: center;
                 }
+            }
+
+            .disruptor__button {
+                justify-content: center;
             }
         }
     }

@@ -24,7 +24,7 @@
                     "name": "layout",
                     "aria-label": "",
                     "type": "select",
-                    "instructions": "Centered Text hides the image and button and centers all content.",
+                    "instructions": "Centered Text hides the image and centers all content, with the optional button below the text.",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -34,7 +34,7 @@
                     },
                     "choices": {
                         "default": "Default",
-                        "centered-text": "Centered Text (no image or button)"
+                        "centered-text": "Centered Text (no image)"
                     },
                     "default_value": "default",
                     "return_format": "value",
@@ -131,15 +131,7 @@
                     "type": "link",
                     "instructions": "",
                     "required": 0,
-                    "conditional_logic": [
-                        [
-                            {
-                                "field": "field_69fb00disrupt1",
-                                "operator": "!=",
-                                "value": "centered-text"
-                            }
-                        ]
-                    ],
+                    "conditional_logic": 0,
                     "wrapper": {
                         "width": "",
                         "class": "",
@@ -203,5 +195,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1787675631
+    "modified": 1790703786
 }

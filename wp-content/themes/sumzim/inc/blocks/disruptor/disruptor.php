@@ -11,12 +11,12 @@ $description = $disruptor['description'] ?? '';
 $button = $disruptor['button'] ?? [];
 $background_color = $disruptor['background_color'] ?? '';
 
-// The centered-text layout is text only: no image, no button, everything centered.
+// The centered-text layout has no image; everything is centered, with the
+// optional button stacked below the text.
 $is_centered_text = ($layout === 'centered-text');
 
 if ($is_centered_text) {
 	$image = null;
-	$button = [];
 }
 
 $has_image = !empty($image);
