@@ -1,37 +1,65 @@
 name: Deploy to Kinsta
 
+# Button-only, deliberately -- same call as northernvirginiamag.com, trebron.com and
+# tasteofnova.com. This used to run on every push to `main`, which made
+# `git push origin main` an immediate production deploy with no confirmation step.
+#
+# There is no branch input here, unlike staging. On production a dropdown would be
+# a way to put any branch on the live site. Production always deploys `main`.
+#
+# Deploying is: push to main, then run this workflow from the Actions tab.
 on:
-  push:
-    branches:
-      - main
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Preview only -- list what would change, write nothing'
+        type: boolean
+        default: false
+
+# Two production deploys racing each other would run git reset in the same
+# checkout. Queue them instead, and never cancel one mid-deploy.
+concurrency:
+  group: kinsta-production
+  cancel-in-progress: false
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
-      # Setup Node.js (only if needed for build tasks)
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20.x'
-
-      # Checkout the latest code from the GitHub repository
-      - name: Checkout code
-        uses: actions/checkout@v4.1.6
-
-      # Deploy to Kinsta via SSH
+      # Unlike trebron.com and tasteofnova.com, the runner doesn't hold the files.
+      # The Kinsta site root is a git checkout of this repo, so the deploy is a fetch
+      # and reset on the server, as this site has always deployed. That also covers
+      # files outside the theme (mu-plugins, favicons at the web root).
+      #
+      # No Node here: style.css and scripts.min.js are compiled locally with gulp and
+      # committed, so there is nothing to build.
+      #
+      # Resetting to FETCH_HEAD rather than origin/main doesn't depend on how the
+      # server's remote refspec is configured. reset --hard leaves untracked files
+      # (uploads, wp-config.php) alone, but wipes any edits made to tracked files on
+      # the server -- the dry run lists those first.
       - name: Deploy via SSH
         uses: appleboy/ssh-action@v1.0.3
+        env:
+          DRY_RUN: ${{ inputs.dry_run }}
         with:
           host: ${{ secrets.KINSTA_SERVER_IP }}
           username: ${{ secrets.KINSTA_USERNAME }}
           password: ${{ secrets.PASSWORD }}
-          port: ${{ secrets.PORT }} # Optional, default is 22
+          port: ${{ secrets.PORT }}
+          envs: DRY_RUN
           script: |
-            # Navigate to the live site directory
+            set -e
             cd /www/summerszims_390/public
-
-            # Pull the latest changes from the GitHub repository
             git fetch origin main
-            git reset --hard origin/main  # Ensure the live site matches the latest main branch
+            echo "Live is at:     $(git log -1 --format='%h %s' HEAD)"
+            echo "Deploying main: $(git log -1 --format='%h %s' FETCH_HEAD)"
+            if [ "$DRY_RUN" = "true" ]; then
+              echo "--- Dry run: files that would change"
+              git diff --stat HEAD FETCH_HEAD
+              echo "--- Dry run: server-side edits to tracked files that would be overwritten"
+              git status --short --untracked-files=no
+              exit 0
+            fi
+            git reset --hard FETCH_HEAD

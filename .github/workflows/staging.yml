@@ -1,37 +1,70 @@
-name: Deploy to Kinsta
+name: Deploy to Kinsta Staging
 
+# Button-only, like production. This used to run on every push to `staging`.
+#
+# Staging takes a branch input and production does not. Choosing a branch is the
+# point here -- this is where a feature branch gets looked at before it goes near
+# the live site. Same reasoning as northernvirginiamag.com's staging workflow.
 on:
-  push:
-    branches:
-      - staging
+  workflow_dispatch:
+    inputs:
+      branch:
+        description: 'Branch to deploy to staging'
+        required: true
+        default: 'staging'
+      dry_run:
+        description: 'Preview only -- list what would change, write nothing'
+        type: boolean
+        default: false
+
+concurrency:
+  group: kinsta-staging
+  cancel-in-progress: false
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
-      # Setup Node.js (only if needed for build tasks)
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      # The branch name ends up in a shell on the server, so check it's a real
+      # branch name before it goes anywhere. Checking it out also fails the run
+      # early if the branch hasn't been pushed.
+      - name: Check out the chosen branch
+        uses: actions/checkout@v4
         with:
-          node-version: '20.x'
+          ref: ${{ inputs.branch }}
 
-      # Checkout the latest code from the GitHub repository
-      - name: Checkout code
-        uses: actions/checkout@v4.1.6
+      - name: Validate branch name
+        env:
+          BRANCH: ${{ inputs.branch }}
+        run: git check-ref-format --branch "$BRANCH"
 
-      # Deploy to Kinsta via SSH
+      # Identical to main.yml except for the password, port and branch. On Kinsta the
+      # staging environment is the same host and site path, reached on its own SSH
+      # port. The branch is passed as an env var rather than templated into the
+      # script, so it can't inject shell.
       - name: Deploy via SSH
         uses: appleboy/ssh-action@v1.0.3
+        env:
+          BRANCH: ${{ inputs.branch }}
+          DRY_RUN: ${{ inputs.dry_run }}
         with:
           host: ${{ secrets.KINSTA_SERVER_IP }}
           username: ${{ secrets.KINSTA_USERNAME }}
           password: ${{ secrets.PASSWORD_STAGING }}
-          port: ${{ secrets.PORT_STAGING }} # Optional, default is 22
+          port: ${{ secrets.PORT_STAGING }}
+          envs: BRANCH,DRY_RUN
           script: |
-            # Navigate to the live site directory
+            set -e
             cd /www/summerszims_390/public
-
-            # Pull the latest changes from the GitHub repository
-            git fetch origin staging
-            git reset --hard origin/staging  # Ensure the live site matches the latest main branch
+            git fetch origin "$BRANCH"
+            echo "Staging is at: $(git log -1 --format='%h %s' HEAD)"
+            echo "Deploying $BRANCH: $(git log -1 --format='%h %s' FETCH_HEAD)"
+            if [ "$DRY_RUN" = "true" ]; then
+              echo "--- Dry run: files that would change"
+              git diff --stat HEAD FETCH_HEAD
+              echo "--- Dry run: server-side edits to tracked files that would be overwritten"
+              git status --short --untracked-files=no
+              exit 0
+            fi
+            git reset --hard FETCH_HEAD
