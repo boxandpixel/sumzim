@@ -114,7 +114,13 @@ $slider_id = 'staff-slider-' . uniqid();
                         <a href="<?= esc_url($staff_url); ?>" class="staff-card">
                             <?php if($thumbnail_image && !empty($thumbnail_image['url'])): ?>
                                 <div class="staff-card__image-wrapper">
-                                    <div class="staff-card__image" style="background-image: url('<?= esc_url($thumbnail_image['url']); ?>');"></div>
+                                    <?= wp_get_attachment_image($thumbnail_image['ID'], 'medium_large', false, [
+                                        'class'    => 'staff-card__image',
+                                        'alt'      => '',
+                                        'loading'  => 'lazy',
+                                        'decoding' => 'async',
+                                        'sizes'    => '(min-width: 1024px) 200px, (min-width: 768px) 25vw, 50vw',
+                                    ]); ?>
                                     <div class="staff-card__gradient"></div>
                                     
                                     <div class="staff-card__overlay-content">

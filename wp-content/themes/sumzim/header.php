@@ -43,40 +43,6 @@
 
 
 
-<!-- Google Fonts -->
-<!-- 20231117 -->
-<link rel="preconnect" href="https://static.servicetitan.com" />
-<link rel="preconnect"
-      href="https://fonts.gstatic.com"
-      crossorigin />
-<!-- Raleway -->
-<link rel="preload"
-      as="style"
-      href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800;900&display=swap" />
-<link rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800;900&display=swap"
-      media="print" onload="this.media='all'" />
-<noscript>
-  <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800;900&display=swap" />
-</noscript>
-
-<!-- Material Symbols Outlined (subsetted) -->
-<link rel="preload"
-      as="style"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=360,add,arrow_back,arrow_forward,attach_money,award_star,calendar_month,check,check_circle,checklist,chevron_left,chevron_right,close,collapse_content,construction,design_services,east,electric_bolt,exclamation,expand_content,expand_less,expand_more,format_quote,forum,frame_exclamation,handshake,hearing,heat,home,hvac,inventory_2,keyboard_arrow_up,lightbulb_2,local_shipping,menu,mode_fan,open_in_new,pace,plumbing,remove,safety_check,school,search,sentiment_dissatisfied,sentiment_satisfied,shield_person,shield_with_house,star,task_alt,trending_up,valve,water_drop&display=swap" />
-<link rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=360,add,arrow_back,arrow_forward,attach_money,award_star,calendar_month,check,check_circle,checklist,chevron_left,chevron_right,close,collapse_content,construction,design_services,east,electric_bolt,exclamation,expand_content,expand_less,expand_more,format_quote,forum,frame_exclamation,handshake,hearing,heat,home,hvac,inventory_2,keyboard_arrow_up,lightbulb_2,local_shipping,menu,mode_fan,open_in_new,pace,plumbing,remove,safety_check,school,search,sentiment_dissatisfied,sentiment_satisfied,shield_person,shield_with_house,star,task_alt,trending_up,valve,water_drop&display=swap"
-      media="print" onload="this.media='all'" />
-<noscript>
-  <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=360,add,arrow_back,arrow_forward,attach_money,award_star,calendar_month,check,check_circle,checklist,chevron_left,chevron_right,close,collapse_content,construction,design_services,east,electric_bolt,exclamation,expand_content,expand_less,expand_more,format_quote,forum,frame_exclamation,handshake,hearing,heat,home,hvac,inventory_2,keyboard_arrow_up,lightbulb_2,local_shipping,menu,mode_fan,open_in_new,pace,plumbing,remove,safety_check,school,search,sentiment_dissatisfied,sentiment_satisfied,shield_person,shield_with_house,star,task_alt,trending_up,valve,water_drop&display=swap" />
-</noscript>
-
-	<!-- preload video poster -->
-	 <link rel="preload" as="image" href="https://sumzim.com/wp-content/uploads/2024/11/home-background.webp">
-
-
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#000000">
   <meta name="msapplication-TileColor" content="#16375a">

@@ -159,6 +159,40 @@ wp_enqueue_script( 'site-scripts', get_template_directory_uri() . '/scripts.min.
 add_action( 'wp_enqueue_scripts', 'sumzim_scripts' );
 
 /**
+ * Self-hosted fonts.
+ *
+ * Raleway is a variable font, so one file per subset covers every weight.
+ * The fallback faces scale Arial (desktop) and Roboto (Android) to Raleway's
+ * metrics so text doesn't reflow when the web font swaps in (CLS).
+ * Material Symbols is the icon_names subset Google generates; icons get a
+ * fixed 1em box so the ligature text can't take up space before the font loads.
+ */
+function sumzim_fonts() {
+	$fonts = get_template_directory_uri() . '/assets/fonts';
+	?>
+	<link rel="preload" href="<?php echo esc_url( $fonts . '/raleway-latin.woff2' ); ?>" as="font" type="font/woff2" crossorigin>
+	<style id="sumzim-fonts">
+		@font-face{font-family:"Raleway";font-style:normal;font-weight:100 900;font-display:swap;src:url(<?php echo esc_url( $fonts . '/raleway-latin.woff2' ); ?>) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+		@font-face{font-family:"Raleway";font-style:normal;font-weight:100 900;font-display:swap;src:url(<?php echo esc_url( $fonts . '/raleway-latin-ext.woff2' ); ?>) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C4,U+2113,U+2C60-2C7F,U+A720-A7FF}
+		@font-face{font-family:"Raleway Fallback Arial";font-weight:100 549;src:local("Arial"),local("ArialMT");size-adjust:103.72%;ascent-override:90.63%;descent-override:22.56%;line-gap-override:0%}
+		@font-face{font-family:"Raleway Fallback Arial";font-weight:550 900;src:local("Arial Bold"),local("Arial-BoldMT");size-adjust:99.62%;ascent-override:94.35%;descent-override:23.49%;line-gap-override:0%}
+		@font-face{font-family:"Raleway Fallback Roboto";font-weight:100 549;src:local("Roboto"),local("Roboto-Regular");size-adjust:104.08%;ascent-override:90.31%;descent-override:22.48%;line-gap-override:0%}
+		@font-face{font-family:"Raleway Fallback Roboto";font-weight:550 900;src:local("Roboto Bold"),local("Roboto-Bold");size-adjust:105.93%;ascent-override:88.74%;descent-override:22.09%;line-gap-override:0%}
+		@font-face{font-family:"Material Symbols Outlined";font-style:normal;font-weight:100 700;font-display:block;src:url(<?php echo esc_url( $fonts . '/material-symbols-outlined.woff2' ); ?>) format("woff2")}
+		.material-symbols-outlined{font-family:"Material Symbols Outlined";font-weight:normal;font-style:normal;font-size:24px;line-height:1;letter-spacing:normal;text-transform:none;display:inline-block;width:1em;height:1em;overflow:hidden;white-space:nowrap;word-wrap:normal;direction:ltr;-webkit-font-feature-settings:"liga";font-feature-settings:"liga";-webkit-font-smoothing:antialiased}
+	</style>
+	<?php
+}
+add_action( 'wp_head', 'sumzim_fonts', 2 );
+
+/**
+ * Remove core emoji detection; the site doesn't rely on emoji images.
+ */
+remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
+remove_action( 'wp_print_styles', 'print_emoji_styles' );
+remove_action( 'wp_enqueue_scripts', 'wp_enqueue_emoji_styles' );
+
+/**
  * Implement the Custom Header feature.
  */
 require get_template_directory() . '/inc/custom-header.php';
@@ -232,8 +266,6 @@ function register_staff() {
 			'parent' => 'Parent Staff'
 		)
 	) );
-
-	flush_rewrite_rules( false );
 }
 add_action('init', 'register_staff');
 

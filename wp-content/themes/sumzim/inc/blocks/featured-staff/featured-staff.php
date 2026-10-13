@@ -61,7 +61,13 @@ if (empty($staff_members)) {
             <a href="<?= esc_url($staff_url); ?>" class="staff-card">
                 <?php if($thumbnail_image && !empty($thumbnail_image['url'])): ?>
                     <figure class="staff-card__image-wrapper">
-                        <div class="staff-card__image" style="background-image: url('<?= esc_url($thumbnail_image['url']); ?>');"></div>
+                        <?php echo wp_get_attachment_image($thumbnail_image['ID'], 'medium_large', false, array(
+                        	'class'    => 'staff-card__image',
+                        	'alt'      => '',
+                        	'loading'  => 'lazy',
+                        	'decoding' => 'async',
+                        	'sizes'    => '(min-width: 1024px) 300px, 50vw',
+                        )); ?>
                         <div class="staff-card__gradient"></div>
 
                         <div class="staff-card__overlay-content">

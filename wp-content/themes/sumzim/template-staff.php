@@ -71,7 +71,13 @@ get_header();
 				?>
 					<a href="<?php the_permalink(); ?>" class="staff-card" data-name="<?php echo esc_attr(get_the_title()); ?>">
 						<figure class="staff-card__image-wrapper">
-							<div class="staff-card__image" style="background-image: url('<?php echo esc_url($staff_thumbnail['url']); ?>');"></div>
+							<?php echo wp_get_attachment_image($staff_thumbnail['ID'], 'medium_large', false, array(
+								'class'    => 'staff-card__image',
+								'alt'      => '',
+								'loading'  => 'lazy',
+								'decoding' => 'async',
+								'sizes'    => '(min-width: 1024px) 300px, 50vw',
+							)); ?>
 							<div class="staff-card__gradient"></div>
 							<div class="staff-card__overlay-content">
 								<figcaption class="staff-card__name"><?php the_title(); ?></figcaption>
@@ -119,7 +125,13 @@ get_header();
 								<span>SZ Wall</span>
 								<span>of Fame</span>
 							</div>
-							<div class="staff-card__image" style="background-image: url('<?php echo esc_url($staff_thumbnail['url']); ?>');"></div>
+							<?php echo wp_get_attachment_image($staff_thumbnail['ID'], 'medium_large', false, array(
+								'class'    => 'staff-card__image',
+								'alt'      => '',
+								'loading'  => 'lazy',
+								'decoding' => 'async',
+								'sizes'    => '(min-width: 1024px) 300px, 50vw',
+							)); ?>
 							<div class="staff-card__gradient"></div>
 							<div class="staff-card__overlay-content">
 								<figcaption class="staff-card__name"><?php the_title(); ?></figcaption>

@@ -74,7 +74,8 @@ if ($image) {
             <script>
             (function(){
               var v=document.querySelector('.homepage-hero__video');
-              if(!v)return;
+              // The video is hidden below 768px; calling play() there would still download it.
+              if(!v||!window.matchMedia('(min-width: 768px)').matches)return;
               if(window.PerformanceObserver){
                 new PerformanceObserver(function(list,obs){obs.disconnect();v.play().catch(function(){});}).observe({type:'largest-contentful-paint',buffered:true});
               } else {

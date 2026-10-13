@@ -220,8 +220,16 @@
     y.src=r;u.parentNode.insertBefore(y,u);q[t]('init','05e09310-291c-4804-8f21-0a371f946097');
     })(window,document,'script','https://static.servicetitan.com/text2chat/shim.js','T2CWidgetManager');
   }
-  ['mousemove','keydown','touchstart','scroll'].forEach(function(ev) {
-    document.addEventListener(ev, loadT2C, {once: true, passive: true});
+  // Load during idle time after the page has loaded, not on the first touch/scroll,
+  // so the widget's script doesn't block the visitor's first interaction (INP).
+  window.addEventListener('load', function() {
+    setTimeout(function() {
+      if ('requestIdleCallback' in window) {
+        requestIdleCallback(loadT2C, { timeout: 2000 });
+      } else {
+        loadT2C();
+      }
+    }, 4000);
   });
 })();
 </script>
@@ -240,16 +248,34 @@
     s.setAttribute('data-schedulerid', 'sched_ejqbmr1e0g7tagr59sdo4rr2');
     s.id = 'se-widget-embed';
     s.src = 'https://embed.scheduler.servicetitan.com/scheduler-v1.js';
+    // show() posts into the scheduler iframe, so queued clicks must wait for the
+    // iframe's "se-app-ready" message; calls made before then are dropped.
+    function flushQueue() {
+      window.removeEventListener('message', onMessage);
+      queue.forEach(function(o) { window._scheduler && window._scheduler.show(o); });
+      queue = [];
+    }
+    function onMessage(e) {
+      if (e.data && e.data.type === 'se-app-ready') setTimeout(flushQueue, 0);
+    }
+    window.addEventListener('message', onMessage);
     s.onload = function() {
-      setTimeout(function() {
-        queue.forEach(function(o) { window._scheduler && window._scheduler.show(o); });
-        queue = [];
-      }, 50);
+      setTimeout(function() { if (queue.length) flushQueue(); }, 8000);
     };
     document.head.appendChild(s);
   }
-  ['mousemove','keydown','touchstart','scroll'].forEach(function(ev) {
-    document.addEventListener(ev, loadScheduler, {once: true, passive: true});
+  // Start loading when a visitor shows intent on a Book Now button; clicks before
+  // the script arrives are queued above.
+  function onIntent(e) {
+    if (e.target.closest && e.target.closest('[onclick*="_scheduler"]')) {
+      loadScheduler();
+      ['pointerover','focusin','touchstart'].forEach(function(ev) {
+        document.removeEventListener(ev, onIntent, true);
+      });
+    }
+  }
+  ['pointerover','focusin','touchstart'].forEach(function(ev) {
+    document.addEventListener(ev, onIntent, {capture: true, passive: true});
   });
 })();
 </script>
@@ -275,7 +301,7 @@ if(is_front_page()):
 	<!-- Start StackAdapt Click to Call Pixel -->
 	<?php if(!is_page("free-estimate")): ?>
 	<script>
-		document.getElementById("sa-click-to-call").addEventListener("click",function() { !function(s,a,e,v,n,t,z){if(s.saq)return;n=s.saq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!s._saq)s._saq=n;n.push=n;n.loaded=!0;n.version='1.0';n.queue=[];t=a.createElement(e);t.async=!0;t.src=v;z=a.getElementsByTagName(e)[0];z.parentNode.insertBefore(t,z)}(window,document,'script','https://tags.srv.stackadapt.com/events.js');saq('conv', 'cuJArc7ZMDOyfyEhCMMMuU'); });
+		document.getElementById("sa-click-to-call")?.addEventListener("click",function() { !function(s,a,e,v,n,t,z){if(s.saq)return;n=s.saq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!s._saq)s._saq=n;n.push=n;n.loaded=!0;n.version='1.0';n.queue=[];t=a.createElement(e);t.async=!0;t.src=v;z=a.getElementsByTagName(e)[0];z.parentNode.insertBefore(t,z)}(window,document,'script','https://tags.srv.stackadapt.com/events.js');saq('conv', 'cuJArc7ZMDOyfyEhCMMMuU'); });
 	</script>
 	<?php endif; ?>
 			
@@ -283,7 +309,7 @@ if(is_front_page()):
 
 	<!-- StackAdapt: Pay Online -->
 	<script>
-			document.getElementById("pay-online-menu-item").addEventListener("click",function() {
+			document.getElementById("pay-online-menu-item")?.addEventListener("click",function() {
 					!function(s,a,e,v,n,t,z){if(s.saq)return;n=s.saq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!s._saq)s._saq=n;n.push=n;n.loaded=!0;n.version='1.0';n.queue=[];t=a.createElement(e);t.async=!0;t.src=v;z=a.getElementsByTagName(e)[0];z.parentNode.insertBefore(t,z)}(window,document,'script','https://tags.srv.stackadapt.com/events.js');saq('conv', '97jggc45ox7tJbCnR4CEbJ');
 			});
 	</script>	 

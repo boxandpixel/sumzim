@@ -100,7 +100,7 @@ $color__text:       hsla(0, 0%, 33%, 1); // #555
 $color__text--light: hsla(0, 0%, 80%, 1);
 $color__text--dark: hsla(0, 0%, 20%, 1); // #333
 
-$font__family: "Raleway", "Verdana", "sans-serif";
+$font__family: "Raleway", "Raleway Fallback Arial", "Raleway Fallback Roboto", sans-serif;
 $font__letter-spacing: 0.05ch;
 
 
