@@ -41,11 +41,37 @@
                 },
                 {
                     "key": "field_698dd82480788",
-                    "label": "Image",
+                    "label": "Image (desktop)",
                     "name": "image",
                     "aria-label": "",
                     "type": "image",
-                    "instructions": "",
+                    "instructions": "Landscape, 1920×1080 or larger (16:9). Used on tablets and desktop, and on phones when no mobile image is set. Shown until the video starts, so match the video's opening shot.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": "",
+                    "allow_in_bindings": 0,
+                    "preview_size": "medium"
+                },
+                {
+                    "key": "field_698dd82480799",
+                    "label": "Mobile image",
+                    "name": "mobile_image",
+                    "aria-label": "",
+                    "type": "image",
+                    "instructions": "Portrait, about 1080×1620 (2:3). Used below 768px wide, where the video doesn't play. Keep the subject out of the top third, which sits behind the header. Optional.",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -188,5 +214,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1770905351
+    "modified": 1791903389
 }

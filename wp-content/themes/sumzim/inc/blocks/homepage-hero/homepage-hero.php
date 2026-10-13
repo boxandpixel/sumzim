@@ -2,7 +2,9 @@
 /**
  * Homepage Hero Block
  * 
- * Full-width hero with background video (desktop) / image (mobile)
+ * Full-width hero with background video (desktop) / image (mobile).
+ * The optional mobile image swaps in below 768px via <picture>, matching the
+ * breakpoint where the video is hidden.
  */
 
 $hero = get_field('homepage_hero');
@@ -13,51 +15,61 @@ if (empty($hero)) {
 
 $video = !empty($hero['video']) ? $hero['video'] : null;
 $image = !empty($hero['image']) ? $hero['image'] : null;
+$mobile_image = !empty($hero['mobile_image']) ? $hero['mobile_image'] : null;
 $headline = !empty($hero['headline']) ? $hero['headline'] : '';
 $button_type = !empty($hero['button_type']) ? $hero['button_type'] : '';
 $page_link = !empty($hero['page_link']) ? $hero['page_link'] : null;
 $book_now_title = !empty($hero['book_now_link_title']) ? $hero['book_now_link_title'] : '';
 
+// With only a mobile image set, use it everywhere rather than show nothing.
+if (!$image && $mobile_image) {
+    $image = $mobile_image;
+    $mobile_image = null;
+}
+
 if (!$video && !$image && !$headline) {
     return;
 }
 
-// Responsive image setup
+// Responsive image setup. wp_get_attachment_image_srcset() lists every
+// generated size with the same aspect ratio as the original, up to full.
 $image_url = $image['url'] ?? '';
 $image_alt = $image['alt'] ?? $headline;
-$image_srcset = '';
-
-if ($image) {
-    $sizes_to_check = ['medium', 'medium_large', 'large', 'full'];
-    $srcset_parts = [];
-    
-    foreach ($sizes_to_check as $size) {
-        if ($size === 'full') {
-            $srcset_parts[] = $image['url'] . ' ' . $image['width'] . 'w';
-        } elseif (!empty($image['sizes'][$size])) {
-            $srcset_parts[] = $image['sizes'][$size] . ' ' . $image['sizes'][$size . '-width'] . 'w';
-        }
-    }
-    
-    $image_srcset = implode(', ', $srcset_parts);
+$image_srcset = $image ? wp_get_attachment_image_srcset($image['ID'], 'full') : '';
+$mobile_srcset = $mobile_image ? wp_get_attachment_image_srcset($mobile_image['ID'], 'full') : '';
+if ($mobile_image && !$mobile_srcset) {
+    $mobile_srcset = $mobile_image['url'];
 }
 ?>
 
 <section class="homepage-hero">
     <div class="homepage-hero__media">
         <?php if ($image): ?>
-            <img 
-                class="homepage-hero__image<?php echo $video ? ' homepage-hero__image--fallback' : ''; ?>"
-                src="<?php echo esc_url($image_url); ?>"
-                <?php if ($image_srcset): ?>
-                    srcset="<?php echo esc_attr($image_srcset); ?>"
-                    sizes="100vw"
+            <picture>
+                <?php if ($mobile_image): ?>
+                    <source
+                        media="(max-width: 767px)"
+                        srcset="<?php echo esc_attr($mobile_srcset); ?>"
+                        sizes="100vw"
+                        width="<?php echo esc_attr($mobile_image['width']); ?>"
+                        height="<?php echo esc_attr($mobile_image['height']); ?>"
+                    />
                 <?php endif; ?>
-                alt="<?php echo esc_attr($image_alt); ?>"
-                loading="eager"
-                fetchpriority="high"
-                decoding="async"
-            />
+                <img 
+                    class="homepage-hero__image<?php echo $video ? ' homepage-hero__image--fallback' : ''; ?>"
+                    src="<?php echo esc_url($image_url); ?>"
+                    <?php if ($image_srcset): ?>
+                        srcset="<?php echo esc_attr($image_srcset); ?>"
+                        sizes="100vw"
+                    <?php endif; ?>
+                    width="<?php echo esc_attr($image['width']); ?>"
+                    height="<?php echo esc_attr($image['height']); ?>"
+                    alt="<?php echo esc_attr($image_alt); ?>"
+                    loading="eager"
+                    fetchpriority="high"
+                    decoding="async"
+                />
+            </picture>
         <?php endif; ?>
 
         <?php if ($video): ?>
