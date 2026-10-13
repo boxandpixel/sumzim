@@ -83,7 +83,7 @@
 <footer class="site-footer">
   <div class="footer__header">
     <div class="footer__header-brand">
-      <img src="<?= esc_attr($logo['url']) ?>" alt="<?= esc_attr($logo['alt']) ?>" width="<?= esc_attr($logo['width']) ?>" height="<?= esc_attr($logo['height']) ?>" class="footer__header-brand-logo">
+      <img src="<?= esc_attr($logo['url']) ?>" alt="<?= esc_attr($logo['alt']) ?>" width="<?= esc_attr($logo['width']) ?>" height="<?= esc_attr($logo['height']) ?>" class="footer__header-brand-logo" loading="lazy" decoding="async">
       <p class="footer__header-brand-tagline"><?= esc_html($tagline); ?></p>
     </div>
     <div class="footer__header-contact">
@@ -141,7 +141,7 @@
             ?>
               <li class="footer__menu-about-social-icon">
                 <a href="<?= esc_attr($social_icon_link['url']); ?>" target="_blank" class="footer__menu-about-social-icon-link">
-                  <img src="<?= $social_icon_image_url; ?>" alt="<?= $social_icon_image_alt; ?>" class="footer__menu-about-social-icon-link-image">
+                  <img src="<?= $social_icon_image_url; ?>" alt="<?= $social_icon_image_alt; ?>" class="footer__menu-about-social-icon-link-image" loading="lazy" decoding="async">
                 </a>
               </li>
               <?php endforeach; ?>
@@ -183,7 +183,7 @@
  
     <div class="footer__footer-brand-associations">
       <div class="footer__footer-associations-badge">
-          <img src="<?= esc_attr($safety_seal['url']); ?>" alt="<?= esc_attr($safety_seal['alt']); ?>" width="<?= esc_attr($safety_seal['width']); ?>" height="<?= esc_attr($safety_seal['height']); ?>" class="footer__brand-badge">
+          <img src="<?= esc_attr($safety_seal['url']); ?>" alt="<?= esc_attr($safety_seal['alt']); ?>" width="<?= esc_attr($safety_seal['width']); ?>" height="<?= esc_attr($safety_seal['height']); ?>" class="footer__brand-badge" loading="lazy" decoding="async">
       </div>
       <ul class="footer__associations">
         <?php foreach($associations as $association): ?>

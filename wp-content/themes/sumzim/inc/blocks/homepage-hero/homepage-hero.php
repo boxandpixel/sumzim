@@ -73,13 +73,14 @@ if ($mobile_image && !$mobile_srcset) {
         <?php endif; ?>
 
         <?php if ($video): ?>
+            <?php // No poster: browsers download it even while the video is hidden on mobile.
+                  // The <picture> above sits underneath and shows until the first frame plays. ?>
             <video
                 class="homepage-hero__video"
                 muted
                 loop
                 playsinline
                 preload="none"
-                poster="<?php echo $image ? esc_url($image_url) : ''; ?>"
             >
                 <source src="<?php echo esc_url($video['url']); ?>" type="video/mp4">
             </video>

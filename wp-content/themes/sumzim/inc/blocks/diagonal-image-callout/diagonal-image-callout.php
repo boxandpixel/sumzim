@@ -14,7 +14,17 @@ $diagonal_img_link_url     = ( $diagonal_content_img_link && ! empty( $diagonal_
 $diagonal_content_align    = ! empty( $diagonal_image_callout['diagonal_content_alignment'] ) ? strtolower( $diagonal_image_callout['diagonal_content_alignment'] ) : 'left';
 ?>
 
-<section class="diagonal-image-callout" style="background-image: url(<?php echo esc_url( $diagonal_image['url'] ); ?>);">
+<?php
+// On the front end the background is applied near the viewport by
+// src/js/main/lazy-backgrounds.js; the editor preview doesn't load that script.
+$diagonal_bg_attr = '';
+if ( ! empty( $diagonal_image['url'] ) ) {
+	$diagonal_bg_attr = ! empty( $is_preview )
+		? ' style="background-image: url(' . esc_url( $diagonal_image['url'] ) . ');"'
+		: ' data-lazy-bg="' . esc_url( $diagonal_image['url'] ) . '"';
+}
+?>
+<section class="diagonal-image-callout"<?php echo $diagonal_bg_attr; ?>>
 	<div class="diagonal-content-container diagonal-content-container--<?php echo esc_attr( $diagonal_content_align ); ?>">
 		<div class="diagonal-content">
 			<?php if ( $diagonal_content_heading ) : ?>
