@@ -6,8 +6,10 @@
  * Hand-picked staff appear first, followed by remaining staff alphabetically
  */
 
+// Swiper JS is not enqueued; it is injected when the slider nears the viewport
+// so it stays off the main thread before LCP
 $swiper_version = filemtime( get_template_directory() . '/js/vendor/swiper-bundle.min.js' );
-wp_enqueue_script( 'swiper', get_template_directory_uri() . '/js/vendor/swiper-bundle.min.js', array(), $swiper_version, true );
+$swiper_src = add_query_arg( 'ver', $swiper_version, get_template_directory_uri() . '/js/vendor/swiper-bundle.min.js' );
 
 // Inline Swiper CSS to avoid a render-blocking network request
 static $swiper_css_printed = false;
@@ -17,6 +19,14 @@ if ( ! $swiper_css_printed ) {
 	if ( file_exists( $css_path ) ) {
 		echo '<style id="swiper-css">' . file_get_contents( $css_path ) . '</style>'; // phpcs:ignore
 	}
+	// Mirror the Swiper breakpoints until it initializes, so slides don't render full width first
+	echo '<style id="staff-slider-preinit">'
+		. '.staff-slider .swiper:not(.swiper-initialized) .swiper-wrapper{gap:24px}'
+		. '.staff-slider .swiper:not(.swiper-initialized) .swiper-slide{width:calc((100% - 24px) / 2)}'
+		. '@media (min-width:768px){.staff-slider .swiper:not(.swiper-initialized) .swiper-wrapper{gap:32px}'
+		. '.staff-slider .swiper:not(.swiper-initialized) .swiper-slide{width:calc((100% - 96px) / 4)}}'
+		. '@media (min-width:1024px){.staff-slider .swiper:not(.swiper-initialized) .swiper-slide{width:calc((100% - 160px) / 6)}}'
+		. '</style>';
 }
 
 // Get the staff slider field group
@@ -170,19 +180,45 @@ $slider_id = 'staff-slider-' . uniqid();
 
 <script>
 (function() {
-    // Wait for DOM to be ready
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initSlider);
+    // Load Swiper once per page, shared across slider instances
+    function loadSwiper() {
+        if (!window.sumzimSwiperLoader) {
+            window.sumzimSwiperLoader = new Promise(function(resolve, reject) {
+                if (typeof Swiper !== 'undefined') {
+                    resolve();
+                    return;
+                }
+                const script = document.createElement('script');
+                script.src = <?= wp_json_encode($swiper_src); ?>;
+                script.async = true;
+                script.onload = resolve;
+                script.onerror = reject;
+                document.head.appendChild(script);
+            });
+        }
+        return window.sumzimSwiperLoader;
+    }
+
+    const sliderEl = document.querySelector('.<?= esc_js($slider_id); ?>');
+    if (!sliderEl) {
+        return;
+    }
+
+    if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver(function(entries) {
+            if (entries.some(function(entry) { return entry.isIntersecting; })) {
+                observer.disconnect();
+                loadSwiper().then(initSlider, function() {
+                    console.error('Swiper failed to load');
+                });
+            }
+        }, { rootMargin: '600px 0px' });
+        observer.observe(sliderEl);
     } else {
-        initSlider();
+        loadSwiper().then(initSlider);
     }
 
     function initSlider() {
-        // Check if Swiper is loaded
-        if (typeof Swiper === 'undefined') {
-            console.error('Swiper is not loaded');
-            return;
-        }
 
         const swiper = new Swiper('.<?= esc_js($slider_id); ?>', {
             slidesPerView: 2,
