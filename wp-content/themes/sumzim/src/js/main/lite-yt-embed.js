@@ -26,8 +26,9 @@ class LiteYTEmbed extends HTMLElement {
          * See https://github.com/paulirish/lite-youtube-embed/blob/master/youtube-thumbnail-urls.md
          */
         if (!this.style.backgroundImage) {
+          // hqdefault only: the sddefault.webp upgrade doubled each thumbnail download and 404s
+          // for videos that have no webp
           this.style.backgroundImage = `url("https://i.ytimg.com/vi/${this.videoId}/hqdefault.jpg")`;
-          this.upgradePosterImage();
         }
 
         // Set up play button, and its visually hidden label
@@ -204,34 +205,6 @@ class LiteYTEmbed extends HTMLElement {
         // https://stackoverflow.com/q/64959723/89484
         iframeEl.src = `https://www.youtube-nocookie.com/embed/${encodeURIComponent(this.videoId)}?${this.getParams().toString()}`;
         return iframeEl;
-    }
-
-    /**
-     * In the spirit of the `lowsrc` attribute and progressive JPEGs, we'll upgrade the reliable
-     * poster image to a higher resolution one, if it's available.
-     * Interestingly this sddefault webp is often smaller in filesize, but we will still attempt it second
-     * because getting _an_ image in front of the user if our first priority.
-     *
-     * See https://github.com/paulirish/lite-youtube-embed/blob/master/youtube-thumbnail-urls.md for more details
-     */
-    upgradePosterImage() {
-         // Defer to reduce network contention.
-        setTimeout(() => {
-            const webpUrl = `https://i.ytimg.com/vi_webp/${this.videoId}/sddefault.webp`;
-            const img = new Image();
-            img.fetchPriority = 'low'; // low priority to reduce network contention
-            img.referrerpolicy = 'origin'; // Not 100% sure it's needed, but https://github.com/ampproject/amphtml/pull/3940
-            img.src = webpUrl;
-            img.onload = e => {
-                // A pretty ugly hack since onerror won't fire on YouTube image 404. This is (probably) due to
-                // Youtube's style of returning data even with a 404 status. That data is a 120x90 placeholder image.
-                // … per "annoying yt 404 behavior" in the .md
-                const noAvailablePoster = e.target.naturalHeight == 90 && e.target.naturalWidth == 120;
-                if (noAvailablePoster) return;
-
-                this.style.backgroundImage = `url("${webpUrl}")`;
-            }
-        }, 100);
     }
 }
 // Register custom element

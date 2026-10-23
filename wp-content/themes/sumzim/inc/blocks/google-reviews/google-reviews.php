@@ -158,7 +158,7 @@ if (!empty($block['className'])) $className .= ' ' . $block['className'];
                 
                 <?php if($show_pagination == true): ?>
                 <div class="google-reviews__navigation">
-                    <button class="google-reviews__nav-btn google-reviews__nav-btn--prev" aria-label="Previous review">previous</button>
+                    <button class="google-reviews__nav-btn google-reviews__nav-btn--prev" aria-label="Previous review"></button>
                     
                     <div class="google-reviews__pagination">
                         <span class="google-reviews__current">1</span>
@@ -166,7 +166,7 @@ if (!empty($block['className'])) $className .= ' ' . $block['className'];
                         <span class="google-reviews__total"><?php echo count($reviews); ?></span>
                     </div>
                     
-                    <button class="google-reviews__nav-btn google-reviews__nav-btn--next" aria-label="Next review">next</button>
+                    <button class="google-reviews__nav-btn google-reviews__nav-btn--next" aria-label="Next review"></button>
                 </div>
                 <?php endif; ?>
                 

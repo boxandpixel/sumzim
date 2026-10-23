@@ -2,6 +2,8 @@
 // import balanceText from "../../node_modules/balance-text/balancetext.js";
 
 function time() {
+	let lastStatus = "";
+
 	const updateStatus = () => {
 		// Get local timezone
 		const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
@@ -97,12 +99,18 @@ function time() {
 		};
 	  
 		const statusAll = document.getElementById("statusAll");
-		statusAll.innerHTML = `It's ${dayToString(
+		const status = `It's ${dayToString(
 		  currDay
 		)} at ${currTime} <span class="statusBreak">and our ${displayMessage(
 		  currDay,
 		  currHour
 		)}</span>`;
+
+		// Runs every second but the text only changes once a minute; skip the DOM write otherwise
+		if (status !== lastStatus) {
+		  statusAll.innerHTML = status;
+		  lastStatus = status;
+		}
 	  
 		let homeHeroHeadline = document.querySelector(".home__heroHeadline");
 		// balanceText(homeHeroHeadline, { watch: true });
