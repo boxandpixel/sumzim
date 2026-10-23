@@ -103,13 +103,13 @@
   <div class="footer__main">
     <div class="footer__main-group">
       <div class="footer__address">
-        <h5><?php bloginfo('name'); ?></h5>
+        <h2><?php bloginfo('name'); ?></h2>
         <?= wp_kses_post($address); ?>
       </div>
 
       <div class="footer__main-menus">
         <div class="footer__menu-services">
-          <h5><?php echo $footer_services_menu->name; ?></h5>
+          <h2><?php echo $footer_services_menu->name; ?></h2>
           <?php
             wp_nav_menu(
               array(
@@ -120,7 +120,7 @@
           ?>  
         </div>
         <div class="footer__menu-about">
-          <h5><?php echo $footer_about_menu->name; ?></h5>
+          <h2><?php echo $footer_about_menu->name; ?></h2>
           <?php
             wp_nav_menu(
               array(
@@ -150,7 +150,7 @@
           <?php endif; ?>
         </div>
         <div class="footer__menu-locations">
-          <h5><?php echo $footer_locations_menu->name; ?></h5>
+          <h2><?php echo $footer_locations_menu->name; ?></h2>
           <?php
             wp_nav_menu(
               array(
@@ -169,7 +169,7 @@
   <div class="footer__footer">
 
     <div class="footer__footer-site-info">
-      <h5><?= '&copy; ' . date('Y') . ' Summers &amp; Zim\'s'; ?></h5>
+      <p class="footer__copyright"><?= '&copy; ' . date('Y') . ' Summers &amp; Zim\'s'; ?></p>
 
       <?php
         wp_nav_menu(
@@ -219,6 +219,17 @@
     q[t].l=1*new Date();y=w.createElement(e);u=w.getElementsByTagName(e)[0];y.async=true;
     y.src=r;u.parentNode.insertBefore(y,u);q[t]('init','05e09310-291c-4804-8f21-0a371f946097');
     })(window,document,'script','https://static.servicetitan.com/text2chat/shim.js','T2CWidgetManager');
+    titleT2CFrames();
+  }
+  // The widget injects its iframe without a title, which screen readers need to announce it
+  function titleT2CFrames() {
+    function setTitles() {
+      document.querySelectorAll('iframe[src*="text2chat"]:not([title])').forEach(function(frame) {
+        frame.setAttribute('title', 'Text chat with Summers & Zim\'s');
+      });
+    }
+    new MutationObserver(setTitles).observe(document.body, { childList: true, subtree: true });
+    setTitles();
   }
   // Load during idle time after the page has loaded, not on the first touch/scroll,
   // so the widget's script doesn't block the visitor's first interaction (INP).

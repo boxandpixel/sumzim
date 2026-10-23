@@ -203,6 +203,9 @@ footer.site-footer {
         flex: 0 0 400px;
       }
 
+      // h3/h5 cover headings typed into the address field (e.g. "Office Hours:")
+      h2,
+      h3,
       h5 {
         text-transform: uppercase;
         font-weight: 800;
@@ -260,7 +263,7 @@ footer.site-footer {
           // width: auto;
         }   
 
-        h5 {
+        h2 {
           text-transform: uppercase;
           font-weight: 800;
           font-size: 12px;
@@ -375,7 +378,8 @@ footer.site-footer {
       gap: 8px;
   
 
-      h5 {
+      .footer__copyright {
+        margin-bottom: 0;
         text-transform: capitalize;
         font-weight: 800;
         font-size: 12px;
@@ -399,7 +403,7 @@ footer.site-footer {
 
         li {
           a {
-            color: rgba(#0c1e31, .5);
+            color: rgba(#0c1e31, .75);
             text-decoration: none;
           }
         }
