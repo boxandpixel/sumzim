@@ -31,9 +31,14 @@ function minimizeHeader() {
 
 //   console.log(headerGoogleReviews);
 
-  window.addEventListener("scroll", function () {
-    if (window.pageYOffset >= 1) {
+  // Below large the full header scrolls away with the page (position: absolute) and the
+  // compact header slides in once it's out of view. Desktop keeps minimizing at 1px.
+  var mobileQuery = window.matchMedia("(max-width: 1023px)");
+  var reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  var isMinimized = false;
+  var leaveTimer = null;
 
+  function addScrollClasses() {
       if (headerContent) {
         headerContent.classList.add("header__content--min");
       }
@@ -111,19 +116,22 @@ function minimizeHeader() {
 	  if(headerNavButton) {
 		headerNavButton.classList.add("header__nav-button--scroll");
 	  }
-	  
-    } else if (window.pageYOffset <= 1) {
+
+	  isMinimized = true;
+  }
+
+  function removeScrollClasses() {
       if (headerContent) {
         headerContent.classList.remove("header__content--min");
       }
 
 	  if(tommysBanner) {
 		tommysBanner.classList.remove('--tommys--hide');
-	  }	  
+	  }
 
 	  if(header) {
 		header.classList.remove('header--bannerScroll');
-	  }	  
+	  }
 
       if (alertMessage) {
         alertMessage.classList.remove("alert--hide");
@@ -187,8 +195,71 @@ function minimizeHeader() {
 
 	  if(headerNavButton) {
 		headerNavButton.classList.remove("header__nav-button--scroll");
-	  }	  
+	  }
 
+	  isMinimized = false;
+  }
+
+  function setLeaving(isLeaving) {
+	  if(header) {
+		header.classList.toggle("header--leaving", isLeaving);
+	  }
+	  if(mobileCall) {
+		mobileCall.classList.toggle("header__mobile-call--leaving", isLeaving);
+	  }
+  }
+
+  // Scroll position where the full header, including the logo hanging below it, is out of view.
+  // Only measured while the full header is showing; once minimized it's fixed and can't be read.
+  var fullHeaderBottom = 0;
+
+  function measureFullHeader() {
+	  if (!header) {
+		return;
+	  }
+	  var bottom = header.getBoundingClientRect().bottom;
+	  if (logoLarge) {
+		bottom = Math.max(bottom, logoLarge.getBoundingClientRect().bottom);
+	  }
+	  fullHeaderBottom = bottom + window.pageYOffset;
+  }
+
+  function onMobileScroll() {
+	  if (!isMinimized) {
+		measureFullHeader();
+	  }
+
+	  if (window.pageYOffset >= fullHeaderBottom) {
+		if (leaveTimer) {
+		  clearTimeout(leaveTimer);
+		  leaveTimer = null;
+		  setLeaving(false);
+		}
+		if (!isMinimized) {
+		  addScrollClasses();
+		}
+	  } else if (isMinimized && !leaveTimer) {
+		// Slide the compact header out before restoring the full one, so it's off screen when
+		// it switches back from fixed to absolute and nothing visible jumps.
+		setLeaving(true);
+		leaveTimer = setTimeout(function () {
+		  leaveTimer = null;
+		  setLeaving(false);
+		  removeScrollClasses();
+		}, reducedMotion.matches ? 0 : 200);
+	  }
+  }
+
+  window.addEventListener("scroll", function () {
+    if (mobileQuery.matches) {
+      onMobileScroll();
+      return;
+    }
+
+    if (window.pageYOffset >= 1) {
+      addScrollClasses();
+    } else if (window.pageYOffset <= 1) {
+      removeScrollClasses();
     }
   });
 }

@@ -224,6 +224,19 @@
 		position: fixed;
 		width: 100%;
 		top: 50px;
+		// Starts above the viewport (it sits 50px down) so it never appears in place
+		animation: header-mobile-call-slide-in 0.25s ease-out backwards;
+	}
+
+	&.header__mobile-call--leaving {
+		animation: header-mobile-call-slide-out 0.2s ease-in forwards;
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		&.header__mobile-call--scroll,
+		&.header__mobile-call--leaving {
+			animation: none;
+		}
 	}
 
 	h2 {
@@ -264,6 +277,30 @@ header.site-header {
 		@include breakpoint(medium) {
 			top: 0;
 		}
+	}
+  }
+
+  // Below large the full header scrolls away with the page instead of staying fixed, so
+  // there's no gap when it minimizes. scroll.js fixes the compact header once the full one
+  // is out of view and it slides in with a transform, which doesn't count toward CLS.
+  // Kept before --open so the open nav still makes the header static.
+  @media (max-width: $breakpoint__large - 1) {
+	position: absolute;
+
+	&.header--bannerScroll {
+		position: fixed;
+		animation: header-slide-in 0.25s ease-out backwards;
+	}
+
+	&.header--leaving {
+		animation: header-slide-out 0.2s ease-in forwards;
+	}
+  }
+
+  @media (max-width: $breakpoint__large - 1) and (prefers-reduced-motion: reduce) {
+	&.header--bannerScroll,
+	&.header--leaving {
+		animation: none;
 	}
   }
 
@@ -594,4 +631,29 @@ header.site-header {
 
     }
   }
+}
+
+@keyframes header-slide-in {
+	from {
+		transform: translateY(-100%);
+	}
+}
+
+@keyframes header-slide-out {
+	to {
+		transform: translateY(-100%);
+	}
+}
+
+// The call bar sits 50px down, under the compact header, so it needs twice its height to clear the top
+@keyframes header-mobile-call-slide-in {
+	from {
+		transform: translateY(-200%);
+	}
+}
+
+@keyframes header-mobile-call-slide-out {
+	to {
+		transform: translateY(-200%);
+	}
 }
