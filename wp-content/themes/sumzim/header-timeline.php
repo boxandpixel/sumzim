@@ -266,8 +266,10 @@
 				?>
 			</div>
 		</div>
-		<div class="header__mobile-call">
-			<h2>Call us 24/7 at <a href="tel:6105935129" id="sa-click-to-call">610-593-5129</a></h2>
+		<div class="header__mobile-call-slot">
+			<div class="header__mobile-call">
+				<h2>Call us 24/7 at <a href="tel:6105935129" id="sa-click-to-call">610-593-5129</a></h2>
+			</div>
 		</div>
 		<?php endif; ?>
 

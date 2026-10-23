@@ -108,6 +108,7 @@ function time() {
 		// balanceText(homeHeroHeadline, { watch: true });
 	  };
 	  
+	  updateStatus();
 	  setInterval(updateStatus, 1000);
 }
 

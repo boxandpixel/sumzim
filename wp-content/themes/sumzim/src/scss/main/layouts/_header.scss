@@ -96,14 +96,21 @@
 	padding: 12px 0;
 	gap: 8px;
 	align-items: center;
+	// Reserve space for the JS-filled message (one 16px/1.4 line); the after-hours text wraps to two on phones
+	min-height: 47px;
+
+	@include breakpoint(mobilemax) {
+		min-height: 69px;
+	}
 
 	@include breakpoint(medium) {
-		
+
 	}
 
 	@include breakpoint(large) {
 		background: var(--color__primary--dark);
 		height: 40px;
+		min-height: 0;
 		gap: unset;
 		flex-direction: row;
 		justify-content: space-between;
@@ -126,7 +133,7 @@
 		letter-spacing: var(--letter-spacing);
 		font-size: 16px;
 		margin-bottom: 0;
-		text-align: center;		
+		text-align: center;
 		color: var(--color__secondary);
 	  }
 	}
@@ -194,6 +201,15 @@
 		display: none;
 	}
  }
+
+// Keeps the call bar's space in flow when it switches to position: fixed on scroll
+.header__mobile-call-slot {
+	height: 50px;
+
+	@include breakpoint(large) {
+		display: none;
+	}
+}
 
 .header__mobile-call {
 	background: white;
