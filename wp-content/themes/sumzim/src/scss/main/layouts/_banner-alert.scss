@@ -1,0 +1,84 @@
+/**
+ * Site-wide alert banner
+ *
+ * Sits in normal flow above .header__status, like the Tri-County banner, so the
+ * fixed .site-header picks up its position below it without any JS.
+ *
+ * Gold bar with dark navy text: the secondary brand color, so it reads as
+ * separate from the navy status bar directly beneath it.
+ */
+
+.banner__alert {
+  background: var(--color__secondary);
+  padding: 10px var(--gutter);
+
+  @include breakpoint(medium) {
+    padding: 10px var(--gutter__edges);
+  }
+
+  // Below medium the message and link run together as one inline paragraph, so
+  // the link doesn't take a line of its own on phones.
+  .banner__alert-inner {
+    max-width: 1180px;
+    margin: 0 auto;
+    text-align: center;
+    // Inline text takes its line box from this container, so the size lives here too.
+    font-size: 13px;
+    line-height: 1.4;
+
+    @include breakpoint(medium) {
+      font-size: 16px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 4px 16px;
+    }
+  }
+
+  .banner__alert-message {
+    display: inline;
+    color: var(--color__primary--dark);
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.4;
+
+    @include breakpoint(medium) {
+      display: block;
+      font-size: 16px;
+    }
+
+    // The message is a WYSIWYG field, so it arrives wrapped in <p>.
+    p {
+      display: inline;
+      margin-bottom: 0;
+      color: inherit;
+      font-size: inherit;
+      line-height: inherit;
+    }
+
+    a {
+      color: inherit;
+    }
+  }
+
+  .banner__alert-link {
+    margin-left: 4px;
+    color: var(--color__primary--dark);
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    white-space: nowrap;
+
+    @include breakpoint(medium) {
+      margin-left: 0;
+      font-size: 16px;
+    }
+
+    &:hover,
+    &:focus-visible {
+      text-decoration-thickness: 2px;
+    }
+  }
+}
