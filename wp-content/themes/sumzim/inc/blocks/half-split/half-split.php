@@ -22,9 +22,11 @@ $accents = [
 	'left'  => $half_split['left_panel_accent']  ?? '',
 	'right' => $half_split['right_panel_accent'] ?? '',
 ];
+// An empty ACF link field comes back as '' (not null) in the editor preview,
+// so `??` alone isn't enough; the typed render function needs an array.
 $footers = [
-	'left'  => $half_split['left_panel_footer_link']  ?? [],
-	'right' => $half_split['right_panel_footer_link'] ?? [],
+	'left'  => is_array($half_split['left_panel_footer_link'] ?? null)  ? $half_split['left_panel_footer_link']  : [],
+	'right' => is_array($half_split['right_panel_footer_link'] ?? null) ? $half_split['right_panel_footer_link'] : [],
 ];
 
 /**
