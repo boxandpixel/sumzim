@@ -220,21 +220,6 @@
 		});
 	</script>	  	
 
-	<!-- Audacy -->
-	<style>
-		.audacy {
-		position: absolute;
-				width: 1px;
-				height: 1px;
-				padding: 0;
-				margin: -1px;
-				overflow: hidden;
-				clip: rect(0, 0, 0, 0);
-				white-space: nowrap; /* added line */
-				border: 0;
-		}
-		</style>
-
 
 </head>
 <body <?php body_class(); ?>>
@@ -243,8 +228,6 @@
 	<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NFL8X42V"
 	height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 	<!-- End Google Tag Manager (noscript) -->	 
-
-    <img height="1" width="1" class="audacy" style="border-style:none;" alt="" src="https://insight.adsrvr.org/track/pxl/?adv=mw5wx89&ct=0:ouqlti8&fmt=3"/>
 
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'sumzim' ); ?></a>
