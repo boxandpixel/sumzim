@@ -249,14 +249,31 @@
       }
 
       .single-staff__bio-detail {
+        margin-bottom: 1.5rem;
+
         h5 {
           color: var(--color__primary--dark);
           @include apply-type(eyebrow);
         }
 
-        p {
+        p,
+        li {
           color: var(--color__primary--dark);
           @include apply-type(small);
+        }
+
+        ul {
+          padding-left: 1.25em;
+          list-style: disc;
+        }
+
+        dd > p,
+        dd > ul {
+          margin: 0 0 1.5rem;
+
+          &:last-child {
+            margin-bottom: 0;
+          }
         }
       }
     }
