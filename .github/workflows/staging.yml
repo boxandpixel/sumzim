@@ -39,17 +39,18 @@ jobs:
           BRANCH: ${{ inputs.branch }}
         run: git check-ref-format --branch "$BRANCH"
 
-      # Identical to main.yml except for the password, port and branch. On Kinsta the
-      # staging environment is the same host and site path, reached on its own SSH
-      # port. The branch is passed as an env var rather than templated into the
-      # script, so it can't inject shell.
+      # Identical to main.yml except for the host, password, port and branch. Staging
+      # has the same site path, but its SSH host is not guaranteed to match production's
+      # (check MyKinsta > Staging > Info > SFTP/SSH), so it has its own host secret.
+      # The branch is passed as an env var rather than templated into the script, so
+      # it can't inject shell.
       - name: Deploy via SSH
         uses: appleboy/ssh-action@v1.0.3
         env:
           BRANCH: ${{ inputs.branch }}
           DRY_RUN: ${{ inputs.dry_run }}
         with:
-          host: ${{ secrets.KINSTA_SERVER_IP }}
+          host: ${{ secrets.KINSTA_STAGING_IP }}
           username: ${{ secrets.KINSTA_USERNAME }}
           password: ${{ secrets.PASSWORD_STAGING }}
           port: ${{ secrets.PORT_STAGING }}
