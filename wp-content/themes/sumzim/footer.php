@@ -249,11 +249,16 @@
 <script>
 (function() {
   var loaded = false;
+  var loadedDirect = null; // the spdirect ID the scheduler booted with, if any
   var queue = [];
+  // ServiceTitan direct-link parameters. The scheduler reads them from the page
+  // URL once, when its script boots, then opens itself to that flow.
+  var DIRECT_PARAMS = ['spdirect', 'directRouter', 'se_action', 'spdl', 'absid'];
   window._scheduler = { show: function(opts) { queue.push(opts); loadScheduler(); } };
   function loadScheduler() {
     if (loaded) return;
     loaded = true;
+    loadedDirect = new URLSearchParams(window.location.search).get('spdirect');
     var s = document.createElement('script');
     s.setAttribute('data-api-key', 'd9qkujhrus8g37jijaslp2o3');
     s.setAttribute('data-schedulerid', 'sched_ejqbmr1e0g7tagr59sdo4rr2');
@@ -287,6 +292,33 @@
   }
   ['pointerover','focusin','touchstart'].forEach(function(ev) {
     document.addEventListener(ev, onIntent, {capture: true, passive: true});
+  });
+
+  // A direct link (an ad or post pointing at ?spdirect=...) must open the
+  // scheduler on arrival, so it can't wait for intent.
+  var params = new URLSearchParams(window.location.search);
+  if (DIRECT_PARAMS.some(function(k) { return params.has(k); })) loadScheduler();
+
+  // Landing page buttons that open one job type: <a data-spdirect="ID">.
+  // The scheduler only reads spdirect at boot, so the ID goes into the URL
+  // first. Existing params (utm_*, gclid, fbclid) stay, since the scheduler
+  // passes them to ServiceTitan for attribution.
+  document.addEventListener('click', function(e) {
+    var link = e.target.closest && e.target.closest('a[data-spdirect]');
+    if (!link) return;
+    e.preventDefault();
+    var id = link.getAttribute('data-spdirect');
+    var url = new URL(window.location.href);
+    url.searchParams.set('spdirect', id);
+    if (!loaded) {
+      history.replaceState(history.state, '', url);
+      loadScheduler();
+    } else if (loadedDirect === id) {
+      window._scheduler.show();
+    } else {
+      // Already booted for a different flow: reload so it boots with this one.
+      window.location.assign(url);
+    }
   });
 })();
 </script>

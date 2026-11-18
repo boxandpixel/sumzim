@@ -1,0 +1,130 @@
+@use '../common/mixins' as *;
+@use '../common/typography.mixins' as *;
+
+// Landing pages (landing_page post type). Not related to the older
+// .landing__ / .landing-content styles in _landing.scss.
+
+.type-landing_page {
+	// Clears the fixed header, same as .type-page.
+	padding-top: 200px;
+
+	@include breakpoint(large) {
+		padding-top: 300px;
+	}
+
+	.entry-content {
+		max-width: 100%;
+
+		& > p,
+		& > h2,
+		& > h3,
+		& > ul,
+		& > ol {
+			@include content-wide;
+		}
+	}
+}
+
+.landing-page-hero {
+	margin-bottom: 60px;
+
+	@include breakpoint(medium) {
+		margin-bottom: 80px;
+	}
+
+	@include breakpoint(large) {
+		margin-bottom: 120px;
+	}
+
+	&__inner {
+		@include content-wide;
+		display: grid;
+		gap: 36px;
+
+		@include breakpoint(large) {
+			grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+			gap: 60px;
+			align-items: center;
+		}
+	}
+
+	// Without an image the text centers in a single column.
+	&:not(.landing-page-hero--has-image) .landing-page-hero__inner {
+		text-align: center;
+
+		.landing-page-hero__content {
+			max-width: 760px;
+			margin: 0 auto;
+		}
+
+		.landing-page-hero__cta {
+			align-items: center;
+		}
+
+		@include breakpoint(large) {
+			grid-template-columns: minmax(0, 1fr);
+		}
+	}
+
+	&__title {
+		color: var(--color__primary--dark);
+		margin-bottom: 16px;
+		@include apply-type(heading-xl);
+	}
+
+	&__heading {
+		color: var(--color__primary--dark);
+		margin-bottom: 16px;
+		@include apply-type(heading-xs);
+	}
+
+	&__description {
+		margin-bottom: 32px;
+
+		p:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	&__cta {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 16px;
+
+		// .button--schedule is display: flex for the header; keep it button-sized here.
+		.button {
+			display: inline-flex;
+			height: auto;
+			align-items: center;
+			text-align: center;
+			padding: 20px 32px;
+
+			@include breakpoint(medium) {
+				padding: 24px 60px;
+			}
+		}
+	}
+
+	&__phone {
+		margin: 0;
+		font-weight: 600;
+		color: var(--color__primary--dark);
+
+		a {
+			color: inherit;
+			white-space: nowrap;
+		}
+	}
+
+	&__image {
+		margin: 0;
+
+		img {
+			display: block;
+			width: 100%;
+			height: auto;
+			border-radius: var(--border-radius);
+		}
+	}
+}

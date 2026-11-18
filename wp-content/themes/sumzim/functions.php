@@ -270,6 +270,50 @@ function register_staff() {
 add_action('init', 'register_staff');
 
 /**
+ * Register Landing Pages
+ *
+ * Standalone pages for ad traffic, e.g. /details/free-water-test/. The hero
+ * (title, heading, description, image, button) comes from the "Landing Page
+ * Hero" ACF group so the button always sits near the top. Sections below the
+ * hero are regular blocks. Kept out of site search; ads link to them directly.
+ *
+ * After deploying a change to 'rewrite', re-save Settings > Permalinks.
+ */
+function register_landing_page() {
+	register_post_type( 'landing_page', array(
+		'label'               => 'Landing Pages',
+		'menu_icon'           => 'dashicons-megaphone',
+		'menu_position'       => 21,
+		'public'              => true,
+		'show_ui'             => true,
+		'show_in_menu'        => true,
+		'show_in_nav_menus'   => false,
+		'exclude_from_search' => true,
+		'capability_type'     => 'page',
+		'map_meta_cap'        => true,
+		'hierarchical'        => false,
+		'has_archive'         => false,
+		'rewrite'             => array( 'slug' => 'details', 'with_front' => false ),
+		'supports'            => array( 'title', 'editor', 'revisions' ),
+		'show_in_rest'        => true,
+		'labels'              => array(
+			'name'               => 'Landing Pages',
+			'singular_name'      => 'Landing Page',
+			'menu_name'          => 'Landing Pages',
+			'add_new'            => 'Add Landing Page',
+			'add_new_item'       => 'Add New Landing Page',
+			'edit_item'          => 'Edit Landing Page',
+			'new_item'           => 'New Landing Page',
+			'view_item'          => 'View Landing Page',
+			'search_items'       => 'Search Landing Pages',
+			'not_found'          => 'No Landing Pages Found',
+			'not_found_in_trash' => 'No Landing Pages Found in Trash',
+		),
+	) );
+}
+add_action( 'init', 'register_landing_page' );
+
+/**
  * Add Products
  */
 
