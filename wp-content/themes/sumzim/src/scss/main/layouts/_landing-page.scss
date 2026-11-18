@@ -22,6 +22,18 @@
 		& > ol {
 			@include content-wide;
 		}
+
+		// Blocks rely on .type-page for heading color and spacing (see
+		// _default-page.scss). Without this they fall back to gray body text.
+		h2,
+		h3,
+		h4,
+		h5,
+		h6 {
+			font-family: var(--font);
+			color: var(--color__primary--dark);
+			margin-bottom: 8px;
+		}
 	}
 }
 
