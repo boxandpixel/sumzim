@@ -34,6 +34,14 @@
 			color: var(--color__primary--dark);
 			margin-bottom: 8px;
 		}
+
+		// The icon grid cards are white on white here, so the block's 48px
+		// header gap reads as empty space. Tighten it on landing pages only.
+		.icon-grid .container {
+			@include breakpoint(large) {
+				gap: 32px;
+			}
+		}
 	}
 }
 
@@ -81,7 +89,9 @@
 	&__title {
 		color: var(--color__primary--dark);
 		margin-bottom: 16px;
-		@include apply-type(heading-xl);
+		// Same size as page titles everywhere else (.type-page .entry-header h1),
+		// one step above the heading-lg section headings in blocks below.
+		@include apply-type(display-xl);
 	}
 
 	&__heading {
