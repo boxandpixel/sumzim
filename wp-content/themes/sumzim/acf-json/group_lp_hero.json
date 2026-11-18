@@ -235,6 +235,35 @@
                     "ui_on_text": "",
                     "ui_off_text": "",
                     "allow_in_bindings": 0
+                },
+                {
+                    "key": "field_lp_phone_label",
+                    "label": "Phone Label",
+                    "name": "phone_label",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Text before the phone number. The number itself comes from Theme Settings.",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_lp_show_phone",
+                                "operator": "==",
+                                "value": "1"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "Prefer to talk? Call",
+                    "maxlength": 60,
+                    "allow_in_bindings": 0,
+                    "placeholder": "Prefer to talk? Call",
+                    "prepend": "",
+                    "append": ""
                 }
             ]
         }
@@ -257,5 +286,5 @@
     "active": true,
     "description": "Hero for landing pages: title, heading, description, image and button.",
     "show_in_rest": 0,
-    "modified": 1795018953
+    "modified": 1795020673
 }

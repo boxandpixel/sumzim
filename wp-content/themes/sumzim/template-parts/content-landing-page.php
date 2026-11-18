@@ -18,6 +18,7 @@ $heading     = $hero['heading'] ?? '';
 $description = $hero['description'] ?? '';
 $image_id    = (int) ( $hero['image'] ?? 0 );
 $show_phone  = $hero['show_phone'] ?? true;
+$phone_label = ! empty( $hero['phone_label'] ) ? $hero['phone_label'] : 'Prefer to talk? Call';
 
 $cta       = is_array( $hero['cta'] ?? null ) ? $hero['cta'] : [];
 $cta_type  = $cta['type'] ?? 'book_now';
@@ -68,7 +69,7 @@ if ( $image_id ) {
 					<?php endif; ?>
 
 					<?php if ( $show_phone && $phone ) : ?>
-					<p class="landing-page-hero__phone">Prefer to talk? Call <a href="tel:+1<?= esc_attr( $phone_tel ); ?>"><?= esc_html( $phone ); ?></a></p>
+					<p class="landing-page-hero__phone"><?= esc_html( $phone_label ); ?> <a href="tel:+1<?= esc_attr( $phone_tel ); ?>"><?= esc_html( $phone ); ?></a></p>
 					<?php endif; ?>
 				</div>
 			</div>
