@@ -34,14 +34,6 @@
 			color: var(--color__primary--dark);
 			margin-bottom: 8px;
 		}
-
-		// The icon grid cards are white on white here, so the block's 48px
-		// header gap reads as empty space. Tighten it on landing pages only.
-		.icon-grid .container {
-			@include breakpoint(large) {
-				gap: 32px;
-			}
-		}
 	}
 }
 

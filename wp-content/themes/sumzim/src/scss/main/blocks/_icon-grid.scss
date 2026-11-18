@@ -42,6 +42,15 @@
 
     &--none {
         background: none;
+
+        // White cards on a white page: the card padding already reads as space,
+        // so the standard 48px header gap looks oversized. Tighten it.
+        // Doubled class so it beats the base .container rule further down.
+        &.icon-grid .container {
+            @include breakpoint(large) {
+                gap: 32px;
+            }
+        }
     }
 
     &--light-blue {
