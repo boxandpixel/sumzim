@@ -272,10 +272,10 @@ add_action('init', 'register_staff');
 /**
  * Register Landing Pages
  *
- * Standalone pages for ad traffic, e.g. /details/free-water-test/. The hero
- * (title, heading, description, image, button) comes from the "Landing Page
- * Hero" ACF group so the button always sits near the top. Sections below the
- * hero are regular blocks. Kept out of site search; ads link to them directly.
+ * Standalone pages for ad traffic, e.g. /details/free-water-test/. Built from
+ * blocks; the Landing Hero block (title, heading, description, image, button)
+ * is locked first so the button always sits near the top. Kept out of site
+ * search; ads link to them directly.
  *
  * After deploying a change to 'rewrite', re-save Settings > Permalinks.
  */
@@ -296,6 +296,12 @@ function register_landing_page() {
 		'rewrite'             => array( 'slug' => 'details', 'with_front' => false ),
 		'supports'            => array( 'title', 'editor', 'revisions' ),
 		'show_in_rest'        => true,
+		// New landing pages start with the hero locked first, so the button
+		// always sits at the top. Editors fill in its fields; they can't move
+		// or delete it.
+		'template'            => array(
+			array( 'acf/landing-hero', array( 'lock' => array( 'move' => true, 'remove' => true ) ) ),
+		),
 		'labels'              => array(
 			'name'               => 'Landing Pages',
 			'singular_name'      => 'Landing Page',
@@ -692,6 +698,26 @@ add_action( 'acf/init', function () {
 			],
 		] );
 	}
+
+	// Landing pages only. One per page; register_landing_page() inserts it
+	// locked at the top of every new landing page.
+	acf_register_block_type( [
+		'name'            => 'landing-hero',
+		'title'           => __( 'Landing Hero', 'sumzim' ),
+		'description'     => __( 'Landing page top section: title, text, button, phone and image.', 'sumzim' ),
+		'render_template' => get_template_directory() . '/inc/blocks/landing-hero/landing-hero.php',
+		'category'        => 'formatting',
+		'icon'            => 'megaphone',
+		'keywords'        => [ 'landing', 'hero' ],
+		'post_types'      => [ 'landing_page' ],
+		'mode'            => 'edit',
+		'supports'        => [
+			'align'     => false,
+			'mode'      => true,
+			'multiple'  => false,
+			'className' => true,
+		],
+	] );
 } );
 
 /**
