@@ -209,6 +209,20 @@
 
 <?php wp_footer(); ?>
 
+<style>
+/* Text2Chat: the box's layout corner sits fixed at the viewport's bottom-right and the
+   transform pulls it back into view. When the widget resizes, only its size and the
+   transform change, so the layout position never moves and no layout shift is scored.
+   !important beats the inline top/bottom/right the shim rewrites on every resize. */
+.t2c-frame {
+  top: 100% !important;
+  left: 100% !important;
+  bottom: auto !important;
+  right: auto !important;
+  transform: translate(-100%, -100%);
+}
+</style>
+
 <script>
 (function() {
   var loaded = false;
@@ -219,17 +233,29 @@
     q[t].l=1*new Date();y=w.createElement(e);u=w.getElementsByTagName(e)[0];y.async=true;
     y.src=r;u.parentNode.insertBefore(y,u);q[t]('init','05e09310-291c-4804-8f21-0a371f946097');
     })(window,document,'script','https://static.servicetitan.com/text2chat/shim.js','T2CWidgetManager');
-    titleT2CFrames();
+    adoptT2CFrames();
   }
-  // The widget injects its iframe without a title, which screen readers need to announce it
-  function titleT2CFrames() {
-    function setTitles() {
-      document.querySelectorAll('iframe[src*="text2chat"]:not([title])').forEach(function(frame) {
-        frame.setAttribute('title', 'Text chat with Summers & Zim\'s');
+  // The shim injects an unnamed div pinned bottom:0/right:0 and resizes it when the
+  // widget opens (84x84 -> 420x800 or full screen). Growing from the bottom-right
+  // moves the box's top-left corner, which Chrome scores as a layout shift (~0.16 CLS
+  // when the panel auto-opens). Tagging the div lets .t2c-frame (below) anchor it by a
+  // fixed corner instead. The observer runs before the next frame, so the box is
+  // never painted with the shim's own positioning.
+  // The iframe also has no title, which screen readers need to announce it.
+  function adoptT2CFrames() {
+    function adopt() {
+      document.querySelectorAll('iframe[src*="text2chat"]').forEach(function(frame) {
+        if (!frame.hasAttribute('title')) {
+          frame.setAttribute('title', 'Text chat with Summers & Zim\'s');
+        }
+        var box = frame.parentElement;
+        if (box && box !== document.body && !box.classList.contains('t2c-frame')) {
+          box.classList.add('t2c-frame');
+        }
       });
     }
-    new MutationObserver(setTitles).observe(document.body, { childList: true, subtree: true });
-    setTitles();
+    new MutationObserver(adopt).observe(document.body, { childList: true, subtree: true });
+    adopt();
   }
   // Load during idle time after the page has loaded, not on the first touch/scroll,
   // so the widget's script doesn't block the visitor's first interaction (INP).
